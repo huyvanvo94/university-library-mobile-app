@@ -1,4 +1,5 @@
 target 'UniversityLibrary' do
-  pod 'Firebase/Database'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Database'
 end
  

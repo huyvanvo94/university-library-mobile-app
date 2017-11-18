@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import Firebase
 
 class FirebaseManager{
+    var reference: DatabaseReference!
+    
+    init(){
+        self.reference = Database.database().reference() 
+    }
     
 }
