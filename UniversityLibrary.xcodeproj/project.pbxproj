@@ -15,6 +15,8 @@
 		8F54D6101FBFE56400E25156 /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D60F1FBFE56400E25156 /* UserHandler.swift */; };
 		8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6131FBFEC2200E25156 /* DataService.swift */; };
 		8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */; };
+		8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61B1FC01ED700E25156 /* Patron.storyboard */; };
+		8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61E1FC01EE100E25156 /* Librarian.storyboard */; };
 		8F9367911FBBA921007716E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367901FBBA921007716E5 /* User.swift */; };
 		8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */; };
 		8FBAC29D1FBF919100589262 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC29C1FBF919100589262 /* Book.swift */; };
@@ -61,6 +63,8 @@
 		8F54D60F1FBFE56400E25156 /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
 		8F54D6131FBFEC2200E25156 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		8F54D61C1FC01ED700E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patron.storyboard; sourceTree = "<group>"; };
+		8F54D61F1FC01EE100E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Librarian.storyboard; sourceTree = "<group>"; };
 		8F9367901FBBA921007716E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		8FBAC29C1FBF919100589262 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		8F54D6111FBFEBDD00E25156 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				8F54D60F1FBFE56400E25156 /* UserHandler.swift */,
 				8F54D6131FBFEC2200E25156 /* DataService.swift */,
 			);
 			path = Service;
@@ -198,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */,
+				8F54D61E1FC01EE100E25156 /* Librarian.storyboard */,
+				8F54D61B1FC01ED700E25156 /* Patron.storyboard */,
 				8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */,
 				8F54D6071FBFD0EE00E25156 /* Constants.swift */,
 				8FBAC29B1FBF918100589262 /* Models */,
@@ -207,7 +214,6 @@
 				8FBAC2AD1FBFBD6B00589262 /* Controller */,
 				8FBAC2A41FBFA41700589262 /* PatronHelper.swift */,
 				8F54D6111FBFEBDD00E25156 /* Service */,
-				8F54D60F1FBFE56400E25156 /* UserHandler.swift */,
 				8FBAC2B21FBFC1CC00589262 /* View */,
 				8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */,
 				8FC2EC9F1FBAC6EF00BB15D1 /* Assets.xcassets */,
@@ -357,8 +363,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC2ECA31FBAC6EF00BB15D1 /* LaunchScreen.storyboard in Resources */,
+				8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */,
 				8FBAC2AA1FBFB7AE00589262 /* GoogleService-Info.plist in Resources */,
 				8FC2ECA01FBAC6EF00BB15D1 /* Assets.xcassets in Resources */,
+				8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */,
 				8FC2EC9B1FBAC6EF00BB15D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +498,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8F54D61B1FC01ED700E25156 /* Patron.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F54D61C1FC01ED700E25156 /* Base */,
+			);
+			name = Patron.storyboard;
+			sourceTree = "<group>";
+		};
+		8F54D61E1FC01EE100E25156 /* Librarian.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F54D61F1FC01EE100E25156 /* Base */,
+			);
+			name = Librarian.storyboard;
+			sourceTree = "<group>";
+		};
 		8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

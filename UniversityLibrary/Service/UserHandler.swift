@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class UserHandler{
+
     let user: User!
     
     init(patron: Patron) {
