@@ -10,6 +10,12 @@ import Foundation
 
 class Mock{
     
+    static func mock_Patron() -> Patron{
+        let p = Patron(email: "test@gmail.com", password: "123123", universityId: 123123)
+        p.id = "xddsfdsf"
+        return p
+    }
+    
     static func mock_Librarian()->Librarian{
         return Librarian(email: "test@sjs.edu", password: "123213", universityId: 213213)
     }

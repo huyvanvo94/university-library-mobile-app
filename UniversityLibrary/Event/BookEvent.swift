@@ -37,9 +37,7 @@ class BookEvent: AbstractEvent{
             case .add:
                 Logger.log(clzz: "BookEvent", message: "add")
                 
-                let db = FirebaseManager().reference
-                
-                
+                let db = FirebaseManager().reference 
                 db?.child(DatabaseInfo.booksAdded).observe(.value, with: {
                     (snapshot) in
                     
@@ -55,11 +53,18 @@ class BookEvent: AbstractEvent{
                         
                         let key = db?.child(DatabaseInfo.bookTable).childByAutoId().key
                         
-                        
+                        // The books added so far table currently contains book id for quick reference
                         db?.child(DatabaseInfo.booksAdded).child(self.book.key).setValue(["id": key])
                         
+                        // Insert child book into book table
                         db?.child(DatabaseInfo.bookTable).child(key!).setValue(self.book.dict)
-                        
+                       
+                        // init waiting list table with empty users and number of copies 
+                        db?.child(DatabaseInfo.waitingListTable).child(self.book.key)
+                            .setValue(self.book.initWaitingList())
+                        // init checkout list table with empy users and number of copies
+                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key)
+                            .setValue(self.book.initCheckoutList())
                         
                         self.state = .success
                         delegate.complete(event: self)
@@ -81,6 +86,7 @@ class BookEvent: AbstractEvent{
                         
                         // This observe function is use to fetch _id from table
                         // With this _id, we know what child to delete
+                        // TODO: Check if book is on waiting list 
                         db?.child(DatabaseInfo.booksAdded).observe(.value, with: {(snapshot) in
                             if let data = snapshot.value as? NSDictionary{
                                 if let metaInfo = data[self.book.key] as? Dictionary<String, Any>{

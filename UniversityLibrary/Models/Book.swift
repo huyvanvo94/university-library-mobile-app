@@ -10,28 +10,47 @@ import Foundation
 import Firebase
 
 class Book: UniModel{
+    // author is required as it is used for key
     var author: String?
+    
+    // title is required as it is used for key
     var title: String?
     var callNumber: String?
     var publisher: String?
     var yearOfPublication:Int?
     var locationInLibrary: String?
-    var numberOfCopies: Int?
+    var numberOfCopies: Int = 0
     var isCheckoutByPatron: Bool = false 
     var keywords: [String]?
     
-    init(snapShot: DataSnapshot){
+    // if a user checks out this book, this count is increase
+    var numberOfBooksCheckedOut: Int = 0
+    
+    func checkout()->Bool{
+        if self.numberOfBooksCheckedOut == self.numberOfCopies{
+            return false
+        }else{ 
+            self.numberOfBooksCheckedOut += 1
+            return true
+        }
+    }
+     
+    override init() {
         
     }
     
-    override init() {
-        
+    func initCheckoutList()->[String: Any]{
+        return ["numberOfCopies": numberOfCopies, "isEmpty": true]
+    }
+    
+    func initWaitingList()-> [String: Any]{
+        return ["numberOfCopies": numberOfCopies, "isEmpty": true]
     }
     
     // key used for firebase
     var key: String{
         get{
-            return author! + title! + String(yearOfPublication!)
+            return author! + title!
         }
     }
     

@@ -22,10 +22,14 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
         
         self.hideKeyboardWhenTappedAround()
         
-        let lb = LibrarianManager(user: Mock.mock_Librarian())
-        lb.delete(book: Mock.mock_Book())
-         
- 
+        
+        //let lb = LibrarianManager(user: Mock.mock_Librarian())
+        //lb.add(with: Mock.mock_Book())
+        
+        let p = PatronManager(patorn: Mock.mock_Patron())
+        p.waiting(book: Mock.mock_Book())
+
+    
     }
 
     override func didReceiveMemoryWarning() {

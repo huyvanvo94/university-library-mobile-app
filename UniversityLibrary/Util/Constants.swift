@@ -18,9 +18,11 @@ struct DatabaseInfo{
     // This wil help in querying 
     static let booksAdded = "books_added"
     
-    //
+    // Patrons on the waiting list
     static let waitingListTable = "waiting_list"
     
+    // Patrons on the checkout lsit
+    static let checkedOutListTable = "checkout_list"
     
     
     static let registerEmailTable = "register_email"

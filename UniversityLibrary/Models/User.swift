@@ -60,9 +60,13 @@ class Librarian: User{
 }
 
 class Patron: User{
+     
+    //The total number of books a patron can keep at any given time cannot exceed 9.
+    static let MAX_BOOKS = 9
+    var booksChecked = [Book]()
+    
     
     // A patron must be able to check out up to 3 books in any day.
-    
     func numberOfBookCheckedOut(on date: Date) -> Int{
         
         return -1 
