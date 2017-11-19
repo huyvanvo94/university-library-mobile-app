@@ -9,7 +9,8 @@
 import UIKit
 import MessageUI
 
-class SignUpViewController: UIViewController, UITextFieldDelegate{
+class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUserEventDelegate{
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,6 +20,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
     
+       
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         self.studentIdTextField.delegate = self
@@ -36,31 +38,38 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func signUp(_ sender: UIButton) {
+        
         guard let email = emailTextField.text, let password = passwordTextField.text, let universityId = Int(studentIdTextField.text!) else{
             return
         }
         
-        activityIndicatorView.startAnimating()
+        super.activityIndicatorView.startAnimating()
         
         print("email: \(email) password: \(password) studentId: \(universityId)")
         
         // if ends with "@sjsu.edu" user is consider a librarian
-        if email.hasSuffix("@sjsu.edu"){
+        if email.isSJSUEmail(){
             let user = Librarian(email: email, password: password, universityId: universityId)
-          
-            let handler = UserHandler(lib: user)
-            handler.async_RegisterUser(completion: handleRegisterUser)
+            let event = RegisterUserEvent(librarian: user)
+            event.delegate = self
+            event.async_ProcessEvent()
+            
         }else{
             let user = Patron(email: email, password: password, universityId: universityId)
-            let handler = UserHandler(patron: user)
-            handler.async_RegisterUser(completion: handleRegisterUser)
-            
+            let event = RegisterUserEvent(patron: user)
+            event.delegate = self
+            event.async_ProcessEvent()
         }
+        
+        
     }
     
-    func handleRegisterUser(code: SignUpEnum){
-        activityIndicatorView.stopAnimating()
-        switch code {
+    func handleRegisterUser(event: RegisterUserEvent){
+        super.activityIndicatorView.stopAnimating()
+        switch event.state {
+        case .error:
+            self.showToast(message: "Error!")
+            
         case .emailTaken:
             self.showToast(message: "Email Taken!")
             self.emailTextField.text = ""
@@ -69,12 +78,29 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             self.showToast(message: "University Id Taken!")
             self.studentIdTextField.text = ""
         default:
+            let email = event.user!.email!
+            let alert = UIAlertController(title: "Validation", message: "Validation code sent to \(email)", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: handleValidation)
+          
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+           
+   
+            /*
             if let validView = self.storyboard?.instantiateViewController(withIdentifier: "ValidationViewController") as? ValidationViewController{
                 self.navigationController?.pushViewController(validView, animated: true)
             }
+            */
+            
            
         }
     }
+    
+    func handleValidation(_ alertAction: UIAlertAction!) -> Void{
+        self.popbackview()
+    }
+
+    
     
     // UITextField Delegates
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -103,26 +129,40 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //print("TextField should return method called")
-
-      
         self.view.endEditing(true)
         return true
     }
     
-    fileprivate lazy var activityIndicatorView: UIActivityIndicatorView = {
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        activityIndicatorView.hidesWhenStopped = true
+    
+    func complete(event: AbstractEvent){
+        print("Event complete")
         
-        // Set Center
-        var center = self.view.center
-        if let navigationBarFrame = self.navigationController?.navigationBar.frame {
-            center.y -= (navigationBarFrame.origin.y + navigationBarFrame.size.height)
+        switch event {
+        case let event as RegisterUserEvent:
+            // release to memory
+            event.delegate = nil
+           
+            self.handleRegisterUser(event: event)
+            
+        default:
+            print("No action taken")
         }
-        activityIndicatorView.center = center
         
-        self.view.addSubview(activityIndicatorView)
-        return activityIndicatorView
-    }()
+    }
+    func error(event: AbstractEvent){
+        print("Event error")
+        
+        switch event {
+        case let event as RegisterUserEvent:
+            // release to memory
+            event.delegate = nil
+            self.showToast(message: "email is taken!")
+        default:
+            print("No action taken")
+        }
+    }
+    
+ 
     /*
     // MARK: - Navigation
 

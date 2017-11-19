@@ -11,15 +11,17 @@ import Foundation
 class User: Codable{
     var email: String!
     var password: String!
-    var universityId: Int!
+    var universityId: Int?
     
     var id: String?
+  
+    // for sign in
+    convenience init(email: String, password: String){
+        self.init(email: email, password: password, universityId: nil)
+    }
     
-    // The user needs to use that verification code to complete his account registration.
-    // A registered user cannot really use features in the app until his account is verified.
-    var isValidated: Bool = false
-    
-    init(email: String, password: String, universityId: Int) {
+    // for sign out
+    init(email: String, password: String, universityId: Int?) {
         self.email = email
         self.password = password
         self.universityId = universityId
@@ -38,7 +40,7 @@ class User: Codable{
         }
     }
     
-    var dictUniId:[String: Int]{
+    var dictUniId:[String: Int?]{
         get{
             return ["universityId": universityId]
         }
@@ -47,7 +49,7 @@ class User: Codable{
     
     var dict:[String: Any] {
         get{
-            return ["id": id, "email": email, "password": password, "universityId": universityId, "isValidated":isValidated]
+            return ["id": id, "email": email, "password": password, "universityId": universityId]
         }
     }
     
