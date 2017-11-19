@@ -26,7 +26,7 @@ class SignoutUserEvent: BaseEventWithUser{
                 self.state = .success
                 self.delegate?.complete(event: self)
                 
-            }catch let error as Error{
+            }catch{
                 self.state = .error
                 self.delegate?.error(event: self)
             }

@@ -9,7 +9,8 @@
 import Foundation
 
 class Logger{
-    
+    // cannot access constructor 
+    private init(){}
     static func log(clzz: String, message: String){
         print(clzz + " " + message)
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Book: UniModel{
     var author: String?
@@ -18,6 +19,35 @@ class Book: UniModel{
     var numberOfCopies: Int?
     var isCheckoutByPatron: Bool = false 
     var keywords: [String]?
+    
+    init(snapShot: DataSnapshot){
+        
+    }
+    
+    override init() {
+        
+    }
+    
+    // key used for firebase
+    var key: String{
+        get{
+            return author! + title! + String(yearOfPublication!)
+        }
+    }
+    
+    
+    var dict: [String: Any]{
+        get{
+            return ["author": author ?? nil,
+                    "title": title ?? nil,
+                    "callNumber": callNumber ?? nil,
+                    "publisher": publisher ?? nil,
+                    "yearOfPublication": yearOfPublication ?? nil,
+                    "numberOfCopies": numberOfCopies ?? nil,
+                    "isCheckoutByPatron": isCheckoutByPatron,
+                    "keywords": keywords ?? nil]
+        }
+    }
     
     // We will use the builder design pattern to build the Book class easier
     class Builder{

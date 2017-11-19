@@ -7,8 +7,11 @@
 //
 
 import Foundation
-
-class LibrarianHelper: BookManager {
+/*
+ * This class is mainly used to test.
+ * Controllers should do CRUD operations
+ */
+class LibrarianManager: BookManager, BookCRUDDelegate {
     let user: Librarian
     
     init(user: Librarian) {
@@ -17,10 +20,13 @@ class LibrarianHelper: BookManager {
  
     func search(by book: Book) {
         
-        
     }
     
     func add(with book: Book) {
+        Logger.log(clzz: "LibrarianManager", message: "add")
+        let event = BookEvent(book: book, action: .add)
+        event.delegate = self
+        event.async_ProcessEvent()
         
     }
     
@@ -29,7 +35,19 @@ class LibrarianHelper: BookManager {
     }
     
     func delete(book: Book) {
+        Logger.log(clzz: "LibrarianManger", message: "delete")
         
+        let event = BookEvent(book: book, action: .delete)
+        event.delegate = self
+        event.async_ProcessEvent()
+         
+    }
+    
+    func complete(event: AbstractEvent) {
+        
+    }
+    
+    func error(event: AbstractEvent) {
         
     }
     

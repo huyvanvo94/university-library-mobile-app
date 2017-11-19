@@ -94,10 +94,12 @@ class RegisterUserEvent: BaseEventWithUser{
     }
     
     func insertToDb(table: String, key: String, user: User){
+   
         let db = FirebaseManager().reference
-        
+        // add user first
         db?.child(table).child(key).setValue(user.dict)
-        
+        // denormalization
+        // add data for quick access for future CRUD operations 
         db?.child(DatabaseInfo.registerEmailTable).child(user.emailKey).setValue(["id": key])
         
     }

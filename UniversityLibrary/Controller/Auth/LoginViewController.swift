@@ -15,13 +15,17 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
         
         self.hideKeyboardWhenTappedAround()
+        
+        let lb = LibrarianManager(user: Mock.mock_Librarian())
+        lb.delete(book: Mock.mock_Book())
          
-        // Do any additional setup after loading the view.
+ 
     }
 
     override func didReceiveMemoryWarning() {
