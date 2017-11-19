@@ -175,6 +175,20 @@
 			path = AuthEvent;
 			sourceTree = "<group>";
 		};
+		8F3ABAFC1FC10B9000551B3B /* Patron */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Patron;
+			sourceTree = "<group>";
+		};
+		8F3ABAFD1FC10B9700551B3B /* Librarian */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Librarian;
+			sourceTree = "<group>";
+		};
 		8F54D6111FBFEBDD00E25156 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +231,8 @@
 		8FBAC2AD1FBFBD6B00589262 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8F3ABAFD1FC10B9700551B3B /* Librarian */,
+				8F3ABAFC1FC10B9000551B3B /* Patron */,
 				8F3ABAFA1FC1089400551B3B /* Auth */,
 				8F3ABAF91FC1086100551B3B /* Root */,
 				8FEABA051FC0DDFA00EA26E9 /* Parent */,
