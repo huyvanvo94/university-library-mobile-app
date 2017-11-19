@@ -44,7 +44,7 @@ class Book: UniModel{
     }
     
     func initWaitingList()-> [String: Any]{
-        return ["numberOfCopies": numberOfCopies, "isEmpty": true]
+        return ["numberOfCopies": numberOfCopies, "isEmpty": true, "isFull": false]
     }
     
     // key used for firebase

@@ -12,57 +12,84 @@ import Firebase
 class WaitingListEvent: AbstractEvent{
   
     let waitingList: WaitingList
+    let action: WaitingListAction
     
     weak var delegate: WaitingListDelegate?
     
-    init(waitingList: WaitingList) {
+    init(waitingList: WaitingList, action: WaitingListAction) {
         self.waitingList = waitingList
+        self.action = action
     }
     
     func async_ProcessEvent() {
+        
+        guard let delegate = self.delegate else {
+            return
+        }
         
         let queue = DispatchQueue(label: "com.huy.vo.cmpe277.waitinglistevent")
         
         queue.async {
             
-            let db = FirebaseManager().reference.child(DatabaseInfo.waitingListTable)
+            switch self.action{
+            case .add:
+                self.add(delegate: delegate, waitingList: self.waitingList)
+            default:
+                print("no action")
+            }
             
-            db.child(self.waitingList.book.key).observe(.value, with: {(snapshot) in
+            
+        }
+    }
+    
+    private func add(delegate: WaitingListDelegate, waitingList: WaitingList){
+        let db = FirebaseManager().reference.child(DatabaseInfo.waitingListTable)
+        
+        db.child(waitingList.book.key).observe(.value, with: {(snapshot) in
+            
+            if var value = snapshot.value as? [String: Any]{
                 
-                if var value = snapshot.value as? [String: Any]{
-                    
-                    if let isEmpty = value["isEmpty"] as? Bool{
-                        if isEmpty{
-                            let users = [self.waitingList.patron.id!]
+                if let isEmpty = value["isEmpty"] as? Bool{
+                    if isEmpty{
+                        let users = [self.waitingList.patron.id!]
+                        
+                        db.child(waitingList.book.key).updateChildValues(["isEmpty": false])
+                        db.child(waitingList.book.key).updateChildValues(["users":users])
+                        
+                    }else{
+                        if var users = value["users"] as? [String]{
                             
-                            db.child(self.waitingList.book.key).updateChildValues(["isEmpty": false])
-                            db.child(self.waitingList.book.key).updateChildValues(["users":users])
-                            
-                        }else{
-                            if var users = value["users"] as? [String]{
+                            if users.contains(waitingList.patron.id!) == false{
                                 
-                                if users.contains(self.waitingList.patron.id!) == false{
-                                   
-                                    users.append(self.waitingList.patron.id!)
-                                    db.child(self.waitingList.book.key).updateChildValues(["users": users])
-                                }
+                                users.append(waitingList.patron.id!)
+                                db.child(waitingList.book.key).updateChildValues(["users": users])
                             }
                         }
                     }
-                     
-                }else{
-                    
-                
                 }
-                // kill listeners
-                db.child(self.waitingList.book.key).removeAllObservers()
-            })
-        }
+                
+            }else{
+                
+                
+            }
+            // kill listeners
+            db.child(self.waitingList.book.key).removeAllObservers()
+        })
     }
+    
+    private func delete(){
+        
+    }
+    
 }
 
 protocol WaitingListDelegate: AbstractEventDelegate {
     
+}
+
+enum WaitingListAction{
+    case add
+    case delete
 }
 
 enum WaitingListState{

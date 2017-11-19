@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import Firebase
 
 class CheckoutListEvent: AbstractEvent{
     
-    let patorn: Patron
-    let book: Book
+    let checkoutList: CheckoutList
+    let action: CheckoutAction
     
     weak var delegate: CheckoutListDelegate?
     
-    init(patorn: Patron, book: Book ) {
-        self.patorn = patorn
-        self.book = book
+    init(checkoutList: CheckoutList, action: CheckoutAction ) {
+        self.checkoutList = checkoutList
+        self.action = action
     }
     
     func async_ProcessEvent() {
@@ -28,12 +29,95 @@ class CheckoutListEvent: AbstractEvent{
         let queue = DispatchQueue(label: "com.huyvo.cmpe277.checkoutlistevent")
         queue.async {
             
+            switch self.action{
+            
+            case CheckoutAction.add:
+                print("add")
+                
+                self.addToList(delegate: delegate, checkoutList: self.checkoutList)
+            default:
+                self.deleteFromList(deletegate: delegate, checkoutList: self.checkoutList)
+            }
+           
+ 
         }
+        
+    }
+    
+    // add user to list
+    private func addToList(delegate: CheckoutListDelegate, checkoutList: CheckoutList){
+        let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
+        
+        
+        db.child(checkoutList.book.key).observe(.value, with: {(snapshot) in
+            if var value = snapshot.value as? [String: Any]{
+                
+                let isFull = value["isFull"] as! Bool
+                
+                if isFull{
+                    self.delegate!.complete(event: self)
+                }else{
+                    let isEmpty = value["isEmpty"] as! Bool
+                    
+                    if isEmpty{
+                        db.child(checkoutList.book.key).updateChildValues(["isEmpty": false])
+                        // now add to db
+                        
+                    }else{
+                        
+                        // not empty, so no need to change value
+                        
+                    }
+                    
+                }
+                
+                db.child(checkoutList.book.key).removeAllObservers()
+                
+            }
+        })
+    }
+    
+    // remove user from list
+    private func deleteFromList(deletegate: CheckoutListDelegate, checkoutList: CheckoutList){
+        let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
+        
+        db.child(checkoutList.book.key).observe(.value, with: {(snapshot) in
+            
+            if var value = snapshot.value as? [String: Any]{
+                // if list is empty, we know user isn't in the list
+                if let isEmpty = value["isEmpty"] as? Bool{
+                    
+                    if isEmpty{
+                        
+                    }else{
+                        
+                        if var users = value["users"] as? [String]{
+                         
+                            if let index = users.index(of: checkoutList.patron.id!){
+                                users.remove(at: index)
+                                if users.isEmpty{
+                                    db.child(checkoutList.book.key).updateChildValues(["isEmpty": true])
+                                }
+                                db.child(checkoutList.book.key).updateChildValues(["users": users])
+                            }
+                          
+                        }
+                    }
+                }
+            }
+            
+            db.child(checkoutList.book.key).removeAllObservers()
+        })
         
     }
 }
 
 protocol CheckoutListDelegate: AbstractEventDelegate {}
+
+enum CheckoutAction{
+    case add
+    case delete
+}
 
 enum CheckoutState{
     case full

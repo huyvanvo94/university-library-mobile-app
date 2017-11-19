@@ -27,7 +27,7 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
         //lb.add(with: Mock.mock_Book())
         
         let p = PatronManager(patorn: Mock.mock_Patron())
-        p.waiting(book: Mock.mock_Book())
+        p.waiting(book: Mock.mock_Book(), action: /)
 
     
     }

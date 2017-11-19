@@ -22,7 +22,7 @@ class PatronManager: BookKeeper, WaitingListDelegate{
     func waiting(book: Book) {
         let waitingList = WaitingList(book: book, patron: self.patorn)
         
-        let event = WaitingListEvent(waitingList: waitingList)
+        let event = WaitingListEvent(waitingList: waitingList, action: .add)
         event.delegate = self
         event.async_ProcessEvent()
     }
