@@ -11,7 +11,11 @@ import Firebase
 
 class BookEvent: AbstractEvent{
   
-    weak var delegate: BookCRUDDelegate?
+    weak var delegate: BookCRUDDelegate? {
+        didSet{
+            self.async_ProcessEvent() 
+        }
+    }
     
     let action: BookAction
     let book: Book

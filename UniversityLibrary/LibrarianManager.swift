@@ -26,8 +26,7 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
         Logger.log(clzz: "LibrarianManager", message: "add")
         let event = BookEvent(book: book, action: .add)
         event.delegate = self
-        event.async_ProcessEvent()
-        
+      
     }
     
     func update(with id: Int, book: Book) {
@@ -39,8 +38,7 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
         
         let event = BookEvent(book: book, action: .delete)
         event.delegate = self
-        event.async_ProcessEvent()
-         
+     
     }
     
     func complete(event: AbstractEvent) {
@@ -53,10 +51,4 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
     
 }
 
-protocol BookManager {
-    
-    func search(by book: Book)
-    func add(with book: Book)
-    func update(with id: Int, book: Book)
-    func delete(book: Book)
-}
+ 

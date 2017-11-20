@@ -11,7 +11,11 @@ import FirebaseAuth
 
 class LoginUserEvent: BaseEventWithUser{
     
-    weak var delegate: LoginUserEventDelegate?
+    weak var delegate: LoginUserEventDelegate?{
+        didSet{
+            self.async_ProcessEvent()
+        }
+    }
 
     var state: LoginUserEventState = .none
     

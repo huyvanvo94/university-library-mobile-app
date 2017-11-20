@@ -26,10 +26,9 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
         //let lb = LibrarianManager(user: Mock.mock_Librarian())
         //lb.add(with: Mock.mock_Book())
         
-        let p = PatronManager(patorn: Mock.mock_Patron())
-        p.waiting(book: Mock.mock_Book(), action: /)
-
-    
+        //let p = PatronManager(patorn: Mock.mock_Patron())
+        //p.waiting(book: Mock.mock_Book(), action: /)
+ 
     }
 
     override func didReceiveMemoryWarning() {

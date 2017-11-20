@@ -11,7 +11,11 @@ import Firebase
 
 class SignoutUserEvent: BaseEventWithUser{
     
-    weak var delegate: SignoutUserDelegate?
+    weak var delegate: SignoutUserDelegate? {
+        didSet{
+            self.async_ProcessEvent()
+        }
+    }
     
     var state: SignoutUserState = .none
     

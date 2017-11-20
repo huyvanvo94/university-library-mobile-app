@@ -14,7 +14,11 @@ class CheckoutListEvent: AbstractEvent{
     let checkoutList: CheckoutList
     let action: CheckoutAction
     
-    weak var delegate: CheckoutListDelegate?
+    weak var delegate: CheckoutListDelegate? {
+        didSet{
+            self.async_ProcessEvent() 
+        }
+    }
     
     init(checkoutList: CheckoutList, action: CheckoutAction ) {
         self.checkoutList = checkoutList

@@ -24,7 +24,7 @@ class PatronManager: BookKeeper, WaitingListDelegate{
         
         let event = WaitingListEvent(waitingList: waitingList, action: .add)
         event.delegate = self
-        event.async_ProcessEvent()
+ 
     }
     
     func complete(event: AbstractEvent) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BookKeeper {
+protocol BookKeeper: class {
     func checkout(book: Book)
     func waiting(book: Book)
 }

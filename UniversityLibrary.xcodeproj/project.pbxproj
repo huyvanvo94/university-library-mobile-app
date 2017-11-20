@@ -21,6 +21,7 @@
 		8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */; };
 		8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61B1FC01ED700E25156 /* Patron.storyboard */; };
 		8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61E1FC01EE100E25156 /* Librarian.storyboard */; };
+		8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90C0431FC29FE7003CD88C /* BookManager.swift */; };
 		8F9367911FBBA921007716E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367901FBBA921007716E5 /* User.swift */; };
 		8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */; };
 		8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5D0861FC192130048EB74 /* WaitingListEvent.swift */; };
@@ -84,6 +85,7 @@
 		8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
 		8F54D61C1FC01ED700E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patron.storyboard; sourceTree = "<group>"; };
 		8F54D61F1FC01EE100E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Librarian.storyboard; sourceTree = "<group>"; };
+		8F90C0431FC29FE7003CD88C /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		8F9367901FBBA921007716E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		8FA5D0861FC192130048EB74 /* WaitingListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingListEvent.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				8FBAC2A81FBFA45400589262 /* Util */,
 				8FBAC2AD1FBFBD6B00589262 /* Controller */,
 				8FBAC2A21FBFA27300589262 /* LibrarianManager.swift */,
+				8F90C0431FC29FE7003CD88C /* BookManager.swift */,
 				8FC3E9B01FC235BF00940427 /* PatronManager.swift */,
 				8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */,
 				8FEABA061FC0DE2000EA26E9 /* Event */,
@@ -582,6 +585,7 @@
 				8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */,
 				8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */,
 				8FBAC2B11FBFBEE500589262 /* LoginViewController.swift in Sources */,
+				8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */,
 				8FBAC2AF1FBFBE2400589262 /* NavRootViewController.swift in Sources */,
 				8FC3E9AF1FC22D3600940427 /* CheckoutListEvent.swift in Sources */,
 				8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */,

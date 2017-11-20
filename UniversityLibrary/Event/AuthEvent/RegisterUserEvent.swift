@@ -12,7 +12,11 @@ import Firebase
 
 class RegisterUserEvent: BaseEventWithUser{
   
-    weak var delegate: RegisterUserEventDelegate?
+    weak var delegate: RegisterUserEventDelegate? {
+        didSet{
+            self.async_ProcessEvent()
+        }
+    }
     
     var state: RegisterUserEventState = .none
     

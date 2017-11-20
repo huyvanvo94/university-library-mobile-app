@@ -14,7 +14,11 @@ class WaitingListEvent: AbstractEvent{
     let waitingList: WaitingList
     let action: WaitingListAction
     
-    weak var delegate: WaitingListDelegate?
+    weak var delegate: WaitingListDelegate? {
+        didSet{
+            self.async_ProcessEvent() 
+        }
+    }
     
     init(waitingList: WaitingList, action: WaitingListAction) {
         self.waitingList = waitingList
