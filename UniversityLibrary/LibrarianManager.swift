@@ -6,7 +6,7 @@
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
 
-import Foundation
+import Foundation 
 /*
  * This class is mainly used to test.
  * Controllers should do CRUD operations
@@ -19,14 +19,15 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
     }
  
     func search(by book: Book) {
+       
         
     }
     
     func add(with book: Book) {
         Logger.log(clzz: "LibrarianManager", message: "add")
+       
         let event = BookEvent(book: book, action: .add)
         event.delegate = self
-      
     }
     
     func update(with id: Int, book: Book) {

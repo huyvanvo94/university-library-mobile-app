@@ -23,8 +23,8 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
         self.hideKeyboardWhenTappedAround()
         
         
-        //let lb = LibrarianManager(user: Mock.mock_Librarian())
-        //lb.add(with: Mock.mock_Book())
+        let lb = LibrarianManager(user: Mock.mock_Librarian())
+        lb.add(with: Mock.mock_Book2())
         
         //let p = PatronManager(patorn: Mock.mock_Patron())
         //p.waiting(book: Mock.mock_Book(), action: /)
@@ -46,19 +46,18 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
         }
         
         if email.isValidEmail(){
-            
+            // is librian
             if email.isSJSUEmail(){
                 let user = Librarian(email: email, password: password )
                 
                 let event = LoginUserEvent(librarian: user)
                 event.delegate = self
-                event.async_ProcessEvent()
-                
+            // is patron
             }else{
                 let user = Patron(email: email, password: password)
                 let event = LoginUserEvent(patron: user)
                 event.delegate = self
-                event.async_ProcessEvent()
+               
             }
             
         }

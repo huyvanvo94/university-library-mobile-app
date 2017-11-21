@@ -9,14 +9,14 @@
 import Foundation
 import Firebase
 
-class DataService{
+final class DataService{
     let BASE_URL = "https://us-central1-universitylibrary-8e17c.cloudfunctions.net/"
     
     private init(){}
     
     static let shared = DataService()
     
-    func sendEmail(email: String, message: String, subject: String ){
+    func sendEmail(email: String, message: String, subject: String, completion: ((Bool) -> () )?){
         
         let url = "https://us-central1-universitylibrary-8e17c.cloudfunctions.net/sendGeneralEmail?email=\(email)&text=\(message)&subject=\(subject)"
         
@@ -37,9 +37,13 @@ class DataService{
                     
                     if httpResponse.statusCode == 200 {
                         
-                        if let data = data{
-                            
-                            print(String(data: data, encoding: .utf8))
+                        if let completion = completion{
+                            completion(true)
+                        }
+                    }else{
+                        
+                        if let completion = completion{
+                            completion(false)
                         }
                     }
                 }

@@ -42,6 +42,7 @@ class LoginUserEvent: BaseEventWithUser{
                     }else{
                         self.state = .emailNotVerified
                         delegate.complete(event: self)
+                    
                     }
              
                 }

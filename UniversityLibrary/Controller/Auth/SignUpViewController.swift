@@ -19,8 +19,7 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-       
+     
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         self.studentIdTextField.delegate = self
@@ -52,13 +51,12 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
             let user = Librarian(email: email, password: password, universityId: universityId)
             let event = RegisterUserEvent(librarian: user)
             event.delegate = self
-            event.async_ProcessEvent()
-            
+         
         }else{
             let user = Patron(email: email, password: password, universityId: universityId)
             let event = RegisterUserEvent(patron: user)
             event.delegate = self
-            event.async_ProcessEvent()
+          
         }
         
         

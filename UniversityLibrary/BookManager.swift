@@ -12,8 +12,10 @@ import Foundation
  * This should be used to do firebase operations. 
  */
 protocol BookManager: class {
+    // CRUD Operations 
     func search(by book: Book)
     func add(with book: Book)
     func update(with id: Int, book: Book)
     func delete(book: Book)
+    
 }

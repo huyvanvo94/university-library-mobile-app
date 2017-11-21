@@ -10,7 +10,7 @@ import Foundation
 
 struct DatabaseInfo{
     static let librarianTable = "librarian"
-    static let patronTable = "user"
+    static let patronTable = "patron"
     
     // Table of the book
     static let bookTable = "book"

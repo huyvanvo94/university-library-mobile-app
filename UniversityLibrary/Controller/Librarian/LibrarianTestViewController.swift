@@ -1,21 +1,17 @@
 //
-//  LibrarianNavViewController.swift
+//  LibrarianTestViewController.swift
 //  UniversityLibrary
 //
-//  Created by Huy Vo on 11/18/17.
+//  Created by Huy Vo on 11/21/17.
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
 
 import UIKit
 
-class LibrarianNavViewController: BaseNavViewController {
+class LibrarianTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Logger.log(clzz: "LibrarianNavViewController", message: "viewDidLoad")
-        
-        self.goToTestLibrarianView()
 
         // Do any additional setup after loading the view.
     }
@@ -24,13 +20,6 @@ class LibrarianNavViewController: BaseNavViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func goToTestLibrarianView(){
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianTestViewController") as? LibrarianTestViewController{
-            self.pushViewController(vc, animated: true)
-        }
-    }
-    
     
 
     /*

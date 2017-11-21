@@ -8,7 +8,16 @@
 
 import Foundation
 
-protocol BookKeeper: class {
+/*
+ * This class should be used by view controller to perform patron operations 
+ */
+
+// MARK - Kevin
+protocol BookKeeper: class{
     func checkout(book: Book)
     func waiting(book: Book)
+    func doReturn(book: Book)
 }
+
+
+ 

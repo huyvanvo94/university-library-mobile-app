@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK - Kevin
 class PatronManager: BookKeeper, WaitingListDelegate{
     
     let patorn: Patron
@@ -15,6 +16,9 @@ class PatronManager: BookKeeper, WaitingListDelegate{
         self.patorn = patorn
     }
     
+    func doReturn(book: Book){
+        
+    }
     func checkout(book: Book) {
         
     }
@@ -26,6 +30,8 @@ class PatronManager: BookKeeper, WaitingListDelegate{
         event.delegate = self
  
     }
+    
+    
     
     func complete(event: AbstractEvent) {
         

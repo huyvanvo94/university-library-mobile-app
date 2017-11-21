@@ -14,3 +14,7 @@ import Foundation
 class Formatter{
     
 }
+
+class HTMLFormatter: Formatter{
+    
+}
