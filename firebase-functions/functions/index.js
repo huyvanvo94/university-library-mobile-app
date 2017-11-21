@@ -41,4 +41,8 @@ exports.sendGeneralEmail = functions.https.onRequest((req, res) => {
     });
 });
 
+exports.helloWorld = functions.https.onRequest((req, res) => {
+	res.send("Hello world");
+	
+});
  
