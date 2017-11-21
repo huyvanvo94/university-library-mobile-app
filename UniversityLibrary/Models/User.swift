@@ -20,6 +20,12 @@ class User: Codable{
         self.init(email: email, password: password, universityId: nil)
     }
     
+    init(dict: [String: Any]){
+        if let email = dict["email"] as? String{
+            self.email = email
+        }
+    }
+    
     // for sign out
     init(email: String, password: String, universityId: Int?) {
         self.email = email
@@ -47,6 +53,7 @@ class User: Codable{
         
     }
     
+    // key
     var dict:[String: Any] {
         get{
             return ["id": id, "email": email, "password": password, "universityId": universityId]
@@ -60,11 +67,47 @@ class Librarian: User{
 }
 
 class Patron: User{
+    
+    
+    
+    let today = Date()
+    var numberOfBooksCheckoutToday = 0
+    var totalNumberOfBooksCheckout = 0
      
     //The total number of books a patron can keep at any given time cannot exceed 9.
     static let MAX_BOOKS = 9
-    var booksChecked = [Book]()
+    //var booksChecked = [Book]()
     
+    override init(dict: [String: Any]){
+        super.init(dict: dict)
+
+        if let totalNumberOfBooksCheckout = dict["totalNumberOfBooksCheckout"] as? Int{
+            self.totalNumberOfBooksCheckout = totalNumberOfBooksCheckout
+        }
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
+    func canCheckoutBook() -> Bool{
+        if numberOfBooksCheckoutToday < 3{
+            numberOfBooksCheckoutToday += 1 
+            return true
+        }else{
+            return false
+        }
+        
+    }
+ 
+    override var dict: [String : Any]{
+        get{
+            var pDict = super.dict
+            
+            pDict["totalNumberOfBooksCheckout"] = 0
+            return pDict
+        }
+    }
     
     // A patron must be able to check out up to 3 books in any day.
     func numberOfBookCheckedOut(on date: Date) -> Int{

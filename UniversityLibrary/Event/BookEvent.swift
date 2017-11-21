@@ -98,7 +98,7 @@ class BookEvent: AbstractEvent{
                                         db?.child(DatabaseInfo.bookTable).child(id).removeValue()
                                         // also remove value from reference table
                                         db?.child(DatabaseInfo.booksAdded).child(self.book.key).removeValue()
-                                        
+                                     
                                         self.state = .success
                                         delegate.complete(event: self)
                                     }

@@ -14,6 +14,8 @@ class CheckoutListEvent: AbstractEvent{
     let checkoutList: CheckoutList
     let action: CheckoutAction
     
+    var state: CheckoutState?
+    
     weak var delegate: CheckoutListDelegate? {
         didSet{
             self.async_ProcessEvent() 
@@ -35,10 +37,20 @@ class CheckoutListEvent: AbstractEvent{
             
             switch self.action{
             
-            case CheckoutAction.add:
-                print("add")
+            case .add:
+                Logger.log(clzz: "CheckoutListEvent", message: "add")
                 
-                self.addToList(delegate: delegate, checkoutList: self.checkoutList)
+                if self.checkoutList.patron.canCheckoutBook(){
+                    self.addToList(delegate: delegate, checkoutList: self.checkoutList)
+                }else{
+                    // cannot checkout
+                    
+                    self.state = .error
+                  
+                    delegate.error(event: self)
+                }
+                
+    
             default:
                 self.deleteFromList(deletegate: delegate, checkoutList: self.checkoutList)
             }
