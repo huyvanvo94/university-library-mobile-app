@@ -107,6 +107,7 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
             print("No action taken")
         }
     }
+ 
     
     func error(event: AbstractEvent) {
         print("error")

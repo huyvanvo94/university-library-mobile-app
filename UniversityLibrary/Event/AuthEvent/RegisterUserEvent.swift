@@ -30,8 +30,7 @@ class RegisterUserEvent: BaseEventWithUser{
         
         dispatchQueue.async {
             let db = FirebaseManager().reference
-            //let key = db?.childByAutoId().key
-            
+         
             let table: String
             if user is Patron{
                 table = DatabaseInfo.patronTable
@@ -96,6 +95,7 @@ class RegisterUserEvent: BaseEventWithUser{
             
         }
     }
+    /*
     
     func insertToDb(table: String, key: String, user: User){
    
@@ -107,7 +107,8 @@ class RegisterUserEvent: BaseEventWithUser{
         db?.child(DatabaseInfo.registerEmailTable).child(user.emailKey).setValue(["id": key])
         
     }
-    
+    */
+    /*
     func containsEmail(user: User, completion: @escaping ( (Bool) ->Void )){
         let db = FirebaseManager().reference
         let ref = db?.child(DatabaseInfo.registerEmailTable)
@@ -120,7 +121,7 @@ class RegisterUserEvent: BaseEventWithUser{
                 completion(false)
             }
         })
-    }
+    }*/
 }
 
 enum RegisterUserEventState{

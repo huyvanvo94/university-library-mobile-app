@@ -22,7 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Logger.log(clzz: "AppDelegate", message: "didFinisihLaunchingWithOptions")
-        // Override point for customization after application launch.
+     
+        // set root view controller
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
+        self.window?.rootViewController = root
+        self.window?.makeKeyAndVisible()
+  
+        // end set root view controller
+        
         FirebaseApp.configure()
         return true
     }

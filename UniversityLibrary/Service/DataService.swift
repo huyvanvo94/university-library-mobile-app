@@ -50,40 +50,6 @@ class DataService{
         }
     }
     
-    static let openWeatherMapKey = "54701ea1287c9e47151bb6be162f1455"
-    static let googleTimeZoneKey = "AIzaSyD2E7_ssLZXS_SQLlNH6kzBodXkYe6MOhU"
-    
-    static func fetchTimeZone(googleFormatted location: String){
-        let url = "https://maps.googleapis.com/maps/api/timezone/json?location=\(location)&timestamp=\(Date().timeIntervalSince1970)&key=\(googleTimeZoneKey)"
-        
-        print("url: \(url)")
-        
-        let requestURL = URL(string: url)
-        
-        if let theRequestURL = requestURL{
-            let urlRequest = URLRequest(url: theRequestURL)
-            
-            let session = URLSession.shared
-            
-            let task = session.dataTask(with: urlRequest){
-                (data, response, error) -> Void in
-                
-                if let httpResponse = response as? HTTPURLResponse{
-                    // request has been successful
-                    
-                    if httpResponse.statusCode == 200 {
-                        
-                        if let data = data{
-                            
-                            print("OK")
-                        }
-                    }
-                }
-            }
-            
-            task.resume()
-            
-        }
-    }
+   
   
 }

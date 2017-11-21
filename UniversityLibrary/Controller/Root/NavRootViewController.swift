@@ -16,6 +16,7 @@ class NavRootViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Logger.log(clzz: "NavRootViewController", message: "viewDidLoad")
         self.goToLoginView()
         // Do any additional setup after loading the view.
     }

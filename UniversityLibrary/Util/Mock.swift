@@ -17,7 +17,10 @@ class Mock{
     }
     
     static func mock_Librarian()->Librarian{
-        return Librarian(email: "test@sjs.edu", password: "123213", universityId: 213213)
+        let l = Librarian(email: "test@sjs.edu", password: "123213", universityId: 213213)
+    
+        l.id = "231xsdfdsfsdf"
+        return l 
     }
     
     static func mock_Book() -> Book!{
