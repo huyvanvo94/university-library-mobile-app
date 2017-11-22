@@ -17,9 +17,25 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     }
     
     func doReturn(book: Book){
-        
+        let event = ReturnBookEvent(patron: self.patorn, book: book)
+        event.delegate = self 
         
     }
+    
+    func doReturn(books: [Book]){
+        if books.count > 9{
+            return
+        }
+        
+        let queue = DispatchQueue(label: "com.huyvo.cmpe277.returnbooks")
+        queue.async {
+            for book in books{
+                self.doReturn(book: book)
+            }
+        }
+        
+    }
+    
     func checkout(book: Book) {
         
         let checkout = CheckoutList(patron: self.patorn, book: book)

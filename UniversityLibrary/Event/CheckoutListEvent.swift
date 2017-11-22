@@ -52,7 +52,7 @@ class CheckoutListEvent: AbstractEvent{
                 
     
             default:
-                self.deleteFromList(deletegate: delegate, checkoutList: self.checkoutList)
+                self.deleteFromList(delegate: delegate, checkoutList: self.checkoutList)
             }
            
  
@@ -61,7 +61,7 @@ class CheckoutListEvent: AbstractEvent{
     }
     
     // add user to list
-    private func addToList(delegate: CheckoutListDelegate, checkoutList: CheckoutList){
+    private func addToList(delegate: AbstractEventDelegate, checkoutList: CheckoutList){
         let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
         
         
@@ -142,7 +142,7 @@ class CheckoutListEvent: AbstractEvent{
     }
     
     // remove user from list
-    private func deleteFromList(deletegate: CheckoutListDelegate, checkoutList: CheckoutList){
+    private func deleteFromList(delegate: AbstractEventDelegate, checkoutList: CheckoutList){
         let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
         
         db.child(checkoutList.book.key).observe(.value, with: {(snapshot) in
