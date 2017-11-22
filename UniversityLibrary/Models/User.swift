@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User: Codable{
+class User: UniModel{
     var email: String!
     var password: String!
     var universityId: Int?
@@ -24,6 +24,17 @@ class User: Codable{
         if let email = dict["email"] as? String{
             self.email = email
         }
+        if let id = dict["id"] as? String{
+            self.id = id
+        }
+        
+        if let password = dict["password"] as? String{
+            self.password = password
+        }
+        if let universityId = dict["universityId"] as? Int{
+            self.universityId = universityId
+        }
+        
     }
     
     // for sign out
@@ -56,7 +67,14 @@ class User: Codable{
     // key
     var dict:[String: Any] {
         get{
-            return ["id": id, "email": email, "password": password, "universityId": universityId]
+            var dict = [String: Any]()
+            
+            dict["id"] = id
+            dict["email"] = email
+            dict["password"] = password
+            dict["universityId"] = universityId
+            
+            return dict
         }
     }
     
@@ -78,6 +96,19 @@ class Patron: User{
     static let MAX_BOOKS = 9
     //var booksChecked = [Book]()
     
+    
+    override init(email: String, password: String, universityId: Int?) {
+
+        super.init(email: email, password: email, universityId: universityId)
+    }
+    
+    
+    convenience init(email: String, password: String) {
+       
+        self.init(email: email, password: password, universityId: nil)
+    }
+    
+   
     override init(dict: [String: Any]){
         super.init(dict: dict)
 
@@ -86,18 +117,22 @@ class Patron: User{
         }
     }
     
+    /*
     required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
-    }
+      
+    }*/
     
-    func canCheckoutBook() -> Bool{
-        if numberOfBooksCheckoutToday < 3{
-            numberOfBooksCheckoutToday += 1 
-            return true
-        }else{
-            return false
+  
+    
+    var canCheckoutBook: Bool{
+        get{
+            if numberOfBooksCheckoutToday < 3{
+                numberOfBooksCheckoutToday += 1
+                return true
+            }else{
+                return false
+            }
         }
-        
     }
  
     override var dict: [String : Any]{
