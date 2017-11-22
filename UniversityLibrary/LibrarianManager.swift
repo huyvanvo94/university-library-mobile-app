@@ -55,6 +55,8 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
     
     func complete(event: AbstractEvent) {
         
+ 
+        
     }
     
     func error(event: AbstractEvent) {
