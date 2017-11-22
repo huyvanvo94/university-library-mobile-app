@@ -7,20 +7,56 @@
 //
 
 import Foundation
+import Firebase
 
 class ReturnBookEvent: AbstractEvent{
-    
+    let book: Book
     let patron: Patron
-    init(patron: Patron){
-        
+    
+    weak var delegate: AbstractEventDelegate?{
+        didSet{
+            self.async_ProcessEvent()
+        }
+    }
+    
+    init(patron: Patron, book: Book){
+        self.book = book
         self.patron = patron
     }
     
-    
-    
-    
+     
     func async_ProcessEvent() {
+        guard let delegate = self.delegate else{
+            return
+        }
         
+        let queue = DispatchQueue(label: "com.huyvo.cmpe277.returnboookevent")
+        queue.async {
+            
+            let db = FirebaseManager().reference
+            
+            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observe(.value, with: {(snapshot) in
+                
+                if let value = snapshot.value as? [String: Any]{
+                    if var users = value["users"] as? Array<String>{
+                        if let index = users.index(of: self.patron.id!){
+                             
+                            users.remove(at: index)
+                            
+                            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["users": users])
+                            
+                            if users.isEmpty{
+                                db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["isEmpty": true])
+                            }
+                            
+                        }
+                    }
+                }
+                
+            })
+            
+            
+        }
     }
 }
 
