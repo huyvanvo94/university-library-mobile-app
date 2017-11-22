@@ -16,7 +16,7 @@ class CheckoutListEvent: AbstractEvent{
     
     var state: CheckoutState?
     
-    weak var delegate: CheckoutListDelegate? {
+    weak var delegate: AbstractEventDelegate? {
         didSet{
             self.async_ProcessEvent() 
         }
@@ -68,9 +68,57 @@ class CheckoutListEvent: AbstractEvent{
         db.child(checkoutList.book.key).observe(.value, with: {(snapshot) in
             if var value = snapshot.value as? [String: Any]{
                 
+                if let numberOfCopies = value["numberOfCopies"] as? Int{
+                    
+                    let isEmpty = value["isEmpty"] as! Bool
+                    
+                    if isEmpty{
+                        
+                        db.child(checkoutList.book.key).updateChildValues(["isEmpty": false])
+                        
+                        var users = [String: Any]()
+                        users["users"] = [checkoutList.patron.id!]
+                        
+                        db.child(checkoutList.book.key).setValue(users)
+                        
+                        self.state = .success
+                        delegate.complete(event: self)
+                    }else{
+                        
+                        if var users = value["users"] as? Array<String>{
+                            if users.count == numberOfCopies{
+                                self.state = .full
+                                delegate.complete(event: self)
+                            }
+                            
+                            else if users.contains(self.checkoutList.patron.id!){
+                                self.state = .contain
+                                delegate.complete(event: self)
+                            }else{
+                                users.append(self.checkoutList.patron.id!)
+                                
+                                db.child(checkoutList.book.key).updateChildValues(["users": users])
+                                
+                                self.state = .success
+                                self.delegate?.complete(event: self)
+                                
+                            }
+                            
+                        }
+                    
+                    }
+                    
+                    
+                    
+                }
+                
+                /*
+                if (let isEmpty = value["isEmpty"]
+                
                 let isFull = value["isFull"] as! Bool
                 
                 if isFull{
+                    self.state = .full 
                     self.delegate!.complete(event: self)
                 }else{
                     let isEmpty = value["isEmpty"] as! Bool
@@ -85,7 +133,7 @@ class CheckoutListEvent: AbstractEvent{
                         
                     }
                     
-                }
+                }*/
                 
                 db.child(checkoutList.book.key).removeAllObservers()
                 
@@ -138,5 +186,6 @@ enum CheckoutAction{
 enum CheckoutState{
     case full
     case error
-    case success 
+    case success
+    case contain
 }

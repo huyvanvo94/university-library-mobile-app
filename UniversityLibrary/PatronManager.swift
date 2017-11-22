@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK - Kevin
-class PatronManager: BookKeeper, WaitingListDelegate{
+class PatronManager: BookKeeper, AbstractEventDelegate{
     
     let patorn: Patron
     init(patorn: Patron ){
@@ -18,9 +18,13 @@ class PatronManager: BookKeeper, WaitingListDelegate{
     
     func doReturn(book: Book){
         
+        
     }
     func checkout(book: Book) {
         
+        let checkout = CheckoutList(patron: self.patorn, book: book)
+        let event = CheckoutListEvent(checkoutList: checkout, action: .add)
+        event.delegate = self
     }
     
     func waiting(book: Book) {
@@ -34,7 +38,17 @@ class PatronManager: BookKeeper, WaitingListDelegate{
     
     
     func complete(event: AbstractEvent) {
-        
+        switch event {
+        case let event as CheckoutListEvent:
+            if event.state == .full{
+                
+                let book = event.checkoutList.book
+                self.waiting(book: book)
+            }
+            
+        default:
+            print("No action")
+        }
     }
     
     

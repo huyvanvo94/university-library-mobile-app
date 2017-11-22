@@ -87,6 +87,7 @@ class Book: UniModel{
         var dict = [String: Any]()
         dict["numberOfCopies"] = numberOfCopies
         dict["isEmpty"] = true
+        dict["isFull"] = false 
         return dict
     }
     

@@ -14,7 +14,7 @@ class WaitingListEvent: AbstractEvent{
     let waitingList: WaitingList
     let action: WaitingListAction
     
-    weak var delegate: WaitingListDelegate? {
+    weak var delegate: AbstractEventDelegate? {
         didSet{
             self.async_ProcessEvent() 
         }
@@ -51,26 +51,30 @@ class WaitingListEvent: AbstractEvent{
         
         db.child(waitingList.book.key).observe(.value, with: {(snapshot) in
             
-            if var value = snapshot.value as? [String: Any]{
+            if let value = snapshot.value as? [String: Any]{
+                let isEmpty = value["isEmpty"] as! Bool
                 
-                if let isEmpty = value["isEmpty"] as? Bool{
-                    if isEmpty{
-                        let users = [self.waitingList.patron.id!]
-                        
-                        db.child(waitingList.book.key).updateChildValues(["isEmpty": false])
-                        db.child(waitingList.book.key).updateChildValues(["users":users])
-                        
-                    }else{
-                        if var users = value["users"] as? [String]{
+                if isEmpty{
+                    var users = [String: Any]()
+                    
+                    users["users"] = self.waitingList.patron.id
+                    
+                    db.child(waitingList.book.key).updateChildValues(["isEmpty": false])
+                    db.child(waitingList.book.key).updateChildValues(["users":users])
+                }else{
+                    if var users = value["users"] as? [String]{
+                        if users.contains(waitingList.patron.id!) == false{
+                            users.append(waitingList.patron.id!)
+                            db.child(waitingList.book.key).updateChildValues(["users": users])
                             
-                            if users.contains(waitingList.patron.id!) == false{
-                                
-                                users.append(waitingList.patron.id!)
-                                db.child(waitingList.book.key).updateChildValues(["users": users])
-                            }
+                            
+                        }else{
+                            
                         }
                     }
+                    
                 }
+        
                 
             }else{
                 
