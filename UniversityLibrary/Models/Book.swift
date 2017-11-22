@@ -26,8 +26,8 @@ class Book: UniModel{
     // if a user checks out this book, this count is increase
     var numberOfBooksCheckedOut: Int = 0
     
- 
-    
+    var id: String?
+  
     var canCheckout: Bool {
         get{
             if self.numberOfBooksCheckedOut == self.numberOfCopies{
@@ -40,13 +40,49 @@ class Book: UniModel{
         }
       
     }
+    
+    
+    init(dict: [String: Any]){
+     
+        if let author = dict["author"] as? String{
+            self.author = author
+        }
+        if let title = dict["title"] as? String{
+            self.title = title
+        }
+        if let callNumber = dict["callNumber"] as? String{
+            self.callNumber = callNumber
+        }
+        if let publisher = dict["publisher"] as? String{
+            self.publisher = publisher
+        }
+        if let yearOfPublication = dict["yearOfPublication"] as? Int{
+            self.yearOfPublication = yearOfPublication
+        }
         
+        if let numberOfCopies = dict["numberOfCopies"] as? Int{
+            self.numberOfCopies = numberOfCopies
+        }
+  
+        if let isCheckoutByPatron = dict["isCheckoutByPatron"] as? Bool{
+            self.isCheckoutByPatron = isCheckoutByPatron
+        }
+        
+        if let keywords = dict["keywords"] as? Array<String>{
+            self.keywords = keywords
+        }
+        
+        if let id = dict["id"] as? String{ 
+            self.id = id
+        }
+    }
     
      
     override init() {
         
     }
     
+    //TODO: Check dependency
     func initCheckoutList()->[String: Any]{
         var dict = [String: Any]()
         dict["numberOfCopies"] = numberOfCopies
@@ -54,6 +90,7 @@ class Book: UniModel{
         return dict
     }
     
+    //TODO: Check dependency
     func initWaitingList()-> [String: Any]{
         var dict = [String: Any]()
         dict["numberOfCopies"] = numberOfCopies
@@ -74,6 +111,7 @@ class Book: UniModel{
         get{
             var dict = [String: Any]()
             
+            dict["id"] = id
             dict["author"] = author
             dict["title"] = title
             dict["callNumber"] = callNumber
@@ -82,10 +120,12 @@ class Book: UniModel{
             dict["numberOfCopies"] = numberOfCopies
             dict["isCheckoutByPatron"] = isCheckoutByPatron
             dict["keywords"] = keywords
+            dict["numberOfBooksCheckedOut"] = numberOfBooksCheckedOut
             
             return dict
         }
     }
+    
     
     // We will use the builder design pattern to build the Book class easier
     class Builder{
