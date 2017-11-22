@@ -16,7 +16,7 @@ class CheckoutListEvent: AbstractEvent{
     
     var state: CheckoutState?
     
-    weak var delegate: CheckoutListDelegate? {
+    weak var delegate: AbstractEventDelegate? {
         didSet{
             self.async_ProcessEvent() 
         }
