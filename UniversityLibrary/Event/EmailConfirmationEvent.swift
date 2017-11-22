@@ -26,9 +26,7 @@ class EmailConformationEvent: AbstractEvent{
     func async_ProcessEvent() {
         guard let delegate = self.delegate else{
             return
-        }
-        
-     
+        } 
     }
 }
 

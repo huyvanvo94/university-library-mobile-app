@@ -48,6 +48,7 @@ class RegisterUserEvent: BaseEventWithUser{
                     
                 }else{
                     
+                    user.id = returnUser!.uid
                 
                     db?.child(table).child(returnUser!.uid)
                         .setValue(user.dict)

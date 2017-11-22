@@ -18,6 +18,13 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
         self.user = user
     }
  
+    func search(exact book: Book) {
+        Logger.log(clzz: "LibrarianManager", message: "search exactly")
+        let event = BookEvent(book: book, action: .searchExactly)
+        event.delegate = self
+        
+    }
+    
     func search(by book: Book) {
        
         
@@ -30,8 +37,12 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
         event.delegate = self
     }
     
-    func update(with id: Int, book: Book) {
+ 
+    func update( book: Book) {
+        Logger.log(clzz: "LibrarianManager", message: "update")
         
+        let event = BookEvent(book: book, action: .update)
+        event.delegate = self
     }
     
     func delete(book: Book) {
@@ -47,6 +58,11 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
     }
     
     func error(event: AbstractEvent) {
+        
+    }
+    
+    func result(exact book: Book){
+        print(book.id!)
         
     }
     
