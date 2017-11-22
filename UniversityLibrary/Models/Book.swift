@@ -26,25 +26,40 @@ class Book: UniModel{
     // if a user checks out this book, this count is increase
     var numberOfBooksCheckedOut: Int = 0
     
-    func checkout()->Bool{
-        if self.numberOfBooksCheckedOut == self.numberOfCopies{
-            return false
-        }else{ 
-            self.numberOfBooksCheckedOut += 1
-            return true
+ 
+    
+    var canCheckout: Bool {
+        get{
+            if self.numberOfBooksCheckedOut == self.numberOfCopies{
+                return false
+            }else{
+                self.numberOfBooksCheckedOut += 1
+                return true
+            }
+            
         }
+      
     }
+        
+    
      
     override init() {
         
     }
     
     func initCheckoutList()->[String: Any]{
-        return ["numberOfCopies": numberOfCopies, "isEmpty": true]
+        var dict = [String: Any]()
+        dict["numberOfCopies"] = numberOfCopies
+        dict["isEmpty"] = true
+        return dict
     }
     
     func initWaitingList()-> [String: Any]{
-        return ["numberOfCopies": numberOfCopies, "isEmpty": true, "isFull": false]
+        var dict = [String: Any]()
+        dict["numberOfCopies"] = numberOfCopies
+        dict["isEmpty"] = true
+        dict["isFull"] = false
+        return dict
     }
     
     // key used for firebase
@@ -57,14 +72,18 @@ class Book: UniModel{
     
     var dict: [String: Any]{
         get{
-            return ["author": author ?? nil,
-                    "title": title ?? nil,
-                    "callNumber": callNumber ?? nil,
-                    "publisher": publisher ?? nil,
-                    "yearOfPublication": yearOfPublication ?? nil,
-                    "numberOfCopies": numberOfCopies ?? nil,
-                    "isCheckoutByPatron": isCheckoutByPatron,
-                    "keywords": keywords ?? nil]
+            var dict = [String: Any]()
+            
+            dict["author"] = author
+            dict["title"] = title
+            dict["callNumber"] = callNumber
+            dict["publisher"] = publisher
+            dict["yearOfPublication"] = yearOfPublication
+            dict["numberOfCopies"] = numberOfCopies
+            dict["isCheckoutByPatron"] = isCheckoutByPatron
+            dict["keywords"] = keywords
+            
+            return dict
         }
     }
     

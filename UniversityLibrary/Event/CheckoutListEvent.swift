@@ -40,7 +40,7 @@ class CheckoutListEvent: AbstractEvent{
             case .add:
                 Logger.log(clzz: "CheckoutListEvent", message: "add")
                 
-                if self.checkoutList.patron.canCheckoutBook(){
+                if self.checkoutList.patron.canCheckoutBook{
                     self.addToList(delegate: delegate, checkoutList: self.checkoutList)
                 }else{
                     // cannot checkout

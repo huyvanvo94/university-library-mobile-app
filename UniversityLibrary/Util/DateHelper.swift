@@ -39,9 +39,16 @@ class DateHelper{
         let userCalendar = Calendar.current
         return userCalendar.date(from: dateComponents)
     }
+    
+    static func isToday(dt: TimeInterval) -> Bool{
+        return numberFromToday(dt: dt) < 1 
+    }
 }
 
 extension Date{
+    var mock_thirdyDaysfromNow: Date{
+        return Date().addingTimeInterval(10000)
+    }
     
     // books will be due 30 days from today
     var thirtyDaysfromNow: Date {
