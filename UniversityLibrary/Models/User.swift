@@ -13,18 +13,19 @@ class User: UniModel{
     var password: String!
     var universityId: Int?
     
-    var id: String?
-  
     // for sign in
     convenience init(email: String, password: String){
         self.init(email: email, password: password, universityId: nil)
     }
     
     init(dict: [String: Any]){
+        super.init()
+        
         if let email = dict["email"] as? String{
             self.email = email
         }
         if let id = dict["id"] as? String{
+            
             self.id = id
         }
         
@@ -64,12 +65,11 @@ class User: UniModel{
         
     }
     
-    // key
-    var dict:[String: Any] {
+    // used for firebase 
+    override var dict:[String: Any] {
         get{
-            var dict = [String: Any]()
-            
-            dict["id"] = id
+            var dict = super.dict
+             
             dict["email"] = email
             dict["password"] = password
             dict["universityId"] = universityId

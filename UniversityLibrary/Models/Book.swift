@@ -25,9 +25,7 @@ class Book: UniModel{
     
     // if a user checks out this book, this count is increase
     var numberOfBooksCheckedOut: Int = 0
-    
-    var id: String?
-  
+ 
     var canCheckout: Bool {
         get{
             if self.numberOfBooksCheckedOut == self.numberOfCopies{
@@ -43,6 +41,7 @@ class Book: UniModel{
     
     
     init(dict: [String: Any]){
+        super.init()
      
         if let author = dict["author"] as? String{
             self.author = author
@@ -107,12 +106,16 @@ class Book: UniModel{
         }
     }
     
+    override var hashKey: Int{
+        get{ 
+             return author!.hashValue + title!.hashValue
+        }
+    }
     
-    var dict: [String: Any]{
+    override var dict: [String: Any]{
         get{
-            var dict = [String: Any]()
-            
-            dict["id"] = id
+            var dict = super.dict
+          
             dict["author"] = author
             dict["title"] = title
             dict["callNumber"] = callNumber

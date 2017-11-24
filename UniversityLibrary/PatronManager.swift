@@ -27,6 +27,7 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
             return
         }
         
+        // many return queue 
         let queue = DispatchQueue(label: "com.huyvo.cmpe277.returnbooks")
         queue.async {
             for book in books{

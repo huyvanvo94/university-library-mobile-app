@@ -46,7 +46,7 @@ class WaitingListEvent: AbstractEvent{
         }
     }
     
-    private func add(delegate: WaitingListDelegate, waitingList: WaitingList){
+    private func add(delegate: AbstractEventDelegate, waitingList: WaitingList){
         let db = FirebaseManager().reference.child(DatabaseInfo.waitingListTable)
         
         db.child(waitingList.book.key).observe(.value, with: {(snapshot) in
