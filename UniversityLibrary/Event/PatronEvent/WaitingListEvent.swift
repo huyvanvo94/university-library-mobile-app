@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 class WaitingListEvent: AbstractEvent{
+    
+    var state: WaitingListState?
   
     let waitingList: WaitingList
     let action: WaitingListAction
@@ -49,7 +51,7 @@ class WaitingListEvent: AbstractEvent{
     private func add(delegate: AbstractEventDelegate, waitingList: WaitingList){
         let db = FirebaseManager().reference.child(DatabaseInfo.waitingListTable)
         
-        db.child(waitingList.book.key).observe(.value, with: {(snapshot) in
+        db.child(self.waitingList.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
             
             if let value = snapshot.value as? [String: Any]{
                 let isEmpty = value["isEmpty"] as! Bool
@@ -57,18 +59,31 @@ class WaitingListEvent: AbstractEvent{
                 if isEmpty{
                     var users = [String: Any]()
                     
-                    users["users"] = self.waitingList.patron.id
+                    // add as string array
+                    users["users"] = [self.waitingList.patron.id]
                     
-                    db.child(waitingList.book.key).updateChildValues(["isEmpty": false])
-                    db.child(waitingList.book.key).updateChildValues(["users":users])
+                    // start update child values
+                    db.child(self.waitingList.book.key).updateChildValues(["isEmpty": false])
+                    db.child(self.waitingList.book.key).updateChildValues(users)
+                    // end uddate child values
+                    
+                    self.state = .success
+                    delegate.complete(event: self)
+                    
                 }else{
                     if var users = value["users"] as? [String]{
-                        if users.contains(waitingList.patron.id!) == false{
-                            users.append(waitingList.patron.id!)
+                        if users.contains(self.waitingList.patron.id!) == false{
+                            users.append(self.waitingList.patron.id!)
                             db.child(waitingList.book.key).updateChildValues(["users": users])
                             
+                            self.state = .success
+                            delegate.complete(event: self)
                             
                         }else{
+                            
+                            self.state = .duplicate
+                            delegate.complete(event: self)
+                            
                             
                         }
                     }
@@ -79,9 +94,7 @@ class WaitingListEvent: AbstractEvent{
             }else{
                 
                 
-            }
-            // kill listeners
-            db.child(self.waitingList.book.key).removeAllObservers()
+            } 
         })
     }
     
@@ -103,4 +116,5 @@ enum WaitingListAction{
 enum WaitingListState{
     case success
     case error
+    case duplicate
 }

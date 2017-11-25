@@ -65,81 +65,61 @@ class CheckoutListEvent: AbstractEvent{
         let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
         
         
-        db.child(checkoutList.book.key).observe(.value, with: {(snapshot) in
+        db.child(self.checkoutList.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+          
             if var value = snapshot.value as? [String: Any]{
-                
                 if let numberOfCopies = value["numberOfCopies"] as? Int{
-                    
                     let isEmpty = value["isEmpty"] as! Bool
                     
                     if isEmpty{
                         
                         db.child(checkoutList.book.key).updateChildValues(["isEmpty": false])
+                        var list = [String: [String: Any]]()
                         
                         var users = [String: Any]()
-                        users["users"] = [checkoutList.patron.id!]
+                        users[self.checkoutList.patron.id!] = self.checkoutList.thirdDaysFromNowDueDate.timeIntervalSince1970
                         
-                        db.child(checkoutList.book.key).setValue(users)
+                        list["users"] = users
+                        
+                        db.child(checkoutList.book.key).updateChildValues(list)
                         
                         self.state = .success
                         delegate.complete(event: self)
-                    }else{
                         
-                        if var users = value["users"] as? Array<String>{
-                            if users.count == numberOfCopies{
-                                self.state = .full
-                                delegate.complete(event: self)
-                            }
+                    }else{
+                        if var users = value["users"] as? Dictionary<String, Any>{
                             
-                            else if users.contains(self.checkoutList.patron.id!){
+                            if users[self.checkoutList.patron.id!] != nil{
                                 self.state = .contain
                                 delegate.complete(event: self)
-                            }else{
-                                users.append(self.checkoutList.patron.id!)
-                                
-                                db.child(checkoutList.book.key).updateChildValues(["users": users])
-                                
-                                self.state = .success
-                                self.delegate?.complete(event: self)
                                 
                             }
-                            
+                            else if users.count == numberOfCopies{
+                                self.state = .full
+                                delegate.complete(event: self)
+                                
+                            }else{
+                                
+                                users[self.checkoutList.patron.id!] = self.checkoutList.thirdDaysFromNowDueDate
+                                
+                                db.child(self.checkoutList.book.key).updateChildValues(users)
+                                self.state = .success
+                                delegate.complete(event: self)
+                                
+                            }
                         }
-                    
                     }
-                    
-                    
                     
                 }
-                
-                /*
-                if (let isEmpty = value["isEmpty"]
-                
-                let isFull = value["isFull"] as! Bool
-                
-                if isFull{
-                    self.state = .full 
-                    self.delegate!.complete(event: self)
-                }else{
-                    let isEmpty = value["isEmpty"] as! Bool
-                    
-                    if isEmpty{
-                        db.child(checkoutList.book.key).updateChildValues(["isEmpty": false])
-                        // now add to db
-                        
-                    }else{
-                        
-                        // not empty, so no need to change value
-                        
-                    }
-                    
-                }*/
-                
-                db.child(checkoutList.book.key).removeAllObservers()
-                
             }
+                    
         })
+  
+            
+          
     }
+    
+    
     
     // remove user from list
     private func deleteFromList(delegate: AbstractEventDelegate, checkoutList: CheckoutList){
