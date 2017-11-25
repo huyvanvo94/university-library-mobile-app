@@ -28,4 +28,5 @@ struct DatabaseInfo{
     static let registerEmailTable = "register_email"
     static let registerUniversityIdTable = "register_university_id"
     
+    static let reserveTable = "reserve_books"
 }

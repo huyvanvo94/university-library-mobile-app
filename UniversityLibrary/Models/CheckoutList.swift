@@ -10,6 +10,10 @@ import Foundation
 
 class CheckoutList: UniModel{
     
+    static let USERS = "users"
+    static let DUE_DATE = "due_date"
+    
+    
     let patron: Patron
     let book: Book
     
@@ -19,7 +23,7 @@ class CheckoutList: UniModel{
             return today.thirtyDaysfromNow
         }
     }
-    
+ 
     func formatDueDate(date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium//Set date style
@@ -34,5 +38,15 @@ class CheckoutList: UniModel{
         self.book = book 
     }
     
+    override var dict: [String : Any]{
+        get{
+            var dict = [String: Any]()
+            
+            dict[CheckoutList.USERS] = patron.id
+            dict[CheckoutList.DUE_DATE] = thirdDaysFromNowDueDate
+            
+            return dict
+        }
+    }
 
 }

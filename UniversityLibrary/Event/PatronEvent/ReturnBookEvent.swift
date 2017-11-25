@@ -35,7 +35,7 @@ class ReturnBookEvent: AbstractEvent{
             
             let db = FirebaseManager().reference
             
-            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observe(.value, with: {(snapshot) in
+            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                 
                 if let value = snapshot.value as? [String: Any]{
                     if var users = value["users"] as? Array<String>{

@@ -21,8 +21,7 @@ class BookEvent: AbstractEvent{
     let book: Book
     
     var state: BookActionState?
- 
-    
+  
     init(book: Book, action: BookAction){
         self.action = action
         self.book = book 
@@ -43,16 +42,14 @@ class BookEvent: AbstractEvent{
                 Logger.log(clzz: "BookEvent", message: "add")
                 
                 let db = FirebaseManager().reference 
-                db?.child(DatabaseInfo.booksAdded).observe(.value, with: {
+                db?.child(DatabaseInfo.booksAdded).observeSingleEvent(of: .value, with: {
                     (snapshot) in
                     
                     // I cannot add because database already has a book with same author and title
                     if snapshot.hasChild(self.book.key){
                         self.state = .error
                         delegate.error(event: self)
-                        // stop listening to db
-                        db?.child(DatabaseInfo.booksAdded).removeAllObservers()
-                        
+                   
                     }else{
                         let db = FirebaseManager().reference
                         
@@ -74,8 +71,6 @@ class BookEvent: AbstractEvent{
                         
                         self.state = .success
                         delegate.complete(event: self)
-                        // stop listening to db 
-                        db?.child(DatabaseInfo.booksAdded).removeAllObservers()
                     }
                 })
                
@@ -84,7 +79,7 @@ class BookEvent: AbstractEvent{
                 
                 let db = FirebaseManager().reference
                 
-                db?.child(DatabaseInfo.booksAdded).observe(.value, with: { (snapshot) in
+                db?.child(DatabaseInfo.booksAdded).observeSingleEvent(of: .value, with: {(snapshot) in
                     
                     // Firebase contains book
                     // Librarian is able to delete book
@@ -93,12 +88,11 @@ class BookEvent: AbstractEvent{
                         // This observe function is use to fetch _id from table
                         // With this _id, we know what child to delete
                         // TODO: Check if book is on waiting list 
-                        db?.child(DatabaseInfo.booksAdded).observe(.value, with: {(snapshot) in
+                        db?.child(DatabaseInfo.booksAdded).observeSingleEvent(of: .value, with: {(snapshot) in
                             if let data = snapshot.value as? NSDictionary{
                                 if let metaInfo = data[self.book.key] as? Dictionary<String, Any>{
                                     if let id = metaInfo["id"] as? String{
-                                        
-                                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observe(.value, with: {(snapshot) in
+                                          db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                                             
                                             if let value = snapshot.value as? NSDictionary{
                                                 if let waitingListDict = value as? Dictionary<String, Any>{
@@ -135,7 +129,6 @@ class BookEvent: AbstractEvent{
                                 
                             }
                             
-                            db?.removeAllObservers()
                         })
                     }else{
                         
@@ -147,11 +140,11 @@ class BookEvent: AbstractEvent{
                 
                 let db = FirebaseManager().reference
                 
-                db?.child(DatabaseInfo.booksAdded).observe(.value, with: {(snapshot) in
+                db?.child(DatabaseInfo.booksAdded).observeSingleEvent(of: .value, with: {(snapshot) in
                     if let value = snapshot.value as? NSDictionary{
                         if let metaInfo = value[self.book.key] as? Dictionary<String, Any>{
                             if let id = metaInfo["id"] as? String{
-                                db?.child(DatabaseInfo.bookTable).child(id).observe(.value, with: {(snapshot) in
+                                db?.child(DatabaseInfo.bookTable).child(id).observeSingleEvent(of: .value, with: {(snapshot) in
                                     if let value = snapshot.value as? NSDictionary{
                                         
                                         if let bookDict = value as? Dictionary<String, Any>{
@@ -168,7 +161,6 @@ class BookEvent: AbstractEvent{
                     }else{
                         
                         
-                        db?.removeAllObservers()
                     }
                 })
                 
@@ -176,11 +168,13 @@ class BookEvent: AbstractEvent{
             
             case .update:
                 
+                // current will add to DB if value does not exists 
                 Logger.log(clzz: "BookEvent", message: "update")
                 
                 let db = FirebaseManager().reference
+                
                 // currently i am updating with book ID
-                db?.child(DatabaseInfo.bookTable).child(self.book.id!).observe(.value, with: {(snapshot) in
+                db?.child(DatabaseInfo.bookTable).child(self.book.id!).observeSingleEvent(of: .value, with: {(snapshot) in
                     // only update the book table
                     db?.child(DatabaseInfo.bookTable).child(self.book.id!).updateChildValues(self.book.dict)
                     
@@ -189,12 +183,9 @@ class BookEvent: AbstractEvent{
                     
                     db?.child(DatabaseInfo.waitingListTable).child(self.book.key).updateChildValues(["numberOfCopies": self.book.numberOfCopies])
                     db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["numberOfCopies": self.book.numberOfCopies])
-                    db?.removeAllObservers()
                     
                 })
-                
-                
-                
+          
                 
             default:
                 Logger.log(clzz: "BookEvent", message: "search")

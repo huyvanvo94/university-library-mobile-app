@@ -54,5 +54,14 @@ extension Date{
     var thirtyDaysfromNow: Date {
         return (Calendar.current as NSCalendar).date(byAdding: .day, value: 30, to: self, options: [])!
     }
+    
+    // books can we reserve 3 days
+    var threeDaysFromNow: Date{
+         return (Calendar.current as NSCalendar).date(byAdding: .day, value: 3, to: self, options: [])!
+    }
+    
+    var oneDayFromNow: Date{
+        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
+    }
 }
 
