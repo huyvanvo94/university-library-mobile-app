@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckoutBookViewController: UIViewController {
+class CheckoutBookViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

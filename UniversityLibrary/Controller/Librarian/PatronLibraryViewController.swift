@@ -10,7 +10,7 @@ import UIKit
 /**
  * Displays all books 
  */
-class PatronLibraryViewController: UIViewController {
+class PatronLibraryViewController: BaseViewController, BookManager {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,27 @@ class PatronLibraryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func search(by book: Book){
+        
+    }
+    func add(with book: Book){
+        
+    }
+    // once users search for a book, it should return the book class
+    // then, users should be able to update book
+    // the book in this arguement is the updated version
+    // user should NOT be able to update id, title, or author
+    func update(book: Book){
+        
+    }
+    
+    func delete(book: Book){
+        
+    }
+    
+    func search(exact book: Book){
+        
+    }
 
     /*
     // MARK: - Navigation

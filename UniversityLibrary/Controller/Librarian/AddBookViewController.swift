@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBookViewController: UIViewController {
+class AddBookViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

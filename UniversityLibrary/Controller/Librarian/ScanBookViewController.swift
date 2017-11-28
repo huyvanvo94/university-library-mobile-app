@@ -48,7 +48,7 @@ class ScanBookViewController: UIViewController {
         do {
             
             // Store input from device
-            let input = try AVCaptureDeviceInput(device: captureDevice)
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
             
             // Create capture session and add input
             captureSession = AVCaptureSession()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibrarianLibraryViewController: UIViewController {
+class LibrarianLibraryViewController: BaseViewController, BookKeeper {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,22 @@ class LibrarianLibraryViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkout(book: Book) {
+        
+    }
+    
+    func waiting(book: Book) {
+        
+    }
+    
+    func doReturn(book: Book) {
+        
+    }
+    
+    func doReturn(books: [Book]) {
+        
     }
     
 
