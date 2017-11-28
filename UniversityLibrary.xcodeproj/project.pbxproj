@@ -85,8 +85,8 @@
 /* Begin PBXFileReference section */
 		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		8F0407511FCD249A001987D8 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
-		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Librarian/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
-		8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatronLibraryViewController.swift; path = UniversityLibrary/Controller/Librarian/PatronLibraryViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatronLibraryViewController.swift; path = UniversityLibrary/Controller/Patron/PatronLibraryViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F0407571FCD2552001987D8 /* ScanBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBookViewController.swift; sourceTree = "<group>"; };
 		8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianLibraryViewController.swift; sourceTree = "<group>"; };
 		8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveBookEvent.swift; sourceTree = "<group>"; };
@@ -183,6 +183,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F04075B1FCD32EA001987D8 /* Patron */ = {
+			isa = PBXGroup;
+			children = (
+				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
+				8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */,
+			);
+			path = Patron;
+			sourceTree = "<group>";
+		};
 		8F2469B81FC9682500BAF71B /* PatronEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,15 +233,6 @@
 				8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */,
 			);
 			path = AuthEvent;
-			sourceTree = "<group>";
-		};
-		8F3ABAFC1FC10B9000551B3B /* Patron */ = {
-			isa = PBXGroup;
-			children = (
-				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
-				8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */,
-			);
-			path = Patron;
 			sourceTree = "<group>";
 		};
 		8F3ABAFD1FC10B9700551B3B /* Librarian */ = {
@@ -293,8 +293,8 @@
 		8FBAC2AD1FBFBD6B00589262 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8F04075B1FCD32EA001987D8 /* Patron */,
 				8F3ABAFD1FC10B9700551B3B /* Librarian */,
-				8F3ABAFC1FC10B9000551B3B /* Patron */,
 				8F3ABAFA1FC1089400551B3B /* Auth */,
 				8F3ABAF91FC1086100551B3B /* Root */,
 			);
