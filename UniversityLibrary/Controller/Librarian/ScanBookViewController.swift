@@ -12,6 +12,7 @@ import AVFoundation
 class ScanBookViewController: UIViewController {
     // Properties
     
+    /*
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var footerView: UIView!
@@ -125,4 +126,5 @@ extension ScanBookViewController: AVCaptureMetadataOutputObjectsDelegate {
         
     }
     
+}*/
 }

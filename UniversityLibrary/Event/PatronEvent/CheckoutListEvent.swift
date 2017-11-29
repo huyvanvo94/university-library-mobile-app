@@ -83,6 +83,8 @@ class CheckoutListEvent: AbstractEvent{
                         
                         db.child(checkoutList.book.key).updateChildValues(list)
                         
+                        
+                        
                         self.state = .success
                         delegate.complete(event: self)
                         
