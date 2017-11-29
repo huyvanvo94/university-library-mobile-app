@@ -64,6 +64,7 @@
 		8FEABA0A1FC0DE9300EA26E9 /* RegisterUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */; };
 		8FEABA0C1FC0E76E00EA26E9 /* LoginUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA0B1FC0E76E00EA26E9 /* LoginUserEvent.swift */; };
 		8FEDF5E01FC554F900CEA2CB /* ReturnBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */; };
+		8FFE0F961FCEBF3D008183EC /* RenewBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserEvent.swift; sourceTree = "<group>"; };
 		8FEABA0B1FC0E76E00EA26E9 /* LoginUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserEvent.swift; sourceTree = "<group>"; };
 		8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnBookEvent.swift; sourceTree = "<group>"; };
+		8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewBookEvent.swift; sourceTree = "<group>"; };
 		9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversityLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D053ED7E29C194C0C876D86 /* Pods-UniversityLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversityLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniversityLibrary/Pods-UniversityLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		E8BDF6A4789ED32AF50683DA /* Pods-UniversityLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversityLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniversityLibrary/Pods-UniversityLibrary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				8FA5D0861FC192130048EB74 /* WaitingListEvent.swift */,
+				8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */,
 				8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */,
 				8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */,
 				8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */,
@@ -626,6 +629,7 @@
 				8FBAC2A31FBFA27300589262 /* LibrarianManager.swift in Sources */,
 				8FA5D08B1FC19A2B0048EB74 /* BookKeeper.swift in Sources */,
 				8FEABA081FC0DE2B00EA26E9 /* AbstractEvent.swift in Sources */,
+				8FFE0F961FCEBF3D008183EC /* RenewBookEvent.swift in Sources */,
 				8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */,
 				8F5B778E1FC4E2A5004B664B /* EmailConfirmationEvent.swift in Sources */,
 				8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */,

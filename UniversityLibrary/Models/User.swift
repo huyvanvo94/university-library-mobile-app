@@ -122,6 +122,17 @@ class Patron: User{
       
     }*/
     
+    var checkoutDict: [String: Any]{
+        get{
+            var user = [String: Any]()
+            user["dueDate"] = Date().thirtyDaysfromNow.timeIntervalSince1970
+            user["email"] = email
+            user["id"] = id
+            
+            return user
+        }
+    }
+    
   
     
     var canCheckoutBook: Bool{
