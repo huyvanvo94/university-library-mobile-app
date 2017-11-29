@@ -12,7 +12,8 @@
     "firebase-admin": "~5.4.2",
     "firebase-functions": "^0.7.1",
     "nodemailer": "^2.4.1",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+	"node-schedule": "^1.2.5"
   },
   "private": true
 }
