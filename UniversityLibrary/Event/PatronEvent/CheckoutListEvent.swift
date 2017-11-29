@@ -69,45 +69,47 @@ class CheckoutListEvent: AbstractEvent{
           
             if var value = snapshot.value as? [String: Any]{
                 if let numberOfCopies = value["numberOfCopies"] as? Int{
-                    let isEmpty = value["isEmpty"] as! Bool
-                    
-                    if isEmpty{
+             
+                    if var users = value["users"] as? Dictionary<String, Any>{
                         
-                        db.child(checkoutList.book.key).updateChildValues(["isEmpty": false])
-                        var list = [String: [String: Any]]()
-                        
-                        var users = [String: Any]()
-                        users[self.checkoutList.patron.id!] = self.checkoutList.thirdDaysFromNowDueDate.timeIntervalSince1970
-                        
-                        list["users"] = users
-                        
-                        db.child(checkoutList.book.key).updateChildValues(list)
+                        if users[self.checkoutList.patron.id!] != nil{
+                            self.state = .contain
+                            delegate.complete(event: self)
+                            
+                        }
+                        else if users.count == numberOfCopies{
+                            self.state = .full
+                            delegate.complete(event: self)
+                            
+                        }else{
+                            
+                            var user = [String: Any]()
+                            user["dueDate"] = self.checkoutList.thirdDaysFromNowDueDate.timeIntervalSince1970
+                            user["email"] = self.checkoutList.patron.email!
+                            user["id"] = self.checkoutList.patron.id!
+                            
+                            users[self.checkoutList.patron.id!] = user
+                            
+                            value["users"] = users
+                            db.child(self.checkoutList.book.key).updateChildValues(value)
+                            self.state = .success
+                            delegate.complete(event: self)
+                            
+                        }
+                    }else{
+                       
+                        var user = [String: Any]()
+                        user["dueDate"] = self.checkoutList.thirdDaysFromNowDueDate.timeIntervalSince1970
+                        user["email"] = self.checkoutList.patron.email!
+                        user["id"] = self.checkoutList.patron.id!
+              
+                        value["users"] = [self.checkoutList.patron.id! : user]
+                     
+                        db.child(checkoutList.book.key).updateChildValues(value)
                         
                         self.state = .success
                         delegate.complete(event: self)
                         
-                    }else{
-                        if var users = value["users"] as? Dictionary<String, Any>{
-                            
-                            if users[self.checkoutList.patron.id!] != nil{
-                                self.state = .contain
-                                delegate.complete(event: self)
-                                
-                            }
-                            else if users.count == numberOfCopies{
-                                self.state = .full
-                                delegate.complete(event: self)
-                                
-                            }else{
-                                
-                                users[self.checkoutList.patron.id!] = self.checkoutList.thirdDaysFromNowDueDate
-                                
-                                db.child(self.checkoutList.book.key).updateChildValues(users)
-                                self.state = .success
-                                delegate.complete(event: self)
-                                
-                            }
-                        }
                     }
                     
                 }

@@ -19,8 +19,8 @@ class Mock{
     
     static func mock_Patron2() -> Patron{
         
-        let p = Patron(email: "tes1t@gmail.com", password: "1231123", universityId: 223123)
-        p.id = "xddsdf1sfdsf"
+        let p = Patron(email: "t134t@gmail.com", password: "144023", universityId: 123191)
+        p.id = "131432123"
         return p
     }
     

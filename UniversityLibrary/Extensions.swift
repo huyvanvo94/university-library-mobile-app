@@ -68,7 +68,7 @@ extension UITextField {
     }
     
     @objc func checkMaxLength(textField: UITextField) {
-        guard let prospectiveText = self.text, prospectiveText.count > maxLength else {
+        guard let prospectiveText = self.text, prospectiveText.characters.count > maxLength else {
             return
         }
         

@@ -37,19 +37,19 @@ class ReturnBookEvent: AbstractEvent{
             
             db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                 
-                if let value = snapshot.value as? [String: Any]{
-                    if var users = value["users"] as? Array<String>{
-                        if let index = users.index(of: self.patron.id!){
-                             
-                            users.remove(at: index)
-                            
-                            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["users": users])
-                            
-                            if users.isEmpty{
-                                db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["isEmpty": true])
-                            }
+                if var value = snapshot.value as? [String: Any]{
+                    if var users = value["users"] as? Dictionary<String, Any>{
+                        
+                        if users[self.patron.id!] != nil{
+                            users[self.patron.id!] = nil 
+                            value["users"] = users
+                       
+                            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(value)
+                       
+                        }else{
                             
                         }
+                        
                     }
                 }
                 
