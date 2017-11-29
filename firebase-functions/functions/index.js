@@ -19,9 +19,7 @@ const mailTransport = nodemailer.createTransport({
     pass: gmailPassword
   }
 });
-//const ref = admin.database().ref();
 
- 
  
 exports.sendGeneralEmail = functions.https.onRequest((req, res) => {
 	var email = req.query.email;
@@ -44,10 +42,12 @@ exports.sendGeneralEmail = functions.https.onRequest((req, res) => {
      });
  });
 
+
 exports.helloWorld = functions.https.onRequest((req, res) => {
 	res.send("Hello world");
 	
 });
+
 
 exports.confirmCheckout = functions.https.onRequest((req, res) => {
 	var email = req.query.email;
@@ -55,13 +55,13 @@ exports.confirmCheckout = functions.https.onRequest((req, res) => {
 	var dueDate = req.query.dueDate;
 	
 	
-	var message = `Hello, for transaction: ${transactionTime}, your due date: ${dueDate}`;
+	var message = "Checkout Confirmation: " + "<br>Checkout Time: " + transactionTime + "<br>Due Date: " + dueDate;
 	
 	var mailOptions = {
         from: "universitylibrary-8e17c<noreply@firebase.com>",
         to: email,
         subject: "Checkout Confirmation",
-        text: message
+        html: message
     };
 	
 	 mailTransport.sendMail(mailOptions, function(error, info){
@@ -80,19 +80,17 @@ exports.returnBooks = functions.https.onRequest((req, res) =>{
 	
 	//parse json
 	var parsedData = JSON.parse(data);
-	var message = `Hello, your return transaction:`;
-	//res.send(parsedData[0]);	
+	var message = "Return Confirmation: ";
+
 	for(var i in parsedData){
-		message += "<br>Title:" + parsedData[i].nameOfBook + " Fine Amount: " + parsedData[i].fineAmount + "</br>";
+		message += "<br>Title:" + parsedData[i].nameOfBook + " Fine Amount: " + parsedData[i].fineAmount;
 	}
-	//res.send(message);
-	
 	
 	var mailOptions = {
         from: "universitylibrary-8e17c<noreply@firebase.com>",
         to: email,
         subject: "Return Confirmation",
-        text: message
+        html: message
     };
 	
 	mailTransport.sendMail(mailOptions, function(error, info){
@@ -161,7 +159,7 @@ exports.mock_scheduledEmail = functions.https.onRequest((req, res) =>{
 		});
 	*/
 });
-});
+
 
 exports.scheduledEmail = functions.https.onRequest((req, res) => {
 	const currentDate = Date.now(); //returns # of ms since Jan 1 1970
@@ -219,21 +217,7 @@ exports.scheduledEmail = functions.https.onRequest((req, res) => {
 	
 });
 		
-});
 
-/*
-	var mailOptions = {
-        from: "universitylibrary-8e17c<noreply@firebase.com>",
-        to: email,
-        subject: "Return Reminder",
-		message: "sup"
-    };
-
-
-var j = schedule.scheduleJob({ start: startTime, end: endTime, rule: '* * * * * *' }, function(){
-	mailTransport.sendMail(mailOptions);
-});
-*/
 	
 
 
