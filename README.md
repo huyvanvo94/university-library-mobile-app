@@ -1,6 +1,6 @@
 <h1>University Library iOS Application </h1>
 
-<h3> Swift 4 with xCode 9.x.x </h3>
+<h3> Please use Swift 3.2 and target is iOS 9.0 </h3>
 
 <h4> Dependences:</h4>
 
