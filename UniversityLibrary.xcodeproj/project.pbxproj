@@ -62,6 +62,7 @@
 		8FC6FAC31FCFF3A100FBC1D8 /* GeneralUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */; };
 		8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */; };
 		8FC6FAC71FCFF4F900FBC1D8 /* BookSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */; };
+		8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */; };
 		8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */; };
 		8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */; };
 		8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */; };
@@ -151,6 +152,7 @@
 		8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUILabel.swift; path = UniversityLibrary/Views/GeneralUILabel.swift; sourceTree = SOURCE_ROOT; };
 		8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUITextField.swift; path = UniversityLibrary/Views/GeneralUITextField.swift; sourceTree = SOURCE_ROOT; };
 		8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookSearchBar.swift; path = UniversityLibrary/Views/BookSearchBar.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnBooksEvent.swift; sourceTree = "<group>"; };
 		8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserEvent.swift; sourceTree = "<group>"; };
 		8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianNavViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */,
 				8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */,
 				8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */,
+				8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */,
 				8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */,
 			);
 			path = PatronEvent;
@@ -296,7 +299,6 @@
 		8FBAC2A81FBFA45400589262 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				8F54D6071FBFD0EE00E25156 /* Constants.swift */,
 				8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */,
 				8FBAC2A61FBFA44900589262 /* Validation.swift */,
 				8F3ABAF71FC107D700551B3B /* Logger.swift */,
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */,
+				8F54D6071FBFD0EE00E25156 /* Constants.swift */,
 				8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */,
 				8F54D6221FC01F2700E25156 /* Storyboard */,
 				8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */,
@@ -621,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */,
+				8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */,
 				8F54D60A1FBFD48B00E25156 /* DateHelper.swift in Sources */,
 				8F2469BA1FC9684700BAF71B /* ReserveBookEvent.swift in Sources */,
 				8FEABA0A1FC0DE9300EA26E9 /* RegisterUserEvent.swift in Sources */,

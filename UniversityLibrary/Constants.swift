@@ -8,6 +8,8 @@
 
 import Foundation
 
+let isMock = false
+
 struct DatabaseInfo{
     static let librarianTable = "librarian"
     static let patronTable = "patron"
