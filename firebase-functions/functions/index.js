@@ -120,7 +120,7 @@ exports.mock_scheduledEmail = functions.https.onRequest((req, res) =>{
 				//looping through book child nodes in checkout_list now				
 				childSnapshot.child("users").forEach(function(userSnapshot){
 					//looping through users of each book node in checkout_list
-					var dueDate = userSnapshot.child("dueDate").val();
+					var dueDate = parseInt(userSnapshot.child("dueDate").val() * 1000);
 						//check if dueDate is within 5 days from today
 						if(dueDate - currentDate < 432000000){
 							//send an email for every user if cond matches
@@ -177,7 +177,7 @@ exports.scheduledEmail = functions.https.onRequest((req, res) => {
 				//looping through book child nodes in checkout_list now				
 				childSnapshot.child("users").forEach(function(userSnapshot){
 					//looping through users of each book node in checkout_list
-					var dueDate = userSnapshot.child("dueDate").val();
+					var dueDate = parseInt(userSnapshot.child("dueDate").val() * 1000);
 						//check if dueDate is within 5 days from today
 						if(dueDate - currentDate < 432000000){
 							//send an email for every user if cond matches
