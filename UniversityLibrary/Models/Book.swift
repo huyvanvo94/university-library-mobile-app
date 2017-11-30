@@ -107,8 +107,30 @@ class Book: UniModel{
     }
     
     override var hashKey: Int{
-        get{ 
-             return author!.hashValue + title!.hashValue
+        get{
+            var hashValue = super.hashKey
+           
+            if let _ = self.author{
+                hashValue += author!.hashValue
+            }
+            
+            if let _ = self.title{
+                hashValue += self.title!.hashValue
+            }
+            
+            if let _ = self.callNumber{
+                hashValue += self.callNumber!.hashValue
+            }
+            
+            if let _ = self.publisher{
+                hashValue += self.publisher!.hashValue
+            }
+            
+            if let _ = self.yearOfPublication{
+                hashValue += self.yearOfPublication!.hashValue
+            }
+            
+            return hashValue
         }
     }
     
