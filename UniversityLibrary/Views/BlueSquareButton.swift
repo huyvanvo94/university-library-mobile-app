@@ -15,5 +15,6 @@ class BlueSquareButton: UIButton {
         backgroundColor = UIColor(rgb: 0x3333FF)
         
         self.setTitleColor(.white, for: .normal)
+       
     }
 }
