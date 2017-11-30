@@ -12,4 +12,10 @@ import QuartzCore
 
 class GeneralUILabel: UILabel {
  
+    override func drawText(in rect: CGRect) {
+ 
+      
+        super.drawText(in: rect)
+    }
+
 }
