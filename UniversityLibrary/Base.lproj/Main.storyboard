@@ -170,16 +170,20 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbx-3I-B7i">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbx-3I-B7i" customClass="BlueSquareButton" customModule="UniversityLibrary" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="101" width="300" height="30"/>
-                                                        <state key="normal" title="Login"/>
+                                                        <state key="normal" title="Login">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="login:" destination="Myc-97-yTI" eventType="touchUpInside" id="Nf5-ck-HE5"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8h-yA-daK">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8h-yA-daK" customClass="BlueSquareButton" customModule="UniversityLibrary" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="131" width="300" height="30"/>
-                                                        <state key="normal" title="Sign Up"/>
+                                                        <state key="normal" title="Sign Up">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="goToSignupView:" destination="Myc-97-yTI" eventType="touchUpInside" id="Z6x-yW-Gpb"/>
                                                         </connections>
