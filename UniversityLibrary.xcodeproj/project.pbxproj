@@ -145,12 +145,12 @@
 		8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutListEvent.swift; sourceTree = "<group>"; };
 		8FC3E9B01FC235BF00940427 /* PatronManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronManager.swift; sourceTree = "<group>"; };
 		8FC3E9B21FC2484A00940427 /* CheckoutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutList.swift; sourceTree = "<group>"; };
-		8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewFactory.swift; path = UniversityLibrary/Event/PatronEvent/UIViewFactory.swift; sourceTree = SOURCE_ROOT; };
-		8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogoutUIButton.swift; path = UniversityLibrary/Event/PatronEvent/LogoutUIButton.swift; sourceTree = SOURCE_ROOT; };
-		8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueSquareButton.swift; path = UniversityLibrary/Event/PatronEvent/BlueSquareButton.swift; sourceTree = SOURCE_ROOT; };
-		8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUILabel.swift; path = UniversityLibrary/Event/PatronEvent/GeneralUILabel.swift; sourceTree = SOURCE_ROOT; };
-		8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUITextField.swift; path = UniversityLibrary/Event/PatronEvent/GeneralUITextField.swift; sourceTree = SOURCE_ROOT; };
-		8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookSearchBar.swift; path = UniversityLibrary/Event/PatronEvent/BookSearchBar.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewFactory.swift; path = UniversityLibrary/Views/UIViewFactory.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogoutUIButton.swift; path = UniversityLibrary/Views/LogoutUIButton.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueSquareButton.swift; path = UniversityLibrary/Views/BlueSquareButton.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUILabel.swift; path = UniversityLibrary/Views/GeneralUILabel.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUITextField.swift; path = UniversityLibrary/Views/GeneralUITextField.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookSearchBar.swift; path = UniversityLibrary/Views/BookSearchBar.swift; sourceTree = SOURCE_ROOT; };
 		8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserEvent.swift; sourceTree = "<group>"; };
 		8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianNavViewController.swift; sourceTree = "<group>"; };
@@ -319,19 +319,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		8FBAC2B21FBFC1CC00589262 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */,
-				8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */,
-				8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */,
-				8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */,
-				8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */,
-				8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		8FC2EC891FBAC6EF00BB15D1 = {
 			isa = PBXGroup;
 			children = (
@@ -370,8 +357,8 @@
 				8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */,
 				8FEABA061FC0DE2000EA26E9 /* Event */,
 				8F54D6111FBFEBDD00E25156 /* Service */,
-				8FBAC2B21FBFC1CC00589262 /* View */,
 				8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */,
+				8FC6FAC81FCFF92C00FBC1D8 /* Views */,
 				8FC2EC9F1FBAC6EF00BB15D1 /* Assets.xcassets */,
 				8FC2ECA11FBAC6EF00BB15D1 /* LaunchScreen.storyboard */,
 				8FC2ECA41FBAC6EF00BB15D1 /* Info.plist */,
@@ -397,6 +384,19 @@
 				8FC2ECBA1FBAC6EF00BB15D1 /* Info.plist */,
 			);
 			path = UniversityLibraryUITests;
+			sourceTree = "<group>";
+		};
+		8FC6FAC81FCFF92C00FBC1D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */,
+				8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */,
+				8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */,
+				8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */,
+				8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */,
+				8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8FEABA051FC0DDFA00EA26E9 /* Parent */ = {
