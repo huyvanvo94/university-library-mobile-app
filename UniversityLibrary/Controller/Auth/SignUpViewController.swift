@@ -17,6 +17,8 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     
     @IBOutlet weak var studentIdTextField: UITextField!
     
+    var book: Book?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      

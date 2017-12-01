@@ -15,7 +15,7 @@ class LibrarianNavViewController: BaseNavViewController {
         
         Logger.log(clzz: "LibrarianNavViewController", message: "viewDidLoad")
         
-        self.goToTestLibrarianView()
+      //  self.goToTestLibrarianView()
 
         // Do any additional setup after loading the view.
     }
