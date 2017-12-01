@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,10 +18,277 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="9Rb-1c-f7v" kind="relationship" relationship="rootViewController" id="taJ-MV-bRg"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pw7-mI-jCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1005" y="15"/>
+        </scene>
+        <!--Patron Library View Controller-->
+        <scene sceneID="2J9-6S-Zgv">
+            <objects>
+                <viewController storyboardIdentifier="PatronLibraryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Rb-1c-f7v" customClass="PatronLibraryViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZWH-MF-JXV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bFy-Wv-e5T">
+                                <rect key="frame" x="37" y="133.5" width="300" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bt2-3I-NY9">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="9fr-lu-qiR"/>
+                                            <constraint firstAttribute="height" constant="100" id="DQv-FJ-E7K"/>
+                                        </constraints>
+                                        <state key="normal" title="All Books"/>
+                                        <connections>
+                                            <segue destination="5Id-iI-BMt" kind="show" id="uLT-FK-V9L"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-2f-Agu">
+                                        <rect key="frame" x="0.0" y="100" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="XKu-zW-Edo"/>
+                                            <constraint firstAttribute="height" constant="100" id="oeR-y6-ogh"/>
+                                        </constraints>
+                                        <state key="normal" title="My Waitlist"/>
+                                        <connections>
+                                            <segue destination="WLp-z0-udz" kind="show" id="g6F-bs-rOe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pX-aR-Qle">
+                                        <rect key="frame" x="0.0" y="200" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="PmP-xX-dLg"/>
+                                            <constraint firstAttribute="height" constant="100" id="rAc-EC-tAw"/>
+                                        </constraints>
+                                        <state key="normal" title="My CheckoutList"/>
+                                        <connections>
+                                            <segue destination="dIZ-u0-rm2" kind="show" id="A3r-uL-Ybp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-gD-lTf">
+                                        <rect key="frame" x="0.0" y="300" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="FAC-Ll-utF"/>
+                                            <constraint firstAttribute="height" constant="100" id="W1v-ip-BY9"/>
+                                        </constraints>
+                                        <state key="normal" title="Search for a book"/>
+                                        <connections>
+                                            <segue destination="t8y-RG-YzI" kind="show" id="GjX-In-buL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="KZc-TH-CyJ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bt2-3I-NY9" firstAttribute="top" secondItem="w8J-nG-XBR" secondAttribute="top" constant="69.5" id="0ru-qd-Y98"/>
+                            <constraint firstItem="bFy-Wv-e5T" firstAttribute="centerY" secondItem="ZWH-MF-JXV" secondAttribute="centerY" id="FyJ-lE-jvc"/>
+                            <constraint firstItem="bFy-Wv-e5T" firstAttribute="centerX" secondItem="ZWH-MF-JXV" secondAttribute="centerX" id="Iaw-Vp-hU8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w8J-nG-XBR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g1Q-Rc-MwT">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="B0u-5W-coH"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yiJ-H7-SEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-9" y="15"/>
+        </scene>
+        <!--Patron Books Table View Controller-->
+        <scene sceneID="Pa3-AJ-ADE">
+            <objects>
+                <tableViewController storyboardIdentifier="PatronBooksTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Id-iI-BMt" customClass="PatronBooksTableViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w0L-fi-xJi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="m1T-KT-Pab">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m1T-KT-Pab" id="bwX-Sr-X2t">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5Id-iI-BMt" id="7ik-si-lWj"/>
+                            <outlet property="delegate" destination="5Id-iI-BMt" id="zi9-fj-nls"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEg-oj-ppk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="-691"/>
+        </scene>
+        <!--My Checkout Books Table View Controller-->
+        <scene sceneID="QfK-bM-pMI">
+            <objects>
+                <tableViewController id="dIZ-u0-rm2" customClass="MyCheckoutBooksTableViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EJI-dB-AQE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oWe-8K-Jw3">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oWe-8K-Jw3" id="QHN-pc-Aea">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="k6e-CM-HTV" kind="show" id="xWX-VP-lAP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dIZ-u0-rm2" id="QbP-JO-cCC"/>
+                            <outlet property="delegate" destination="dIZ-u0-rm2" id="FTu-sN-sWq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQi-vP-RUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="712"/>
+        </scene>
+        <!--My Wait List Table View Controller-->
+        <scene sceneID="gkM-tn-Oa2">
+            <objects>
+                <tableViewController id="WLp-z0-udz" customClass="MyWaitListTableViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YhI-jV-pQN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0Nu-93-UKc">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Nu-93-UKc" id="1P3-lE-jwg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WLp-z0-udz" id="yK3-ig-1pG"/>
+                            <outlet property="delegate" destination="WLp-z0-udz" id="9Cn-qd-RRX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAh-4r-DcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="-50"/>
+        </scene>
+        <!--Patron Search Book View Controller-->
+        <scene sceneID="Cga-9n-AGf">
+            <objects>
+                <viewController storyboardIdentifier="PatronSearchBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t8y-RG-YzI" customClass="PatronSearchBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ova-oQ-wna">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-te-W36">
+                                <rect key="frame" x="163" y="599" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <segue destination="CzR-jJ-0Pd" kind="show" id="epb-Fu-cMq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MCe-te-W36" firstAttribute="top" secondItem="sAA-bD-on7" secondAttribute="top" constant="535" id="J4p-wF-aOr"/>
+                            <constraint firstItem="MCe-te-W36" firstAttribute="centerX" secondItem="ova-oQ-wna" secondAttribute="centerX" id="JDL-cP-Kfb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sAA-bD-on7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xMc-Lk-gky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="1567.4662668665669"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IcQ-TJ-oz0">
+            <objects>
+                <viewController id="CzR-jJ-0Pd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="stx-m6-xDS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sve-GV-yr1">
+                                <rect key="frame" x="154" y="617" width="66" height="30"/>
+                                <state key="normal" title="Checkout"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sve-GV-yr1" firstAttribute="top" secondItem="Vrw-cs-gTK" secondAttribute="top" constant="553" id="6mp-9M-yHd"/>
+                            <constraint firstItem="Sve-GV-yr1" firstAttribute="centerX" secondItem="stx-m6-xDS" secondAttribute="centerX" id="Obv-5j-yRv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vrw-cs-gTK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ed6-SP-chT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749.5999999999999" y="1566.5667166416792"/>
+        </scene>
+        <!--Patron Book View Controller-->
+        <scene sceneID="mMD-Bu-UwI">
+            <objects>
+                <viewController storyboardIdentifier="PatronBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k6e-CM-HTV" customClass="PatronBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oH0-1f-FQn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yzz-IY-2hK">
+                                <rect key="frame" x="37.5" y="124" width="300" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWN-yP-4rt">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author of Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4m-oN-UQc">
+                                        <rect key="frame" x="0.0" y="20.5" width="300" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Aly-ay-cuj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yzz-IY-2hK" firstAttribute="centerX" secondItem="oH0-1f-FQn" secondAttribute="centerX" id="F2w-MG-sbQ"/>
+                            <constraint firstItem="yzz-IY-2hK" firstAttribute="top" secondItem="bXD-Sg-bGh" secondAttribute="top" constant="60" id="Y3V-QB-w3d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bXD-Sg-bGh"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Return Book" id="0wa-1X-zZx"/>
+                        <barButtonItem title="Renew Book" id="CmB-Ur-Wz8"/>
+                        <barButtonItem id="KBp-e3-JY0"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIy-KJ-0hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2490" y="712"/>
         </scene>
     </scenes>
 </document>
