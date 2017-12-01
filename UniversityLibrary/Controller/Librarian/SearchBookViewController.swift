@@ -10,7 +10,10 @@ import UIKit
 
 class SearchBookViewController: BaseViewController, BookKeeper {
  
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var nameSearchResult: UILabel!
+    
+    @IBOutlet weak var searchResultCell: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -12,6 +12,17 @@ import UIKit
  */
 class PatronLibraryViewController: BaseViewController, BookManager {
 
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var bookCell: UIView!
+    
+    
+    @IBOutlet weak var nameBookCell: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,6 +10,21 @@ import UIKit
 
 class AddBookViewController: BaseViewController {
 
+    @IBOutlet weak var bookTitle: UITextField!
+    
+    @IBOutlet weak var bookAuthor: UITextField!
+    
+    
+    @IBOutlet weak var bookCallNo: UITextField!
+    
+    
+    @IBOutlet weak var bookPub: UITextField!
+    
+    @IBOutlet weak var bookPubYear: UITextField!
+    @IBOutlet weak var bookKeywords: UITextField!
+    @IBOutlet weak var bookStat: UITextField!
+    @IBOutlet weak var bookLibLoc: UITextField!
+    @IBOutlet weak var bookCopiesNo: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

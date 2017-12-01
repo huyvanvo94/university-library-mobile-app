@@ -10,6 +10,22 @@ import UIKit
 
 class CheckoutBookViewController: BaseViewController {
 
+    @IBOutlet weak var bookName: UILabel!
+    
+    @IBOutlet weak var authorName: UILabel!
+    
+    @IBOutlet weak var tags: UILabel!
+    @IBOutlet weak var lastCheckoutDate: UILabel!
+    
+    @IBOutlet weak var publisherName: UILabel!
+   
+    
+    @IBAction func checkoutButtonOnClick(_ sender: UIButton) {
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
