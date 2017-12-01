@@ -1,36 +1,40 @@
 //
-//  CheckoutBookViewController.swift
+//  PatronReturnRenewViewController.swift
 //  UniversityLibrary
 //
-//  Created by Huy Vo on 11/27/17.
+//  Created by Nayan Goel on 12/1/17.
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
 
 import UIKit
 
-class CheckoutBookViewController: BaseViewController {
+class PatronReturnRenewViewController: BaseViewController {
 
-   
     @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
     
-    @IBOutlet weak var authorName: UILabel!
+    @IBOutlet weak var bookPublisher: UILabel!
     
-    @IBOutlet weak var tags: UILabel!
-    @IBOutlet weak var lastCheckoutDate: UILabel!
     
-    @IBOutlet weak var publisherName: UILabel!
+    @IBOutlet weak var bookTags: UILabel!
+    
+    
+    @IBOutlet weak var bookLastCheckout: UILabel!
+    
+    @IBAction func renewButtonAction(_ sender: Any) {
    
-    
-    @IBAction func checkoutButtonOnClick(_ sender: UIButton) {
     }
     
     
     
+    @IBAction func returnButtonAction(_ sender: Any) {
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //assign all UIObjects values from the list passed by patronAllBooksViewController
+
         // Do any additional setup after loading the view.
     }
 
