@@ -15,7 +15,7 @@ class MyCheckoutBooksTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Books Checked Out"
+        self.title = "My Checked Out Books"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

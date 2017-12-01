@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C981FD20616007CDD60 /* MenuUIButton.swift */; };
+		3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C9A1FD208E4007CDD60 /* BookCell.swift */; };
 		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
 		8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */; };
 		8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */; };
@@ -100,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FB04C981FD20616007CDD60 /* MenuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuUIButton.swift; sourceTree = "<group>"; };
+		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianSearchBookViewController.swift; sourceTree = "<group>"; };
 		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -422,6 +426,8 @@
 				8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */,
 				8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */,
 				8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */,
+				3FB04C981FD20616007CDD60 /* MenuUIButton.swift */,
+				3FB04C9A1FD208E4007CDD60 /* BookCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -671,6 +677,7 @@
 				8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */,
 				8F3ABB011FC1288B00551B3B /* Mock.swift in Sources */,
 				8F3ABAF81FC107D700551B3B /* Logger.swift in Sources */,
+				3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */,
 				8FCF610B1FD10843008D8C72 /* PatronBooksTableViewController.swift in Sources */,
 				8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */,
 				8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */,
@@ -685,6 +692,7 @@
 				8FFE0F961FCEBF3D008183EC /* RenewBookEvent.swift in Sources */,
 				8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */,
 				8F5B778E1FC4E2A5004B664B /* EmailConfirmationEvent.swift in Sources */,
+				3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */,
 				8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */,
 				8F54D60E1FBFDDB100E25156 /* Formatter.swift in Sources */,
 				8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */,
@@ -895,6 +903,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UniversityLibrary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -913,6 +922,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UniversityLibrary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
