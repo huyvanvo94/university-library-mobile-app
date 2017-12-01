@@ -29,9 +29,10 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
      
         lb.add(with: b!)*/
   
-      
+  
+        /*
         let p = PatronManager(patorn: Mock.mock_Patron2())
-        p.checkout(book: Mock.mock_Book2())
+        p.checkout(book: Mock.mock_Book2())*/
  
    
     }
@@ -74,6 +75,7 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
     
     func goToSignupView(){
         if let signUpView = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController{
+      
             self.navigationController?.pushViewController(signUpView, animated: true)
         }
     }

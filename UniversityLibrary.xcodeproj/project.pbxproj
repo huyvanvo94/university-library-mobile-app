@@ -63,6 +63,8 @@
 		8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */; };
 		8FC6FAC71FCFF4F900FBC1D8 /* BookSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */; };
 		8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */; };
+		8FCF60FD1FD0E818008D8C72 /* UpdateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF60FC1FD0E818008D8C72 /* UpdateBookViewController.swift */; };
+		8FCF60FF1FD0FA39008D8C72 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF60FE1FD0FA39008D8C72 /* BookViewController.swift */; };
 		8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */; };
 		8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */; };
 		8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */; };
@@ -153,6 +155,8 @@
 		8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUITextField.swift; path = UniversityLibrary/Views/GeneralUITextField.swift; sourceTree = SOURCE_ROOT; };
 		8FC6FAC61FCFF4F900FBC1D8 /* BookSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookSearchBar.swift; path = UniversityLibrary/Views/BookSearchBar.swift; sourceTree = SOURCE_ROOT; };
 		8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnBooksEvent.swift; sourceTree = "<group>"; };
+		8FCF60FC1FD0E818008D8C72 /* UpdateBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBookViewController.swift; sourceTree = "<group>"; };
+		8FCF60FE1FD0FA39008D8C72 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserEvent.swift; sourceTree = "<group>"; };
 		8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianNavViewController.swift; sourceTree = "<group>"; };
@@ -261,8 +265,10 @@
 				8F5B778F1FC4E67C004B664B /* LibrarianTestViewController.swift */,
 				8F0407511FCD249A001987D8 /* SearchBookViewController.swift */,
 				8F0407571FCD2552001987D8 /* ScanBookViewController.swift */,
+				8FCF60FE1FD0FA39008D8C72 /* BookViewController.swift */,
 				8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */,
 				8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */,
+				8FCF60FC1FD0E818008D8C72 /* UpdateBookViewController.swift */,
 			);
 			path = Librarian;
 			sourceTree = "<group>";
@@ -624,12 +630,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */,
+				8FCF60FF1FD0FA39008D8C72 /* BookViewController.swift in Sources */,
 				8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */,
 				8F54D60A1FBFD48B00E25156 /* DateHelper.swift in Sources */,
 				8F2469BA1FC9684700BAF71B /* ReserveBookEvent.swift in Sources */,
 				8FEABA0A1FC0DE9300EA26E9 /* RegisterUserEvent.swift in Sources */,
 				8F3ABAF41FC0FEBB00551B3B /* SignoutUserEvent.swift in Sources */,
 				8F9367911FBBA921007716E5 /* User.swift in Sources */,
+				8FCF60FD1FD0E818008D8C72 /* UpdateBookViewController.swift in Sources */,
 				8FEDF5E01FC554F900CEA2CB /* ReturnBookEvent.swift in Sources */,
 				8FEABA041FC0BB3600EA26E9 /* BaseViewController.swift in Sources */,
 				8F0407581FCD2552001987D8 /* ScanBookViewController.swift in Sources */,
