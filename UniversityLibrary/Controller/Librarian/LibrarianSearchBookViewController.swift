@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibrarianSearchBookViewController: BaseViewController, BookManager {
+class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
   
     @IBOutlet weak var bookTitle: UITextField!
     
@@ -39,21 +39,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager {
         // Dispose of any resources that can be recreated.
     }
      
-    func checkout(book: Book) {
-        
-    }
-    
-    func waiting(book: Book) {
-        
-    }
-    
-    func doReturn(book: Book) {
-        
-    }
-    
-    func doReturn(books: [Book]) {
-        
-    }
+ 
     
     @IBAction func searchBook(_ sender: UIButton) {
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text,  let callNumber = self.callNumber.text else {
@@ -69,9 +55,56 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager {
             .setPublisher(publisher: publisher)
             .build()
         
-        self.sea
+        
+        self.search(exact: book)
     }
     
+    func search(exact book: Book) {
+      
+        let event = BookEvent(book: book, action: .searchExactly)
+        event.delegate = self
+        
+    }
+    
+    func search(by book: Book) {
+        
+        
+    }
+    
+    func add(with book: Book) {
+        
+    }
+    
+    
+    func update( book: Book) {
+ 
+    }
+    
+    func delete(book: Book) {
+    
+    }
+    
+    func complete(event: AbstractEvent) {
+        
+        
+        
+    }
+    
+    func error(event: AbstractEvent) {
+        
+    }
+    
+    func result(exact book: Book){
+       
+        if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
+            
+            bookVC.book = bookVC
+            self.navigationController?.pushViewController(bookVC, animated: true)
+        }
+  
+    }
+    
+   
     /*
     // MARK: - Navigation
 

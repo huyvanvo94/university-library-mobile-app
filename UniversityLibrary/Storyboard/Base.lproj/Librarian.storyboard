@@ -240,16 +240,16 @@
             </objects>
             <point key="canvasLocation" x="-1308" y="-451.12443778110946"/>
         </scene>
-        <!--Search Book View Controller-->
+        <!--Librarian Search Book View Controller-->
         <scene sceneID="Bd0-9I-1qF">
             <objects>
-                <viewController id="dT4-An-1v1" customClass="SearchBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LibrarianSearchBookViewController" id="dT4-An-1v1" customClass="LibrarianSearchBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Djm-zC-4lC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zSB-sC-iTO">
-                                <rect key="frame" x="38" y="100" width="300" height="353.5"/>
+                                <rect key="frame" x="38" y="100" width="300" height="404"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for exact Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-ow-wFK">
                                         <rect key="frame" x="66" y="0.0" width="168.5" height="20.5"/>
@@ -258,7 +258,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eeh-Sx-FWF">
-                                        <rect key="frame" x="0.0" y="20.5" width="300" height="333"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="300" height="383.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VoJ-d1-35k">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="50.5"/>
@@ -361,7 +361,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oeo-Me-8Qo">
-                                                <rect key="frame" x="0.0" y="252.5" width="300" height="80.5"/>
+                                                <rect key="frame" x="0.0" y="252.5" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-AY-74E">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -375,18 +375,38 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1I-wI-gIH">
-                                                        <rect key="frame" x="0.0" y="50.5" width="300" height="30"/>
-                                                        <state key="normal" title="Search"/>
-                                                        <connections>
-                                                            <segue destination="Eyz-Gx-HbF" kind="show" id="wUG-dT-gfc"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="cIY-bx-uAf"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K5W-TN-oYS">
+                                                <rect key="frame" x="0.0" y="303" width="300" height="50.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jj-zY-786">
+                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QyP-XV-HqU">
+                                                        <rect key="frame" x="0.0" y="20.5" width="300" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="300" id="i3w-YW-4EE"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1I-wI-gIH">
+                                                <rect key="frame" x="0.0" y="353.5" width="300" height="30"/>
+                                                <state key="normal" title="Search"/>
+                                                <connections>
+                                                    <action selector="searchBook:" destination="dT4-An-1v1" eventType="touchUpInside" id="KLo-aY-n1Z"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -400,15 +420,24 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HcN-ug-7UZ"/>
                     </view>
+                    <connections>
+                        <outlet property="author" destination="Gav-Do-YsU" id="9Hs-1S-7MY"/>
+                        <outlet property="bookTitle" destination="BX2-TY-c2E" id="Cbz-QM-lkZ"/>
+                        <outlet property="callNumber" destination="QyP-XV-HqU" id="ahj-Tq-aNe"/>
+                        <outlet property="currentStatus" destination="cSe-fO-7Ca" id="qYk-t9-JEb"/>
+                        <outlet property="locationInLibrary" destination="p6Z-Ko-EOR" id="3pP-D4-5gj"/>
+                        <outlet property="publisher" destination="s6b-55-iF0" id="5n4-t0-JAG"/>
+                        <outlet property="yearOfPublication" destination="Fwr-43-qdz" id="wVd-cs-pwx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nh-ep-qfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="528.79999999999995" y="161.46926536731635"/>
         </scene>
-        <!--Book View Controller-->
+        <!--Librarian Book View Controller-->
         <scene sceneID="rgC-Hx-ybL">
             <objects>
-                <viewController storyboardIdentifier="BookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eyz-Gx-HbF" customClass="BookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LibrarianBookViewControlle" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eyz-Gx-HbF" customClass="LibrarianBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gjo-ay-aaa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -424,7 +453,7 @@
                                 <state key="normal" title="Toggle Edit"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tyc-e3-ahc">
-                                <rect key="frame" x="37.5" y="117" width="300" height="180"/>
+                                <rect key="frame" x="37.5" y="73" width="300" height="180"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title of Book" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-5m-Ti9">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -468,7 +497,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKQ-vA-oWe">
-                                <rect key="frame" x="151.5" y="88" width="72.5" height="20.5"/>
+                                <rect key="frame" x="151.5" y="44" width="72.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
