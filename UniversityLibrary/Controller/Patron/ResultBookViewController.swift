@@ -1,20 +1,18 @@
 //
-//  LibraryViewController.swift
+//  ResultBookViewController.swift
 //  UniversityLibrary
 //
-//  Created by Huy Vo on 11/27/17.
+//  Created by Huy Vo on 11/30/17.
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
 
 import UIKit
 
-// Main
-class PatronLibraryViewController: BaseViewController, BookManager {
+class ResultBookViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Main"
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -23,27 +21,6 @@ class PatronLibraryViewController: BaseViewController, BookManager {
         // Dispose of any resources that can be recreated.
     }
     
-    func search(by book: Book){
-        
-    }
-    func add(with book: Book){
-        
-    }
-    // once users search for a book, it should return the book class
-    // then, users should be able to update book
-    // the book in this arguement is the updated version
-    // user should NOT be able to update id, title, or author
-    func update(book: Book){
-        
-    }
-    
-    func delete(book: Book){
-        
-    }
-    
-    func search(exact book: Book){
-        
-    }
 
     /*
     // MARK: - Navigation

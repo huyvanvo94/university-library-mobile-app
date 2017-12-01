@@ -34,13 +34,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // start lbrarian storyboard
         
+        /*
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Librarian", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "LibrarianNavViewController") as! LibrarianNavViewController
         self.window?.rootViewController = root
-        self.window?.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible() */
         
         // end set root view controller
+        
+        // start patron storyboard
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Patron", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "PatronNavViewController") as! PatronNavViewController
+        self.window?.rootViewController = root
+        self.window?.makeKeyAndVisible()
         
         FirebaseApp.configure()
         return true
