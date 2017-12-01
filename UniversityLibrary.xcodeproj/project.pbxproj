@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1988AA8B1FD171A6007ACC6A /* PatronHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988AA8A1FD171A6007ACC6A /* PatronHomeViewController.swift */; };
+		1988AA8D1FD173CE007ACC6A /* PatronAllBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988AA8C1FD173CE007ACC6A /* PatronAllBooksViewController.swift */; };
 		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
 		8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */; };
 		8F0407521FCD249A001987D8 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* SearchBookViewController.swift */; };
@@ -84,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1988AA8A1FD171A6007ACC6A /* PatronHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronHomeViewController.swift; sourceTree = "<group>"; };
+		1988AA8C1FD173CE007ACC6A /* PatronAllBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronAllBooksViewController.swift; sourceTree = "<group>"; };
 		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		8F0407511FCD249A001987D8 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
 		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -190,6 +194,8 @@
 			children = (
 				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
 				8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */,
+				1988AA8A1FD171A6007ACC6A /* PatronHomeViewController.swift */,
+				1988AA8C1FD173CE007ACC6A /* PatronAllBooksViewController.swift */,
 			);
 			path = Patron;
 			sourceTree = "<group>";
@@ -479,7 +485,7 @@
 				TargetAttributes = {
 					8FC2EC911FBAC6EF00BB15D1 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					8FC2ECA81FBAC6EF00BB15D1 = {
 						CreatedOnToolsVersion = 9.1;
@@ -610,6 +616,7 @@
 				8F0407581FCD2552001987D8 /* ScanBookViewController.swift in Sources */,
 				8FA5D0891FC192560048EB74 /* WaitingList.swift in Sources */,
 				8FEABA0C1FC0E76E00EA26E9 /* LoginUserEvent.swift in Sources */,
+				1988AA8D1FD173CE007ACC6A /* PatronAllBooksViewController.swift in Sources */,
 				8FBAC2A71FBFA44900589262 /* Validation.swift in Sources */,
 				8FBAC2A11FBF9AB300589262 /* SignUpViewController.swift in Sources */,
 				8FBAC29D1FBF919100589262 /* Book.swift in Sources */,
@@ -632,6 +639,7 @@
 				8F54D60E1FBFDDB100E25156 /* Formatter.swift in Sources */,
 				8F5B77901FC4E67D004B664B /* LibrarianTestViewController.swift in Sources */,
 				8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */,
+				1988AA8B1FD171A6007ACC6A /* PatronHomeViewController.swift in Sources */,
 				8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */,
 				8FC2EC9E1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld in Sources */,
 				8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */,

@@ -28,7 +28,8 @@ class CheckoutBookViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //assign all UIObjects values from the list passed by patronAllBooksViewController
         // Do any additional setup after loading the view.
     }
 
