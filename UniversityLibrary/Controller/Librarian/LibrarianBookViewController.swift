@@ -55,14 +55,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         
        
         if let evnt = event as? BookEvent{
-            
-            if evnt.state = .deleteSuccess{
-                
-                self.popbackview()
-            }else if evnt.state = .updateSuccess{
-                self.popbackview()
-            }
-            
+       
+            self.popbackview()
         }
         
         
