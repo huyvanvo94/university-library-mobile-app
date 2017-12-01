@@ -98,7 +98,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
        
         if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
             
-            bookVC.book = bookVC
+            bookVC.book = book
             self.navigationController?.pushViewController(bookVC, animated: true)
         }
   
