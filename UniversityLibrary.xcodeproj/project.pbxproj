@@ -15,6 +15,7 @@
 		8F0407581FCD2552001987D8 /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407571FCD2552001987D8 /* ScanBookViewController.swift */; };
 		8F04075A1FCD26CC001987D8 /* LibrarianLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */; };
 		8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */; };
+		8F209B8C1FD20EA40018C6FB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F209B8B1FD20EA40018C6FB /* Toast.swift */; };
 		8F2469BA1FC9684700BAF71B /* ReserveBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */; };
 		8F3ABAF41FC0FEBB00551B3B /* SignoutUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAF31FC0FEBB00551B3B /* SignoutUserEvent.swift */; };
 		8F3ABAF61FC107C300551B3B /* PatronNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */; };
@@ -107,6 +108,7 @@
 		8F0407571FCD2552001987D8 /* ScanBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBookViewController.swift; sourceTree = "<group>"; };
 		8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianLibraryViewController.swift; sourceTree = "<group>"; };
 		8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		8F209B8B1FD20EA40018C6FB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveBookEvent.swift; sourceTree = "<group>"; };
 		8F3ABAF31FC0FEBB00551B3B /* SignoutUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignoutUserEvent.swift; sourceTree = "<group>"; };
 		8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronNavViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			children = (
 				8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */,
 				8F54D6071FBFD0EE00E25156 /* Constants.swift */,
+				8F209B8B1FD20EA40018C6FB /* Toast.swift */,
 				8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */,
 				8F54D6221FC01F2700E25156 /* Storyboard */,
 				8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */,
@@ -699,6 +702,7 @@
 				8FC6FAC31FCFF3A100FBC1D8 /* GeneralUILabel.swift in Sources */,
 				8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */,
 				8FCF61051FD104CD008D8C72 /* MyWaitListTableViewController.swift in Sources */,
+				8F209B8C1FD20EA40018C6FB /* Toast.swift in Sources */,
 				8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */,
 				8FBAC2B11FBFBEE500589262 /* LoginViewController.swift in Sources */,
 				8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */,

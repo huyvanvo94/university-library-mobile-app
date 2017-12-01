@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginUserEventDelegate {
+class LoginViewController: BaseViewController, LoginUserEventDelegate {
 
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,8 +21,8 @@ class LoginViewController: UIViewController, LoginUserEventDelegate {
         self.passwordTextField.isSecureTextEntry = true
         
         self.hideKeyboardWhenTappedAround()
+         
         
-     
         /*
         let lb = LibrarianManager(user: Mock.mock_Librarian())
         let b = Mock.mock_Book2()
