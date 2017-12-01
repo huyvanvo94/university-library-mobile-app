@@ -1,5 +1,5 @@
 //
-//  AddBookViewController.swift
+//  SearchBookViewController.swift
 //  UniversityLibrary
 //
 //  Created by Huy Vo on 11/27/17.
@@ -8,15 +8,22 @@
 
 import UIKit
 
-class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
- 
+class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
+  
     @IBOutlet weak var bookTitle: UITextField!
     
+    
     @IBOutlet weak var author: UITextField!
+    
+    
     @IBOutlet weak var publisher: UITextField!
+    
+    
     @IBOutlet weak var yearOfPublication: UITextField!
+    
     @IBOutlet weak var locationInLibrary: UITextField!
-    @IBOutlet weak var numberOfCopies: UITextField!
+    
+    @IBOutlet weak var currentStatus: UITextField!
     
     @IBOutlet weak var callNumber: UITextField!
     
@@ -31,9 +38,11 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+     
+ 
     
-    @IBAction func addBook(_ sender: UIButton) {
-        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text else {
+    @IBAction func searchBook(_ sender: UIButton) {
+        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text,  let callNumber = self.callNumber.text else {
             return
         }
         
@@ -42,27 +51,42 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
             .setAuthor(author: author)
             .setCallNumber(callNumber: callNumber)
             .setLocationInLibrary(locationInLibrary: locationInLibrary)
-            .setNumberOfCopies(numberOfCopies: Int(numberOfCopies)!)
             .setYearOfPublication(yearOfPublication: Int(yearOfPublication)!)
             .setPublisher(publisher: publisher)
             .build()
         
-        self.add(with: book)
+        
+        self.search(exact: book)
+    }
+    
+    func search(exact book: Book) {
+      
+        let event = BookEvent(book: book, action: .searchExactly)
+        event.delegate = self
+        
+    }
+    
+    func search(by book: Book) {
         
         
     }
     
+    func add(with book: Book) {
+        
+    }
+    
+    
+    func update( book: Book) {
+ 
+    }
+    
+    func delete(book: Book) {
+    
+    }
+    
     func complete(event: AbstractEvent) {
-       
-        switch event {
-        case let event as BookEvent:
-            if event.state == .success{
-                super.activityIndicatorView.stopAnimating()
-                super.showToast(message: "success")
-            }
-        default:
-            print("No action")
-        }
+        
+        
         
     }
     
@@ -70,39 +94,17 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         
     }
     
-    func result(exact book: Book) {
-        
+    func result(exact book: Book){
+       
+        if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
+            
+            bookVC.book = bookVC
+            self.navigationController?.pushViewController(bookVC, animated: true)
+        }
+  
     }
     
-
-    // CRUD Operations
-    func search(by book: Book){
-        
-    }
-    
-    func add(with book: Book){
-        
-        super.activityIndicatorView.startAnimating()
-        
-        let event = BookEvent(book: book, action: .add)
-        event.delegate = self
-        
-    }
-    // once users search for a book, it should return the book class
-    // then, users should be able to update book
-    // the book in this arguement is the updated version
-    // user should NOT be able to update id, title, or author
-    func update(book: Book){
-        
-    }
-    
-    func delete(book: Book){
-        
-    }
-    
-    func search(exact book: Book){
-        
-    }
+   
     /*
     // MARK: - Navigation
 

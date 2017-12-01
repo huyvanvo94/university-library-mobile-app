@@ -215,6 +215,9 @@ enum BookActionState{
     case notExist
     
     case waitingListNotEmpty
+    
+    case deleteSuccess
+    case updateSuccess
 }
 
 protocol BookCRUDDelegate : AbstractEventDelegate{

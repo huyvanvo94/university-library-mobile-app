@@ -8,8 +8,26 @@
 
 import UIKit
 
-class SearchBookViewController: BaseViewController, BookKeeper {
+class LibrarianSearchBookViewController: BaseViewController, BookManager {
   
+    @IBOutlet weak var bookTitle: UITextField!
+    
+    
+    @IBOutlet weak var author: UITextField!
+    
+    
+    @IBOutlet weak var publisher: UITextField!
+    
+    
+    @IBOutlet weak var yearOfPublication: UITextField!
+    
+    @IBOutlet weak var locationInLibrary: UITextField!
+    
+    @IBOutlet weak var currentStatus: UITextField!
+    
+    @IBOutlet weak var callNumber: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +55,23 @@ class SearchBookViewController: BaseViewController, BookKeeper {
         
     }
     
-
+    @IBAction func searchBook(_ sender: UIButton) {
+        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text,  let callNumber = self.callNumber.text else {
+            return
+        }
+        
+        let book = Book.Builder()
+            .setTitle(title: bookTitle )
+            .setAuthor(author: author)
+            .setCallNumber(callNumber: callNumber)
+            .setLocationInLibrary(locationInLibrary: locationInLibrary)
+            .setYearOfPublication(yearOfPublication: Int(yearOfPublication)!)
+            .setPublisher(publisher: publisher)
+            .build()
+        
+        self.sea
+    }
+    
     /*
     // MARK: - Navigation
 

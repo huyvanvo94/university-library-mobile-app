@@ -36,6 +36,7 @@ class BaseViewController: UIViewController {
         return activityIndicatorView
     }()
     
+    
     func alertMessage(title: String, message: String, actionTitle: String = "OK"){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
