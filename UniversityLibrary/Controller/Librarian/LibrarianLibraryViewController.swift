@@ -24,7 +24,10 @@ class LibrarianLibraryViewController: BaseViewController, BookKeeper {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
+  
     
     func checkout(book: Book) {
         

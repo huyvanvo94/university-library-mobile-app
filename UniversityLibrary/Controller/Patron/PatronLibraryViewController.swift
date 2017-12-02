@@ -13,7 +13,7 @@ class PatronLibraryViewController: BaseViewController, BookManager {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Main"
+        self.title = "Welcome"
         
         // Do any additional setup after loading the view.
     }
@@ -24,13 +24,7 @@ class PatronLibraryViewController: BaseViewController, BookManager {
     }
     @IBAction func logout(_ sender: UIBarButtonItem) {
     
-       
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
-  
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = root
+        super.logout() 
     }
     
     func search(by book: Book){

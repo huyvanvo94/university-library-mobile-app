@@ -12,12 +12,13 @@ class MenuUIButton: UIButton {
 
     override func awakeFromNib() {
         layer.cornerRadius = 4
-        backgroundColor = UIColor(rgb: 0x5b5bff)
+        backgroundColor = UIColor(rgb: 0x95b7ed)
         
         self.setTitleColor(.white, for: .normal)
         
     }
     
+  
     override var isHighlighted: Bool{
         get{
             return super.isHighlighted
@@ -28,7 +29,7 @@ class MenuUIButton: UIButton {
                 backgroundColor = UIColor(rgb:0x3333FF)
             }else{
                 //normal state
-                backgroundColor = UIColor(rgb:0x5b5bff)
+                backgroundColor = UIColor(rgb:0x95b7ed)
             }
         }
     }

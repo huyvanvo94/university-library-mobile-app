@@ -70,6 +70,8 @@ class MyCheckoutBooksTableViewController: UITableViewController, AbstractEventDe
         cell.bookAuthorLabel.text = book.author
         cell.bookTitleLabel.text = book.title
      
+        cell.frame.size.width = 100
+        
         return cell
     }
     
