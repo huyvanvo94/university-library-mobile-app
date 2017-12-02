@@ -9,6 +9,10 @@
 import UIKit
 
 class LibrarianLibraryViewController: BaseViewController, BookKeeper {
+    func search(for: Book) {
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

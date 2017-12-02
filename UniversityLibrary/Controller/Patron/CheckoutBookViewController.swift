@@ -10,11 +10,17 @@ import UIKit
 
 class CheckoutBookViewController: BaseViewController {
     
+    var book: Book?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.loadBookToUI()
         // Do any additional setup after loading the view.
+    }
+    
+    func loadBookToUI(){
+        
     }
 
     override func didReceiveMemoryWarning() {
