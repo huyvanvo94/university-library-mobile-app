@@ -357,19 +357,12 @@
                     </view>
                     <connections>
                         <outlet property="author" destination="DtW-MP-S3p" id="Ztr-AA-E7l"/>
-                        <outlet property="bookAuthorTextField" destination="DtW-MP-S3p" id="0fD-SS-gwf"/>
-                        <outlet property="bookPublisherTextField" destination="ADG-YG-D6p" id="qb5-61-E9u"/>
                         <outlet property="bookTitle" destination="jP3-li-Fcg" id="cBy-Ue-pZN"/>
-                        <outlet property="bookTitleTextField" destination="jP3-li-Fcg" id="Nv3-Ae-8fK"/>
-                        <outlet property="callNumber" destination="PP7-ku-np6" id="pjr-H0-gnu"/>
-                        <outlet property="callNumberTextField" destination="NwV-Qc-TSu" id="Re4-ns-J8y"/>
-                        <outlet property="currentStatusTextField" destination="PP7-ku-np6" id="Cp4-jA-iX7"/>
+                        <outlet property="callNumber" destination="NwV-Qc-TSu" id="g3r-Ng-B2q"/>
+                        <outlet property="currentStatus" destination="PP7-ku-np6" id="aPH-aA-Bpa"/>
                         <outlet property="locationInLibrary" destination="ZAp-jE-rOQ" id="2x6-9S-jwa"/>
-                        <outlet property="locationInLibraryTextField" destination="ZAp-jE-rOQ" id="IjL-4L-1Uu"/>
                         <outlet property="publisher" destination="ADG-YG-D6p" id="O4P-rz-iT8"/>
-                        <outlet property="title" destination="jP3-li-Fcg" id="qYk-uC-u4K"/>
                         <outlet property="yearOfPublication" destination="yhd-dA-9EI" id="Ksi-0T-PRA"/>
-                        <outlet property="yearOfPublicationTextField" destination="yhd-dA-9EI" id="XTp-KZ-iMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xMc-Lk-gky" userLabel="First Responder" sceneMemberID="firstResponder"/>

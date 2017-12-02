@@ -20,6 +20,7 @@ class PatronSearchBookViewController: UIViewController {
     @IBOutlet weak var yearOfPublication: UITextField!
     @IBOutlet weak var locationInLibrary: UITextField!
     @IBOutlet weak var callNumber: UITextField!
+    @IBOutlet weak var currentStatus: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
