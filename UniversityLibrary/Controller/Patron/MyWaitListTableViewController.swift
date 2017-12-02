@@ -12,12 +12,15 @@ class MyWaitListTableViewController: UITableViewController {
 
     var myWaitListBooks = [Book]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func loadView() {
+        super.loadView()
         self.title = "Wait List"
         
-        self.tableView.frame.size.width = UIScreen.main.bounds.width
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
       
 
