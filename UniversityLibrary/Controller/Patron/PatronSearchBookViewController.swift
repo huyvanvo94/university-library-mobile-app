@@ -9,7 +9,18 @@
 import UIKit
 
 class PatronSearchBookViewController: UIViewController {
-
+    
+    //MARK: Properties
+    @IBOutlet weak var bookTitle: UITextField!
+    
+    @IBOutlet weak var author: UITextField!
+    
+    @IBOutlet weak var publisher: UITextField!
+    
+    @IBOutlet weak var yearOfPublication: UITextField!
+    @IBOutlet weak var locationInLibrary: UITextField!
+    @IBOutlet weak var callNumber: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +33,9 @@ class PatronSearchBookViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+   
 
 }

@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Logger.log(clzz: "AppDelegate", message: "didFinisihLaunchingWithOptions")
      
         // set root view controller
-  
+        /*
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
         self.window?.rootViewController = root
         self.window?.makeKeyAndVisible()
-        
+ */
         // start lbrarian storyboard
         
         /*
@@ -38,20 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Librarian", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "LibrarianNavViewController") as! LibrarianNavViewController
         self.window?.rootViewController = root
-        self.window?.makeKeyAndVisible() */
-        
+        self.window?.makeKeyAndVisible()
+        */
         // end set root view controller
         
         // start patron storyboard
         
-        
-        /*
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Patron", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "PatronNavViewController") as! PatronNavViewController
         self.window?.rootViewController = root
-        self.window?.makeKeyAndVisible()*/
-        
+        self.window?.makeKeyAndVisible()
+ 
         FirebaseApp.configure()
         return true
     }
