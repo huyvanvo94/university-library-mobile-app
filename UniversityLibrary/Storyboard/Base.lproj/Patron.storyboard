@@ -156,14 +156,14 @@
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-tL-T3a">
                                             <rect key="frame" x="26" y="7" width="323" height="76"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5I-uM-I9u">
-                                                    <rect key="frame" x="18" y="15" width="289.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5I-uM-I9u">
+                                                    <rect key="frame" x="18" y="15" width="291.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGd-pR-Cxu">
-                                                    <rect key="frame" x="18" y="38" width="289.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGd-pR-Cxu">
+                                                    <rect key="frame" x="18" y="38" width="291.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -174,7 +174,7 @@
                                                 <constraint firstItem="x5I-uM-I9u" firstAttribute="top" secondItem="DPT-tL-T3a" secondAttribute="top" constant="15" id="0TQ-7f-PVA"/>
                                                 <constraint firstItem="qGd-pR-Cxu" firstAttribute="top" secondItem="x5I-uM-I9u" secondAttribute="bottom" constant="2" id="9mV-cN-qpm"/>
                                                 <constraint firstItem="qGd-pR-Cxu" firstAttribute="leading" secondItem="DPT-tL-T3a" secondAttribute="leading" constant="18" id="Apr-2i-EIH"/>
-                                                <constraint firstAttribute="bottom" secondItem="qGd-pR-Cxu" secondAttribute="bottom" constant="20" id="HAR-XJ-dvI"/>
+                                                <constraint firstAttribute="bottom" secondItem="qGd-pR-Cxu" secondAttribute="bottom" constant="17" id="HAR-XJ-dvI"/>
                                                 <constraint firstItem="qGd-pR-Cxu" firstAttribute="leading" secondItem="DPT-tL-T3a" secondAttribute="leading" constant="18" id="dH6-5m-dv0"/>
                                                 <constraint firstItem="x5I-uM-I9u" firstAttribute="leading" secondItem="DPT-tL-T3a" secondAttribute="leading" constant="18" id="dIv-Jo-Pj3"/>
                                                 <constraint firstAttribute="trailing" secondItem="x5I-uM-I9u" secondAttribute="trailing" constant="15.5" id="i4E-zW-leD"/>
@@ -183,10 +183,10 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="DPT-tL-T3a" firstAttribute="top" secondItem="QHN-pc-Aea" secondAttribute="topMargin" constant="3.5" id="0eF-JL-9F3"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="DPT-tL-T3a" secondAttribute="bottom" constant="3.5" id="Hbk-pI-GBg"/>
-                                        <constraint firstItem="DPT-tL-T3a" firstAttribute="leading" secondItem="QHN-pc-Aea" secondAttribute="leadingMargin" constant="11" id="LjD-hw-6hW"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="DPT-tL-T3a" secondAttribute="trailing" constant="11" id="NOo-1j-S0e"/>
+                                        <constraint firstItem="DPT-tL-T3a" firstAttribute="top" secondItem="QHN-pc-Aea" secondAttribute="topMargin" constant="-4" id="0eF-JL-9F3"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DPT-tL-T3a" secondAttribute="bottom" constant="-4" id="Hbk-pI-GBg"/>
+                                        <constraint firstItem="DPT-tL-T3a" firstAttribute="leading" secondItem="QHN-pc-Aea" secondAttribute="leadingMargin" constant="10" id="LjD-hw-6hW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DPT-tL-T3a" secondAttribute="trailing" constant="10" id="NOo-1j-S0e"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
