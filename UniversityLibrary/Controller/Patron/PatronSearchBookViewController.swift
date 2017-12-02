@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatronSearchBookViewController: UIViewController {
+class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
     
     //MARK: Properties
     @IBOutlet weak var bookTitle: UITextField!
@@ -35,7 +35,32 @@ class PatronSearchBookViewController: UIViewController {
     
 
     
-
+    func checkout(book: Book) {
+        
+    }
+    
+    func waiting(book: Book) {
+        
+    }
+    
+    func doReturn(book: Book) {
+        
+    }
+    
+    func doReturn(books: [Book]) {
+        
+    }
+    
+    func search(for: Book) {
+        
+    }
+    
+    func complete(event: AbstractEvent){
+        
+    }
+    func error(event: AbstractEvent){
+        
+    }
 
    
 
