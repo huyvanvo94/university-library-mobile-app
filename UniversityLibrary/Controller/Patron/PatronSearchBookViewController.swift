@@ -61,7 +61,21 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     func error(event: AbstractEvent){
         
     }
-
+ 
+    @IBAction func searchForBook(_ sender: UIButton) {
+        
+        goToCheckoutBookVC(with: Mock.mock_Book())
+    }
+    
+    
+   
    
 
+    func goToCheckoutBookVC(with book: Book ){
+        //CheckoutBookViewController
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckoutBookViewController") as? CheckoutBookViewController{
+            
+           self.navigationController?.pushViewController(vc, animated: true)
+        }    }
 }

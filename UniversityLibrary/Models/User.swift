@@ -85,12 +85,13 @@ class Librarian: User{
 }
 
 class Patron: User{
-    
-    
-    
     let today = Date()
     var numberOfBooksCheckoutToday = 0
     var totalNumberOfBooksCheckout = 0
+    // contains id to books
+    var booksCheckedOut: [String]?
+    // contains id to books
+    var booksOnWaitingList: [String]?
      
     //The total number of books a patron can keep at any given time cannot exceed 9.
     static let MAX_BOOKS = 9

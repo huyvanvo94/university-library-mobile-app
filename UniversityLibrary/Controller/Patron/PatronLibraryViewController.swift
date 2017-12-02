@@ -22,6 +22,16 @@ class PatronLibraryViewController: BaseViewController, BookManager {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+    
+       
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
+  
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = root
+    }
     
     func search(by book: Book){
         
