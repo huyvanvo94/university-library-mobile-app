@@ -12,7 +12,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor(rgb: 0xf9f9f9)
         // Do any additional setup after loading the view.
     }
 
@@ -85,4 +85,12 @@ class BaseViewController: UIViewController {
     }
     */
 
+    
+    func logout(){
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = root
+    }
 }

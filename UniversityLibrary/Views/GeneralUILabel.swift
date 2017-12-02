@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
-import QuartzCore
+
+
+// MARK -: Kevin
 
 class GeneralUILabel: UILabel {
  

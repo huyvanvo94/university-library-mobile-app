@@ -9,10 +9,24 @@
 import UIKit
 
 class BaseNavViewController: UINavigationController {
+    
+ 
+    override func loadView() {
+        super.loadView()
+        self.navigationBar.barTintColor = UIColor(rgb: 0x4286f4)
+        
+        let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
+         
+        self.navigationBar.titleTextAttributes = textAttributes
+       
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+ 
+        
         // Do any additional setup after loading the view.
     }
 

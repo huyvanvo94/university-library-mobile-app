@@ -22,8 +22,14 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     @IBOutlet weak var callNumber: UITextField!
     @IBOutlet weak var currentStatus: UITextField!
     
+    override func loadView() {
+        super.loadView()
+        self.title = "Search"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

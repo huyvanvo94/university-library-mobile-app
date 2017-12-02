@@ -19,6 +19,12 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     
     var book: Book?
     
+    override func loadView() {
+        super.loadView()
+        
+        self.title = "Sign Up"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      

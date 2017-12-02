@@ -12,7 +12,12 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate {
 
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-     
+    
+    override func loadView() {
+        super.loadView()
+        self.title = "Login"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,6 +26,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate {
         self.passwordTextField.isSecureTextEntry = true
         
         self.hideKeyboardWhenTappedAround()
+        
          
         
         /*

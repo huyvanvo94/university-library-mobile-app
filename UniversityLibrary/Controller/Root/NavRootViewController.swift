@@ -12,7 +12,7 @@ import UIKit
  * This is the master controller for the application.
  * Any UI must go through this controller first.
  */
-class NavRootViewController: UINavigationController {
+class NavRootViewController: BaseNavViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

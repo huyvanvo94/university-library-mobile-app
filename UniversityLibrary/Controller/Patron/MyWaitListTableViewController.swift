@@ -15,7 +15,11 @@ class MyWaitListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Wait List" 
+        self.title = "Wait List"
+        
+        self.tableView.frame.size.width = UIScreen.main.bounds.width
+        
+      
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

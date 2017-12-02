@@ -22,6 +22,7 @@ class BookCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
@@ -38,6 +39,25 @@ class BookCell: UITableViewCell {
         BookView.layer.shadowOpacity = 0.09
         BookView.layer.shadowRadius = 20
         BookView.layer.cornerRadius = 6
+        
+   
+    }
+    
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            let newWidth = UIScreen.main.bounds.width
+            
+            let space = (frame.width - newWidth) / 2
+            frame.size.width = newWidth
+            frame.origin.x += space
+            
+            super.frame = frame
+            
+        }
     }
 
 }

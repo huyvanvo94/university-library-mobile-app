@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Logger.log(clzz: "AppDelegate", message: "didFinisihLaunchingWithOptions")
         FirebaseApp.configure()
+         
+        UINavigationBar.appearance().tintColor = UIColor.white
+       
         // set root view controller
         /*
         self.window = UIWindow(frame: UIScreen.main.bounds)
