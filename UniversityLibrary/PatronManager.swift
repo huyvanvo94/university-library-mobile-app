@@ -61,6 +61,10 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     }
     
     
+    func search(for: Book){
+        
+    }
+    
     func error(event: AbstractEvent) {
         
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatronBookViewController: UIViewController {
+class PatronBookViewController: UIViewController, BookKeeper, AbstractEventDelegate {
     
     var book: Book?
 
@@ -31,6 +31,33 @@ class PatronBookViewController: UIViewController {
             self.title = title
         }
  
+        
+    }
+    
+    func checkout(book: Book) {
+        
+    }
+    
+    func waiting(book: Book) {
+        
+    }
+    
+    func doReturn(book: Book) {
+        
+    }
+    
+    func doReturn(books: [Book]) {
+        
+    }
+    
+    func search(for: Book) {
+        
+    }
+    
+    func complete(event: AbstractEvent){
+        
+    }
+    func error(event: AbstractEvent){
         
     }
     
