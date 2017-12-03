@@ -19,6 +19,13 @@ class BookCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var waitListBookTitleLabel: UILabel!
+    @IBOutlet weak var WaitListBookAuthorLabel: UILabel!
+    @IBOutlet weak var WaitListBookView: UIView!{
+        didSet{
+            configureWaitListView()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +48,16 @@ class BookCell: UITableViewCell {
         BookView.layer.cornerRadius = 6
         
    
+    }
+    
+    func configureWaitListView(){
+        WaitListBookView.layer.shadowColor = UIColor.lightGray.cgColor
+        WaitListBookView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        WaitListBookView.layer.shadowOpacity = 0.09
+        WaitListBookView.layer.shadowRadius = 20
+        WaitListBookView.layer.cornerRadius = 6
+        
+        
     }
     
     override var frame: CGRect {

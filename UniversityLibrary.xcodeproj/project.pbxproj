@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C981FD20616007CDD60 /* MenuUIButton.swift */; };
 		3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C9A1FD208E4007CDD60 /* BookCell.swift */; };
+		3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */; };
 		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
 		8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */; };
 		8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */; };
@@ -107,6 +108,7 @@
 /* Begin PBXFileReference section */
 		3FB04C981FD20616007CDD60 /* MenuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuUIButton.swift; sourceTree = "<group>"; };
 		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchWaitListBookEvent.swift; sourceTree = "<group>"; };
 		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianSearchBookViewController.swift; sourceTree = "<group>"; };
 		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -252,6 +254,7 @@
 				8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */,
 				8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */,
 				8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */,
+				3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */,
 			);
 			path = PatronEvent;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				8FC2EC961FBAC6EF00BB15D1 /* AppDelegate.swift in Sources */,
 				8FCF61011FD10230008D8C72 /* MyCheckoutBooksTableViewController.swift in Sources */,
 				8FBAC2AC1FBFBA5B00589262 /* Extensions.swift in Sources */,
+				3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */,
 				8FC3E9B31FC2484A00940427 /* CheckoutList.swift in Sources */,
 				8FBAC2A31FBFA27300589262 /* LibrarianManager.swift in Sources */,
 				8FA5D08B1FC19A2B0048EB74 /* BookKeeper.swift in Sources */,
