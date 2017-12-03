@@ -13,7 +13,26 @@ class LibrarianLibraryViewController: BaseViewController, BookKeeper {
         
     }
     
-
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        super.logout()
+    }
+    
+    @IBAction func goToAddBooksVC(_ sender: MenuUIButton) {
+        
+        self.goToAddBooksView()
+    }
+    
+    
+    func goToAddBooksView(){
+        if let vc  = self.storyboard?.instantiateViewController(withIdentifier: "AddBookViewController") as? AddBookViewController{
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func goToSearchBooks(_ sender: MenuUIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

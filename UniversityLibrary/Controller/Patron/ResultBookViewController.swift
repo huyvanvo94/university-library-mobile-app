@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultBookViewController: UIViewController {
+class ResultBookViewController: BaseViewController{
 
     
     override func viewDidLoad() {

@@ -27,6 +27,10 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     @IBOutlet weak var callNumber: UITextField!
     
+    override func loadView() {
+        super.loadView()
+        self.title = "Search for exact book"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,12 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
  
     
     @IBAction func searchBook(_ sender: UIButton) {
+        /*
+        if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
+             
+            self.navigationController?.pushViewController(bookVC, animated: true)
+        }*/
+        /*
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text,  let callNumber = self.callNumber.text else {
             return
         }
@@ -56,7 +66,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
             .build()
         
         
-        self.search(exact: book)
+        self.search(exact: book)*/
     }
     
     func search(exact book: Book) {
