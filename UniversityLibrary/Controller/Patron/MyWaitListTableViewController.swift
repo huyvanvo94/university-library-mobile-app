@@ -8,22 +8,19 @@
 
 import UIKit
 
-class MyWaitListTableViewController: UITableViewController {
+class MyWaitListTableViewController: UITableViewController, AbstractEventDelegate {
 
     var myWaitListBooks = [Book]()
     
     override func loadView() {
         super.loadView()
-        self.title = "Wait List"
+        self.title = "My Wait List"
         
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,6 +31,17 @@ class MyWaitListTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+  
+    private func fetchBooks(){
+        
+        DispatchQueue.main.async {
+            
+            for _ in 0..<100{
+                let event = FetchWaitListBookEvent(patron: Mock.mock_Patron())
+                event.delegate = self
+            }
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,8 +61,16 @@ class MyWaitListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as!
+            BookCell
+        
+        let index = indexPath.row
+        let book = self.myWaitListBooks[index]
+        cell.waitListBookTitleLabel.text = book.title
+        cell.WaitListBookAuthorLabel.text = book.author
+        
+        cell.frame.size.width = 100
+        
         return cell
     }
     
@@ -63,5 +79,25 @@ class MyWaitListTableViewController: UITableViewController {
           
         }
     }
+    func complete(event: AbstractEvent) {
+        switch event {
+        case let event as FetchWaitListBookEvent:
+            
+            DispatchQueue.main.sync {
+                if let book = event.book{
+                    
+                    self.myWaitListBooks.append(book)
+                    self.tableView.reloadData()
+                }
+            }
+            
+        default:
+            print("No Action")
+        }
+        
+    }
     
+    func error(event: AbstractEvent) {
+        print("Error")
+    }
 }

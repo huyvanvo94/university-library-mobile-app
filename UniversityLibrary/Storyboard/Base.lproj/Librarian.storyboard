@@ -253,7 +253,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zSB-sC-iTO">
-                                <rect key="frame" x="38" y="100" width="300" height="404"/>
+                                <rect key="frame" x="38" y="100" width="300" height="450"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Search for exact Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-ow-wFK">
                                         <rect key="frame" x="66" y="0.0" width="168.5" height="20.5"/>
@@ -262,10 +262,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eeh-Sx-FWF">
-                                        <rect key="frame" x="0.0" y="20.5" width="300" height="383.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="300" height="429.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VoJ-d1-35k">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="96.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt5-vU-lwy">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -274,7 +274,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BX2-TY-c2E">
-                                                        <rect key="frame" x="0.0" y="20.5" width="300" height="30"/>
+                                                        <rect key="frame" x="0.0" y="20.5" width="300" height="76"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="300" id="acb-OO-52y"/>
                                                         </constraints>
@@ -285,7 +285,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bEc-Ox-cF8">
-                                                <rect key="frame" x="0.0" y="50.5" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="96.5" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zog-Kj-WAI">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -305,7 +305,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-eC-Mlf">
-                                                <rect key="frame" x="0.0" y="101" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="147" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhK-mv-i8t">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -325,7 +325,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TH9-mg-htQ">
-                                                <rect key="frame" x="0.0" y="151.5" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="197.5" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qk5-6Y-bLR">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -345,7 +345,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iUo-On-a3t">
-                                                <rect key="frame" x="0.0" y="202" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="248" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location in Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-wd-hsk">
                                                         <rect key="frame" x="0.0" y="0.0" width="141" height="20.5"/>
@@ -365,7 +365,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oeo-Me-8Qo">
-                                                <rect key="frame" x="0.0" y="252.5" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="298.5" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-AY-74E">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -385,7 +385,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K5W-TN-oYS">
-                                                <rect key="frame" x="0.0" y="303" width="300" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="349" width="300" height="50.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Call number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jj-zY-786">
                                                         <rect key="frame" x="0.0" y="0.0" width="92" height="20.5"/>
@@ -404,8 +404,8 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1I-wI-gIH">
-                                                <rect key="frame" x="0.0" y="353.5" width="300" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1I-wI-gIH" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="399.5" width="300" height="30"/>
                                                 <state key="normal" title="Search"/>
                                                 <connections>
                                                     <action selector="searchBook:" destination="dT4-An-1v1" eventType="touchUpInside" id="KLo-aY-n1Z"/>
@@ -414,6 +414,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="jI0-wq-ekn"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -467,12 +470,22 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Author of Book" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YN5-Ab-Jmj">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sq8-gR-djf">
                                         <rect key="frame" x="0.0" y="30" width="300" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-ga-JTl">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Author of Book" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YN5-Ab-Jmj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Call number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="or8-gJ-ZFg">
                                         <rect key="frame" x="0.0" y="60" width="300" height="30"/>
                                         <nil key="textColor"/>
@@ -535,24 +548,26 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7uO-oS-XbV">
                                 <rect key="frame" x="37" y="110" width="300" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uc-od-qxZ">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uc-od-qxZ" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="HQW-gh-2LI"/>
                                             <constraint firstAttribute="height" constant="100" id="NHq-Fd-OIs"/>
                                         </constraints>
-                                        <state key="normal" title="Search"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <state key="normal" title="Search" image="searchIcon"/>
                                         <connections>
                                             <segue destination="dT4-An-1v1" kind="show" id="TMP-NB-Uhe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Px-fq-m7B">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Px-fq-m7B" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="100" width="300" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="8lN-cf-N9h"/>
                                             <constraint firstAttribute="height" constant="100" id="nRi-tU-sNa"/>
                                         </constraints>
-                                        <state key="normal" title="Add Book"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <state key="normal" title="Add Book" image="addBooksIcon"/>
                                         <connections>
                                             <segue destination="tVH-de-mDF" kind="show" id="JJH-r6-Up4"/>
                                         </connections>
@@ -572,4 +587,8 @@
             <point key="canvasLocation" x="-311.19999999999999" y="162.3688155922039"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addBooksIcon" width="25" height="25"/>
+        <image name="searchIcon" width="25" height="25"/>
+    </resources>
 </document>
