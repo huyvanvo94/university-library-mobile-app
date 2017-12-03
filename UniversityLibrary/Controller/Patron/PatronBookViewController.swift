@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatronBookViewController: UIViewController, BookKeeper, AbstractEventDelegate {
+class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
     
     var book: Book?
 

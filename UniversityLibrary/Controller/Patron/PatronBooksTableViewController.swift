@@ -17,6 +17,10 @@ class PatronBooksTableViewController: UITableViewController {
         
         self.title = "Books"
        
+        for _ in 0..<5{
+            booksFromDatabase.append(Mock.mock_Book())
+            
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,7 +51,13 @@ class PatronBooksTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as! BookCell
+        
+        let index = indexPath.row
+        let book = self.booksFromDatabase[index]
+        cell.bookAuthorLabel.text = book.author
+        cell.bookTitleLabel.text = book.title
+   
       
         return cell
     }

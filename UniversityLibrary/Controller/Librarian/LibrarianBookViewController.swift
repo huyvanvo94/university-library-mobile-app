@@ -12,12 +12,26 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
 
     var book: Book?
     
+    override func loadView() {
+        super.loadView()
+        self.title = "Book"
+        
+        self.loadBookToView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    
+    func loadBookToView(){
+        // then load book to view 
+        if let book = self.book{
+            
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

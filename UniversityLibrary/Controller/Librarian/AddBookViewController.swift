@@ -21,8 +21,14 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     @IBOutlet weak var callNumber: UITextField!
     
     
+    override func loadView() {
+        super.loadView()
+        self.title = "Add"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

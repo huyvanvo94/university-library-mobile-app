@@ -21,6 +21,11 @@ class MyWaitListTableViewController: UITableViewController, AbstractEventDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for _ in 0..<5{
+            myWaitListBooks.append(Mock.mock_Book())
+            
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -66,11 +71,9 @@ class MyWaitListTableViewController: UITableViewController, AbstractEventDelegat
         
         let index = indexPath.row
         let book = self.myWaitListBooks[index]
-        cell.waitListBookTitleLabel.text = book.title
-        cell.WaitListBookAuthorLabel.text = book.author
-        
-        cell.frame.size.width = 100
-        
+        cell.bookTitleLabel.text = book.title
+        cell.bookAuthorLabel.text = book.author
+         
         return cell
     }
     

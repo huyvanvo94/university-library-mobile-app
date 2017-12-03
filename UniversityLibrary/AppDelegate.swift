@@ -6,8 +6,7 @@
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
 
-import UIKit
-import CoreData
+import UIKit 
 import Firebase
 
 @UIApplicationMain
@@ -36,13 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  */
         // start lbrarian storyboard
         
-        /*
+       /*
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Librarian", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "LibrarianNavViewController") as! LibrarianNavViewController
         self.window?.rootViewController = root
-        self.window?.makeKeyAndVisible()
-        */
+        self.window?.makeKeyAndVisible()*/
+ 
         // end set root view controller
         
         // start patron storyboard
