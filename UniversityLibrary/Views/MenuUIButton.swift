@@ -15,9 +15,10 @@ class MenuUIButton: UIButton {
         backgroundColor = UIColor(rgb: 0x95b7ed)
         
         self.setTitleColor(.white, for: .normal)
-         
-        self.frame.size.width = Screen.width * 0.05
-        self.frame.size.height = Screen.height * 0.05
+        
+        let x = self.frame.origin.x
+        let y = self.frame.origin.y
+        
     }
     
   

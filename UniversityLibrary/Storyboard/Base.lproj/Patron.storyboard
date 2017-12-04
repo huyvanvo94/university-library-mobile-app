@@ -39,13 +39,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bFy-Wv-e5T">
-                                <rect key="frame" x="16" y="114" width="343" height="430"/>
+                                <rect key="frame" x="16" y="114" width="343" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bt2-3I-NY9" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="0.0" width="300" height="100"/>
+                                        <rect key="frame" x="21.5" y="0.0" width="300" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="9fr-lu-qiR"/>
-                                            <constraint firstAttribute="height" constant="100" id="DQv-FJ-E7K"/>
+                                            <constraint firstAttribute="height" constant="50" id="Aky-nk-Jhc"/>
+                                            <constraint firstAttribute="width" constant="300" id="odG-So-L7e"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
                                         <state key="normal" title="All Books" image="allBooksIcon"/>
@@ -54,10 +54,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-2f-Agu" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="110" width="300" height="100"/>
+                                        <rect key="frame" x="21.5" y="60" width="300" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="XKu-zW-Edo"/>
-                                            <constraint firstAttribute="height" constant="100" id="oeR-y6-ogh"/>
+                                            <constraint firstAttribute="width" constant="300" id="htN-c7-c26"/>
+                                            <constraint firstAttribute="height" constant="50" id="vSn-Ra-GB3"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
                                         <state key="normal" title="My Waitlist" image="waitListIcon"/>
@@ -66,10 +66,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pX-aR-Qle" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="220" width="300" height="100"/>
+                                        <rect key="frame" x="21.5" y="120" width="300" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="PmP-xX-dLg"/>
-                                            <constraint firstAttribute="height" constant="100" id="rAc-EC-tAw"/>
+                                            <constraint firstAttribute="width" constant="300" id="FIR-FM-Unk"/>
+                                            <constraint firstAttribute="height" constant="50" id="vy1-P9-cIH"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
                                         <state key="normal" title="My Checked Out Books" image="checkedOutBooksIcon"/>
@@ -78,10 +78,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-gD-lTf" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="330" width="300" height="100"/>
+                                        <rect key="frame" x="21.5" y="180" width="300" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="FAC-Ll-utF"/>
-                                            <constraint firstAttribute="height" constant="100" id="W1v-ip-BY9"/>
+                                            <constraint firstAttribute="width" constant="300" id="6ij-R9-qb4"/>
+                                            <constraint firstAttribute="height" constant="50" id="lGs-38-UwJ"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
                                         <state key="normal" title="Search Books" image="searchIcon"/>
@@ -351,7 +351,6 @@
         <!--My Wait List Table View Controller-->
         <scene sceneID="gkM-tn-Oa2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kAh-4r-DcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="WLp-z0-udz" customClass="MyWaitListTableViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="YhI-jV-pQN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -415,6 +414,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAh-4r-DcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1033" y="-16"/>
         </scene>
