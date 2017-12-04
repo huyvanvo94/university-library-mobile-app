@@ -17,7 +17,7 @@
 
 <li>Update UI/UX</li>
 
-<li>Check each use case of application<li>
+<li>Check each use case of application</li>
 <li>Firebase</li>
 
 </ul>
