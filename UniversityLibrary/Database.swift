@@ -14,15 +14,21 @@ protocol Database{
     
     func update(dict: [String: Any], completion: Bool?)
     
-    func delete(dict: [String: Any], completion: Bool?)
+    func delete( String, dict: [String: Any], completion: Bool?)
     
-    func remove(dict: [String: Any], completion: Bool?)
+    func remove( String, dict: [String: Any], completion: Bool?)
     
-    func add(dict: [String: Any], completion: Bool?)
+    func add( dict: [String: Any], completion: Bool?)
     
 }
 
 class DBFirebase: Database{
+    
+    let child: String
+    
+    init(child: String){
+        self.child = child 
+    }
     
     func update(dict: [String : Any], completion: Bool?) {
         
