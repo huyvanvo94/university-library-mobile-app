@@ -12,4 +12,8 @@ import UIKit
 class GeneralUITextField: UITextField {
 
 
+    override func awakeFromNib() {
+        
+         self.font = UIFont(name: "Helvetica", size: Screen.height * 0.04)
+    }
 }
