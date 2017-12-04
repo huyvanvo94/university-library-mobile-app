@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 
-// MARK -: Kevin
-
 class GeneralUILabel: UILabel {
  
     override func drawText(in rect: CGRect) {
@@ -19,5 +17,13 @@ class GeneralUILabel: UILabel {
       
         super.drawText(in: rect)
     }
+    
+    override func awakeFromNib() {
 
+        self.clipsToBounds = true
+        self.textColor = UIColor(rgb: 0x143468)
+        self.font = UIFont(name: "Helvetica", size: Screen.height * 0.04)
+        self.textAlignment = .center
+   
+    }
 }

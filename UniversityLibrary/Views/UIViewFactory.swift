@@ -7,11 +7,26 @@
 //
 
 import Foundation
-
+import UIKit
 /*
  * Class to build UI
  */
 
 final class UIViewFactory{
     
+}
+
+struct Screen{
+    
+    static var height: CGFloat{
+        get{
+            return UIScreen.main.bounds.height
+        }
+    }
+    
+    static var width: CGFloat{
+        get{
+            return UIScreen.main.bounds.width
+        }
+    }
 }
