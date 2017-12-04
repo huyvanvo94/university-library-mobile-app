@@ -8,27 +8,73 @@
 
 import UIKit
 
-class PatronBooksTableViewController: UITableViewController {
+class PatronBooksTableViewController: BaseTableViewController, BookKeeper, AbstractEventDelegate{
+    
+    var patron = Mock.mock_Patron()
 
+    var bookToCheckoutIndex: Int?
     var booksFromDatabase = [Book]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Books"
+        self.title = "Library"
+        self.initCheckoutAction()
        
         for _ in 0..<5{
             booksFromDatabase.append(Mock.mock_Book())
             
         }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+ 
+    }
+    
+    private func initCheckoutAction(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(checkoutBookMessage))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
+    }
+    @objc func checkoutBookMessage(){
+        let alert = UIAlertController(title: "Checkout", message: "Checkout book?",  preferredStyle: .actionSheet)
+        let checkoutBook = UIAlertAction(title: "Confirm", style: .destructive, handler: checkoutBookHandler)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelHandler)
+        alert.addAction(checkoutBook)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func waitlistBookMessage(){
+        let alert = UIAlertController(title: "Waitlist", message: "Waitlist book?",  preferredStyle: .actionSheet)
+        let waitlistBook = UIAlertAction(title: "Confirm", style: .destructive, handler: waitlistBookHandler)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelHandler)
+        alert.addAction(waitlistBook)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func waitlistBookHandler(_ alertAction:UIAlertAction!) -> Void{
+        if let _ = self.bookToCheckoutIndex{
+            let book = self.booksFromDatabase[self.bookToCheckoutIndex!]
+            
+            self.waiting(book: book)
+        }
+    }
+    
+    func checkoutBookHandler(_ alertAction: UIAlertAction!) -> Void{
+     
+        if let _ = self.bookToCheckoutIndex{
+      
+            self.booksFromDatabase.remove(at: self.bookToCheckoutIndex!)
+            self.tableView.reloadData()
+            super.displayAnimateSuccess()
+        }
     }
 
+    func cancelHandler(_ alertAction: UIAlertAction!) -> Void{
+        self.bookToCheckoutIndex = nil
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,7 +92,7 @@ class PatronBooksTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("row selected: \(indexPath.row)")
-        
+          self.tableView.deselectRow(at: indexPath, animated: true)
     
     }
     
@@ -57,15 +103,71 @@ class PatronBooksTableViewController: UITableViewController {
         let book = self.booksFromDatabase[index]
         cell.bookAuthorLabel.text = book.author
         cell.bookTitleLabel.text = book.title
+        
+        self.bookToCheckoutIndex = index
    
       
         return cell
     }
+  
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+ 
+        return .none
+    }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-          
+    func doReturn(book: Book){
+  
+    }
+    
+    func doReturn(books: [Book]){
+     
+    }
+    
+    func checkout(book: Book) {
+        
+        let checkout = CheckoutList(patron: self.patron, book: book)
+        let event = CheckoutListEvent(checkoutList: checkout, action: .add)
+        event.delegate = self
+    }
+    
+    func waiting(book: Book) {
+        let waitingList = WaitingList(book: book, patron: self.patron)
+        
+        let event = WaitingListEvent(waitingList: waitingList, action: .add)
+        event.delegate = self
+        
+    }
+    
+    
+    
+    func complete(event: AbstractEvent) {
+        switch event {
+        case let event as CheckoutListEvent:
+            if event.state == .full{
+                
+                
+                self.waitlistBookMessage()
+                //let book = event.checkoutList.book
+                //self.waiting(book: book)
+            }
             
+        case let event as WaitingListEvent:
+            
+            if event.state == WaitingListState.success{
+                
+            }
+            
+        default:
+            print("No action")
         }
+    }
+    
+    
+    func search(for: Book){
+        
+    }
+    
+    func error(event: AbstractEvent) {
+        
     }
 }

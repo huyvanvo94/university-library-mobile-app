@@ -43,6 +43,56 @@ extension UIViewController{
         view.endEditing(true)
     }
     
+    func displayAnimateSuccess(){
+        
+        // toast presented with multiple options and with a completion closure
+        let w = UIScreen.main.bounds.width
+        let h = UIScreen.main.bounds.height
+        
+        
+        // let center = CGPoint(x: w/2, y: h/2)
+        
+        let image = UIImage(named: "success.png")
+        let imageView = UIImageView(image: image)
+        
+        imageView.frame.origin.x = w/2 - 10
+        imageView.frame.origin.y = h/2
+        imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = false
+        view.addSubview(imageView)
+        
+        UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: {
+            imageView.alpha = 0.0
+        }) { (finished: Bool) in
+            imageView.removeFromSuperview()
+        }
+    }
+    
+    
+    func displayAnimateError(){
+        
+        // toast presented with multiple options and with a completion closure
+        let w = UIScreen.main.bounds.width
+        let h = UIScreen.main.bounds.height
+        
+        
+        // let center = CGPoint(x: w/2, y: h/2)
+        
+        let image = UIImage(named: "error.png")
+        let imageView = UIImageView(image: image)
+        
+        imageView.frame.origin.x = w/2 - 10
+        imageView.frame.origin.y = h/2
+        imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = false
+        view.addSubview(imageView)
+        
+        UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: {
+            imageView.alpha = 0.0
+        }) { (finished: Bool) in
+            imageView.removeFromSuperview()
+        }
+    }
   
 }
 
@@ -77,6 +127,9 @@ extension UITextField {
         text = prospectiveText.substring(to: maxCharIndex)
         selectedTextRange = selection
     }
+    
+ 
+    
 }
 
 extension UIColor {

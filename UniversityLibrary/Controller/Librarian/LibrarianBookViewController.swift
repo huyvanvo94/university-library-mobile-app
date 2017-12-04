@@ -11,27 +11,72 @@ import UIKit
 class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
 
     var book: Book?
+ 
     
     override func loadView() {
         super.loadView()
-        self.title = "Book"
         
+     
+        self.navigationController?.isToolbarHidden = false
+      
         self.loadBookToView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+   
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func editBookAction(_ sender: UIBarButtonItem) {
+        
+        if Mock.isMockMode{
+            return
+        }
+        if let book = self.book{
+            self.update(book: book)
+        }
+    }
 
     
+    @IBAction func deleteBookAction(_ sender: UIBarButtonItem) {
+    
+        if Mock.isMockMode {
+            return
+        }
+        if let book = self.book{
+            super.activityIndicatorView.startAnimating()
+            self.delete(book: book)
+        }
+    
+    }
+    
+    // MARK: Kevin
     func loadBookToView(){
         // then load book to view 
         if let book = self.book{
             
+            if let title = book.title{
+                self.title = title
+            }
         }
     }
+    
+    // MARK: -Kevin
+    // allow text view to be edit about
+    func disableTextViewInput(){
+        
+    }
+    
+    // MARK: -Kevin
+    
+    func enableTextViewInput(){
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,12 +93,11 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     }
     
     func add(with book: Book) {
-        
+       
     }
     
     
     func update(book: Book) {
-        
         let event = BookEvent(book: book, action: .update)
         event.delegate = self
         
@@ -62,15 +106,25 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     func delete(book: Book) {
         let event = BookEvent(book: book, action: .delete)
         event.delegate = self
-        
+  
     }
     
     func complete(event: AbstractEvent) {
-        
+        self.activityIndicatorView.stopAnimating()
        
-        if let evnt = event as? BookEvent{
+        if let event = event as? BookEvent{
        
-            self.popbackview()
+            if event.action == .update{
+                
+                self.displayAnimateSuccess()
+                
+            }else if event.action == .delete{
+                
+                if event.state == BookActionState.success{
+          
+                    self.popbackview()
+                }
+            }
         }
         
         

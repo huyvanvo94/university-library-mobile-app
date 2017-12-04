@@ -15,10 +15,12 @@ class CheckoutBookViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         self.loadBookToUI()
         // Do any additional setup after loading the view.
     }
     
+    // MARK: Kevin
     func loadBookToUI(){
         
     }

@@ -29,4 +29,14 @@ struct Screen{
             return UIScreen.main.bounds.width
         }
     }
+    
+    static var center: CGPoint{
+        get{
+            let w = UIScreen.main.bounds.width
+            let h = UIScreen.main.bounds.height
+            
+            return CGPoint(x: w/2, y: h/2)
+            
+        }
+    }
 }

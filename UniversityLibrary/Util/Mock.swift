@@ -10,6 +10,7 @@ import Foundation
 
 class Mock{
     
+    static let isMockMode = true 
     static func mock_Patron() -> Patron{
  
         let p = Patron(email: "tes2t@gmail.com", password: "123123", universityId: 123124)

@@ -8,6 +8,12 @@
 
 import UIKit
 
+/*
+ Kevin, be sure to validate inputs
+ Make sure each fields are there
+ */
+
+
 class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
  
     @IBOutlet weak var bookTitle: UITextField!
@@ -17,18 +23,40 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     @IBOutlet weak var yearOfPublication: UITextField!
     @IBOutlet weak var locationInLibrary: UITextField!
     @IBOutlet weak var numberOfCopies: UITextField!
-    
     @IBOutlet weak var callNumber: UITextField!
     
+    lazy var addBookItemBar: UIBarButtonItem = {
+        let image =  UIImage(named: "addBooksIcon.png")
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(AddBookViewController.addBookAction(_:)))
+        
+        self.navigationItem.rightBarButtonItem = button
+        
+        
+        return button
+    }()
+    
+    // Mark: -Kevin
+    func clearAllTextFromTextField(){
+        
+    }
+    
+    func addBookAction(_ sender: Any){
+        
+        self.add(with: Mock.mock_Book())
+        
+        
+    }
+
     
     override func loadView() {
         super.loadView()
-        self.title = "Add"
+        self.title = "Add Book"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBookItemBar.isEnabled = true
 
         // Do any additional setup after loading the view.
     }
@@ -38,7 +66,8 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addBook(_ sender: UIButton) {
+    
+    func addBook() {
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text else {
             return
         }
@@ -59,12 +88,17 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     }
     
     func complete(event: AbstractEvent) {
-       
+        super.activityIndicatorView.stopAnimating()
+        
         switch event {
         case let event as BookEvent:
             if event.state == .success{
-                super.activityIndicatorView.stopAnimating()
-                super.showToast(message: "success")
+               
+                super.displayAnimateSuccess()
+            }else if event.state == .exist{
+                
+                self.view.makeToast("Already contains book", point: Screen.center, title: "Error", image: UIImage(named: "error.png"), completion: nil)
+            
             }
         default:
             print("No action")

@@ -15,11 +15,12 @@ class PatronLibraryViewController: BaseViewController, BookManager {
     override func loadView() {
         super.loadView()
         self.title = "Welcome"
-        
+  
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
      
         // Do any additional setup after loading the view.
     }

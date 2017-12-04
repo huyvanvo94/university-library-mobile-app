@@ -10,6 +10,10 @@ import Foundation
 import Firebase
 
 class Book: UniModel{
+    
+    var toggle = false 
+    // for mywistinglist view controller 
+    var toReturn = false
     // author is required as it is used for key
     var author: String?
     
