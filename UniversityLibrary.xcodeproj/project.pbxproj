@@ -27,6 +27,7 @@
 		8F3ABAF81FC107D700551B3B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAF71FC107D700551B3B /* Logger.swift */; };
 		8F3ABAFF1FC1253600551B3B /* BookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAFE1FC1253600551B3B /* BookEvent.swift */; };
 		8F3ABB011FC1288B00551B3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABB001FC1288B00551B3B /* Mock.swift */; };
+		8F401B851FD4F20F007306CD /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F401B841FD4F20F007306CD /* Database.swift */; };
 		8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6071FBFD0EE00E25156 /* Constants.swift */; };
 		8F54D60A1FBFD48B00E25156 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6091FBFD48B00E25156 /* DateHelper.swift */; };
 		8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D60B1FBFD57F00E25156 /* DateMocker.swift */; };
@@ -125,6 +126,7 @@
 		8F3ABAF71FC107D700551B3B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8F3ABAFE1FC1253600551B3B /* BookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEvent.swift; sourceTree = "<group>"; };
 		8F3ABB001FC1288B00551B3B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		8F401B841FD4F20F007306CD /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		8F54D6071FBFD0EE00E25156 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F54D6091FBFD48B00E25156 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		8F54D60B1FBFD57F00E25156 /* DateMocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMocker.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				8FC3E9B01FC235BF00940427 /* PatronManager.swift */,
 				8F54D6131FBFEC2200E25156 /* DataService.swift */,
 				8F90C0431FC29FE7003CD88C /* BookManager.swift */,
+				8F401B841FD4F20F007306CD /* Database.swift */,
 				8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */,
 				8FEABA061FC0DE2000EA26E9 /* Event */,
 				8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */,
@@ -677,6 +680,7 @@
 				8FBAC2A11FBF9AB300589262 /* SignUpViewController.swift in Sources */,
 				8FC6FAC11FCFF07400FBC1D8 /* BlueSquareButton.swift in Sources */,
 				8FBAC29D1FBF919100589262 /* Book.swift in Sources */,
+				8F401B851FD4F20F007306CD /* Database.swift in Sources */,
 				8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */,
 				8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */,
 				8F3ABB011FC1288B00551B3B /* Mock.swift in Sources */,
