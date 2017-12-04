@@ -25,11 +25,7 @@ class LibrarianNavViewController: BaseNavViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func goToTestLibrarianView(){
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianTestViewController") as? LibrarianTestViewController{
-            self.pushViewController(vc, animated: true)
-        }
-    }
+   
     
     
 

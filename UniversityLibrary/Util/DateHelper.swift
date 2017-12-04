@@ -28,6 +28,19 @@ class DateHelper{
         return components.day!
     }
     
+    static func getLocalDate(dt: TimeInterval) -> String{
+        return getLocalDate(dt: dt, timeZoneId: TimeZone.current.identifier)
+    }
+    
+    static func getLocalDate(dt: TimeInterval, timeZoneId: String) -> String{
+        let date = Date(timeIntervalSince1970: dt)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium//Set date style
+        dateFormatter.timeZone = TimeZone(identifier: timeZoneId)
+        return dateFormatter.string(from: date as Date)
+    }
+    
+    
     static func createDate(year: Int, month: Int, day: Int) -> Date?{
         
         var dateComponents = DateComponents()

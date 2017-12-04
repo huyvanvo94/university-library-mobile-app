@@ -6,6 +6,7 @@
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
 
+//TODO: Create a history of checkout days 
 import Foundation
 
 class User: UniModel{
@@ -155,6 +156,8 @@ class Patron: User{
             return pDict
         }
     }
+    
+    
     
     // A patron must be able to check out up to 3 books in any day.
     func numberOfBookCheckedOut(on date: Date) -> Int{

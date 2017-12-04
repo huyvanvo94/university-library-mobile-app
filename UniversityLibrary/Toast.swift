@@ -5,7 +5,7 @@
 //  Created by Huy Vo on 12/1/17.
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
-/*
+
 import Foundation
 
 //
@@ -35,16 +35,7 @@ import Foundation
 import UIKit
 import ObjectiveC
 
-/**
- Toast is a Swift extension that adds toast notifications to the `UIView` object class.
- It is intended to be simple, lightweight, and easy to use. Most toast notifications
- can be triggered with a single line of code.
  
- The `makeToast` methods create a new view and then display it as toast.
- 
- The `showToast` methods display any view as toast.
- 
- */
 public extension UIView {
     
     /**
@@ -783,4 +774,4 @@ fileprivate extension UIView {
     }
     
 }
-*/
+

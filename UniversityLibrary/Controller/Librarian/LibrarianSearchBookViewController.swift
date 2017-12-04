@@ -43,9 +43,14 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
         // Dispose of any resources that can be recreated.
     }
      
- 
+    @IBAction func searchAction(_ sender: UIBarButtonItem) {
     
-    @IBAction func searchBook(_ sender: UIButton) {
+    
+        self.goToBookView(with: Mock.mock_Book())
+    }
+    
+    
+ //   @IBAction func searchBook(_ sender: UIButton) {
         /*
         if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
              
@@ -67,7 +72,9 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
         
         
         self.search(exact: book)*/
-    }
+   // }
+    
+    
     
     func search(exact book: Book) {
       
@@ -106,15 +113,22 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     func result(exact book: Book){
        
+   
+  
+    }
+   
+    
+    
+    func goToBookView(with book: Book){
+        
+        
         if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
             
             bookVC.book = book
             self.navigationController?.pushViewController(bookVC, animated: true)
         }
-  
     }
     
-   
     /*
     // MARK: - Navigation
 

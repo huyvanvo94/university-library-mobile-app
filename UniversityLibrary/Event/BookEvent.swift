@@ -47,8 +47,8 @@ class BookEvent: AbstractEvent{
                     
                     // I cannot add because database already has a book with same author and title
                     if snapshot.hasChild(self.book.key){
-                        self.state = .error
-                        delegate.error(event: self)
+                        self.state = .exist
+                        delegate.complete(event: self)
                    
                     }else{
                         let db = FirebaseManager().reference
@@ -184,6 +184,9 @@ class BookEvent: AbstractEvent{
                     db?.child(DatabaseInfo.waitingListTable).child(self.book.key).updateChildValues(["numberOfCopies": self.book.numberOfCopies])
                     db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["numberOfCopies": self.book.numberOfCopies])
                     
+                    
+                    self.state = .success
+                    delegate.complete(event: self)
                 })
           
                 
@@ -204,6 +207,8 @@ enum BookAction{
     case update
     case search
     
+  
+    
     case searchExactly
 }
 
@@ -212,6 +217,7 @@ enum BookActionState{
     case error
     case success
     
+    case exist
     case notExist
     
     case waitingListNotEmpty

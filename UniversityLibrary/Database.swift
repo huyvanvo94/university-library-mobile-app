@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 // You must provide a completion function to let other class know the result
-protocol Database{
+protocol UDatabase{
     
     func update(dict: [String: Any], completion: ((Bool) -> ())?)
     
@@ -22,7 +22,7 @@ protocol Database{
     
 }
 
-class DBFirebase: Database{
+class DBFirebase: UDatabase{
  
     
     let child: String

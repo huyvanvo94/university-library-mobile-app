@@ -10,9 +10,6 @@ import UIKit
 import AVFoundation
 
 class ScanBookViewController: UIViewController {
-    // Properties
-    
-    /*
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var footerView: UIView!
@@ -21,15 +18,15 @@ class ScanBookViewController: UIViewController {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
-    let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
-                              AVMetadataObject.ObjectType.code39,
-                              AVMetadataObject.ObjectType.code39Mod43,
-                              AVMetadataObject.ObjectType.code93,
-                              AVMetadataObject.ObjectType.code128,
-                              AVMetadataObject.ObjectType.ean8,
-                              AVMetadataObject.ObjectType.ean13,
-                              AVMetadataObject.ObjectType.aztec,
-                              AVMetadataObject.ObjectType.pdf417]
+    let supportedCodeTypes = [AVMetadataObjectTypeUPCECode,
+                              AVMetadataObjectTypeCode39Code,
+                              AVMetadataObjectTypeCode39Mod43Code,
+                              AVMetadataObjectTypeCode93Code,
+                              AVMetadataObjectTypeCode128Code,
+                              AVMetadataObjectTypeEAN8Code,
+                              AVMetadataObjectTypeEAN13Code,
+                              AVMetadataObjectTypeAztecCode,
+                              AVMetadataObjectTypePDF417Code]
     
     // View Lifecyle
     override func viewDidLoad() {
@@ -44,12 +41,12 @@ class ScanBookViewController: UIViewController {
     func configureAVFoundation() {
         
         // Initialize device object and set it's media type
-        let captureDevice = AVCaptureDevice.default(for: .video)
+        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         do {
             
             // Store input from device
-            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            let input = try AVCaptureDeviceInput(device: captureDevice)
             
             // Create capture session and add input
             captureSession = AVCaptureSession()
@@ -60,12 +57,12 @@ class ScanBookViewController: UIViewController {
             captureSession?.addOutput(captureMetaDataOutput)
             
             // Select code types for output
-            captureMetaDataOutput.setMetadataObjectsDelegate(self as AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue.main)
+            captureMetaDataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetaDataOutput.metadataObjectTypes = supportedCodeTypes
             
             // Add session to preview layer and configure preview frame
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = cameraView.layer.bounds
             // TODO: - Fix this and unwrap properly
             cameraView.layer.addSublayer(videoPreviewLayer!)
@@ -92,8 +89,7 @@ class ScanBookViewController: UIViewController {
     }
     
 }
-
-// AVCapture Method
+ 
 extension ScanBookViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
@@ -126,5 +122,5 @@ extension ScanBookViewController: AVCaptureMetadataOutputObjectsDelegate {
         
     }
     
-}*/
+    
 }

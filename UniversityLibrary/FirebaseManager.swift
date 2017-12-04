@@ -13,7 +13,7 @@ class FirebaseManager{
     var reference: DatabaseReference!
     
     init(){
-        self.reference = Database.database().reference() 
+         self.reference = Database.database().reference()
     }
     
 }

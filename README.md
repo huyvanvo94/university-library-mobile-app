@@ -8,3 +8,16 @@
 <li> Firebase </li>
 <li> Podfile </li> 
 </ul>
+
+<h4>TODO</h4>
+
+<ul>
+<li>Form Validation</li>
+<li>Database Classes </li>
+
+<li>Update UI/UX</li>
+
+<li>Check each use case of application<li>
+<li>Firebase</li>
+
+</ul>
