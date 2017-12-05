@@ -12,12 +12,17 @@ import Firebase
 class FetchBookEvent: AbstractEvent{
     
     var book: Book?
-    let key: String
-    
+    var key: String?
+    var id: String?
     var delegate: AbstractEventDelegate?{
         didSet{
             self.async_ProcessEvent()
         }
+    }
+    
+    init(id: String){
+        
+        self.id = id
     }
     init(key: String){
         self.key = key
@@ -36,30 +41,42 @@ class FetchBookEvent: AbstractEvent{
         queue.async {
             
             
-            let db = FirebaseManager().reference
-            db?.child(DatabaseInfo.booksAdded).child( self.key).observe(.value, with: {(snapshot) in
-                
-                
-                if let value = snapshot.value as? [String: Any]{
+            if let key = self.key{
+                let db = FirebaseManager().reference
+                db?.child(DatabaseInfo.booksAdded).child(key).observe(.value, with: {(snapshot) in
                     
-                    if let id = value["id"] as? String{
+                    
+                    if let value = snapshot.value as? [String: Any]{
                         
-                        db?.child(DatabaseInfo.bookTable).child(id).observe(.value, with: {(snapshot) in
+                        if let id = value["id"] as? String{
                             
-                            if let value = snapshot.value as? [String: Any]{
-                                let book = Book(dict: value)
-                                print(1)
-                                print(book.author)
-                                self.book = book
-                                delegate.complete(event: self)
-                            }
-              
-                        })
+                            db?.child(DatabaseInfo.bookTable).child(id).observe(.value, with: {(snapshot) in
+                                
+                                if let value = snapshot.value as? [String: Any]{
+                                    let book = Book(dict: value)
+                                    
+                                    self.book = book
+                                    delegate.complete(event: self)
+                                }
+                                
+                            })
+                        }
+                        
+                        
                     }
+                })
+            }else if let id = self.id{
+                let db = FirebaseManager().reference
+                db?.child(DatabaseInfo.bookTable).child(id).observe(.value, with: {(snapshot) in
                     
-                    
-                }
-            })
+                    if let value = snapshot.value as? [String: Any]{
+                        let book = Book(dict: value)
+                        self.book = book
+                        
+                        delegate.complete(event: self)
+                    }
+                })
+            }
         }
         
     }

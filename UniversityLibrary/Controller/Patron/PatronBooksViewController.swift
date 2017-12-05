@@ -103,10 +103,9 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         self.title = "Library"
         self.initCheckoutAction()
      
-        for _ in 0..<5{
-            booksFromDatabase.append(Mock.mock_Book())
-            
-        }
+        let event = FetchAllBooksIdEvent()
+        event.delegate = self
+        
         
     }
     
@@ -266,9 +265,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         event.delegate = self
         
     }
-    
-    
-    
+     
     func complete(event: AbstractEvent) {
         switch event {
         case let event as CheckoutListEvent:
@@ -286,6 +283,31 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 
             }
             
+            
+        case let event as FetchAllBooksIdEvent:
+            
+            if !event.ids.isEmpty{
+                
+                DispatchQueue.main.async {
+                    
+                    for id in event.ids{
+                        
+                        let event = FetchBookEvent(id: id)
+                        
+                        event.delegate = self
+                        
+                    }
+                }
+                
+            }
+            
+        case let event as FetchBookEvent:
+            
+            if let book = event.book{ 
+                self.booksFromDatabase.append(book)
+                self.tableView.reloadData()
+                
+            }
         default:
             print("No action")
         }

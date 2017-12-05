@@ -9,9 +9,9 @@
 import Foundation
 import Firebase
 
-class FetchAllBooksId: AbstractEvent{
+class FetchAllBooksIdEvent: AbstractEvent{
     
-    var keys = [String]()
+    var ids = [String]()
     
     var delegate: AbstractEventDelegate?{
         didSet{
@@ -39,8 +39,8 @@ class FetchAllBooksId: AbstractEvent{
                         if let dict = child.value as? Dictionary<String, Any> {
                           
                             if let id = dict["id"] as? String{
-                              print(id)
-                                self.keys.append(id)
+                       //       print(id)
+                                self.ids.append(id)
                             }
                         }
                         

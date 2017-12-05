@@ -40,6 +40,8 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
    
         
         self.fetchBooks()
+        
+        self.checkoutBooks.append(Mock.mock_Book())
         // Do any additional setup after loading the view.
     }
     
