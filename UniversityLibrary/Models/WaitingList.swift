@@ -13,6 +13,9 @@ class WaitingList: UniModel{
     
     let patron: Patron
     let book: Book
+    
+    
+    
     init(book: Book, patron: Patron){
         self.book = book
         self.patron = patron
