@@ -32,7 +32,7 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     func checkout(book: Book) {
         
         let checkout = CheckoutList(patron: self.patorn, book: book)
-        let event = CheckoutListEvent(checkoutList: checkout, action: .add)
+        let event = CheckoutListEvent(checkoutList: checkout)
         event.delegate = self
     }
     

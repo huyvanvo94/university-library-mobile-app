@@ -95,23 +95,27 @@ class BookEvent: AbstractEvent{
                                           db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                                             
                                             if let value = snapshot.value as? NSDictionary{
-                                                if let waitingListDict = value as? Dictionary<String, Any>{
+                                                if let checkoutListDict = value as? Dictionary<String, Any>{
                                                     
-                                                    if let isEmpty = waitingListDict["isEmpty"] as? Bool{
-                                                        if isEmpty == false{
-                                                            
-                                                            self.state = .waitingListNotEmpty
-                                                            delegate.complete(event: self)
-                                                        }else{
-                                                            db?.child(DatabaseInfo.bookTable).child(id).removeValue()
-                                                            // also remove value from reference table
-                                                            db?.child(DatabaseInfo.booksAdded).child(self.book.key).removeValue()
-                                                            db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
-                                                            db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
-                                                            
-                                                            self.state = .success
-                                                            delegate.complete(event: self)
-                                                        }
+                                                    if let _ = checkoutListDict["users"] as? Dictionary<String, Any>{
+                                                        
+                                                        self.state = .checkoutListNotEmpty
+                                                        delegate.complete(event: self)
+                                                        
+                                                    }
+                                              
+                                                    else{
+                                                        
+                                                        db?.child(DatabaseInfo.bookTable).child(id).removeValue()
+                                                        
+                                                        // also remove value from reference table
+                                                        db?.child(DatabaseInfo.booksAdded).child(self.book.key).removeValue()
+                                                        db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
+                                                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
+                                                        
+                                                        self.state = .success
+                                                        delegate.complete(event: self)
+                                                    
                                                     }
                                                     
                                                     
@@ -221,6 +225,8 @@ enum BookActionState{
     case notExist
     
     case waitingListNotEmpty
+    
+    case checkoutListNotEmpty
     
     case deleteSuccess
     case updateSuccess

@@ -8,6 +8,53 @@
 
 import Foundation
 
+
+struct CheckoutBookInfo{
+    
+    let patron: Patron
+    
+    init(patron: Patron){
+        self.patron = patron
+    }
+    
+    
+    var transactionDate: String{
+        
+        get{
+            let now = Date()
+            return DateHelper.getLocalDate(dt: now.timeIntervalSince1970)
+        }
+        
+    }
+    
+    var dueDate: String{
+        get{
+            let dueDate = Date().thirtyDaysfromNow
+            return DateHelper.getLocalDate(dt: dueDate.timeIntervalSince1970)
+        }
+    }
+    
+    var dict: [String: Any]{
+        get{
+            var user = [String: Any]()
+            user["dueDate"] = Date().thirtyDaysfromNow.timeIntervalSince1970
+            user["transactionDate"] = Date().thirtyDaysfromNow.timeIntervalSince1970
+            user["email"] = self.patron.email!
+            user["id"] = self.patron.id!
+            
+            let transaction = Date().timeIntervalSince1970
+            
+            
+            user["dueDateInfo"] = dueDate
+            
+            user["transactionDateInfo"] = transactionDate
+        
+            return user
+        }
+    }
+    
+}
+
 struct ReturnBookInfo{
     var nameOfBook: String
     var fineAmount: Int
@@ -23,6 +70,10 @@ struct ReturnBookInfo{
     }
     
     static func convertToArrayString(books: [ReturnBookInfo]) -> String{
+        
+        if books.count == 1{
+            return "[" + books[0].convertToJsonString() + "]"
+        }
         
         var msg = "["
         

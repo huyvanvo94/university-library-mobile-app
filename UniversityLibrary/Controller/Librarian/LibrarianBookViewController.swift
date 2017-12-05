@@ -113,21 +113,22 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         self.activityIndicatorView.stopAnimating()
        
         if let event = event as? BookEvent{
-       
+           
             if event.action == .update{
                 
                 self.displayAnimateSuccess()
                 
             }else if event.action == .delete{
-                
-                if event.state == BookActionState.success{
-          
+                 if event.state == BookActionState.success{
                     self.popbackview()
+                 }else if event.state == BookActionState.checkoutListNotEmpty{
+                    
+                    super.showToast(message: "Is Checkout!")
                 }
+                    
+                    
             }
         }
-        
-        
         
     }
     
