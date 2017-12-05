@@ -27,12 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         // set root view controller
   
+        /*
          self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
         self.window?.rootViewController = root
         self.window?.makeKeyAndVisible()
  
+        */
         // start lbrarian storyboard
         
         /*
@@ -46,13 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // start patron storyboard
         
-      
-        /*
+       
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Patron", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "PatronNavViewController") as! PatronNavViewController
         self.window?.rootViewController = root
-        self.window?.makeKeyAndVisible()*/
+        self.window?.makeKeyAndVisible()
  
         
         return true

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController, LoginUserEventDelegate {
+class LoginViewController: BaseViewController, LoginUserEventDelegate{
 
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -28,22 +28,37 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate {
         self.hideKeyboardWhenTappedAround()
         
         /*
+ 
         let lb = LibrarianManager(user: Mock.mock_Librarian())
         let b = Mock.mock_Book2()
      
-        lb.add(with: b!)
-  */
-     
+     //   lb.add(with: b!)
+        lb.add(with: Mock.mock_Book()!) */
+ 
+      
+        /*
         let p = PatronManager(patorn: Mock.mock_Patron2())
         
         
         let books = [Mock.mock_Book2()!]
         
-        p.checkout(book: books[0])
- 
+        p.checkout(book: books[0])*/
+       
+        /*
+        let event = FetchBookEvent(key: Mock.mock_Book2()!.key)
+        event.delegate = self */
+        
+         
+        
+   
+        /*
+        let event = RegisterUserEvent(patron: Mock.mock_Patron2())
+        event.delegate = self*/
+    
    
     }
-
+    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,8 +103,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate {
     }
     
     func complete(event: AbstractEvent) {
-        print("complete")
-        
+       
         switch event {
         case let event as LoginUserEvent:
             handleLoginEvent(event: event)
