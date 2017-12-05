@@ -34,5 +34,6 @@ class CustomUITextField: UITextField {
     func makeNotEditable(){
         self.borderStyle = UITextBorderStyle.none
         self.isUserInteractionEnabled = false
+        
     }
 }
