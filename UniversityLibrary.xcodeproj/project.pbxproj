@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */; };
+		3F9505571FD61E7C0069F391 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9505561FD61E7C0069F391 /* CustomUITextField.swift */; };
 		3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C981FD20616007CDD60 /* MenuUIButton.swift */; };
 		3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C9A1FD208E4007CDD60 /* BookCell.swift */; };
 		3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */; };
@@ -108,6 +110,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUISubLabel.swift; sourceTree = "<group>"; };
+		3F9505561FD61E7C0069F391 /* CustomUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		3FB04C981FD20616007CDD60 /* MenuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuUIButton.swift; sourceTree = "<group>"; };
 		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchWaitListBookEvent.swift; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 				8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */,
 				3FB04C981FD20616007CDD60 /* MenuUIButton.swift */,
 				3FB04C9A1FD208E4007CDD60 /* BookCell.swift */,
+				3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */,
+				3F9505561FD61E7C0069F391 /* CustomUITextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */,
 				8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */,
 				8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */,
+				3F9505571FD61E7C0069F391 /* CustomUITextField.swift in Sources */,
 				8F209B8E1FD264830018C6FB /* FetchCheckedOutBookEvent.swift in Sources */,
 				8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */,
 				8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */,
@@ -712,6 +719,8 @@
 				8F54D60E1FBFDDB100E25156 /* Formatter.swift in Sources */,
 				8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */,
 				8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */,
+				3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */,
+				8FCF61091FD10628008D8C72 /* ResultBookViewController.swift in Sources */,
 				8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */,
 				8FC2EC9E1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld in Sources */,
 				8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */,

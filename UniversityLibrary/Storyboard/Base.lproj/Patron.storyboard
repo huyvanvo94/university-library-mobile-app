@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,8 +37,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bFy-Wv-e5T">
-                                <rect key="frame" x="16" y="114" width="343" height="230"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bFy-Wv-e5T">
+                                <rect key="frame" x="16" y="164" width="343" height="275"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bt2-3I-NY9" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="21.5" y="0.0" width="300" height="50"/>
@@ -54,7 +53,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-2f-Agu" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="60" width="300" height="50"/>
+                                        <rect key="frame" x="21.5" y="75" width="300" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="htN-c7-c26"/>
                                             <constraint firstAttribute="height" constant="50" id="vSn-Ra-GB3"/>
@@ -66,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pX-aR-Qle" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="120" width="300" height="50"/>
+                                        <rect key="frame" x="21.5" y="150" width="300" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="FIR-FM-Unk"/>
                                             <constraint firstAttribute="height" constant="50" id="vy1-P9-cIH"/>
@@ -78,7 +77,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-gD-lTf" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="21.5" y="180" width="300" height="50"/>
+                                        <rect key="frame" x="21.5" y="225" width="300" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="6ij-R9-qb4"/>
                                             <constraint firstAttribute="height" constant="50" id="lGs-38-UwJ"/>
@@ -94,7 +93,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.86439611287932316" green="0.86439611287932316" blue="0.86439611287932316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bFy-Wv-e5T" firstAttribute="top" secondItem="BTW-2w-QC2" secondAttribute="bottom" constant="50" id="3tY-d1-Hwh"/>
+                            <constraint firstItem="bFy-Wv-e5T" firstAttribute="top" secondItem="BTW-2w-QC2" secondAttribute="bottom" constant="100" id="3tY-d1-Hwh"/>
                             <constraint firstItem="bFy-Wv-e5T" firstAttribute="leading" secondItem="ZWH-MF-JXV" secondAttribute="leadingMargin" id="EdF-d0-EsR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bFy-Wv-e5T" secondAttribute="trailing" id="f8J-n6-tLK"/>
                         </constraints>
@@ -123,41 +122,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LGM-NA-gVh">
-                                <rect key="frame" x="36" y="120" width="303" height="175"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LGM-NA-gVh">
+                                <rect key="frame" x="36" y="120" width="303" height="171"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-SM-ab0">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-SM-ab0" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6V-xq-MIQ">
-                                        <rect key="frame" x="0.0" y="35.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6V-xq-MIQ" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kko-nb-GPU">
-                                        <rect key="frame" x="0.0" y="71" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kko-nb-GPU" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="59" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0r-QP-ycl">
-                                        <rect key="frame" x="0.0" y="106.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0r-QP-ycl" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="89.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-ss-eRY">
-                                        <rect key="frame" x="0.0" y="142" width="303" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-ss-eRY" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2M-oT-4n3">
-                                        <rect key="frame" x="0.0" y="175" width="303" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2M-oT-4n3" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="150.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -165,7 +164,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.86439611289999996" green="0.86439611289999996" blue="0.86439611289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="vnB-UA-fA5"/>
+                                    <constraint firstAttribute="height" constant="171" id="vnB-UA-fA5"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yGZ-EQ-zCh">
@@ -200,6 +199,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yGZ-EQ-zCh" secondAttribute="trailing" constant="30" id="lme-JB-NxB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bookAuthorLabel" destination="p6V-xq-MIQ" id="2Cy-aG-wfs"/>
+                        <outlet property="bookCopiesLabel" destination="P2l-ss-eRY" id="OfN-fj-9Ys"/>
+                        <outlet property="bookLocationLabel" destination="f0r-QP-ycl" id="ufh-3t-X52"/>
+                        <outlet property="bookPublisherLabel" destination="Kko-nb-GPU" id="YFl-Vg-DIe"/>
+                        <outlet property="bookStatusLabel" destination="h2M-oT-4n3" id="lIa-AX-4vq"/>
+                        <outlet property="bookTitleLabel" destination="b0p-SM-ab0" id="TAp-3J-FFB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldt-Yh-kgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,22 +233,22 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="zpk-n1-lS7" id="sbb-R9-z0K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2m9-LM-Bt2">
-                                                    <rect key="frame" x="25" y="7" width="325" height="76"/>
+                                                    <rect key="frame" x="25" y="10" width="325" height="73"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPo-QD-C3t">
-                                                            <rect key="frame" x="18" y="15" width="291.5" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPo-QD-C3t" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="15" width="291.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-3y-SeG">
-                                                            <rect key="frame" x="18" y="38" width="291.5" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-3y-SeG" customClass="GeneralUISubLabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="35" width="291.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -259,9 +266,9 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2m9-LM-Bt2" firstAttribute="top" secondItem="sbb-R9-z0K" secondAttribute="topMargin" constant="-4" id="06M-EL-5Ah"/>
                                                 <constraint firstItem="2m9-LM-Bt2" firstAttribute="leading" secondItem="sbb-R9-z0K" secondAttribute="leadingMargin" constant="10" id="0j6-WG-Zt1"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2m9-LM-Bt2" secondAttribute="bottom" constant="-4" id="6GQ-Gl-YNY"/>
+                                                <constraint firstItem="2m9-LM-Bt2" firstAttribute="top" secondItem="sbb-R9-z0K" secondAttribute="top" constant="10" id="H1m-hW-xbO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2m9-LM-Bt2" secondAttribute="trailing" constant="10" id="Syy-h8-Fvc"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -317,22 +324,22 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="NtH-v2-zOJ" id="wxM-YO-VQG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rm-bk-MJp">
-                                                    <rect key="frame" x="25" y="7" width="325" height="76"/>
+                                                    <rect key="frame" x="25" y="10" width="325" height="73"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbc-W0-8SX">
-                                                            <rect key="frame" x="18" y="15" width="291.5" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbc-W0-8SX" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="15" width="291.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEY-F6-wxN">
-                                                            <rect key="frame" x="18" y="38" width="291.5" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEY-F6-wxN" customClass="GeneralUISubLabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="35" width="291.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -350,7 +357,7 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5rm-bk-MJp" firstAttribute="top" secondItem="wxM-YO-VQG" secondAttribute="topMargin" constant="-4" id="ZJV-Px-nNH"/>
+                                                <constraint firstItem="5rm-bk-MJp" firstAttribute="top" secondItem="wxM-YO-VQG" secondAttribute="top" constant="10" id="VfT-Vy-Pty"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="5rm-bk-MJp" secondAttribute="bottom" constant="-4" id="gIf-Le-Hv7"/>
                                                 <constraint firstItem="5rm-bk-MJp" firstAttribute="leading" secondItem="wxM-YO-VQG" secondAttribute="leadingMargin" constant="10" id="lce-h5-SeT"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="5rm-bk-MJp" secondAttribute="trailing" constant="10" id="yoT-1y-7te"/>
@@ -400,22 +407,22 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="8zj-aV-Fu6" id="Oq8-gz-vm5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KsQ-fW-Xif">
-                                            <rect key="frame" x="26" y="7" width="323" height="76"/>
+                                            <rect key="frame" x="25" y="10" width="325" height="73"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1t-BI-8NG">
-                                                    <rect key="frame" x="18" y="15" width="289.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1t-BI-8NG" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="15" width="291.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-VA-Pye">
-                                                    <rect key="frame" x="18" y="38" width="289.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-VA-Pye" customClass="GeneralUISubLabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="35" width="291.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -435,7 +442,7 @@
                                     <constraints>
                                         <constraint firstItem="KsQ-fW-Xif" firstAttribute="leading" secondItem="Oq8-gz-vm5" secondAttribute="leadingMargin" constant="10" id="9aJ-BX-x3v"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="KsQ-fW-Xif" secondAttribute="trailing" constant="10" id="BTN-r6-7My"/>
-                                        <constraint firstItem="KsQ-fW-Xif" firstAttribute="top" secondItem="Oq8-gz-vm5" secondAttribute="topMargin" constant="-4" id="cy2-84-LZV"/>
+                                        <constraint firstItem="KsQ-fW-Xif" firstAttribute="top" secondItem="Oq8-gz-vm5" secondAttribute="top" constant="10" id="Iiv-E5-yio"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="KsQ-fW-Xif" secondAttribute="bottom" constant="-4" id="tur-7h-KIk"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -471,101 +478,102 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ODS-eQ-OLx">
-                                <rect key="frame" x="35.5" y="104" width="303" height="500"/>
+                                <rect key="frame" x="35.5" y="84" width="303" height="485"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-ON-hVa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-ON-hVa" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jP3-li-Fcg">
-                                        <rect key="frame" x="0.0" y="30.5" width="303" height="46.5"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jP3-li-Fcg" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="30.5" width="303" height="31.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEa-1R-9mr">
-                                        <rect key="frame" x="0.0" y="87" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEa-1R-9mr" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DtW-MP-S3p">
-                                        <rect key="frame" x="0.0" y="117.5" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DtW-MP-S3p" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="102.5" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goF-WF-d6s">
-                                        <rect key="frame" x="0.0" y="157.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goF-WF-d6s" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="142.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADG-YG-D6p">
-                                        <rect key="frame" x="0.0" y="188" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADG-YG-D6p" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="173" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn7-wJ-MEn">
-                                        <rect key="frame" x="0.0" y="228" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn7-wJ-MEn" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="213" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-dA-9EI">
-                                        <rect key="frame" x="0.0" y="258.5" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-dA-9EI" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="243.5" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location in Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5X-VZ-sxy">
-                                        <rect key="frame" x="0.0" y="298.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location in Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5X-VZ-sxy" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="283.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAp-jE-rOQ">
-                                        <rect key="frame" x="0.0" y="329" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAp-jE-rOQ" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="314" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ML-dx-pxN">
-                                        <rect key="frame" x="0.0" y="369" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ML-dx-pxN" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="354" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PP7-ku-np6">
-                                        <rect key="frame" x="0.0" y="399.5" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PP7-ku-np6" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="384.5" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-3j-V8a">
-                                        <rect key="frame" x="0.0" y="439.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-3j-V8a" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="424.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-UE-g3q">
-                                        <rect key="frame" x="0.0" y="470" width="303" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-UE-g3q" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="455" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="Be5-AA-22A"/>
+                                    <constraint firstAttribute="height" constant="485" id="Be5-AA-22A"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-T1-rv4" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="622" width="300" height="25"/>
+                                <rect key="frame" x="37.5" y="578" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="OF4-lx-63S"/>
+                                    <constraint firstAttribute="height" constant="50" id="xSv-n1-nwu"/>
                                 </constraints>
                                 <state key="normal" title="Search " image="searchIcon"/>
                                 <connections>
@@ -575,11 +583,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ODS-eQ-OLx" firstAttribute="top" secondItem="X4o-I2-7uO" secondAttribute="bottom" constant="40" id="3Wu-HA-g6j"/>
+                            <constraint firstItem="F7i-hG-Y6a" firstAttribute="top" secondItem="lJM-T1-rv4" secondAttribute="bottom" constant="39" id="4fR-0a-Qja"/>
                             <constraint firstItem="lJM-T1-rv4" firstAttribute="centerX" secondItem="ova-oQ-wna" secondAttribute="centerX" id="Ckr-Yx-r3T"/>
                             <constraint firstItem="ODS-eQ-OLx" firstAttribute="leading" secondItem="ova-oQ-wna" secondAttribute="leadingMargin" constant="20" id="Pji-M9-MdO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ODS-eQ-OLx" secondAttribute="trailing" constant="20" id="VrC-IK-qnm"/>
-                            <constraint firstItem="F7i-hG-Y6a" firstAttribute="top" secondItem="lJM-T1-rv4" secondAttribute="bottom" constant="20" id="fge-nM-qpu"/>
+                            <constraint firstItem="ODS-eQ-OLx" firstAttribute="top" secondItem="X4o-I2-7uO" secondAttribute="bottom" constant="20" id="YHx-d1-I7f"/>
                         </constraints>
                     </view>
                     <connections>
@@ -607,41 +615,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3NX-a6-mqi">
-                                <rect key="frame" x="36" y="120" width="303" height="175"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3NX-a6-mqi">
+                                <rect key="frame" x="36" y="120" width="303" height="171"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLz-Ml-uyT">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLz-Ml-uyT" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-N1-RW3">
-                                        <rect key="frame" x="0.0" y="35.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-N1-RW3" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pri-26-daW">
-                                        <rect key="frame" x="0.0" y="71" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pri-26-daW" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="59" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrK-t9-YQm">
-                                        <rect key="frame" x="0.0" y="106.5" width="303" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrK-t9-YQm" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="89.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivq-uD-gOA">
-                                        <rect key="frame" x="0.0" y="142" width="303" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivq-uD-gOA" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-f2-6gc">
-                                        <rect key="frame" x="0.0" y="175" width="303" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-f2-6gc" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="150.5" width="303" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -649,7 +657,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.86439611289999996" green="0.86439611289999996" blue="0.86439611289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="qoN-JM-lTX"/>
+                                    <constraint firstAttribute="height" constant="171" id="qoN-JM-lTX"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sve-GV-yr1" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
@@ -659,6 +667,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                 <state key="normal" title="Checkout" image="checkedOutBooksIcon"/>
+                                <connections>
+                                    <action selector="checkoutAction:" destination="CzR-jJ-0Pd" eventType="touchUpInside" id="N8e-Ld-ZYR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -671,6 +682,14 @@
                             <constraint firstItem="3NX-a6-mqi" firstAttribute="leading" secondItem="stx-m6-xDS" secondAttribute="leadingMargin" constant="20" id="yj2-kY-D5s"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bookAuthorLabel" destination="XE3-N1-RW3" id="fiY-Mz-wzG"/>
+                        <outlet property="bookCopiesLabel" destination="ivq-uD-gOA" id="mll-C6-7ZU"/>
+                        <outlet property="bookLocationLabel" destination="nrK-t9-YQm" id="VnQ-dy-Bur"/>
+                        <outlet property="bookPublisherLabel" destination="Pri-26-daW" id="PUh-M6-r5Z"/>
+                        <outlet property="bookStatusLabel" destination="HdH-f2-6gc" id="O5D-On-XZ2"/>
+                        <outlet property="bookTitleLabel" destination="FLz-Ml-uyT" id="JJw-Pu-u0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed6-SP-chT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

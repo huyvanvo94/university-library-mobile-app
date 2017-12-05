@@ -12,6 +12,13 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
 
     var book: Book?
  
+    //Outlets
+    @IBOutlet weak var bookTitleTextField: CustomUITextField!
+    @IBOutlet weak var bookAuthorTextField: CustomUITextField!
+    @IBOutlet weak var bookPublisherTextField: CustomUITextField!
+    @IBOutlet weak var bookLocationTextField: CustomUITextField!
+    @IBOutlet weak var bookCopiesTextField: CustomUITextField!
+    @IBOutlet weak var bookStatusTextField: CustomUITextField!
     
     override func loadView() {
         super.loadView()
@@ -55,25 +62,56 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     // MARK: Kevin
     func loadBookToView(){
+        self.title = "Book Details"
         // then load book to view 
         if let book = self.book{
-            
             if let title = book.title{
-                self.title = title
+                bookTitleTextField.text = "Title: " + title
             }
+            if let author = book.author{
+                bookAuthorTextField.text = "Author: " + author
+            }
+            if let publisher = book.publisher{
+                bookPublisherTextField.text = "Publisher: " + publisher
+            }
+            if let location = book.locationInLibrary{
+                bookLocationTextField.text = "Location: " + location
+            }
+            if let copies = self.book?.numberOfCopies{
+                bookCopiesTextField.text = "# of Copies: " + String(copies)
+            }
+            let status = book.canCheckout
+            
+            if !status{
+                bookStatusTextField.text = "Status: Not Available"
+            }else{
+                bookStatusTextField.text = "Status: Available"
+            }
+            
         }
     }
     
     // MARK: -Kevin
     // allow text view to be edit about
     func disableTextViewInput(){
-        
+        bookTitleTextField.makeNotEditable()
+        bookAuthorTextField.makeNotEditable()
+        bookPublisherTextField.makeNotEditable()
+        bookLocationTextField.makeNotEditable()
+        bookCopiesTextField.makeNotEditable()
+        bookStatusTextField.makeNotEditable()
     }
     
     // MARK: -Kevin
     
     func enableTextViewInput(){
-        
+        bookTitleTextField.makeEditable()
+        bookTitleTextField.makeEditable()
+        bookAuthorTextField.makeEditable()
+        bookPublisherTextField.makeEditable()
+        bookLocationTextField.makeEditable()
+        bookCopiesTextField.makeEditable()
+        bookStatusTextField.makeEditable()
     }
     
     
