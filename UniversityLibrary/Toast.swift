@@ -5,7 +5,7 @@
 //  Created by Huy Vo on 12/1/17.
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
-
+/*
 import Foundation
 
 //
@@ -774,4 +774,4 @@ fileprivate extension UIView {
     }
     
 }
-
+*/

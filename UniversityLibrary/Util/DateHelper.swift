@@ -28,6 +28,19 @@ class DateHelper{
         return components.day!
     }
     
+    static func numberFromLocalToday(dt: TimeInterval) -> Int{
+        let today = Date()
+        let requestedDate = Date(timeIntervalSince1970: dt)
+        
+        let calendar = NSCalendar.current
+        
+        let fromDate = calendar.startOfDay(for: today)
+        let toDate = calendar.startOfDay(for: requestedDate)
+        var components = calendar.dateComponents([.day], from: fromDate, to: toDate)
+        components.timeZone = TimeZone.current
+        return components.day!
+    }
+    
     static func getLocalDate(dt: TimeInterval) -> String{
         return getLocalDate(dt: dt, timeZoneId: TimeZone.current.identifier)
     }
@@ -48,13 +61,13 @@ class DateHelper{
         dateComponents.month = month
         dateComponents.day = day
         dateComponents.timeZone = TimeZone(abbreviation: "UTC") // Universial
-     
+        
         let userCalendar = Calendar.current
         return userCalendar.date(from: dateComponents)
     }
     
     static func isToday(dt: TimeInterval) -> Bool{
-        return numberFromToday(dt: dt) < 1 
+        return numberFromLocalToday(dt: dt) == 0
     }
 }
 

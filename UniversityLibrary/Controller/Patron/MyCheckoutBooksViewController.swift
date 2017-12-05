@@ -34,7 +34,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "My CheckedOut Books"
+        self.title = "My Books"
 
         self.initTableView()
    
