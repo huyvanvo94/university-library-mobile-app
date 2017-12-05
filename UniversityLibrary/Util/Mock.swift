@@ -14,14 +14,14 @@ class Mock{
     static func mock_Patron() -> Patron{
  
         let p = Patron(email: "tes2t@gmail.com", password: "123123", universityId: 123124)
-        p.id = "xdd2dsfdfsdfssfdsf"
+        p.id = "u2cQttDSBiVen5EYRWX0PmQG3Hx2"
         return p
     }
     
     static func mock_Patron2() -> Patron{
         
         let p = Patron(email: "t134t@gmail.com", password: "144023", universityId: 123191)
-        p.id = "131432123"
+        p.id = "u2cQttDSBiVen5EYRWX0PmQG3Hx2"
         return p
     }
     

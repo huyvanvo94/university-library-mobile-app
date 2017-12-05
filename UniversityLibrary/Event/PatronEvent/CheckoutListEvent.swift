@@ -44,22 +44,28 @@ class CheckoutListEvent: AbstractEvent{
                         
                     case .success:
                         
-                        /*
                         let db = FirebaseManager().reference.child(DatabaseInfo.patronTable)
                         
                         db.child(self.checkoutList.patron.id!).observeSingleEvent(of: .value, with: {(snapshot) in
+                            
+                            
                             if var value = snapshot.value as? [String: Any]{
                                 
+                      
+                                self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.key)
                                 self.checkoutList.patron.totalNumberOfBooksCheckout += 1
-                                db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
-                             
-                             
+                                
+                                value = self.checkoutList.patron.dict
+                                
+                                db.child(self.checkoutList.patron.id!).updateChildValues(value)
+                                
+                                delegate.complete(event: self)
                             }
                             
-                        })*/
+                        })
                         
                        
-                        delegate.complete(event: self)
+                
                         
                     case .contain:
                         delegate.complete(event: self)
