@@ -158,7 +158,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
                 
             }else if event.action == .delete{
                  if event.state == BookActionState.success{
-                    self.popbackview()
+                    self.popBackView()
                  }else if event.state == BookActionState.checkoutListNotEmpty{
                     
                     super.showToast(message: "Is Checkout!")

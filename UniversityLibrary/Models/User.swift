@@ -5,8 +5,6 @@
 //  Created by Huy Vo on 11/14/17.
 //  Copyright © 2017 Huy Vo. All rights reserved.
 //
-
-//TODO: Create a history of checkout days 
 import Foundation
 
 class User: UniModel{
@@ -154,6 +152,9 @@ class Patron: User{
     
     var canCheckoutBook: Bool{
         get{
+            if self.booksCheckedOut.count >= 9{
+                return false
+            }
             if numberOfBooksCheckoutToday < 3{
                 numberOfBooksCheckoutToday += 1
                 return true
@@ -174,13 +175,14 @@ class Patron: User{
             return pDict
         }
     }
-    
-    
+
     var totalNumberOfBooksCheckoutDict: [String: Any]{
         get{
             return ["totalNumberOfBooksCheckout": self.totalNumberOfBooksCheckout]
         }
     }
+
+
     var transaction: Double?
     
     // A patron must be able to check out up to 3 books in any day.

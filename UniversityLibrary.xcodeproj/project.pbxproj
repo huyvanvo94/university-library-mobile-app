@@ -13,6 +13,7 @@
 		3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C9A1FD208E4007CDD60 /* BookCell.swift */; };
 		3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */; };
 		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
+		5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */; };
 		8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */; };
 		8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */; };
 		8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */; };
@@ -115,6 +116,7 @@
 		3FB04C981FD20616007CDD60 /* MenuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuUIButton.swift; sourceTree = "<group>"; };
 		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchWaitListBookEvent.swift; sourceTree = "<group>"; };
+		5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianSearchBookViewController.swift; sourceTree = "<group>"; };
 		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -274,6 +276,7 @@
 				8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */,
 				8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */,
 				8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */,
+				5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -720,7 +723,7 @@
 				8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */,
 				8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */,
 				3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */,
-				8FCF61091FD10628008D8C72 /* ResultBookViewController.swift in Sources */,
+				8FCF61091FD10628008D8C72,
 				8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */,
 				8FC2EC9E1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld in Sources */,
 				8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */,
@@ -744,6 +747,7 @@
 				8FCF61071FD104E9008D8C72 /* PatronSearchBookViewController.swift in Sources */,
 				8F3ABAF61FC107C300551B3B /* PatronNavViewController.swift in Sources */,
 				8FC6FABD1FCFF02F00FBC1D8 /* UIViewFactory.swift in Sources */,
+				5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
