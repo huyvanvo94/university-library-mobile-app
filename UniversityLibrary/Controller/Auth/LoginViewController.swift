@@ -27,18 +27,19 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate {
         
         self.hideKeyboardWhenTappedAround()
         
-         
-        
         /*
         let lb = LibrarianManager(user: Mock.mock_Librarian())
         let b = Mock.mock_Book2()
      
-        lb.add(with: b!)*/
-  
-  
-        /*
+        lb.add(with: b!)
+  */
+     
         let p = PatronManager(patorn: Mock.mock_Patron2())
-        p.checkout(book: Mock.mock_Book2())*/
+        
+        
+        let books = [Mock.mock_Book2()!]
+        
+        p.checkout(book: books[0])
  
    
     }

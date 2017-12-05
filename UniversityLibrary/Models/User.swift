@@ -99,6 +99,7 @@ class Patron: User{
     //var booksChecked = [Book]()
     
     
+    
     override init(email: String, password: String, universityId: Int?) {
 
         super.init(email: email, password: email, universityId: universityId)
@@ -117,6 +118,12 @@ class Patron: User{
         if let totalNumberOfBooksCheckout = dict["totalNumberOfBooksCheckout"] as? Int{
             self.totalNumberOfBooksCheckout = totalNumberOfBooksCheckout
         }
+        
+        if let transaction = dict["transaction"] as? Double{
+            self.transaction = transaction
+        }
+        
+        
     }
     
     /*
@@ -151,13 +158,21 @@ class Patron: User{
     override var dict: [String : Any]{
         get{
             var pDict = super.dict
+           
+            pDict["totalNumberOfBooksCheckout"] = self.totalNumberOfBooksCheckout
+            pDict["transaction"] = self.transaction
             
-            pDict["totalNumberOfBooksCheckout"] = 0
             return pDict
         }
     }
     
     
+    var totalNumberOfBooksCheckoutDict: [String: Any]{
+        get{
+            return ["totalNumberOfBooksCheckout": self.totalNumberOfBooksCheckout]
+        }
+    }
+    var transaction: Double?
     
     // A patron must be able to check out up to 3 books in any day.
     func numberOfBookCheckedOut(on date: Date) -> Int{

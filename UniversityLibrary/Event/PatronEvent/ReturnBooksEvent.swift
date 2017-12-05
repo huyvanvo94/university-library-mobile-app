@@ -39,70 +39,89 @@ class ReturnBooksEvent: AbstractEvent{
                 self.state = .overflow
                 delegate.complete(event: self)
                 
-                
             }else{
                 
-                var list = [ReturnBookInfo]()
-              
-                var current: Book?
-                while self.books.isEmpty == false{
-                    
+                let helper = ReturnBooksHelper(event: self)
+                helper.doReturn()
                 
-                    current = self.books.popLast()
-                    self.doReturn(book: current!, completion: {(returnBookInfo) in
-                    
-                        list.append(returnBookInfo)
-                        current = self.books.popLast()
-                    })
-                    
-                }
-                
-                
-                
-                DataService.shared.returnConfirmationTransaction(data: ReturnBookInfo.convertToArrayString(books: list), email: self.patron.email!, completion: { (success) in
-                    
-                    if (success){
-                        
-                    }else{
-                        
-                    }
-                    
-                })
-                
-                
-            
             }
             
         }
     }
     
-    func doReturn(book: Book, completion: ((ReturnBookInfo)-> ())?){
-        let db = FirebaseManager().reference
-        
-        db?.child(DatabaseInfo.checkedOutListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+    func email(list: [ReturnBookInfo]){
+       
+        DataService.shared.returnConfirmationTransaction(data: ReturnBookInfo.convertToArrayString(books: list), email: self.patron.email!, completion: { (success) in
             
-            if var value = snapshot.value as? [String: Any]{
-                if var users = value["users"] as? Dictionary<String, Any>{
-                    
-                    if users[self.patron.id!] != nil{
-                        users[self.patron.id!] = nil
-                        value["users"] = users
-                        
-                        db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
-                        
-                        if let completion = completion{
-                            // test
-                            completion(ReturnBookInfo(nameOfBook: "example", fineAmount: -1))
-                        }
-                        
-                    }else{
-                        
-                    }
-                    
-                }
+            if (success){
+                
+                self.state = .success
+                
+                self.delegate?.complete(event: self)
+              
+            }else{
+                self.state = .error
+                self.delegate?.error(event: self)
+                
             }
             
         })
+    }
+    
+    class ReturnBooksHelper{
+        
+        let event: ReturnBooksEvent
+        
+        var returnBooksInfo = [ReturnBookInfo]()
+        
+        init(event: ReturnBooksEvent){
+            self.event = event
+        }
+        
+        func doReturn(){
+            if self.event.books.isEmpty{
+                event.email(list: self.returnBooksInfo)
+                
+                return
+            }
+            
+            let current = event.books.popLast()!
+            
+            self.doReturn(book: current)
+            
+        }
+        
+        private func doReturn(book: Book){
+            let db = FirebaseManager().reference
+            
+            db?.child(DatabaseInfo.checkedOutListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                
+                if var value = snapshot.value as? [String: Any]{
+                    if var users = value["users"] as? Dictionary<String, Any>{
+                        
+                        if users[self.event.patron.id!] != nil{
+                            
+                            
+                            users[self.event.patron.id!] = nil
+                            value["users"] = users
+                            
+                            db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
+                            
+                            self.returnBooksInfo.append(ReturnBookInfo(nameOfBook: book.title!, fineAmount: 10))
+                           
+                        }else{
+                           
+                        }
+                        
+                        self.doReturn()
+                        
+                    }
+                }
+                
+            })
+            
+            
+        }
     }
 }
 

@@ -255,7 +255,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func checkout(book: Book) {
         
         let checkout = CheckoutList(patron: self.patron, book: book)
-        let event = CheckoutListEvent(checkoutList: checkout, action: .add)
+        let event = CheckoutListEvent(checkoutList: checkout)
         event.delegate = self
     }
     

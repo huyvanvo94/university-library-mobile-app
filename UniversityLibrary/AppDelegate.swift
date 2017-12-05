@@ -26,22 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
        
         // set root view controller
- 
-        /*
+  /*
          self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
         self.window?.rootViewController = root
         self.window?.makeKeyAndVisible()
- */
-        // start lbrarian storyboard
+*/
         /*
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Librarian", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "LibrarianNavViewController") as! LibrarianNavViewController
         self.window?.rootViewController = root
-        self.window?.makeKeyAndVisible()
-*/
+
+
+        self.window?.makeKeyAndVisible()*/
+ 
         // end set root view controller
         
         // start patron storyboard

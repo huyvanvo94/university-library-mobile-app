@@ -17,7 +17,7 @@ class CheckoutList: UniModel{
     let patron: Patron
     let book: Book
     
-    var thirdDaysFromNowDueDate: Date {
+    var dueDate: Date {
         get{
             let today = Date()
             return today.thirtyDaysfromNow
@@ -43,7 +43,7 @@ class CheckoutList: UniModel{
             var dict = [String: Any]()
             
             dict[CheckoutList.USERS] = patron.id
-            dict[CheckoutList.DUE_DATE] = thirdDaysFromNowDueDate
+            dict[CheckoutList.DUE_DATE] = dueDate
             
             return dict
         }
