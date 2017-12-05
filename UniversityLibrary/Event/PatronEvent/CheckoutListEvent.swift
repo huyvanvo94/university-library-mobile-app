@@ -34,7 +34,42 @@ class CheckoutListEvent: AbstractEvent{
         queue.async {
            
             if self.checkoutList.patron.canCheckoutBook{
-                self.addToList(delegate: delegate, checkoutList: self.checkoutList)
+                
+       
+                self.addToList(checkoutList: self.checkoutList, completion: {(state) in
+                    
+                    self.state = state
+                    
+                    switch state{
+                        
+                    case .success:
+                        
+                        /*
+                        let db = FirebaseManager().reference.child(DatabaseInfo.patronTable)
+                        
+                        db.child(self.checkoutList.patron.id!).observeSingleEvent(of: .value, with: {(snapshot) in
+                            if var value = snapshot.value as? [String: Any]{
+                                
+                                self.checkoutList.patron.totalNumberOfBooksCheckout += 1
+                                db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
+                             
+                             
+                            }
+                            
+                        })*/
+                        
+                       
+                        delegate.complete(event: self)
+                        
+                    case .contain:
+                        delegate.complete(event: self)
+                        
+                    case .full:
+                        delegate.complete(event: self)
+                    default:
+                        delegate.error(event: self)
+                    }
+                })
             }else{
                 // cannot checkout
                 
@@ -47,7 +82,7 @@ class CheckoutListEvent: AbstractEvent{
     }
     
     // add user to list
-    private func addToList(delegate: AbstractEventDelegate, checkoutList: CheckoutList){
+    private func addToList(checkoutList: CheckoutList, completion: ((CheckoutState) -> () )?){
         let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
         
         
@@ -59,14 +94,16 @@ class CheckoutListEvent: AbstractEvent{
                     if var users = value["users"] as? Dictionary<String, Any>{
                         
                         if users[self.checkoutList.patron.id!] != nil{
-                            self.state = .contain
-                            delegate.complete(event: self)
-                            
+        
+                            if let completion = completion{
+                                completion(.contain)
+                            }
                         }
                         else if users.count == numberOfCopies{
-                            self.state = .full
-                            delegate.complete(event: self)
-                            
+                         
+                            if let completion = completion{
+                                completion(.full)
+                            }
                         }else{
                             
                            
@@ -77,9 +114,9 @@ class CheckoutListEvent: AbstractEvent{
                             value["users"] = users
                             db.child(self.checkoutList.book.key).updateChildValues(value)
                           
-                            self.state = .success
-                            delegate.complete(event: self)
-                            
+                            if let completion = completion{
+                                completion(.success)
+                            }
                             
                             /*
                             DataService.shared.confirmCheckout(email: checkoutInfo.patron.email!,
@@ -105,9 +142,10 @@ class CheckoutListEvent: AbstractEvent{
                         
                         db.child(checkoutList.book.key).updateChildValues(value)
                         
-                        
-                        self.state = .success
-                        delegate.complete(event: self)
+                      
+                        if let completion = completion{
+                            completion(.success)
+                        }
                         
                         /*
                         DataService.shared.confirmCheckout(email: checkoutInfo.patron.email!,
