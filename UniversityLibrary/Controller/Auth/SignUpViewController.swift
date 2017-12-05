@@ -109,7 +109,7 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     }
     
     func handleValidation(_ alertAction: UIAlertAction!) -> Void{
-        self.popbackview()
+        self.popBackView()
     }
 
     

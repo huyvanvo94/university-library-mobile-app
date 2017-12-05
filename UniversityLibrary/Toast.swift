@@ -1,15 +1,5 @@
 //
 //  Toast.swift
-//  UniversityLibrary
-//
-//  Created by Huy Vo on 12/1/17.
-//  Copyright © 2017 Huy Vo. All rights reserved.
-//
-
-import Foundation
-
-//
-//  Toast.swift
 //  Toast-Swift
 //
 //  Copyright (c) 2015-2017 Charles Scalesse.

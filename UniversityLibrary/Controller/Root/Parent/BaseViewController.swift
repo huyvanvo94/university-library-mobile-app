@@ -13,12 +13,12 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(rgb: 0xf9f9f9)
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
     lazy var activityIndicatorView: UIActivityIndicatorView = {
@@ -36,9 +36,7 @@ class BaseViewController: UIViewController {
         return activityIndicatorView
     }()
     
-   
-    
-    
+
     func alertMessage(title: String, message: String, actionTitle: String = "OK"){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -48,7 +46,7 @@ class BaseViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func popbackview(){
+    func popBackView(){
         self.navigationController?.popViewController(animated: true)
     }
     

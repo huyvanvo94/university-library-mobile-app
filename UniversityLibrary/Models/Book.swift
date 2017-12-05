@@ -103,10 +103,10 @@ class Book: UniModel{
         return dict
     }
     
-    // key used for firebase
+    // Key for meta data
     var key: String{
         get{
-            return author! + title!
+            return String(self.hashKey)
         }
     }
     
@@ -114,24 +114,24 @@ class Book: UniModel{
         get{
             var hashValue = super.hashKey
            
-            if let _ = self.author{
-                hashValue += author!.hashValue
+            if let author = self.author{
+                hashValue += author.hashValue
             }
             
-            if let _ = self.title{
-                hashValue += self.title!.hashValue
+            if let title = self.title{
+                hashValue += title.hashValue
             }
             
-            if let _ = self.callNumber{
-                hashValue += self.callNumber!.hashValue
+            if let callNumber = self.callNumber{
+                hashValue += callNumber.hashValue
             }
             
-            if let _ = self.publisher{
-                hashValue += self.publisher!.hashValue
+            if let publisher = self.publisher{
+                hashValue += publisher.hashValue
             }
             
-            if let _ = self.yearOfPublication{
-                hashValue += self.yearOfPublication!.hashValue
+            if let yearOfPublication = self.yearOfPublication{
+                hashValue += yearOfPublication.hashValue
             }
             
             return hashValue
