@@ -25,6 +25,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     @IBOutlet weak var numberOfCopies: UITextField!
     @IBOutlet weak var callNumber: UITextField!
     
+    @IBOutlet weak var currentStatus: GeneralUITextField!
     lazy var addBookItemBar: UIBarButtonItem = {
         let image =  UIImage(named: "addBooksIcon.png")
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(AddBookViewController.addBookAction(_:)))
@@ -38,10 +39,18 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     // Mark: -Kevin
     func clearAllTextFromTextField(){
         
+        bookTitle.text = ""
+        author.text = ""
+        publisher.text = ""
+        locationInLibrary.text = ""
+        numberOfCopies.text = ""
+        callNumber.text = ""
+       
+        currentStatus.text = ""
     }
     
     func addBookAction(_ sender: Any){
-        
+       
         self.add(with: Mock.mock_Book())
         
         
@@ -82,7 +91,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
             .setPublisher(publisher: publisher)
             .build()
         
-        self.add(with: book)
+      //  self.add(with: book)
         
         
     }
@@ -94,6 +103,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         case let event as BookEvent:
             if event.state == .success{
                
+                self.clearAllTextFromTextField()
                 super.displayAnimateSuccess()
             }else if event.state == .exist{
                 
