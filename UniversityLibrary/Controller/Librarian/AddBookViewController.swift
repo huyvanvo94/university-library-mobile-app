@@ -15,6 +15,8 @@ import UIKit
 
 
 class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
+
+    var librarian: Librarian?
  
     @IBOutlet weak var bookTitle: UITextField!
     
@@ -31,12 +33,10 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(AddBookViewController.addBookAction(_:)))
         
         self.navigationItem.rightBarButtonItem = button
-        
-        
+
         return button
     }()
-    
-    // Mark: -Kevin
+
     func clearAllTextFromTextField(){
         
         bookTitle.text = ""
@@ -131,11 +131,12 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     }
     
     func add(with book: Book){
-        
-        super.activityIndicatorView.startAnimating()
-        
-        let event = BookEvent(book: book, action: .add)
-        event.delegate = self
+        if let librarian = self.librarian {
+            super.activityIndicatorView.startAnimating()
+
+            let event = BookEvent(librarian: librarian, book: book, action: .add)
+            event.delegate = self
+        }
         
     }
     // once users search for a book, it should return the book class

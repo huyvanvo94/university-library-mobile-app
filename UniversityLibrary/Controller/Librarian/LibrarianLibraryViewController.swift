@@ -9,6 +9,8 @@
 import UIKit
 
 class LibrarianLibraryViewController: BaseViewController, BookKeeper {
+    var librarian: Librarian?
+
     func search(for: Book) {
         
     }

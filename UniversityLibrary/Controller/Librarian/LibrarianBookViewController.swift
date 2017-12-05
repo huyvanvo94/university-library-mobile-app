@@ -10,6 +10,7 @@ import UIKit
 
 class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
 
+    var librarian: Librarian?
     var book: Book?
  
     //Outlets
@@ -136,14 +137,18 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     
     func update(book: Book) {
-        let event = BookEvent(book: book, action: .update)
-        event.delegate = self
-        
+        if let librarian = self.librarian {
+            let event = BookEvent(librarian: librarian, book: book, action: .update)
+            event.delegate = self
+        }
     }
     
     func delete(book: Book) {
-        let event = BookEvent(book: book, action: .delete)
-        event.delegate = self
+
+        if let librarian =  self.librarian {
+            let event = BookEvent(librarian:librarian, book: book, action: .delete)
+            event.delegate = self
+        }
   
     }
     

@@ -123,9 +123,10 @@ class CheckoutListEvent: AbstractEvent{
                             if let completion = completion{
                                 completion(.success)
                             }
-                            
+
                             /*
-                            DataService.shared.confirmCheckout(email: checkoutInfo.patron.email!,
+
+                            DataService.shared.confirmCheckout(bookInfo: self.checkoutList.book.bookInfo, email: checkoutInfo.patron.email!,
                                                                transactionTime: checkoutInfo.transactionDate,
                                                                dueDate: checkoutInfo.transactionDate, completion: {success in
                                         
@@ -134,7 +135,9 @@ class CheckoutListEvent: AbstractEvent{
                                                                 }
                                                                 
                                                                 
-                            })*/
+                            })
+
+                            */
                             
                             
                         }

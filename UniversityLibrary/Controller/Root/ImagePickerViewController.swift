@@ -44,6 +44,7 @@ class ImagePickerViewController: BaseViewController, UIImagePickerControllerDele
 
     }
 
+    // use this to do application logic
     func fetchImageComplete(){
 
     }

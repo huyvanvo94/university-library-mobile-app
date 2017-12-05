@@ -162,6 +162,13 @@ extension String{
     func isSJSUEmail() -> Bool{
         return self.isValidEmail() && self.hasSuffix("@sjsu.edu")
     }
+    
+    var myHash: Int {
+        let unicodeScalars = self.unicodeScalars.map { $0.value }
+        return unicodeScalars.reduce(5381) {
+            ($0 << 5) &+ $0 &+ Int($1)
+        }
+    }
 }
 
 

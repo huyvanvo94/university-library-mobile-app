@@ -9,10 +9,11 @@
 import UIKit
 
 class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
-  
+
+    var librarian: Librarian?
+
     @IBOutlet weak var bookTitle: UITextField!
-    
-    
+
     @IBOutlet weak var author: UITextField!
     
     
@@ -77,10 +78,11 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     
     func search(exact book: Book) {
-      
-        let event = BookEvent(book: book, action: .searchExactly)
-        event.delegate = self
-        
+
+        if let librarian = self.librarian {
+            let event = BookEvent(librarian: librarian, book: book, action: .searchExactly)
+            event.delegate = self
+        }
     }
     
     func search(by book: Book) {

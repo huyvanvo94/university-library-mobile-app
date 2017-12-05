@@ -8,13 +8,13 @@
 
 import Foundation
 
+
 /*
  * This class is ONLY used to format data for UI 
  */
 class Formatter{
     
+ 
 }
 
-class HTMLFormatter: Formatter{
-    
-}
+

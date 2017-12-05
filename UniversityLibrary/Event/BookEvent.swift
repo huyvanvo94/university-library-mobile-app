@@ -16,15 +16,18 @@ class BookEvent: AbstractEvent{
             self.async_ProcessEvent() 
         }
     }
-    
+
+
+    let librarian: Librarian
     let action: BookAction
     let book: Book
     
     var state: BookActionState?
   
-    init(book: Book, action: BookAction){
+    init(librarian: Librarian, book: Book, action: BookAction){
         self.action = action
-        self.book = book 
+        self.book = book
+        self.librarian = librarian
     }
     
 
@@ -51,7 +54,15 @@ class BookEvent: AbstractEvent{
                         delegate.complete(event: self)
                    
                     }else{
+                        print("OK")
                         let db = FirebaseManager().reference
+
+                        // set last add by
+
+                    //    let email = self.librarian.email!
+
+                        self.book.lastUpDateBy = "tester@gmail.com"
+
                         
                         let id = db?.child(DatabaseInfo.bookTable).childByAutoId().key
                         
@@ -152,8 +163,11 @@ class BookEvent: AbstractEvent{
                                     if let value = snapshot.value as? NSDictionary{
                                         
                                         if let bookDict = value as? Dictionary<String, Any>{
-                                            
+
+                                            let email = self.librarian.email!
+
                                             let book = Book(dict: bookDict)
+                                            book.lastUpDateBy = self.librarian.email
                                             delegate.result(exact: book)
                                         }
                                         
@@ -180,6 +194,11 @@ class BookEvent: AbstractEvent{
                 // currently i am updating with book ID
                 db?.child(DatabaseInfo.bookTable).child(self.book.id!).observeSingleEvent(of: .value, with: {(snapshot) in
                     // only update the book table
+
+                    let email = self.librarian.email!
+
+                    self.book.lastUpDateBy = email
+
                     db?.child(DatabaseInfo.bookTable).child(self.book.id!).updateChildValues(self.book.dict)
                     
                 
