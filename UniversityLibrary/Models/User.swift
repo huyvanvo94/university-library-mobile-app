@@ -90,9 +90,9 @@ class Patron: User{
     var numberOfBooksCheckoutToday = 0
     var totalNumberOfBooksCheckout = 0
     // contains id to books
-    var booksCheckedOut: [String]?
+    var booksCheckedOut = [String]()
     // contains id to books
-    var booksOnWaitingList: [String]?
+    var booksOnWaitingList = [String]()
      
     //The total number of books a patron can keep at any given time cannot exceed 9.
     static let MAX_BOOKS = 9
@@ -121,6 +121,14 @@ class Patron: User{
         
         if let transaction = dict["transaction"] as? Double{
             self.transaction = transaction
+        }
+        
+        if let booksCheckedOut = dict["booksCheckedOut"] as? [String]{
+            self.booksCheckedOut = booksCheckedOut
+        }
+        
+        if let booksOnWaitingList = dict["booksOnWaitingList"] as? [String]{
+            self.booksOnWaitingList = booksOnWaitingList
         }
         
         
@@ -161,7 +169,8 @@ class Patron: User{
            
             pDict["totalNumberOfBooksCheckout"] = self.totalNumberOfBooksCheckout
             pDict["transaction"] = self.transaction
-            
+            pDict["booksCheckedOut"] = self.booksCheckedOut
+            pDict["booksOnWaitingList"] = self.booksOnWaitingList
             return pDict
         }
     }

@@ -12,6 +12,8 @@ import Foundation
 class FetchCheckedOutEvent: AbstractEvent{
     let patron: Patron
     
+    var books = [Book]()
+    
     var book: Book?
    
     init(patron: Patron){
@@ -24,7 +26,7 @@ class FetchCheckedOutEvent: AbstractEvent{
         }
     }
     
-    
+  
     func async_ProcessEvent() {
         guard let delegate = self.delegate else {
             return
@@ -34,9 +36,54 @@ class FetchCheckedOutEvent: AbstractEvent{
         
         queue.async {
             
+            /*
             self.book = Mock.mock_Book2()
-            delegate.complete(event: self)
+            delegate.complete(event: self)*/
+            
+            let helper = FetchCheckBooksHelper(event: self)
+            helper.fetch()
         }
+    }
+    
+    class FetchCheckBooksHelper{
+        
+        let event: FetchCheckedOutEvent
+        
+        init(event: FetchCheckedOutEvent){
+            self.event = event
+        }
+        
+        func fetch(){
+            
+            if event.patron.booksCheckedOut.isEmpty{
+                event.delegate?.complete(event: event)
+                return
+            }
+            
+            let key = event.patron.booksCheckedOut.popLast()!
+            
+            fetchBook(key: key)
+            
+        }
+    
+        func fetchBook(key: String){
+            
+            let db = FirebaseManager().reference
+            
+            db?.child(key).observe(.value, with: {(snapshot) in
+                
+                if let value = snapshot.value as? [String: Any]{
+                   
+                   
+                    let book = Book(dict: value)
+                
+                    self.event.books.append(book)
+                    
+                }
+                
+            })
+        }
+        
     }
 }
 

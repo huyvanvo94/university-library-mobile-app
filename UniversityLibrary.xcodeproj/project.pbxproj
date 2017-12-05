@@ -38,6 +38,8 @@
 		8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61B1FC01ED700E25156 /* Patron.storyboard */; };
 		8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61E1FC01EE100E25156 /* Librarian.storyboard */; };
 		8F5B778E1FC4E2A5004B664B /* EmailConfirmationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B778D1FC4E2A5004B664B /* EmailConfirmationEvent.swift */; };
+		8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */; };
+		8F81CD311FD66B2500CB5A74 /* FetchAllBooksId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CD301FD66B2500CB5A74 /* FetchAllBooksId.swift */; };
 		8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90C0431FC29FE7003CD88C /* BookManager.swift */; };
 		8F9367911FBBA921007716E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367901FBBA921007716E5 /* User.swift */; };
 		8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */; };
@@ -138,6 +140,8 @@
 		8F54D61C1FC01ED700E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patron.storyboard; sourceTree = "<group>"; };
 		8F54D61F1FC01EE100E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Librarian.storyboard; sourceTree = "<group>"; };
 		8F5B778D1FC4E2A5004B664B /* EmailConfirmationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationEvent.swift; sourceTree = "<group>"; };
+		8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBookEvent.swift; sourceTree = "<group>"; };
+		8F81CD301FD66B2500CB5A74 /* FetchAllBooksId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllBooksId.swift; sourceTree = "<group>"; };
 		8F90C0431FC29FE7003CD88C /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		8F9367901FBBA921007716E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -457,6 +461,8 @@
 				8F5B778D1FC4E2A5004B664B /* EmailConfirmationEvent.swift */,
 				8F3ABAFE1FC1253600551B3B /* BookEvent.swift */,
 				8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */,
+				8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */,
+				8F81CD301FD66B2500CB5A74 /* FetchAllBooksId.swift */,
 				8F2469B81FC9682500BAF71B /* PatronEvent */,
 				8F3ABAFB1FC109D700551B3B /* AuthEvent */,
 			);
@@ -692,6 +698,8 @@
 				3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */,
 				8FCF610B1FD10843008D8C72 /* PatronBooksTableViewController.swift in Sources */,
 				8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */,
+				8F81CD311FD66B2500CB5A74 /* FetchAllBooksId.swift in Sources */,
+				8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */,
 				8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */,
 				8F209B8E1FD264830018C6FB /* FetchCheckedOutBookEvent.swift in Sources */,
 				8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */,
