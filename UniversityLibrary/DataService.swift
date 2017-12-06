@@ -105,12 +105,14 @@ final class DataService{
                     // request has been successful
                     
                     if httpResponse.statusCode == 200 {
+                        Logger.log(clzz: "DataService", message: "success confirm")
                         
                         if let completion = completion{
+                            
                             completion(true)
                         }
                     }else{
-                        
+                        Logger.log(clzz: "DataService", message: "error confirm")
                         if let completion = completion{
                             completion(false)
                         }

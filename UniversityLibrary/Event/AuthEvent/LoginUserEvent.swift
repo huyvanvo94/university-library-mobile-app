@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import Firebase
 
 class LoginUserEvent: BaseEventWithUser{
     
@@ -38,6 +39,41 @@ class LoginUserEvent: BaseEventWithUser{
                     if returnUser!.isEmailVerified{
                         self.state = .success
                         delegate.complete(event: self)
+                        
+                        
+                        let email = user.email
+                        
+                        var tableName = DatabaseInfo.patronTable
+                        
+                        if (email?.isSJSUEmail())!{
+                            tableName = DatabaseInfo.librarianTable
+                        }
+                        
+                        
+                        let db = FirebaseManager().reference.child(tableName)
+                        
+                        db.child(returnUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
+                            
+                            if let value = snapshot.value as? Dictionary<String, Any>{
+                                
+                                if (email?.isSJSUEmail())!{
+                                    let user = Librarian(dict: value)
+                                    AppDelegate.setLibrarian(user)
+                                }else{
+                                    let user = Patron(dict: value)
+                                    AppDelegate.setPatron(user)
+                                    
+                                }
+                                
+                                self.state = .success
+                                delegate.complete(event: self)
+                                
+                            }
+                        })
+                        
+                        
+                        
+                        
                         
                     }else{
                         self.state = .emailNotVerified

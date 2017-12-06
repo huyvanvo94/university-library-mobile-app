@@ -112,7 +112,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
                 super.displayAnimateSuccess()
             }else if event.state == .exist{
                 
-                self.view.makeToast("Already contains book", point: Screen.center, title: "Error", image: UIImage(named: "error.png"), completion: nil)
+               /* self.view.makeToast("Already contains book", point: Screen.center, title: "Error", image: UIImage(named: "error.png"), completion: nil) */
            
             }
         default:

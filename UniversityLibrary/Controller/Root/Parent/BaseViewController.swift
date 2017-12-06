@@ -46,6 +46,18 @@ class BaseViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func alertMessage(title: String, message: String, actionTitle: String = "OK", handler: ((UIAlertAction)->() )?){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: title, style: .default, handler: handler)
+       
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
     func popBackView(){
         self.navigationController?.popViewController(animated: true)
     }

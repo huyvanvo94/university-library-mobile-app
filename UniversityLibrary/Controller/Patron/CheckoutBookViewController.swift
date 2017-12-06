@@ -33,6 +33,13 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let patron = AppDelegate.fetchPatron(){
+            self.patron = patron
+        }else{
+            self.patron = Mock.mock_Patron()
+        }
+    
+        
         
         self.loadBookToUI()
         // Do any additional setup after loading the view.
@@ -93,6 +100,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
 
 
     func checkout(book: Book) {
+        Logger.log(clzz: "CheckoutVC", message: "checkout")
 
         if let patron = self.patron {
             let checkout = CheckoutList(patron: patron, book: book)
@@ -116,6 +124,10 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     func search(for: Book) {
 
     }
+    
+    func doRenew(book: Book) {
+        
+    }
 
     func complete(event: AbstractEvent){
 
@@ -125,9 +137,18 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
         if let event = event as? CheckoutListEvent{
 
             if event.state == CheckoutState.success{
-                super.popBackView()
+               
+                let info = event.transactionInfo
+                
+                let infoString = "\(event.checkoutList.book.title!) due on \(info!.dueDate)"
+                
+                super.alertMessage(title: "Receipt", message: infoString, actionTitle: "OK", handler: {(alert) in
+                
+                    self.popBackView()
+                })
+                
             }else if event.state == CheckoutState.contain{
-                self.showToast(message: "Already checkedout!")
+                self.showToast(message: "Already checked out!")
 
             }
 
@@ -136,7 +157,8 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     func error(event: AbstractEvent){
 
     }
-
+    
+    
     /*
     // MARK: - Navigation
 

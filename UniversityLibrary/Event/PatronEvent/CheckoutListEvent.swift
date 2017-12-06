@@ -11,6 +11,8 @@ import Firebase
 
 class CheckoutListEvent: AbstractEvent{
     
+    var transactionInfo: CheckoutBookInfo?
+    
     let checkoutList: CheckoutList
          var state: CheckoutState?
     
@@ -52,6 +54,7 @@ class CheckoutListEvent: AbstractEvent{
                             
                             
                             if var value = snapshot.value as? [String: Any]{
+                                // update patron
                                 Logger.log(clzz: "CheckoutListEvent", message: "Update books")
                       
                                 self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.key)
@@ -60,6 +63,8 @@ class CheckoutListEvent: AbstractEvent{
                                 value = self.checkoutList.patron.dict
                                 
                                 db.child(self.checkoutList.patron.id!).updateChildValues(value)
+                                
+                                AppDelegate.setPatron(self.checkoutList.patron)
 
                                 delegate.complete(event: self)
                             }
@@ -92,6 +97,7 @@ class CheckoutListEvent: AbstractEvent{
     
     // add user to list
     private func addToList(checkoutList: CheckoutList, completion: ((CheckoutState) -> () )?){
+        Logger.log(clzz: "CheckoutListEvent", message: "addToList")
         let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
         
         
@@ -120,30 +126,31 @@ class CheckoutListEvent: AbstractEvent{
                             
                            
                             let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron)
-                            
+                       
                             users[self.checkoutList.patron.id!] = checkoutInfo.dict
                             
                             value["users"] = users
                             db.child(self.checkoutList.book.key).updateChildValues(value)
-                          
+                           
                             if let completion = completion{
+                                print("success")
+                                self.transactionInfo = checkoutInfo
                                 completion(.success)
                             }
-
-                            /*
-
+                            
                             DataService.shared.confirmCheckout(bookInfo: self.checkoutList.book.bookInfo, email: checkoutInfo.patron.email!,
                                                                transactionTime: checkoutInfo.transactionDate,
                                                                dueDate: checkoutInfo.transactionDate, completion: {success in
                                         
                                                                 if success {
-                                                             
+                                                                    
+                                                                    
+                                                                    
                                                                 }
                                                                 
                                                                 
                             })
 
-                            */
                             
                             
                         }
@@ -160,20 +167,22 @@ class CheckoutListEvent: AbstractEvent{
                         
                       
                         if let completion = completion{
+                               self.transactionInfo = checkoutInfo
                             completion(.success)
                         }
-                        
-                        /*
-                        DataService.shared.confirmCheckout(email: checkoutInfo.patron.email!,
+                        let bookInfo = self.checkoutList.book.bookInfo
+                        DataService.shared.confirmCheckout(bookInfo: bookInfo, email: checkoutInfo.patron.email!,
                                                            transactionTime: checkoutInfo.transactionDate,
                                                            dueDate: checkoutInfo.transactionDate, completion: {success in
                                                             
                                                             if success{
-                                                                
+                                                           
+                                                                print("success")
+                                                               
                                                             }
                                                       
                                                             
-                        })*/
+                        })
                         
                         
                     }

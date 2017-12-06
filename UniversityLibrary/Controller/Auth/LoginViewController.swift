@@ -24,7 +24,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
-        
+    
         self.hideKeyboardWhenTappedAround()
    
         /*

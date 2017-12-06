@@ -57,6 +57,9 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
 
         }
         else if let book = self.book{
+            if self.librarian == nil{
+                self.librarian = Mock.mock_Librarian()
+            }
 
             self.buildUpdatedBook()
             self.update(book: book)
@@ -100,6 +103,12 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         }
         if let book = self.book{
             super.activityIndicatorView.startAnimating()
+            
+            if self.librarian == nil{
+                self.librarian = Mock.mock_Librarian()
+            }
+            
+            
             self.delete(book: book)
         }
     
@@ -217,7 +226,9 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
                 
             }else if event.action == .delete{
                  if event.state == BookActionState.success{
-                    self.popBackView()
+                    print("YO!")
+                    
+                   self.navigationController?.popToRootViewController(animated: true)
                  }else if event.state == BookActionState.checkoutListNotEmpty{
 
                     super.showToast(message: "Is Checkout!")

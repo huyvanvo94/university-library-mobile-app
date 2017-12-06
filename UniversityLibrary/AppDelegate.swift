@@ -17,16 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // this is where user is location through out the application
     // to call this user, you need to access UIApplication
     
-    var user: User?
+    static var user: User?
 
+    static func setPatron(_ patron: Patron){
+        user = patron
+    }
     
+    static func setLibrarian(_ librarian: Librarian){
+        user = librarian
+    }
+    
+    static func fetchLibrarian() -> Librarian?{
+        return user as? Librarian
+    }
+    
+    static func fetchPatron() -> Patron?{
+        return user as? Patron
+    }
  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Logger.log(clzz: "AppDelegate", message: "didFinisihLaunchingWithOptions")
         FirebaseApp.configure()
          
         UINavigationBar.appearance().tintColor = UIColor.white
-  
+        //self.goToLibrarian()
         self.goToLibrarian()
         return true
     }
