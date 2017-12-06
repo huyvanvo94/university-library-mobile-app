@@ -16,15 +16,19 @@ class BookEvent: AbstractEvent{
             self.async_ProcessEvent() 
         }
     }
-    
+
+    var eventBook: Book?
+
+    let librarian: Librarian
     let action: BookAction
     let book: Book
     
     var state: BookActionState?
   
-    init(book: Book, action: BookAction){
+    init(librarian: Librarian, book: Book, action: BookAction){
         self.action = action
-        self.book = book 
+        self.book = book
+        self.librarian = librarian
     }
     
 
@@ -51,8 +55,15 @@ class BookEvent: AbstractEvent{
                         delegate.complete(event: self)
                    
                     }else{
+               
                         let db = FirebaseManager().reference
-                        
+
+                        // set last add by
+
+                 
+                        let email = self.librarian.email
+                        self.book.lastUpDateBy = email
+ 
                         let id = db?.child(DatabaseInfo.bookTable).childByAutoId().key
                         
                         // The books added so far table currently contains book id for quick reference
@@ -113,6 +124,7 @@ class BookEvent: AbstractEvent{
                                                         db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
                                                         db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
                                                         
+                                                    
                                                         self.state = .success
                                                         delegate.complete(event: self)
                                                     
@@ -152,9 +164,12 @@ class BookEvent: AbstractEvent{
                                     if let value = snapshot.value as? NSDictionary{
                                         
                                         if let bookDict = value as? Dictionary<String, Any>{
-                                            
+ 
                                             let book = Book(dict: bookDict)
-                                            delegate.result(exact: book)
+                                            book.lastUpDateBy = self.librarian.email
+                                         
+                                            self.eventBook = book  
+                                            delegate.complete(event: self)
                                         }
                                         
                                     }
@@ -180,6 +195,11 @@ class BookEvent: AbstractEvent{
                 // currently i am updating with book ID
                 db?.child(DatabaseInfo.bookTable).child(self.book.id!).observeSingleEvent(of: .value, with: {(snapshot) in
                     // only update the book table
+
+                    let email = self.librarian.email!
+
+                    self.book.lastUpDateBy = email
+
                     db?.child(DatabaseInfo.bookTable).child(self.book.id!).updateChildValues(self.book.dict)
                     
                 
@@ -233,7 +253,6 @@ enum BookActionState{
 }
 
 protocol BookCRUDDelegate : AbstractEventDelegate{
-   // func result(like book: Book)
-    func result(exact book: Book)
+ 
     
 }

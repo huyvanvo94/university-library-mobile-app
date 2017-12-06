@@ -10,10 +10,17 @@ import Foundation
 import Firebase
 
 class Book: UniModel{
+
+    // For application logic
     
     var toggle = false 
     // for mywistinglist view controller 
     var toReturn = false
+
+    // End for application logic
+
+    // For saving to db
+
     // author is required as it is used for key
     var author: String?
     
@@ -26,6 +33,10 @@ class Book: UniModel{
     var numberOfCopies: Int = 0
     var isCheckoutByPatron: Bool = false 
     var keywords: [String]?
+
+    var bookStatus: String?
+
+    var lastUpDateBy: String? // ex: john.le@sjs.edu
     
     // if a user checks out this book, this count is increase
     var numberOfBooksCheckedOut: Int = 0
@@ -78,6 +89,10 @@ class Book: UniModel{
         if let id = dict["id"] as? String{ 
             self.id = id
         }
+
+        if let lastUpDateBy = dict["lastUpDateBy"] as? String{
+            self.lastUpDateBy = lastUpDateBy
+        }
     }
     
      
@@ -106,22 +121,28 @@ class Book: UniModel{
     // Key for meta data
     var key: String{
         get{
-            return String(self.hashKey)
+            
+            return "\(self.title!.myHash + self.author!.myHash)"
         }
     }
     
     override var hashKey: Int{
         get{
             var hashValue = super.hashKey
+            
+            hashValue = 123131
            
             if let author = self.author{
-                hashValue += author.hashValue
+                
+                print(author.hashValue)
             }
             
             if let title = self.title{
-                hashValue += title.hashValue
+             
+                print(title.hashValue)
             }
-            
+
+            /*
             if let callNumber = self.callNumber{
                 hashValue += callNumber.hashValue
             }
@@ -132,7 +153,7 @@ class Book: UniModel{
             
             if let yearOfPublication = self.yearOfPublication{
                 hashValue += yearOfPublication.hashValue
-            }
+            }*/
             
             return hashValue
         }
@@ -151,8 +172,15 @@ class Book: UniModel{
             dict["isCheckoutByPatron"] = isCheckoutByPatron
             dict["keywords"] = keywords
             dict["numberOfBooksCheckedOut"] = numberOfBooksCheckedOut
-            
+            dict["lastUpDateBy"] = lastUpDateBy
             return dict
+        }
+    }
+
+
+    var bookInfo: String{
+        get{
+            return "Book: \(author) Tile: \(title)"
         }
     }
     
@@ -203,6 +231,16 @@ class Book: UniModel{
         
         func setKeywords(keywords: [String]) -> Builder{
             book?.keywords = keywords
+            return self
+        }
+
+        func setLastUpDateBy(lastUpDateBy: String ) -> Builder{
+            book?.lastUpDateBy = lastUpDateBy
+            return self
+        }
+
+        func setBookStatus(bookStatus: String) -> Builder{
+            book?.bookStatus = bookStatus
             return self
         }
         

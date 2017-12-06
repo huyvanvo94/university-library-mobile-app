@@ -9,10 +9,11 @@
 import UIKit
 
 class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
-  
+
+    var librarian: Librarian?
+
     @IBOutlet weak var bookTitle: UITextField!
-    
-    
+
     @IBOutlet weak var author: UITextField!
     
     
@@ -44,19 +45,18 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     }
      
     @IBAction func searchAction(_ sender: UIBarButtonItem) {
-    
-    
-        self.goToBookView(with: Mock.mock_Book())
+        if Mock.isMockMode{
+            self.goToBookView(with: Mock.mock_Book())
+        }else{
+            
+            self.doSearchBook()
+            
+        }
     }
     
     
- //   @IBAction func searchBook(_ sender: UIButton) {
-        /*
-        if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
-             
-            self.navigationController?.pushViewController(bookVC, animated: true)
-        }*/
-        /*
+    func doSearchBook() {
+     
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text,  let callNumber = self.callNumber.text else {
             return
         }
@@ -71,16 +71,18 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
             .build()
         
         
-        self.search(exact: book)*/
-   // }
+        self.search(exact: book)
+   
+    }
     
     
     
     func search(exact book: Book) {
-      
-        let event = BookEvent(book: book, action: .searchExactly)
-        event.delegate = self
-        
+
+        if let librarian = self.librarian {
+            let event = BookEvent(librarian: librarian, book: book, action: .searchExactly)
+            event.delegate = self
+        }
     }
     
     func search(by book: Book) {
@@ -103,6 +105,23 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     func complete(event: AbstractEvent) {
         
+        if let event = event as? BookEvent{
+            switch event.action{
+             
+            case BookAction.search:
+                if event.state == .success{
+                    if let book = event.eventBook{
+                        self.goToBookView(with: book)
+                    }
+                }
+            default:
+                print("No action")
+            }
+            
+            
+            
+            
+        }
         
         
     }
@@ -120,7 +139,6 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     
     func goToBookView(with book: Book){
-        
         
         if let bookVC = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
             

@@ -304,7 +304,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         case let event as FetchBookEvent:
             
             if let book = event.book{ 
-                self.booksFromDatabase.append(book)
+                
+            self.booksFromDatabase.append(book)
                 self.tableView.reloadData()
                 
             }

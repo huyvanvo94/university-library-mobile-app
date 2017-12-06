@@ -87,9 +87,9 @@ final class DataService{
         
     }
     
-    func confirmCheckout(email: String, transactionTime: String, dueDate: String,  completion: ((Bool) -> ())?){
+    func confirmCheckout(bookInfo: String, email: String, transactionTime: String, dueDate: String,  completion: ((Bool) -> ())?){
         
-        let url = BASE_URL+"confirmCheckout?email=\(email)&transactionTime=\(transactionTime)&dueDate=\(dueDate)"
+        let url = BASE_URL+"confirmCheckout?bookInfo=\(bookInfo)&email=\(email)&transactionTime=\(transactionTime)&dueDate=\(dueDate)"
    
         let requestURL = URL(string: url)
         

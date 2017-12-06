@@ -10,6 +10,7 @@ import UIKit
 
 class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
 
+    var librarian: Librarian?
     var book: Book?
  
     //Outlets
@@ -40,7 +41,9 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     @IBAction func editBookAction(_ sender: UIBarButtonItem) {
         
         if Mock.isMockMode{
+            
             return
+            
         }
         if let book = self.book{
             self.update(book: book)
@@ -80,13 +83,16 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             if let copies = self.book?.numberOfCopies{
                 bookCopiesTextField.text = "# of Copies: " + String(copies)
             }
+            /*
             let status = book.canCheckout
             
             if !status{
                 bookStatusTextField.text = "Status: Not Available"
             }else{
                 bookStatusTextField.text = "Status: Available"
-            }
+            }*/
+
+
             
         }
     }
@@ -136,14 +142,18 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     
     func update(book: Book) {
-        let event = BookEvent(book: book, action: .update)
-        event.delegate = self
-        
+        if let librarian = self.librarian {
+            let event = BookEvent(librarian: librarian, book: book, action: .update)
+            event.delegate = self
+        }
     }
     
     func delete(book: Book) {
-        let event = BookEvent(book: book, action: .delete)
-        event.delegate = self
+
+        if let librarian =  self.librarian {
+            let event = BookEvent(librarian:librarian, book: book, action: .delete)
+            event.delegate = self
+        }
   
     }
     

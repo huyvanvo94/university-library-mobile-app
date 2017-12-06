@@ -13,10 +13,7 @@ class UniModel: NSObject{
     
     var hashKey: Int{
         get{
-            if let hashValue = id?.hashValue{
-                return hashValue
-            }
-            return -1
+            return 0
         }
     }
     

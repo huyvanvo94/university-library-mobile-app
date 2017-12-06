@@ -20,7 +20,7 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
  
     func search(exact book: Book) {
         Logger.log(clzz: "LibrarianManager", message: "search exactly")
-        let event = BookEvent(book: book, action: .searchExactly)
+        let event = BookEvent(librarian: user, book: book, action: .searchExactly)
         event.delegate = self
         
     }
@@ -33,7 +33,7 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
     func add(with book: Book) {
         Logger.log(clzz: "LibrarianManager", message: "add")
        
-        let event = BookEvent(book: book, action: .add)
+        let event = BookEvent(librarian: user, book: book, action: .add)
         event.delegate = self
     }
     
@@ -41,14 +41,14 @@ class LibrarianManager: BookManager, BookCRUDDelegate {
     func update( book: Book) {
         Logger.log(clzz: "LibrarianManager", message: "update")
         
-        let event = BookEvent(book: book, action: .update)
+        let event = BookEvent(librarian: user, book: book, action: .update)
         event.delegate = self
     }
     
     func delete(book: Book) {
         Logger.log(clzz: "LibrarianManger", message: "delete")
         
-        let event = BookEvent(book: book, action: .delete)
+        let event = BookEvent(librarian: user, book: book, action: .delete)
         event.delegate = self
      
     }

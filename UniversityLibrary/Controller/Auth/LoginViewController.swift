@@ -26,14 +26,11 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         self.passwordTextField.isSecureTextEntry = true
         
         self.hideKeyboardWhenTappedAround()
-        
-        /*
- 
+   
         let lb = LibrarianManager(user: Mock.mock_Librarian())
-        let b = Mock.mock_Book2()
+       
      
-     //   lb.add(with: b!)
-        lb.add(with: Mock.mock_Book()!) */
+        lb.add(with: Mock.mock_Book()!)
  
       
         /*

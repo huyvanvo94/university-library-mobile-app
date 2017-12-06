@@ -381,9 +381,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZd-Hz-TLg">
-                        <barButtonItem key="rightBarButtonItem" image="book-return-box" id="VtN-sr-DA6">
+                        <barButtonItem key="rightBarButtonItem" image="allBooksIcon" id="VtN-sr-DA6">
                             <connections>
-                                <action selector="toggleEdit:" destination="dYx-w3-OPz" id="I2S-ko-CZd"/>
+                                <action selector="goToSearchView:" destination="mXN-ld-Lk0" id="gN8-Jl-uM4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -392,6 +392,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikb-Bj-Ivh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mXN-ld-Lk0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="934" y="833"/>
         </scene>
@@ -699,7 +700,6 @@
     </scenes>
     <resources>
         <image name="allBooksIcon" width="25" height="25"/>
-        <image name="book-return-box" width="16" height="16"/>
         <image name="checkedOutBooksIcon" width="25" height="25"/>
         <image name="renewBooksIcon" width="25" height="25"/>
         <image name="returnBooksIcon" width="25" height="25"/>
