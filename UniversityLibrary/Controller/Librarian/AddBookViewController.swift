@@ -38,22 +38,27 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     }()
 
     func clearAllTextFromTextField(){
-        
         bookTitle.text = ""
         author.text = ""
         publisher.text = ""
         locationInLibrary.text = ""
         numberOfCopies.text = ""
         callNumber.text = ""
-       
+        yearOfPublication.text = ""
         currentStatus.text = ""
     }
     
     func addBookAction(_ sender: Any){
-       
-        self.add(with: Mock.mock_Book())
+        Logger.log(clzz: "AddBookViewController", message: "addBookAction")
         
-        
+        if Mock.isMockMode {
+            self.add(with: Mock.mock_Book())
+        }else{
+            if let book = self.buildBook(){
+                self.librarian = Mock.mock_Librarian()
+                self.add(with: book)
+            }
+        }
     }
 
     
@@ -76,9 +81,10 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     }
     
     
-    func addBook() {
+    func buildBook() -> Book? {
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text else {
-            return
+            
+            return nil
         }
         
         let book = Book.Builder()
@@ -91,9 +97,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
             .setPublisher(publisher: publisher)
             .build()
         
-      //  self.add(with: book)
-        
-        
+        return book
     }
     
     func complete(event: AbstractEvent) {

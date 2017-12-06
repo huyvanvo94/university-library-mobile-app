@@ -17,6 +17,7 @@ class BookEvent: AbstractEvent{
         }
     }
 
+    var eventBook: Book?
 
     let librarian: Librarian
     let action: BookAction
@@ -54,16 +55,15 @@ class BookEvent: AbstractEvent{
                         delegate.complete(event: self)
                    
                     }else{
-                        print("OK")
+               
                         let db = FirebaseManager().reference
 
                         // set last add by
 
-                    //    let email = self.librarian.email!
-
-                        self.book.lastUpDateBy = "tester@gmail.com"
-
-                        
+                 
+                        let email = self.librarian.email
+                        self.book.lastUpDateBy = email
+ 
                         let id = db?.child(DatabaseInfo.bookTable).childByAutoId().key
                         
                         // The books added so far table currently contains book id for quick reference
@@ -124,6 +124,7 @@ class BookEvent: AbstractEvent{
                                                         db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
                                                         db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
                                                         
+                                                    
                                                         self.state = .success
                                                         delegate.complete(event: self)
                                                     
@@ -163,12 +164,12 @@ class BookEvent: AbstractEvent{
                                     if let value = snapshot.value as? NSDictionary{
                                         
                                         if let bookDict = value as? Dictionary<String, Any>{
-
-                                            let email = self.librarian.email!
-
+ 
                                             let book = Book(dict: bookDict)
                                             book.lastUpDateBy = self.librarian.email
-                                            delegate.result(exact: book)
+                                         
+                                            self.eventBook = book  
+                                            delegate.complete(event: self)
                                         }
                                         
                                     }
@@ -252,7 +253,6 @@ enum BookActionState{
 }
 
 protocol BookCRUDDelegate : AbstractEventDelegate{
-   // func result(like book: Book)
-    func result(exact book: Book)
+ 
     
 }

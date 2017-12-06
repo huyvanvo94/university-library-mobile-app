@@ -34,6 +34,8 @@ class Book: UniModel{
     var isCheckoutByPatron: Bool = false 
     var keywords: [String]?
 
+    var bookStatus: String?
+
     var lastUpDateBy: String? // ex: john.le@sjs.edu
     
     // if a user checks out this book, this count is increase
@@ -234,6 +236,11 @@ class Book: UniModel{
 
         func setLastUpDateBy(lastUpDateBy: String ) -> Builder{
             book?.lastUpDateBy = lastUpDateBy
+            return self
+        }
+
+        func setBookStatus(bookStatus: String) -> Builder{
+            book?.bookStatus = bookStatus
             return self
         }
         

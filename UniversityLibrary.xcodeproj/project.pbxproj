@@ -40,7 +40,6 @@
 		8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */; };
 		8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61B1FC01ED700E25156 /* Patron.storyboard */; };
 		8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61E1FC01EE100E25156 /* Librarian.storyboard */; };
-		8F5B778E1FC4E2A5004B664B /* EmailConfirmationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B778D1FC4E2A5004B664B /* EmailConfirmationEvent.swift */; };
 		8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */; };
 		8F81CD331FD66E3F00CB5A74 /* FetchAllBooksIdEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */; };
 		8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90C0431FC29FE7003CD88C /* BookManager.swift */; };
@@ -82,6 +81,7 @@
 		8FCF61071FD104E9008D8C72 /* PatronSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */; };
 		8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */; };
 		8FD459541FD6445B0093B8E7 /* CheckOutBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */; };
+		8FD7E37D1FD767D1000F4E36 /* LibrarianBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */; };
 		8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */; };
 		8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */; };
 		8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */; };
@@ -143,7 +143,6 @@
 		8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
 		8F54D61C1FC01ED700E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patron.storyboard; sourceTree = "<group>"; };
 		8F54D61F1FC01EE100E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Librarian.storyboard; sourceTree = "<group>"; };
-		8F5B778D1FC4E2A5004B664B /* EmailConfirmationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationEvent.swift; sourceTree = "<group>"; };
 		8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBookEvent.swift; sourceTree = "<group>"; };
 		8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAllBooksIdEvent.swift; sourceTree = "<group>"; };
 		8F90C0431FC29FE7003CD88C /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronSearchBookViewController.swift; sourceTree = "<group>"; };
 		8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBooksEvent.swift; sourceTree = "<group>"; };
 		8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutBooksEvent.swift; sourceTree = "<group>"; };
+		8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianBooksViewController.swift; sourceTree = "<group>"; };
 		8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserEvent.swift; sourceTree = "<group>"; };
 		8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianNavViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */,
+				8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */,
 				8F0407571FCD2552001987D8 /* ScanBookViewController.swift */,
 				8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */,
 				8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */,
@@ -461,7 +462,6 @@
 			isa = PBXGroup;
 			children = (
 				8FEABA071FC0DE2B00EA26E9 /* AbstractEvent.swift */,
-				8F5B778D1FC4E2A5004B664B /* EmailConfirmationEvent.swift */,
 				8F3ABAFE1FC1253600551B3B /* BookEvent.swift */,
 				8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */,
 				8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */,
@@ -672,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD7E37D1FD767D1000F4E36 /* LibrarianBooksViewController.swift in Sources */,
 				8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */,
 				8FD459541FD6445B0093B8E7 /* CheckOutBooksEvent.swift in Sources */,
 				8FCF60FF1FD0FA39008D8C72 /* LibrarianBookViewController.swift in Sources */,
@@ -716,14 +717,12 @@
 				8F401B871FD54B1C007306CD /* MyCheckoutBooksViewController.swift in Sources */,
 				8FFE0F961FCEBF3D008183EC /* RenewBookEvent.swift in Sources */,
 				8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */,
-				8F5B778E1FC4E2A5004B664B /* EmailConfirmationEvent.swift in Sources */,
 				3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */,
 				8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */,
 				8F54D60E1FBFDDB100E25156 /* Formatter.swift in Sources */,
 				8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */,
 				8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */,
 				3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */,
-				8FCF61091FD10628008D8C72,
 				8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */,
 				8FC2EC9E1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld in Sources */,
 				8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */,
