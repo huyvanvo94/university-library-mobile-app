@@ -49,7 +49,7 @@ class BaseViewController: UIViewController {
     func alertMessage(title: String, message: String, actionTitle: String = "OK", handler: ((UIAlertAction)->() )?){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let defaultAction = UIAlertAction(title: title, style: .default, handler: handler)
+        let defaultAction = UIAlertAction(title: actionTitle, style: .default, handler: handler)
        
         alertController.addAction(defaultAction)
         
