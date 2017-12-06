@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5834d57-b53a-4edf-b33b-4eeeb1eac710" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianBooksViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/UniversityLibrary.xcodeproj/project.pbxproj" />
       <change beforePath="$PROJECT_DIR$/UniversityLibrary.xcworkspace/xcuserdata/huyvo.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/UniversityLibrary.xcworkspace/xcuserdata/huyvo.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/AppDelegate.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/AppDelegate.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/AddBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/AddBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianSearchBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianSearchBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBooksViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBooksViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/BookEvent.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/BookEvent.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/EmailConfirmationEvent.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Models/Book.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Models/Book.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Librarian.storyboard" afterPath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Librarian.storyboard" />
       <change beforePath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Patron.storyboard" afterPath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Patron.storyboard" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Util/Mock.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Util/Mock.swift" />
     </list>
     <ignored path="$USER_HOME$/Library/Caches/AppCode2017.3/DerivedData/UniversityLibrary-clpypycarafhoabxervvsjxqmokd/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -287,7 +274,7 @@
       <updated>1512505720367</updated>
       <workItem from="1512505727537" duration="1947000" />
       <workItem from="1512511137133" duration="1555000" />
-      <workItem from="1512517913017" duration="966000" />
+      <workItem from="1512517913017" duration="1143000" />
     </task>
     <task id="LOCAL-00001" summary="hashValue">
       <created>1512506116317</created>
@@ -307,7 +294,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4468000" />
+    <option name="totallyTimeSpent" value="4645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -389,7 +376,7 @@
         <state relative-caret-position="3000">
           <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
           <folding>
-            <element signature="e#137#154#0" expanded="true" />
+            <element signature="e#137#154#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -673,7 +660,7 @@
         <state relative-caret-position="3015">
           <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
           <folding>
-            <element signature="e#137#154#0" expanded="true" />
+            <element signature="e#137#154#0" expanded="false" />
           </folding>
         </state>
       </provider>
