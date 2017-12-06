@@ -171,6 +171,16 @@ extension String{
     }
 }
 
+extension Int{
+    var myHash: Int {
+        let value = "\(self)"
+        let unicodeScalars = value.unicodeScalars.map { $0.value }
+        return unicodeScalars.reduce(5381) {
+            ($0 << 5) &+ $0 &+ Int($1)
+        }
+    }
+}
+
 
 
 

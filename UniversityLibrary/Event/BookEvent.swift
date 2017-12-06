@@ -121,10 +121,12 @@ class BookEvent: AbstractEvent{
                                                         
                                                         // also remove value from reference table
                                                         db?.child(DatabaseInfo.booksAdded).child(self.book.key).removeValue()
-                                                        db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
-                                                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
                                                         
                                                     
+                                                    
+                                                        db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
+                                                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
+
                                                         self.state = .success
                                                         delegate.complete(event: self)
                                                     
@@ -196,21 +198,63 @@ class BookEvent: AbstractEvent{
                 db?.child(DatabaseInfo.bookTable).child(self.book.id!).observeSingleEvent(of: .value, with: {(snapshot) in
                     // only update the book table
 
-                    let email = self.librarian.email!
+                    if let updatedBook = self.book.updateBook{
 
-                    self.book.lastUpDateBy = email
+                        let email = self.librarian.email!
 
-                    db?.child(DatabaseInfo.bookTable).child(self.book.id!).updateChildValues(self.book.dict)
-                    
-                
-                    // perhaps update waiting table key and checkout list
-                    
-                    db?.child(DatabaseInfo.waitingListTable).child(self.book.key).updateChildValues(["numberOfCopies": self.book.numberOfCopies])
-                    db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(["numberOfCopies": self.book.numberOfCopies])
-                    
-                    
-                    self.state = .success
-                    delegate.complete(event: self)
+                        updatedBook.lastUpDateBy = email
+
+                        db?.child(DatabaseInfo.bookTable).child(self.book.id!).updateChildValues(updatedBook.dict)
+
+
+                        // update child
+
+                        // change waiting table
+                        // change books added
+                        // change checkout list
+                        db?.child(DatabaseInfo.waitingListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                            if let value = snapshot.value as? Dictionary<String, Any>{
+
+                                db?.child(DatabaseInfo.waitingListTable).child(self.book.key).removeValue()
+                                db?.child(DatabaseInfo.waitingListTable).child(updatedBook.key).updateChildValues(value)
+                            }
+                            
+                            db?.child(DatabaseInfo.booksAdded).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                                if let value = snapshot.value as? Dictionary<String, Any>{
+
+                                    db?.child(DatabaseInfo.booksAdded).child(self.book.key).removeValue()
+                                    db?.child(DatabaseInfo.booksAdded).child(updatedBook.key).updateChildValues(value)
+                                    
+                                }
+                                
+                                db?.child(DatabaseInfo.checkedOutListTable).observeSingleEvent(of: .value, with: {(snapshot) in
+                                    if let value = snapshot.value as? Dictionary<String, Any>{
+
+
+                                        let newValue = value[self.book.key] as! Dictionary<String, Any>
+
+
+                                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
+                                        db?.child(DatabaseInfo.checkedOutListTable).child(updatedBook.key).updateChildValues(newValue)
+
+
+
+                                    }
+                                    
+                                    self.state = .success
+                                    delegate.complete(event: self)
+                                })
+                            })
+                            
+                            
+                        })
+
+  
+                    }
+
+                    self.state = .error
+                    delegate.error(event: self)
+
                 })
           
                 

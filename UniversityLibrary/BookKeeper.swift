@@ -18,6 +18,10 @@ protocol BookKeeper: class{
     func doReturn(book: Book)
     func doReturn(books: [Book])
     func search(for: Book)
+
+    func fetch(book: Book)
+
+    func fetch()
 }
 
 

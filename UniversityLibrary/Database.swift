@@ -36,7 +36,8 @@ class DBFirebase: UDatabase{
     }
     
     func delete(dict: [String : Any], completion: ((Bool) -> ())?) {
-        
+
+
     }
     
     func remove(dict: [String : Any], completion: ((Bool) -> ())?) {

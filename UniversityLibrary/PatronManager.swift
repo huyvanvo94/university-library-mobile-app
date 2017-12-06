@@ -8,8 +8,16 @@
 
 import Foundation
 
-// MARK - Kevin
 class PatronManager: BookKeeper, AbstractEventDelegate{
+    
+    func fetch(book: Book) {
+        
+    }
+    
+    func fetch() {
+        
+    }
+    
     
     let patorn: Patron
     init(patorn: Patron ){

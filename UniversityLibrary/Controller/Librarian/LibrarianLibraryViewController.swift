@@ -8,12 +8,8 @@
 
 import UIKit
 
-class LibrarianLibraryViewController: BaseViewController, BookKeeper {
-    var librarian: Librarian?
-
-    func search(for: Book) {
-        
-    }
+class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDDelegate {
+ 
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         super.logout()
@@ -48,33 +44,41 @@ class LibrarianLibraryViewController: BaseViewController, BookKeeper {
         
         
     }
+    func search(exact book: Book) {
+       
+        
+    }
+    
+    func search(by book: Book) {
+        
+        
+    }
+    
+    func add(with book: Book) {
+       
+    }
+    
+    
+    func update( book: Book) {
+ 
+    }
+    
+    func delete(book: Book) {
   
+    }
     
-    func checkout(book: Book) {
+    func complete(event: AbstractEvent) {
+        
+        
         
     }
     
-    func waiting(book: Book) {
+    func error(event: AbstractEvent) {
         
     }
     
-    func doReturn(book: Book) {
-        
+    func result(exact book: Book){
+       
     }
-    
-    func doReturn(books: [Book]) {
-        
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

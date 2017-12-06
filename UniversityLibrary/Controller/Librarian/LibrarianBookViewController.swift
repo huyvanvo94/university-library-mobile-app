@@ -12,7 +12,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
 
     var librarian: Librarian?
     var book: Book?
- 
+
+    var editOn = false
     //Outlets
     @IBOutlet weak var bookTitleTextField: CustomUITextField!
     @IBOutlet weak var bookAuthorTextField: CustomUITextField!
@@ -23,7 +24,9 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     override func loadView() {
         super.loadView()
-        
+
+
+        self.disableTextViewInput()
      
         self.navigationController?.isToolbarHidden = false
       
@@ -32,29 +35,68 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-   
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func editBookAction(_ sender: UIBarButtonItem) {
+
+        Logger.log(clzz: "LibrariranVC", message: "edit action")
+        if !editOn{
+            self.enableTextViewInput()
+            editOn = true
+            return
+        }
         
         if Mock.isMockMode{
-            
-            return
-            
+            self.buildUpdatedBook()
+
+            self.librarian = Mock.mock_Librarian()
+
+            self.update(book: book!)
+
         }
-        if let book = self.book{
+        else if let book = self.book{
+
+            self.buildUpdatedBook()
             self.update(book: book)
         }
+
+
+    }
+
+    func buildUpdatedBook(){
+
+        let newBook = Book(dict: self.book!.dict)
+ 
+        
+        if let title = bookTitleTextField.text {
+            newBook.title = title
+        }
+        if let author = bookAuthorTextField.text{
+            newBook.author = author
+        }
+        if let publisher =  bookPublisherTextField.text{
+            newBook.publisher = publisher
+        }
+        if let location = bookLocationTextField.text {
+            newBook.locationInLibrary = location
+        }
+        if let copies = self.bookCopiesTextField.text{
+
+        }
+
+        self.book?.updateBook = newBook
     }
 
     
     @IBAction func deleteBookAction(_ sender: UIBarButtonItem) {
     
         if Mock.isMockMode {
-            return
+            self.librarian = Mock.mock_Librarian()
+
+            self.delete(book: book!)
+
         }
         if let book = self.book{
             super.activityIndicatorView.startAnimating()
@@ -69,25 +111,29 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         // then load book to view 
         if let book = self.book{
             if let title = book.title{
-                bookTitleTextField.text = "Title: " + title
+                bookTitleTextField.text = title
             }
             if let author = book.author{
-                bookAuthorTextField.text = "Author: " + author
+                bookAuthorTextField.text =  author
             }
             if let publisher = book.publisher{
-                bookPublisherTextField.text = "Publisher: " + publisher
+                bookPublisherTextField.text = publisher
             }
             if let location = book.locationInLibrary{
-                bookLocationTextField.text = "Location: " + location
+                bookLocationTextField.text = location
             }
             if let copies = self.book?.numberOfCopies{
-                bookCopiesTextField.text = "# of Copies: " + String(copies)
+                bookCopiesTextField.text = String(copies)
+            }
+
+            if let status = self.book?.bookStatus{
+                bookStatusTextField.text = status
             }
             /*
             let status = book.canCheckout
-            
+
             if !status{
-                bookStatusTextField.text = "Status: Not Available"
+                bookStatusTextField.text = boo
             }else{
                 bookStatusTextField.text = "Status: Available"
             }*/
@@ -96,8 +142,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             
         }
     }
-    
-    // MARK: -Kevin
+
     // allow text view to be edit about
     func disableTextViewInput(){
         bookTitleTextField.makeNotEditable()
@@ -107,8 +152,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         bookCopiesTextField.makeNotEditable()
         bookStatusTextField.makeNotEditable()
     }
-    
-    // MARK: -Kevin
+
     
     func enableTextViewInput(){
         bookTitleTextField.makeEditable()
@@ -142,6 +186,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     
     func update(book: Book) {
+        Logger.log(clzz: "LibrarianBookViewController", message: "uppdate")
         if let librarian = self.librarian {
             let event = BookEvent(librarian: librarian, book: book, action: .update)
             event.delegate = self
@@ -163,14 +208,18 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         if let event = event as? BookEvent{
            
             if event.action == .update{
-                
+
+                self.book = event.book.updateBook
+
+                self.editOn = false
+                self.disableTextViewInput()
                 self.displayAnimateSuccess()
                 
             }else if event.action == .delete{
                  if event.state == BookActionState.success{
                     self.popBackView()
                  }else if event.state == BookActionState.checkoutListNotEmpty{
-                    
+
                     super.showToast(message: "Is Checkout!")
                 }
                     

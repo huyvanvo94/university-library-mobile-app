@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         UINavigationBar.appearance().tintColor = UIColor.white
   
-        self.goToPatron()
+        self.goToLibrarian()
         return true
     }
 

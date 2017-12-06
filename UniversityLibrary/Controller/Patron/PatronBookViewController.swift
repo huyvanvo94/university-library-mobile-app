@@ -9,7 +9,9 @@
 import UIKit
 
 class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
+ 
     
+    var patron: Patron?
     var book: Book?
     
     //Outlets
@@ -62,9 +64,14 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
  
         
     }
-    
+
     func checkout(book: Book) {
-        
+
+        if let patron = self.patron {
+            let checkout = CheckoutList(patron: patron, book: book)
+            let event = CheckoutListEvent(checkoutList: checkout)
+            event.delegate = self
+        }
     }
     
     func waiting(book: Book) {
@@ -90,7 +97,13 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
         
     }
     
-
+    func fetch(book: Book) {
+        
+    }
+    
+    func fetch() {
+        
+    }
     /*
     // MARK: - Navigation
 

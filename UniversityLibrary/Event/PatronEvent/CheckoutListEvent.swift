@@ -43,6 +43,8 @@ class CheckoutListEvent: AbstractEvent{
                     switch state{
                         
                     case .success:
+
+                        Logger.log(clzz: "CheckoutListEvent", message: "success")
                         
                         let db = FirebaseManager().reference.child(DatabaseInfo.patronTable)
                         
@@ -50,7 +52,7 @@ class CheckoutListEvent: AbstractEvent{
                             
                             
                             if var value = snapshot.value as? [String: Any]{
-                                
+                                Logger.log(clzz: "CheckoutListEvent", message: "Update books")
                       
                                 self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.key)
                                 self.checkoutList.patron.totalNumberOfBooksCheckout += 1
@@ -58,16 +60,17 @@ class CheckoutListEvent: AbstractEvent{
                                 value = self.checkoutList.patron.dict
                                 
                                 db.child(self.checkoutList.patron.id!).updateChildValues(value)
-                                
+
                                 delegate.complete(event: self)
                             }
                             
                         })
                         
-                       
-                
+
                         
                     case .contain:
+
+                        Logger.log(clzz: "CheckoutListEvent", message: "contain")
                         delegate.complete(event: self)
                         
                     case .full:
@@ -100,6 +103,7 @@ class CheckoutListEvent: AbstractEvent{
                     if var users = value["users"] as? Dictionary<String, Any>{
                         
                         if users[self.checkoutList.patron.id!] != nil{
+                            Logger.log(clzz: "CheckoutListEvent", message: "already checked out")
         
                             if let completion = completion{
                                 completion(.contain)
@@ -110,6 +114,8 @@ class CheckoutListEvent: AbstractEvent{
                             if let completion = completion{
                                 completion(.full)
                             }
+
+                            Logger.log(clzz: "CheckoutListEvent", message: "Is Full")
                         }else{
                             
                            
@@ -142,6 +148,7 @@ class CheckoutListEvent: AbstractEvent{
                             
                         }
                     }else{
+                        Logger.log(clzz: "CheckoutListEvent", message: "checkout")
                         
                         let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron)
                         

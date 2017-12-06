@@ -12,22 +12,42 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
     @IBOutlet weak var tableView: UITableView!
 
-
+    var pause = false
     var booksFromDatabase = [Book]()
-
 
     override func loadView() {
 
         super.loadView()
     }
 
+    func fetch(){
+        let event = FetchAllBooksIdEvent()
+        event.delegate = self
+    }
+
+    func clear(){
+        self.booksFromDatabase = [Book]()
+    }
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+
+        if pause == true{
+
+            booksFromDatabase = [Book]()
+            pause = false
+            self.fetch()
+
+        }
+
+    }
+
     override func viewDidLoad() {
+        Logger.log(clzz: "LibrarianVC", message: "viewDidLoad")
         super.viewDidLoad()
 
         self.initTableView()
 
         self.title = "Library"
-
         let event = FetchAllBooksIdEvent()
         event.delegate = self
  
@@ -62,6 +82,17 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 
+        let book = self.booksFromDatabase[indexPath.row]
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianBookViewController") as? LibrarianBookViewController{
+
+            self.pause = true
+            vc.book = book
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
     }
 
 
@@ -85,6 +116,9 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
 
     func complete(event: AbstractEvent) {
+        if self.pause == true{
+            return
+        }
 
         switch event {
         case let event as FetchAllBooksIdEvent:
@@ -121,8 +155,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     @IBAction func goToSearchView(_ sender: UIBarButtonItem) {
         
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LibrarianSearchBookViewController") as? LibrarianSearchBookViewController{
-            
-            
+
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

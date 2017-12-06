@@ -122,7 +122,23 @@ class Book: UniModel{
     var key: String{
         get{
             
-            return "\(self.title!.myHash + self.author!.myHash)"
+            var key = 0
+            
+            if let value = self.title?.myHash{
+                key += value
+            }
+            
+            if let value = self.author?.myHash{
+                key += value
+            }
+            if let value = self.yearOfPublication?.myHash{
+                key += value
+            }
+            if let value = self.publisher?.myHash{
+                key += value
+            }
+            
+            return "\(key)"
         }
     }
     
@@ -248,5 +264,9 @@ class Book: UniModel{
             return book
         }
     }
+
+    var updateBook: Book?
+
+
     
 }
