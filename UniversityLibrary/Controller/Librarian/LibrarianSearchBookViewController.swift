@@ -57,19 +57,19 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     func doSearchBook() {
      
-        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text,  let callNumber = self.callNumber.text else {
+        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = Int(self.yearOfPublication.text!) else {
+            self.displayAnimateError()
             return
         }
         
         let book = Book.Builder()
             .setTitle(title: bookTitle )
             .setAuthor(author: author)
-            .setCallNumber(callNumber: callNumber)
-            .setLocationInLibrary(locationInLibrary: locationInLibrary)
-            .setYearOfPublication(yearOfPublication: Int(yearOfPublication)!)
+            .setYearOfPublication(yearOfPublication: yearOfPublication)
             .setPublisher(publisher: publisher)
             .build()
         
+        self.librarian = Mock.mock_Librarian()
         
         self.search(exact: book)
    
@@ -108,12 +108,13 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
         if let event = event as? BookEvent{
             switch event.action{
              
-            case BookAction.search:
+            case BookAction.searchExactly:
                 if event.state == .success{
                     if let book = event.eventBook{
                         self.goToBookView(with: book)
                     }
                 }
+                
             default:
                 print("No action")
             }

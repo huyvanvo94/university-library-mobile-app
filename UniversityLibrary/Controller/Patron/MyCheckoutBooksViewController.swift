@@ -9,6 +9,7 @@
 import UIKit
 
 class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate, BookKeeper {
+  
 
     var patron: Patron?
 
@@ -37,6 +38,12 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Books"
+        
+        if let patron = AppDelegate.fetchPatron(){
+            self.patron = patron
+        }else{
+            self.patron = Mock.mock_Patron()
+        }
 
         self.initTableView()
    
@@ -57,6 +64,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     }
   
     func returnBooksAction(_ sender: UIButton){
+        // turns off edit mode
         toggleEditMode()
         
         DispatchQueue.main.async {
@@ -74,12 +82,12 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
          
             
             // logic to return books to firebase
-          
-            if !Mock.isMockMode{
-
-            }
-            
-        }
+           
+                for book in books{
+                
+                    self.doReturn(book: book)
+                }
+         }
         
         super.displayAnimateSuccess()
        
@@ -109,9 +117,13 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
         toggleEditMode()
     }
     
-    private func fetchBooks(){
+    
+    func fetchBooks(){
         
         DispatchQueue.main.async {
+            
+            self.checkoutBooks = [Book]()
+            self.tableView.reloadData()
 
             if Mock.isMockMode{
 
@@ -165,6 +177,11 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
                 self.tableView.reloadData()
             }
            
+        case let event as ReturnBookEvent:
+            
+            if event.state == ReturnBookState.success{
+                self.showToast(message: "Success")
+            }
             
         default:
             print("No Action")
@@ -234,7 +251,10 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
 
     }
     func doReturn(book: Book){
-
+        if let patron = self.patron {
+            let event = ReturnBookEvent(patron: patron, book: book)
+            event.delegate = self
+        }
     }
     func doReturn(books: [Book]){
         if let patron = self.patron {
@@ -249,15 +269,22 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     func fetch(book: Book){
 
     }
+    
+    func doRenew(book: Book) {
+        
+    }
+
 
     func fetch(){
 
         Logger.log(clzz: "MyCheckoutBooksVC", message: "fetch")
 
+        self.patron = AppDelegate.fetchPatron()!
         if let patron = self.patron{
+            
 
             for key in patron.booksCheckedOut {
-
+                
                 let event = FetchBookEvent(key: key)
                 event.delegate = self
 

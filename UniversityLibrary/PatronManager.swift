@@ -73,6 +73,11 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
         
     }
     
+    func doRenew(book: Book) {
+        
+    }
+
+    
     func error(event: AbstractEvent) {
         
     }

@@ -69,6 +69,11 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
         
     }
     
+    func doRenew(book: Book) {
+        
+    }
+
+    
     func complete(event: AbstractEvent){
         
     }

@@ -21,10 +21,18 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     @IBOutlet weak var bookLocationLabel: GeneralUILabel!
     @IBOutlet weak var bookCopiesLabel: GeneralUILabel!
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
-
+    //action
+    @IBAction func returnBookAction(_ sender: Any) {
+        self.doReturn(book: book!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let patron = AppDelegate.fetchPatron(){
+            self.patron = patron
+        }else{
+            self.patron = Mock.mock_Patron()
+        }
         // Do any additional setup after loading the view.
         
         self.loadBookToUI()
@@ -66,7 +74,6 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
 
     func checkout(book: Book) {
-
         if let patron = self.patron {
             let checkout = CheckoutList(patron: patron, book: book)
             let event = CheckoutListEvent(checkoutList: checkout)
@@ -79,11 +86,17 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func doReturn(book: Book) {
-        
+        if let patron = self.patron {
+            let event = ReturnBookEvent(patron: patron, book: book)
+            event.delegate = self
+        }
     }
     
     func doReturn(books: [Book]) {
-        
+        if let patron = self.patron {
+            let event = ReturnBooksEvent(patron: patron, books: books)
+            event.delegate = self
+        }
     }
     
     func search(for: Book) {
@@ -91,7 +104,20 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func complete(event: AbstractEvent){
-        
+        switch event{
+        case let event as ReturnBookEvent:
+            if event.state == ReturnBookState.success{
+                self.alertMessage(title: "Return Receipt", message: "Return successful", actionTitle: "OK", handler: { (handler) in
+                    
+                    if let vc = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? MyCheckoutBooksViewController{
+                        vc.fetchBooks()
+                         self.popBackView()
+                    }
+                })
+            }
+        default:
+            print("No Action")
+        }
     }
     func error(event: AbstractEvent){
         
@@ -102,6 +128,10 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func fetch() {
+        
+    }
+    
+    func doRenew(book: Book) {
         
     }
     /*

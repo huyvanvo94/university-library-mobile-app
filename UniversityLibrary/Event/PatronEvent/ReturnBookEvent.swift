@@ -19,6 +19,8 @@ class ReturnBookEvent: AbstractEvent{
         }
     }
     
+    var state: ReturnBookState?
+    
     init(patron: Patron, book: Book){
         self.book = book
         self.patron = patron
@@ -32,6 +34,7 @@ class ReturnBookEvent: AbstractEvent{
         
         let queue = DispatchQueue(label: "com.huyvo.cmpe277.returnboookevent")
         queue.async {
+            Logger.log(clzz: "ReutrnBookEvent", message: "returning")
             
             let db = FirebaseManager().reference
             
@@ -45,9 +48,23 @@ class ReturnBookEvent: AbstractEvent{
                             value["users"] = users
                        
                             db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(value)
-                       
-                        }else{
                             
+                            if let index = self.patron.booksCheckedOut.index(of: self.book.key){
+                                self.patron.booksCheckedOut.remove(at: index)
+                               
+                                db?.child(DatabaseInfo.patronTable).child(self.patron.id!).updateChildValues(self.patron.dict)
+                            }
+                            
+                            AppDelegate.setPatron(self.patron)
+                            
+                            self.state = .success
+                            
+                            delegate.complete(event: self)
+                        
+                        }else{
+                        
+                            self.state = .error
+                            delegate.error(event: self)
                         }
                         
                     }

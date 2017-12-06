@@ -10,10 +10,10 @@ import UIKit
 
 class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate, BookKeeper {
  
+    var reciept: String = ""
     
     @IBOutlet weak var tableView: UITableView!
-    var patron = Mock.mock_Patron()
-    
+    var patron: Patron?
     
     var isCheckoutMode = false
     var numberOfBooksCheckedOut: Int = 0
@@ -37,10 +37,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }()
     
     func checkoutBooksAction(_ sender: Any){
-        if numberOfBooksCheckedOut == 0{
-            return
-        }
-        
+       
+        Logger.log(clzz: "PatronBooksVC", message: "checkout action")
         self.toggle()
         
         DispatchQueue.main.async {
@@ -60,6 +58,12 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             
             // logic to return books to firebase
         
+            
+            self.numberOfBooksCheckedOut = books.count
+            
+            for book in books{
+                self.checkout(book: book)
+            }
             
         }
         
@@ -97,6 +101,12 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let patron = AppDelegate.fetchPatron(){
+            self.patron = patron
+        }else{
+            self.patron = Mock.mock_Patron()
+        }
         
         self.initTableView()
       
@@ -198,7 +208,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         if self.isCheckoutMode{
             // allow 3 books to be checkout
             
-            if self.patron.canCheckoutBook{
+            if (self.patron?.canCheckoutBook)!{
                 if self.numberOfBooksCheckedOut < 3{
                     let index = indexPath.row
                     
@@ -254,13 +264,13 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func checkout(book: Book) {
         
-        let checkout = CheckoutList(patron: self.patron, book: book)
+        let checkout = CheckoutList(patron: self.patron!, book: book)
         let event = CheckoutListEvent(checkoutList: checkout)
         event.delegate = self
     }
     
     func waiting(book: Book) {
-        let waitingList = WaitingList(book: book, patron: self.patron)
+        let waitingList = WaitingList(book: book, patron: self.patron!)
         
         let event = WaitingListEvent(waitingList: waitingList, action: .add)
         event.delegate = self
@@ -280,6 +290,20 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
 
                 super.showToast(message: "Already checked")
 
+            }else if event.state == CheckoutState.success{
+                if self.numberOfBooksCheckedOut == 0{
+                    
+                    super.alertMessage(title: "Checkout Info", message: self.reciept)
+                    
+                }else{
+                    self.numberOfBooksCheckedOut -= 0
+                    // create view 
+                    if let info = event.transactionInfo{
+                        let transactionString = "Book: \(event.checkoutList.book.title!)  \nDue Date: \(info.dueDate)\n"
+                        self.reciept += transactionString
+                    }
+                    
+                }
             }
             
         case let event as WaitingListEvent:
@@ -334,6 +358,10 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func fetch() {
+        
+    }
+    
+    func doRenew(book: Book) {
         
     }
     

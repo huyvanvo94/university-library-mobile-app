@@ -17,18 +17,10 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     
     @IBOutlet weak var studentIdTextField: UITextField!
     
-    var book: Book?
-    
     override func loadView() {
         super.loadView()
         
         self.title = "Sign Up"
-
-
-        let event = RegisterUserEvent(patron: Mock.mock_Patron())
-        event.delegate = self
-
-
 
         let image = UIImage(named: "book-return-box.png")
         let returnBooksButton = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)

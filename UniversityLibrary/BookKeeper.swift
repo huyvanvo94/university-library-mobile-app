@@ -22,6 +22,7 @@ protocol BookKeeper: class{
     func fetch(book: Book)
 
     func fetch()
+    func doRenew(book: Book)
 }
 
 
