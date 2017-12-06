@@ -42,6 +42,7 @@ class FetchBookEvent: AbstractEvent{
             
             
             if let key = self.key{
+                Logger.log(clzz: "FetchBookEvent", message: "fetch by key")
                 let db = FirebaseManager().reference
                 db?.child(DatabaseInfo.booksAdded).child(key).observe(.value, with: {(snapshot) in
                     
@@ -53,10 +54,13 @@ class FetchBookEvent: AbstractEvent{
                             db?.child(DatabaseInfo.bookTable).child(id).observe(.value, with: {(snapshot) in
                                 
                                 if let value = snapshot.value as? [String: Any]{
-                                    let book = Book(dict: value)
-                                    
-                                    self.book = book
-                                    delegate.complete(event: self)
+
+                                    queue.sync {
+                                        let book = Book(dict: value)
+
+                                        self.book = book
+                                        delegate.complete(event: self)
+                                    }
                                 }
                                 
                             })
@@ -66,14 +70,18 @@ class FetchBookEvent: AbstractEvent{
                     }
                 })
             }else if let id = self.id{
+                Logger.log(clzz: "FetchBookEvent", message: "fetch by id")
                 let db = FirebaseManager().reference
                 db?.child(DatabaseInfo.bookTable).child(id).observe(.value, with: {(snapshot) in
                     
                     if let value = snapshot.value as? [String: Any]{
-                        let book = Book(dict: value)
-                        self.book = book
-                        
-                        delegate.complete(event: self)
+
+                        queue.sync {
+                            let book = Book(dict: value)
+                            self.book = book
+
+                            delegate.complete(event: self)
+                        }
                     }
                 })
             }

@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-g8-SDT">
-                                <rect key="frame" x="36" y="50" width="303" height="500"/>
+                                <rect key="frame" x="36" y="94" width="303" height="500"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-2o-VaR" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
@@ -417,6 +417,7 @@
                                         </state>
                                         <connections>
                                             <action selector="goToSearchBooks:" destination="wdj-at-ZNv" eventType="touchUpInside" id="KyW-69-xnx"/>
+                                            <segue destination="dT4-An-1v1" kind="show" id="V3d-3B-dOV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ces-Ww-bLw" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">

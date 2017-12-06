@@ -10,11 +10,12 @@ import Foundation
 
 class Mock{
     
-    static let isMockMode = false
+    static let isMockMode = true
     
     static func mock_Patron() -> Patron{ 
         let p = Patron(email: "tes2t@gmail.com", password: "123123", universityId: 123124)
-        p.id = "u2cQttDSBiVen5EYRWX0PmQG3Hx2"
+        p.id = "OJ9l7IyjsAVg3ATqkdhsRl0AqJG3"
+        p.booksCheckedOut = ["688277688078079"]
         return p
     }
     
@@ -57,6 +58,8 @@ class Mock{
             .setNumberOfCopies(numberOfCopies: 11)
             .setYearOfPublication(yearOfPublication: 1923)
             .build()
+
+        book.id = "-L-dkhzLimnNrRJ_IxkE"
         
         return book
     

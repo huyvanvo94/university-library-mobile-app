@@ -27,10 +27,11 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         
         self.hideKeyboardWhenTappedAround()
    
+        /*
         let lb = LibrarianManager(user: Mock.mock_Librarian())
        
      
-        lb.add(with: Mock.mock_Book()!)
+        lb.add(with: Mock.mock_Book()!)*/
  
       
         /*
@@ -46,13 +47,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         event.delegate = self */
         
          
-        
-   
-        /*
-        let event = RegisterUserEvent(patron: Mock.mock_Patron2())
-        event.delegate = self*/
-    
-   
+
     }
     
  

@@ -52,6 +52,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         Logger.log(clzz: "AddBookViewController", message: "addBookAction")
         
         if Mock.isMockMode {
+            self.librarian = Mock.mock_Librarian()
             self.add(with: Mock.mock_Book())
         }else{
             if let book = self.buildBook(){
@@ -111,8 +112,8 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
                 super.displayAnimateSuccess()
             }else if event.state == .exist{
                 
-              /*  self.view.makeToast("Already contains book", point: Screen.center, title: "Error", image: UIImage(named: "error.png"), completion: nil)
-            */
+                self.view.makeToast("Already contains book", point: Screen.center, title: "Error", image: UIImage(named: "error.png"), completion: nil)
+           
             }
         default:
             print("No action")

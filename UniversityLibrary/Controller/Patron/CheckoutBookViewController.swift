@@ -8,8 +8,16 @@
 
 import UIKit
 
-class CheckoutBookViewController: BaseViewController {
+class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
+    func fetch(book: Book) {
+        
+    }
     
+    func fetch() {
+        
+    }
+    
+    var patron: Patron?
     var book: Book?
     
     //Outlets
@@ -49,6 +57,7 @@ class CheckoutBookViewController: BaseViewController {
         if let copies = self.book?.numberOfCopies{
             bookCopiesLabel.text = "# of Copies: " + String(copies)
         }
+
         if let status = self.book?.canCheckout{
             if status{
                 bookStatusLabel.text = "Status: Available";
@@ -67,6 +76,65 @@ class CheckoutBookViewController: BaseViewController {
     
     //Actions
     @IBAction func checkoutAction(_ sender: MenuUIButton) {
+        if Mock.isMockMode{
+
+            self.patron = Mock.mock_Patron()
+
+            if let book = self.book{
+                super.activityIndicatorView.startAnimating()
+                self.checkout(book: book)
+            }
+        }else{
+
+            self.checkout(book: book!)
+
+        }
+    }
+
+
+    func checkout(book: Book) {
+
+        if let patron = self.patron {
+            let checkout = CheckoutList(patron: patron, book: book)
+            let event = CheckoutListEvent(checkoutList: checkout)
+            event.delegate = self
+        }
+    }
+
+    func waiting(book: Book) {
+
+    }
+
+    func doReturn(book: Book) {
+
+    }
+
+    func doReturn(books: [Book]) {
+
+    }
+
+    func search(for: Book) {
+
+    }
+
+    func complete(event: AbstractEvent){
+
+        Logger.log(clzz: "CheckoutbookView", message: "complete")
+        self.activityIndicatorView.stopAnimating()
+
+        if let event = event as? CheckoutListEvent{
+
+            if event.state == CheckoutState.success{
+                super.popBackView()
+            }else if event.state == CheckoutState.contain{
+                self.showToast(message: "Already checkedout!")
+
+            }
+
+        }
+    }
+    func error(event: AbstractEvent){
+
     }
 
     /*

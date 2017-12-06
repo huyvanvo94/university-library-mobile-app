@@ -9,6 +9,14 @@
 import UIKit
 
 class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
+    func fetch(book: Book) {
+        
+    }
+    
+    func fetch() {
+        
+    }
+    
     
     //MARK: Properties
     @IBOutlet weak var bookTitle: UITextField!

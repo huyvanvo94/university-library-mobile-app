@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate {
-   
+class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate, BookKeeper {
+
+    var patron: Patron?
+
     var checkoutBooks = [Book]()
     var editMode = false
     
@@ -40,8 +42,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
    
         
         self.fetchBooks()
-        
-        self.checkoutBooks.append(Mock.mock_Book())
+
         // Do any additional setup after loading the view.
     }
     
@@ -75,8 +76,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
             // logic to return books to firebase
           
             if !Mock.isMockMode{
-                let event = ReturnBooksEvent(patron: Mock.mock_Patron(), books: books)
-                event.delegate = self
+
             }
             
         }
@@ -112,10 +112,16 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     private func fetchBooks(){
         
         DispatchQueue.main.async {
-            
-            for _ in 0..<5{
-                let event = FetchCheckedOutEvent(patron: Mock.mock_Patron())
-                event.delegate = self
+
+            if Mock.isMockMode{
+
+                self.patron = Mock.mock_Patron()
+
+                self.fetch()
+
+            }else {
+
+                self.fetch()
             }
         }
     }
@@ -151,15 +157,14 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     }
     func complete(event: AbstractEvent) {
         switch event {
-        case let event as FetchCheckedOutEvent:
+        case let event as FetchBookEvent:
             
-            DispatchQueue.main.sync {
-                if let book = event.book{
-                    
-                    self.checkoutBooks.append(book)
-                    self.tableView.reloadData()
-                }
+            if let book = event.book{
+                
+                self.checkoutBooks.append(book)
+                self.tableView.reloadData()
             }
+           
             
         default:
             print("No Action")
@@ -219,17 +224,47 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
             self.navigationController?.pushViewController(bookVC, animated: true)
         }
     }
-    
-    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+    func checkout(book: Book){
+
     }
-    */
+    func waiting(book: Book){
+
+    }
+    func doReturn(book: Book){
+
+    }
+    func doReturn(books: [Book]){
+        if let patron = self.patron {
+            let event = ReturnBooksEvent(patron: patron, books: books)
+            event.delegate = self
+        }
+    }
+    func search(for: Book){
+
+    }
+
+    func fetch(book: Book){
+
+    }
+
+    func fetch(){
+
+        Logger.log(clzz: "MyCheckoutBooksVC", message: "fetch")
+
+        if let patron = self.patron{
+
+            for key in patron.booksCheckedOut {
+
+                let event = FetchBookEvent(key: key)
+                event.delegate = self
+
+            }
+        }
+
+    }
+ 
 
 }

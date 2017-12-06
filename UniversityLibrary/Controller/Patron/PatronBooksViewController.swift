@@ -120,6 +120,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         tap.numberOfTapsRequired = 2
         view.addGestureRecognizer(tap)
     }
+
     @objc func checkoutBookMessage(){
         let alert = UIAlertController(title: "Checkout", message: "Checkout book?",  preferredStyle: .actionSheet)
         let checkoutBook = UIAlertAction(title: "Confirm", style: .destructive, handler: checkoutBookHandler)
@@ -275,6 +276,10 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 self.waitlistBookMessage()
                 //let book = event.checkoutList.book
                 //self.waiting(book: book)
+            }else if event.state == CheckoutState.contain {
+
+                super.showToast(message: "Already checked")
+
             }
             
         case let event as WaitingListEvent:
@@ -304,8 +309,10 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         case let event as FetchBookEvent:
             
             if let book = event.book{ 
-                
-            self.booksFromDatabase.append(book)
+
+
+
+                self.booksFromDatabase.append(book)
                 self.tableView.reloadData()
                 
             }
@@ -321,6 +328,13 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func error(event: AbstractEvent) {
     
+    }
+    func fetch(book: Book) {
+        
+    }
+    
+    func fetch() {
+        
     }
     
     func resetAccessoryType(){
