@@ -10,6 +10,7 @@ import UIKit
 
 class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate{
 
+    var librarian: Librarian?
     @IBOutlet weak var tableView: UITableView!
 
     var pause = false
@@ -44,6 +45,12 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         Logger.log(clzz: "LibrarianVC", message: "viewDidLoad")
         super.viewDidLoad()
+        if let librarian = AppDelegate.fetchLibrarian(){
+            self.librarian = librarian
+        }else{
+            self.librarian = Mock.mock_Librarian()
+        }
+        
 
         self.initTableView()
 

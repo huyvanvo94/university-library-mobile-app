@@ -61,7 +61,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
             self.add(with: Mock.mock_Book())
         }else{
             if let book = self.buildBook(){
-                self.librarian = Mock.mock_Librarian()
+              
                 self.add(with: book)
             }
         }
@@ -77,6 +77,12 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         super.viewDidLoad()
         
         addBookItemBar.isEnabled = true
+        
+        if let librarian = AppDelegate.fetchLibrarian(){
+            self.librarian = librarian
+        }else{
+            self.librarian = Mock.mock_Librarian()
+        }
 
         // Do any additional setup after loading the view.
     }

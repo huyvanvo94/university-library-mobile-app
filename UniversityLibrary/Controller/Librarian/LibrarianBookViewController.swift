@@ -35,6 +35,11 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let librarian = AppDelegate.fetchLibrarian(){
+            self.librarian = librarian
+        }else{
+            self.librarian = Mock.mock_Librarian()
+        }
 
         // Do any additional setup after loading the view.
     }

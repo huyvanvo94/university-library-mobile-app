@@ -35,6 +35,12 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let librarian = AppDelegate.fetchLibrarian(){
+            self.librarian = librarian
+        }else{
+            self.librarian = Mock.mock_Librarian()
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -69,10 +75,8 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
             .setPublisher(publisher)
             .build()
         
-        self.librarian = Mock.mock_Librarian()
-        
+      
         self.search(exact: book)
-   
     }
     
     

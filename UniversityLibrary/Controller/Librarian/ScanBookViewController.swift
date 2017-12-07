@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class ScanBookViewController: UIViewController {
+    var librarian: Librarian?
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var footerView: UIView!
@@ -31,6 +32,11 @@ class ScanBookViewController: UIViewController {
     // View Lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let librarian = AppDelegate.fetchLibrarian(){
+            self.librarian = librarian
+        }else{
+            self.librarian = Mock.mock_Librarian()
+        }
         
         configureAVFoundation()
     }
