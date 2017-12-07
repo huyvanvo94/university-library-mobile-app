@@ -138,15 +138,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             if let status = self.book?.bookStatus{
                 bookStatusTextField.text = status
             }
-            /*
-            let status = book.canCheckout
-
-            if !status{
-                bookStatusTextField.text = boo
-            }else{
-                bookStatusTextField.text = "Status: Available"
-            }*/
-
+         
+          
 
             
         }
