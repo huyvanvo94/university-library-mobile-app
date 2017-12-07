@@ -20,8 +20,8 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        User.signOut()
+        let event = SignoutUserEvent()
+        event.delegate = self
         
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
