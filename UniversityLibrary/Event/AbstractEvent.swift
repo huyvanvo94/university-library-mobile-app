@@ -30,6 +30,8 @@ class BaseEventWithUser: AbstractEvent{
     init(patron: Patron){
         self.user = patron
     }
+  
+    init(user: User){ self.user = user } 
     
     func async_ProcessEvent() {
         
