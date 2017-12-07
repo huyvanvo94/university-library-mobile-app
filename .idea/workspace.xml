@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5834d57-b53a-4edf-b33b-4eeeb1eac710" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/Email/CheckoutEmailEvent.swift" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/Email/ReturnBookEmailEvent.swift" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/SearchBookEvent.swift" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/UniversityLibrary/TestCase.swift" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/UniversityLibrary.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary.xcworkspace/xcuserdata/huyvo.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/UniversityLibrary.xcworkspace/xcuserdata/huyvo.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/AppDelegate.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/AppDelegate.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Auth/LoginViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Auth/LoginViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/AddBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/AddBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianSearchBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Librarian/LibrarianSearchBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/MyCheckoutBooksViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/MyCheckoutBooksViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBooksViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBooksViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronSearchBookViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronSearchBookViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/DataService.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/DataService.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/BookEvent.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/BookEvent.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckoutListEvent.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckoutListEvent.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Models/Book.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Models/Book.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/PatronManager.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/PatronManager.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Librarian.storyboard" afterPath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Librarian.storyboard" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Patron.storyboard" afterPath="$PROJECT_DIR$/UniversityLibrary/Storyboard/Base.lproj/Patron.storyboard" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Util/DateHelper.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Util/DateHelper.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Util/Json.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Util/Json.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Util/Mock.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Util/Mock.swift" />
     </list>
     <ignored path="$USER_HOME$/Library/Caches/AppCode2017.3/DerivedData/UniversityLibrary-clpypycarafhoabxervvsjxqmokd/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,7 +38,7 @@
       <file leaf-file-name="Book.swift" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UniversityLibrary/Models/Book.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
+            <state relative-caret-position="323">
               <caret line="197" column="25" lean-forward="false" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="25" />
               <folding />
             </state>
@@ -336,7 +310,7 @@
       <workItem from="1512505727537" duration="1947000" />
       <workItem from="1512511137133" duration="1555000" />
       <workItem from="1512517913017" duration="12741000" />
-      <workItem from="1512607735816" duration="5131000" />
+      <workItem from="1512607735816" duration="5292000" />
     </task>
     <task id="LOCAL-00001" summary="hashValue">
       <created>1512506116317</created>
@@ -356,7 +330,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21374000" />
+    <option name="totallyTimeSpent" value="21535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -814,7 +788,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/Models/Book.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
+        <state relative-caret-position="323">
           <caret line="197" column="25" lean-forward="false" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="25" />
           <folding />
         </state>
