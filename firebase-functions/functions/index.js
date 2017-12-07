@@ -50,12 +50,14 @@ exports.helloWorld = functions.https.onRequest((req, res) => {
 
 
 exports.confirmCheckout = functions.https.onRequest((req, res) => {
+	var bookInfo = req.query.bookInfo;
 	var email = req.query.email;
 	var transactionTime = req.query.transactionTime;
 	var dueDate = req.query.dueDate;
 	
 	
-	var message = "Checkout Confirmation: " + "<br>Checkout Time: " + transactionTime + "<br>Due Date: " + dueDate;
+	var message = "Checkout Confirmation: " + "<br>Book Title: " 
+	+ bookInfo + "<br>Checkout Time: " + transactionTime + "<br>Due Date: " + dueDate;
 	
 	var mailOptions = {
         from: "universitylibrary-8e17c<noreply@firebase.com>",
@@ -83,7 +85,7 @@ exports.returnBooks = functions.https.onRequest((req, res) =>{
 	var message = "Return Confirmation: ";
 
 	for(var i in parsedData){
-		message += "<br>Title:" + parsedData[i].nameOfBook + " Fine Amount: " + parsedData[i].fineAmount;
+		message += "<br><br>Title:" + parsedData[i].nameOfBook + "<br>Fine Amount: " + parsedData[i].fineAmount;
 	}
 	
 	var mailOptions = {
