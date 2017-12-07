@@ -57,7 +57,7 @@ class Book: UniModel{
     
     init(dict: [String: Any]){
         super.init()
-     
+        
         if let author = dict["author"] as? String{
             self.author = author
         }
@@ -92,6 +92,13 @@ class Book: UniModel{
 
         if let lastUpDateBy = dict["lastUpDateBy"] as? String{
             self.lastUpDateBy = lastUpDateBy
+        }
+        
+        if let locationInLibrary = dict["locationInLibrary"] as? String{
+            self.locationInLibrary = locationInLibrary
+        }
+        if let bookStatus = dict["bookStatus"] as? String{
+            self.bookStatus = bookStatus
         }
     }
     
@@ -190,6 +197,8 @@ class Book: UniModel{
             dict["keywords"] = keywords
             dict["numberOfBooksCheckedOut"] = numberOfBooksCheckedOut
             dict["lastUpDateBy"] = lastUpDateBy
+            dict["locationInLibrary"] = locationInLibrary
+            dict["bookStatus"] = bookStatus
             return dict
         }
     }

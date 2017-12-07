@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
          
         UINavigationBar.appearance().tintColor = UIColor.white
-        //self.goToLibrarian()
-        self.goToMain()
+        
+        self.goToLibrarian()
         return true
     }
 

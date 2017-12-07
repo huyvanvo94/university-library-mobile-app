@@ -17,6 +17,8 @@ import UIKit
 class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
 
     var librarian: Librarian?
+    
+    // outlets
  
     @IBOutlet weak var bookTitle: UITextField!
     
@@ -28,6 +30,9 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     @IBOutlet weak var callNumber: UITextField!
     
     @IBOutlet weak var currentStatus: GeneralUITextField!
+    
+    // end outlets
+    
     lazy var addBookItemBar: UIBarButtonItem = {
         let image =  UIImage(named: "addBooksIcon.png")
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(AddBookViewController.addBookAction(_:)))
@@ -83,7 +88,9 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     
     
     func buildBook() -> Book? {
-        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text else {
+        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text,
+            let currentStatus = self.currentStatus.text
+            else {
             
             return nil
         }
@@ -92,10 +99,11 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
             .setTitle(bookTitle)
             .setAuthor(author)
             .setCallNumber( callNumber)
-            .setLocationInLibrary( locationInLibrary)
+            .setLocationInLibrary(locationInLibrary)
             .setNumberOfCopies(Int(numberOfCopies)!)
             .setYearOfPublication( Int(yearOfPublication)!)
             .setPublisher(publisher)
+            .setBookStatus(currentStatus)
             .build()
         
         return book
