@@ -9,6 +9,8 @@
 import UIKit
 
 class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
+    var patron: Patron?
+    
     func fetch(book: Book) {
         
     }
@@ -26,6 +28,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     @IBOutlet weak var publisher: UITextField!
     
     @IBOutlet weak var yearOfPublication: UITextField!
+    
     @IBOutlet weak var locationInLibrary: UITextField!
     @IBOutlet weak var callNumber: UITextField!
     @IBOutlet weak var currentStatus: UITextField!
@@ -34,9 +37,37 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
         super.loadView()
         self.title = "Search"
     }
+    func clearText(){
+        bookTitle.text = ""
+        author.text = ""
+        publisher.text = ""
+        yearOfPublication.text = ""
+    }
+    
+    func buildSearchBook() -> Book?{
+        guard let title = bookTitle.text, let author = author.text, let year = Int(yearOfPublication.text!), let publisher = publisher.text else{
+         
+            return nil
+        }
+        
+        let book = Book.Builder()
+            .setAuthor(author)
+            .setTitle(title)
+            .setPublisher(publisher)
+            .setYearOfPublication(year)
+            .build()
+        
+        return book
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let patron = AppDelegate.fetchPatron(){
+            self.patron = patron
+        }else{
+            self.patron = Mock.mock_Patron()
+        }
         
 
         // Do any additional setup after loading the view.
@@ -72,18 +103,53 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     func doRenew(book: Book) {
         
     }
-
-    
+ 
+    func search(exact book: Book){
+        let event = SearchBookEvent(book: book)
+        event.delegate = self
+        
+    }
     func complete(event: AbstractEvent){
+        super.activityIndicatorView.stopAnimating()
+        
+        if let event = event as? SearchBookEvent{
+            if event.state == SearchBookState.success{
+                
+                self.goToCheckoutBookVC(with: event.book)
+            }
+        }
         
     }
     func error(event: AbstractEvent){
+        super.activityIndicatorView.stopAnimating()
+        
+        if let _ = event as? SearchBookEvent{
+            super.showToast(message: "Can't find book")
+            
+            
+        }
         
     }
  
     @IBAction func searchForBook(_ sender: UIButton) {
         
-        goToCheckoutBookVC(with: Mock.mock_Book())
+        if Mock.isMockMode{
+            self.goToCheckoutBookVC(with: Mock.mock_Book())
+        }else{
+            
+            if let book = buildSearchBook(){
+                
+                super.activityIndicatorView.startAnimating()
+                self.search(exact: book)
+                
+                self.clearText()
+            }else{
+                self.clearText()
+                self.showToast(message: "Invalid inputs")
+            }
+        }
+ 
+        
     }
     
     

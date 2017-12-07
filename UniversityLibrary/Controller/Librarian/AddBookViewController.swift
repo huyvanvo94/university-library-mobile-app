@@ -89,13 +89,13 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         }
         
         let book = Book.Builder()
-            .setTitle(title: bookTitle )
-            .setAuthor(author: author)
-            .setCallNumber(callNumber: callNumber)
-            .setLocationInLibrary(locationInLibrary: locationInLibrary)
-            .setNumberOfCopies(numberOfCopies: Int(numberOfCopies)!)
-            .setYearOfPublication(yearOfPublication: Int(yearOfPublication)!)
-            .setPublisher(publisher: publisher)
+            .setTitle(bookTitle)
+            .setAuthor(author)
+            .setCallNumber( callNumber)
+            .setLocationInLibrary( locationInLibrary)
+            .setNumberOfCopies(Int(numberOfCopies)!)
+            .setYearOfPublication( Int(yearOfPublication)!)
+            .setPublisher(publisher)
             .build()
         
         return book

@@ -129,6 +129,10 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
         
     }
 
+    func search(exact book: Book){
+        
+        
+    }
     func complete(event: AbstractEvent){
 
         Logger.log(clzz: "CheckoutbookView", message: "complete")

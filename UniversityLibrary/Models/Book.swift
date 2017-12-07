@@ -100,25 +100,26 @@ class Book: UniModel{
         
     }
     
-    //TODO: Check dependency
     func initCheckoutList()->[String: Any]{
         var dict = [String: Any]()
         dict["numberOfCopies"] = numberOfCopies
         dict["isEmpty"] = true
-        dict["isFull"] = false 
+        dict["isFull"] = false
+        dict["id"] = id
+        dict["title"] = title
         return dict
     }
     
-    //TODO: Check dependency
     func initWaitingList()-> [String: Any]{
         var dict = [String: Any]()
         dict["numberOfCopies"] = numberOfCopies
         dict["isEmpty"] = true
         dict["isFull"] = false
+        dict["id"] = id
+        dict["title"] = title
         return dict
     }
-    
-    // Key for meta data
+     
     var key: String{
         get{
             
@@ -196,7 +197,7 @@ class Book: UniModel{
 
     var bookInfo: String{
         get{
-            return "Book: \(author) Tile: \(title)"
+            return "\(title!) by \(author!)"
         }
     }
     
@@ -209,53 +210,58 @@ class Book: UniModel{
             self.book = Book()
         }
         
-        func setAuthor(author: String) -> Builder{
+        func setId(_ id: String) -> Builder{
+            book?.id = id
+            return self
+        }
+        
+        func setAuthor(_ author: String) -> Builder{
             book?.author = author
             return self
         }
         
-        func setTitle(title: String) -> Builder{
+        func setTitle(_ title: String) -> Builder{
             book?.title = title
             return self
         }
         
-        func setCallNumber(callNumber: String) -> Builder{
+        func setCallNumber(_ callNumber: String) -> Builder{
             book?.callNumber = callNumber
             return self
             
         }
         
-        func setPublisher(publisher: String) -> Builder{
+        func setPublisher(_ publisher: String) -> Builder{
             book?.publisher = publisher
             return self
         }
         
-        func setYearOfPublication(yearOfPublication: Int) -> Builder{
+        func setYearOfPublication(_ yearOfPublication: Int) -> Builder{
             book?.yearOfPublication = yearOfPublication
             return self
         }
         
-        func setLocationInLibrary(locationInLibrary: String) -> Builder{
+        func setLocationInLibrary(_ locationInLibrary: String) -> Builder{
             book?.locationInLibrary = locationInLibrary
             return self
         }
         
-        func setNumberOfCopies(numberOfCopies: Int) -> Builder{
+        func setNumberOfCopies(_ numberOfCopies: Int) -> Builder{
             book?.numberOfCopies = numberOfCopies
             return self
         }
         
-        func setKeywords(keywords: [String]) -> Builder{
+        func setKeywords(_ keywords: [String]) -> Builder{
             book?.keywords = keywords
             return self
         }
 
-        func setLastUpDateBy(lastUpDateBy: String ) -> Builder{
+        func setLastUpDateBy(_ lastUpDateBy: String ) -> Builder{
             book?.lastUpDateBy = lastUpDateBy
             return self
         }
 
-        func setBookStatus(bookStatus: String) -> Builder{
+        func setBookStatus(_ bookStatus: String) -> Builder{
             book?.bookStatus = bookStatus
             return self
         }

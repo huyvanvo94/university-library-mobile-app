@@ -63,10 +63,10 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
         }
         
         let book = Book.Builder()
-            .setTitle(title: bookTitle )
-            .setAuthor(author: author)
-            .setYearOfPublication(yearOfPublication: yearOfPublication)
-            .setPublisher(publisher: publisher)
+            .setTitle(bookTitle )
+            .setAuthor(author)
+            .setYearOfPublication(yearOfPublication)
+            .setPublisher(publisher)
             .build()
         
         self.librarian = Mock.mock_Librarian()

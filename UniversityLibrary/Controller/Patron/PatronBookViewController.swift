@@ -103,6 +103,11 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
         
     }
     
+    func search(exact book: Book){
+        
+        
+    }
+    
     func complete(event: AbstractEvent){
         switch event{
         case let event as ReturnBookEvent:

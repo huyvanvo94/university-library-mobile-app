@@ -12,19 +12,40 @@ import Foundation
 struct CheckoutBookInfo{
     
     let patron: Patron
+    let book: Book
     
-    init(patron: Patron){
+    init(patron: Patron, book: Book){
         self.patron = patron
+        self.book = book
+    }
+    var bookInfo:String{
+        get{
+            return self.book.bookInfo
+        }
     }
     
+    var email:String{
+        get{
+            return self.patron.email!
+        }
+    }
+    
+    var transactionTime: String{
+        get{
+            let now = Date()
+            
+            return DateHelper.getLocalTime(dt: now.timeIntervalSince1970)
+
+        }
+    }
     
     var transactionDate: String{
         
         get{
             let now = Date()
+
             return DateHelper.getLocalDate(dt: now.timeIntervalSince1970)
         }
-        
     }
     
     var dueDate: String{

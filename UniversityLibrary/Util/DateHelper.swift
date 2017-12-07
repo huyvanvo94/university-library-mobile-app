@@ -9,6 +9,16 @@
 import Foundation
 
 class DateHelper{
+
+    static func getLocalTime(dt: TimeInterval, timeZoneId: String = TimeZone.current.identifier) -> String{
+        let date = Date(timeIntervalSince1970: dt)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.timeZone = TimeZone(identifier: timeZoneId)
+
+        return dateFormatter.string(from: date as Date)
+
+    }
     
     static func isTomorrow(dt: TimeInterval) -> Bool{
         return numberFromToday(dt: dt) == 1

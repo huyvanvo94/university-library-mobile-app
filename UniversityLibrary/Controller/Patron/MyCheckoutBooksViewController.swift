@@ -265,6 +265,11 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     func search(for: Book){
 
     }
+    
+    func search(exact book: Book){
+        
+        
+    }
 
     func fetch(book: Book){
 

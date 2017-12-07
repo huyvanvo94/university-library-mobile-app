@@ -15,8 +15,16 @@ final class DataService{
     private init(){}
     
     static let shared = DataService()
-    func sendDailyAlertReminder(startDate: Double, endDate: Double,email: String, completion: ((Bool)-> ())?){
-        let url = BASE_URL + "mock_scheduledEmail?twentyFiveDaysFromNowTimeInterval=\(startDate)&thirtyDaysFromNowTimeInterval=\(endDate)&email=\(email)"
+    func sendDailyAlertReminder(startDate: Double, endDate: Double, email: String, completion: ((Bool)-> ())?){
+        
+        let url: String
+        
+        if Mock.isMockMode{
+        
+            url = BASE_URL + "mock_scheduledEmail?twentyFiveDaysFromNowTimeInterval=\(startDate)&thirtyDaysFromNowTimeInterval=\(endDate)&email=\(email)"
+        }else{
+             url = BASE_URL + "scheduledEmail?twentyFiveDaysFromNowTimeInterval=\(startDate)&thirtyDaysFromNowTimeInterval=\(endDate)&email=\(email)"
+        }
         
         let requestURL = URL(string: url)
         
@@ -52,6 +60,8 @@ final class DataService{
     
     // data is a json string 
     func returnConfirmationTransaction(data: String, email: String, completion: ((Bool) -> ())?){
+        
+         let data = data.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         let url = BASE_URL+"returnBooks?data=\(data)&email=\(email)"
         
@@ -89,8 +99,22 @@ final class DataService{
     
     func confirmCheckout(bookInfo: String, email: String, transactionTime: String, dueDate: String,  completion: ((Bool) -> ())?){
         
-        let url = BASE_URL+"confirmCheckout?bookInfo=\(bookInfo)&email=\(email)&transactionTime=\(transactionTime)&dueDate=\(dueDate)"
-   
+        if !email.isValidEmail(){
+            if let completion = completion{
+                completion(false)
+            }
+        }
+        
+
+            
+        let bookInfo = bookInfo.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let transactionTime = transactionTime.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let dueDate = dueDate.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        let url = self.BASE_URL+"confirmCheckout?bookInfo=\(bookInfo!)&email=\(email)&transactionTime=\(transactionTime!)&dueDate=\(dueDate!)"
+        
+        Logger.log(clzz: "Dataservice", message: "confirm url :\(url)")
+        
         let requestURL = URL(string: url)
         
         if let theRequestURL = requestURL{
@@ -123,8 +147,11 @@ final class DataService{
             task.resume()
             
         }
-        
-        
+            
+            
+   
+ 
+
     }
     
     func sendEmail(email: String, message: String, subject: String, completion: ((Bool) -> () )?){

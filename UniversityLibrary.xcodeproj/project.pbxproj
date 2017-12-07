@@ -14,7 +14,10 @@
 		3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C9A1FD208E4007CDD60 /* BookCell.swift */; };
 		3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */; };
 		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
+		5F0906FDC8141B055FA9F85E /* ReturnBookEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */; };
 		5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */; };
+		5F090BAC921D7CA6F9F5006E /* CheckoutEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */; };
+		5F090CA66B803E43078F25C6 /* SearchBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */; };
 		5F090F328040C78A38412D9D /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */; };
 		8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */; };
 		8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */; };
@@ -22,6 +25,7 @@
 		8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */; };
 		8F0407581FCD2552001987D8 /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407571FCD2552001987D8 /* ScanBookViewController.swift */; };
 		8F04075A1FCD26CC001987D8 /* LibrarianLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */; };
+		8F0D76261FD8D09C00EF1F89 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D76251FD8D09C00EF1F89 /* TestCase.swift */; };
 		8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */; };
 		8F1E7CCF1FD2AF95009A11BA /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E7CCE1FD2AF95009A11BA /* BaseTableViewController.swift */; };
 		8F209B8C1FD20EA40018C6FB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F209B8B1FD20EA40018C6FB /* Toast.swift */; };
@@ -119,14 +123,18 @@
 		3FB04C981FD20616007CDD60 /* MenuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuUIButton.swift; sourceTree = "<group>"; };
 		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchWaitListBookEvent.swift; sourceTree = "<group>"; };
+		5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutEmailEvent.swift; sourceTree = "<group>"; };
 		5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookEvent.swift; sourceTree = "<group>"; };
+		5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnBookEmailEvent.swift; sourceTree = "<group>"; };
 		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianSearchBookViewController.swift; sourceTree = "<group>"; };
 		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatronLibraryViewController.swift; path = UniversityLibrary/Controller/Patron/PatronLibraryViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F0407571FCD2552001987D8 /* ScanBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBookViewController.swift; sourceTree = "<group>"; };
 		8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianLibraryViewController.swift; sourceTree = "<group>"; };
+		8F0D76251FD8D09C00EF1F89 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		8F1E7CCE1FD2AF95009A11BA /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		8F209B8B1FD20EA40018C6FB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -257,6 +265,15 @@
 			path = Patron;
 			sourceTree = "<group>";
 		};
+		8F0D76271FD8E4B200EF1F89 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */,
+				5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
 		8F2469B81FC9682500BAF71B /* PatronEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +286,7 @@
 				8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */,
 				8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */,
 				3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */,
+				5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */,
 			);
 			path = PatronEvent;
 			sourceTree = "<group>";
@@ -414,6 +432,7 @@
 				8FBAC2A91FBFB7AE00589262 /* GoogleService-Info.plist */,
 				8FC2EC9C1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld */,
 				5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */,
+				8F0D76251FD8D09C00EF1F89 /* TestCase.swift */,
 			);
 			path = UniversityLibrary;
 			sourceTree = "<group>";
@@ -468,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				8FEABA071FC0DE2B00EA26E9 /* AbstractEvent.swift */,
+				8F0D76271FD8E4B200EF1F89 /* Email */,
 				8F3ABAFE1FC1253600551B3B /* BookEvent.swift */,
 				8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */,
 				8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */,
@@ -710,6 +730,7 @@
 				8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */,
 				8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */,
 				3F9505571FD61E7C0069F391 /* CustomUITextField.swift in Sources */,
+				8F0D76261FD8D09C00EF1F89 /* TestCase.swift in Sources */,
 				8F209B8E1FD264830018C6FB /* FetchCheckedOutBookEvent.swift in Sources */,
 				8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */,
 				8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */,
@@ -755,6 +776,9 @@
 				8FC6FABD1FCFF02F00FBC1D8 /* UIViewFactory.swift in Sources */,
 				5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */,
 				5F090F328040C78A38412D9D /* DatabaseHelper.swift in Sources */,
+				5F090CA66B803E43078F25C6 /* SearchBookEvent.swift in Sources */,
+				5F090BAC921D7CA6F9F5006E /* CheckoutEmailEvent.swift in Sources */,
+				5F0906FDC8141B055FA9F85E /* ReturnBookEmailEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
