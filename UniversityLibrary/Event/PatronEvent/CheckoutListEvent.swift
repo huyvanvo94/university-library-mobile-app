@@ -24,10 +24,12 @@ class CheckoutListEvent: AbstractEvent{
     
     init(checkoutList: CheckoutList ) {
         self.checkoutList = checkoutList
+    
          
     }
     
     func async_ProcessEvent() {
+    
         guard let delegate = self.delegate else{
             return
         }
@@ -124,67 +126,79 @@ class CheckoutListEvent: AbstractEvent{
                             Logger.log(clzz: "CheckoutListEvent", message: "Is Full")
                         }else{
                             
+                            let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron, book: self.checkoutList.book)
                            
-                            let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron)
-                       
+                            
+                          
                             users[self.checkoutList.patron.id!] = checkoutInfo.dict
                             
                             value["users"] = users
                             db.child(self.checkoutList.book.key).updateChildValues(value)
-                           
+ 
                             if let completion = completion{
                                 print("success")
+                                
+                                DataService.shared.confirmCheckout(
+                                    bookInfo: checkoutInfo.bookInfo,
+                                    email: checkoutInfo.email,
+                                    transactionTime: checkoutInfo.transactionTime,
+                                    dueDate: checkoutInfo.dueDate, completion: {(success) in
+                                        
+                                        if success{
+                                            
+                                            print("success")
+                                            
+                                        }else{
+                                            print("error")
+                                            
+                                        }
+                                       
+                                })
+                            
+                                 
                                 self.transactionInfo = checkoutInfo
                                 completion(.success)
                             }
-                            
-                            DataService.shared.confirmCheckout(bookInfo: self.checkoutList.book.bookInfo, email: checkoutInfo.patron.email!,
-                                                               transactionTime: checkoutInfo.transactionDate,
-                                                               dueDate: checkoutInfo.transactionDate, completion: {success in
-                                        
-                                                                if success {
-                                                                    
-                                                                    
-                                                                    
-                                                                }
-                                                                
-                                                                
-                            })
 
-                            
+
+                        
                             
                         }
                     }else{
                         Logger.log(clzz: "CheckoutListEvent", message: "checkout")
                         
-                        let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron)
+                        let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron, book: self.checkoutList.book)
                         
                         let user = checkoutInfo.dict
                         
                         value["users"] = [self.checkoutList.patron.id! : user]
                         
                         db.child(checkoutList.book.key).updateChildValues(value)
-                        
-                      
+
+ 
                         if let completion = completion{
-                               self.transactionInfo = checkoutInfo
+                            
+                            DataService.shared.confirmCheckout(
+                                bookInfo: checkoutInfo.bookInfo,
+                                email: checkoutInfo.email,
+                                transactionTime: checkoutInfo.transactionTime,
+                                dueDate: checkoutInfo.dueDate, completion: {(success) in
+                                    
+                                    if success{
+                                        
+                                        print("success")
+                                        
+                                    }else{
+                                        print("error")
+                                        
+                                    }
+                            })
+                            
+                            
+                            self.transactionInfo = checkoutInfo
                             completion(.success)
                         }
-                        let bookInfo = self.checkoutList.book.bookInfo
-                        DataService.shared.confirmCheckout(bookInfo: bookInfo, email: checkoutInfo.patron.email!,
-                                                           transactionTime: checkoutInfo.transactionDate,
-                                                           dueDate: checkoutInfo.transactionDate, completion: {success in
-                                                            
-                                                            if success{
-                                                           
-                                                                print("success")
-                                                               
-                                                            }
-                                                      
-                                                            
-                        })
-                        
-                        
+ 
                     }
                     
                 }
@@ -195,7 +209,10 @@ class CheckoutListEvent: AbstractEvent{
         
         
     }
+
     
+ 
+
     
     
     // remove user from list

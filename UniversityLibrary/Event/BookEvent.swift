@@ -176,7 +176,7 @@ class BookEvent: AbstractEvent{
                                             self.state = .success
                                             self.eventBook = book  
                                             delegate.complete(event: self)
-                                            print("OK")
+                                           
                                         }
                                         
                                     }

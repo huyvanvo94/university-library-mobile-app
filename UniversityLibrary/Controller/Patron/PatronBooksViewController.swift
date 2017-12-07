@@ -350,6 +350,10 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         
     }
     
+    func search(exact book: Book){
+        
+    }
+    
     func error(event: AbstractEvent) {
     
     }

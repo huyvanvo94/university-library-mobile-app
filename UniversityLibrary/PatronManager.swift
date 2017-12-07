@@ -11,15 +11,17 @@ import Foundation
 class PatronManager: BookKeeper, AbstractEventDelegate{
     
     func fetch(book: Book) {
+        let event = FetchBookEvent(id: book.id!)
+        event.delegate = self
         
     }
     
     func fetch() {
         
     }
-    
-    
+     
     let patorn: Patron
+    
     init(patorn: Patron ){
         self.patorn = patorn
     }
@@ -38,7 +40,6 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     }
     
     func checkout(book: Book) {
-        
         let checkout = CheckoutList(patron: self.patorn, book: book)
         let event = CheckoutListEvent(checkoutList: checkout)
         event.delegate = self
@@ -70,6 +71,15 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     
     
     func search(for: Book){
+        //let event = SearchBoo
+        
+    }
+    
+    func search(exact book: Book){
+       
+        let event = SearchBookEvent(book: book)
+        event.delegate = self 
+        
         
     }
     
@@ -80,6 +90,13 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     
     func error(event: AbstractEvent) {
         
+    }
+
+    func test_email(book: Book){
+
+        let checkoutBookInfo = CheckoutBookInfo(patron: self.patorn, book: book)
+        let event = CheckoutEmailEvent(checkoutBookInfo: checkoutBookInfo)
+        event.delegate = self
     }
 }
 

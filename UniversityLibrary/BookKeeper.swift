@@ -23,6 +23,8 @@ protocol BookKeeper: class{
 
     func fetch()
     func doRenew(book: Book)
+    
+    func search(exact book: Book)
 }
 
 
