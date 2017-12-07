@@ -134,13 +134,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
     func tryLogin(){
         if let user = User.fetch(){
             
-            if user.email.isSJSUEmail(){
-                let event = LoginUserEvent(librarian: user as! Librarian)
+          
+                let event = LoginUserEvent( user : user )
                 event.delegate = self
-            }else{
-                let event = LoginUserEvent(patron: user as! Patron)
-                event.delegate = self
-            }
+            
         }
     }
     
