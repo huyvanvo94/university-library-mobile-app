@@ -11,7 +11,7 @@ import Firebase
 
 class SignoutUserEvent: BaseEventWithUser{
     
-    weak var delegate: SignoutUserDelegate? {
+    weak var delegate: AbstractEventDelegate? {
         didSet{
             self.async_ProcessEvent()
         }
