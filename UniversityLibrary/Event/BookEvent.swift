@@ -239,8 +239,8 @@ class BookEvent: AbstractEvent{
                                             let newValue = value[self.book.key] as! Dictionary<String, Any>
                                             db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).removeValue()
                                             db?.child(DatabaseInfo.checkedOutListTable).child(updatedBook.key).updateChildValues(newValue)
-                                        }catch{
-                                            print("Error")
+                                        }catch let err{
+                                            print(err)
                                         }
                                         
 

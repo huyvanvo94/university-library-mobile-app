@@ -17,6 +17,28 @@ class User: UniModel{
         self.init(email: email, password: password, universityId: nil)
     }
     
+    static func signOut(){
+        let defaults = UserDefaults.standard
+        defaults.set(nil, forKey: "email")
+        defaults.set(nil, forKey: "password")
+    }
+    
+    func save(){
+        let defaults = UserDefaults.standard
+        defaults.set(email, forKey: "email")
+        defaults.set(password, forKey: "password")
+    }
+    
+    static func fetch() -> User?{
+        let defaults = UserDefaults.standard
+      
+        if let email = defaults.string(forKey: "email"), let password = defaults.string(forKey: "password"){
+            return User(email: email, password: password)
+        }else{
+            return nil
+        }
+    }
+    
     init(dict: [String: Any]){
         super.init()
         

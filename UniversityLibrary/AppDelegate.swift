@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
 
     var window: UIWindow?
 
@@ -41,7 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         UINavigationBar.appearance().tintColor = UIColor.white
         
-        self.goToLibrarian()
+        //self.goToLibrarian()
+        
+        self.tryLogin()
+  
         return true
     }
 
@@ -105,5 +108,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = root
         self.window?.makeKeyAndVisible()
     }
+    
+    func complete(event: AbstractEvent) {
+        
+        switch event {
+        case let event as LoginUserEvent:
+            
+            if event.user! is Patron{
+                self.goToPatron()
+            }else{
+                self.goToLibrarian()
+            }
+            
+        default:
+            self.goToMain()
+        }
+    }
+ 
+    
+    func error(event: AbstractEvent) {
+       
+        self.goToMain()
+    }
+    
+    func tryLogin(){
+        if let user = User.fetch(){
+            
+            if user.email.isSJSUEmail(){
+                let event = LoginUserEvent(librarian: user as! Librarian)
+                event.delegate = self
+            }else{
+                let event = LoginUserEvent(patron: user as! Patron)
+                event.delegate = self
+            }
+        }
+    }
+    
+    
 }
 

@@ -58,9 +58,11 @@ class LoginUserEvent: BaseEventWithUser{
                                 
                                 if (email?.isSJSUEmail())!{
                                     let user = Librarian(dict: value)
+                                    user.save()
                                     AppDelegate.setLibrarian(user)
                                 }else{
                                     let user = Patron(dict: value)
+                                    user.save()
                                     AppDelegate.setPatron(user)
                                     
                                 }
