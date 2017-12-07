@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class SignoutUserEvent: BaseEventWithUser{
+class SignoutUserEvent: AbstractEvent{
     
     weak var delegate: AbstractEventDelegate? {
         didSet{
