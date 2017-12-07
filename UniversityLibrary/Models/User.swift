@@ -29,6 +29,8 @@ class User: UniModel{
         defaults.set(password, forKey: "password")
     }
     
+    static func loadUser(){}
+    
     static func fetch() -> User?{
         let defaults = UserDefaults.standard
       
