@@ -9,6 +9,8 @@
 import UIKit
 
 class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDDelegate {
+    
+    var librarian: Librarian?
  
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
