@@ -21,6 +21,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        User.signOut()
         
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
@@ -28,7 +29,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         self.hideKeyboardWhenTappedAround()
    
  
-        TestCase.testCheckoutByPatron()
+      //  TestCase.testCheckoutByPatron()
 
     }
     
@@ -113,7 +114,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         print("error")
         
         switch event {
-        case let event as LoginUserEvent:
+        case let _ as LoginUserEvent:
             self.showToast(message: "Invalid email or password")
         default:
             print("No action taken")

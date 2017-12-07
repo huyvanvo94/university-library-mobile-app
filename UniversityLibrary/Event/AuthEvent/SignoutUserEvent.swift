@@ -26,7 +26,9 @@ class SignoutUserEvent: BaseEventWithUser{
         queue.async {
             
             do{
-                try Auth.auth().signOut()
+                try Auth.auth().signOut() 
+                AppDelegate.user?.signOut()
+                
                 self.state = .success
                 self.delegate?.complete(event: self)
                 
