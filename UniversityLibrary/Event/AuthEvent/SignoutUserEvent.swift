@@ -19,15 +19,14 @@ class SignoutUserEvent: AbstractEvent{
     
     var state: SignoutUserState = .none
     
-    
-    override func async_ProcessEvent() {
+    func async_ProcessEvent() {
         let queue = DispatchQueue(label: "com.huyvo.cmpe277.dispatchqueue.signoutusereevent")
         
         queue.async {
             
             do{
-                try Auth.auth().signOut() 
-                AppDelegate.user?.signOut()
+                try Auth.auth().signOut()  
+                User.signOut()
                 
                 self.state = .success
                 self.delegate?.complete(event: self)
