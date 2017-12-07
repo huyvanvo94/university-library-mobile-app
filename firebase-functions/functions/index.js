@@ -50,13 +50,13 @@ exports.helloWorld = functions.https.onRequest((req, res) => {
 
 
 exports.confirmCheckout = functions.https.onRequest((req, res) => {
-	var bookInfo = req.query.bookInfo;
+	var bookTitle = req.query.bookInfo;
 	var email = req.query.email;
 	var transactionTime = req.query.transactionTime;
 	var dueDate = req.query.dueDate;
 	
 	
-	var message = "Checkout Confirmation: " + “<br>Title: ”+  bookInfo + ”<br>Checkout Time: " + transactionTime + "<br>Due Date: " + dueDate;
+	var message = "Checkout Confirmation: " + “<br>Title: ”+  bookTitle + ”<br>Checkout Time: " + transactionTime + "<br>Due Date: " + dueDate;
 	
 	var mailOptions = {
         from: "universitylibrary-8e17c<noreply@firebase.com>",
