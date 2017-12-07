@@ -195,7 +195,7 @@
                                         <rect key="frame" x="0.0" y="30.5" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Tx-L9-kWv" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70.5" width="303" height="20.5"/>
@@ -207,7 +207,7 @@
                                         <rect key="frame" x="0.0" y="101" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dJ-z8-jjX" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="141" width="303" height="20.5"/>
@@ -219,7 +219,7 @@
                                         <rect key="frame" x="0.0" y="171.5" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6f-NZ-jjv" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="211.5" width="303" height="20.5"/>
@@ -231,7 +231,7 @@
                                         <rect key="frame" x="0.0" y="242" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3w-C5-Xpr" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="282" width="303" height="20.5"/>
@@ -290,43 +290,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-v0-CqR">
-                                <rect key="frame" x="36" y="120" width="303" height="240"/>
+                                <rect key="frame" x="36" y="220" width="303" height="240"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-Iw-28c" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="40"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-Iw-28c" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="e4h-df-7bn"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Author" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-fB-gYn" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Author" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-fB-gYn" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40" width="303" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="M31-hE-G6d"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Publisher" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-el-2M5" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="90" width="303" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Publisher" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-el-2M5" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="80" width="303" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kDy-0t-LgT"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7U3-27-sEb" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7U3-27-sEb" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="130" width="303" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="z9B-YE-EAZ"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="# of Copies" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfa-jK-HnK" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="# of Copies" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfa-jK-HnK" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="170" width="303" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XDv-T6-vKJ"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Current Status" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLL-wv-7Wh" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Current Status" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLL-wv-7Wh" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="210" width="303" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="KbX-Sm-a2b"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.86439611289999996" green="0.86439611289999996" blue="0.86439611289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -335,10 +353,19 @@
                                     <constraint firstAttribute="height" constant="240" id="qCG-TP-TAI"/>
                                 </constraints>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="ViZ-ET-kqH">
+                                <rect key="frame" x="36" y="70" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="ZCq-aI-GpV"/>
+                                    <constraint firstAttribute="height" constant="125" id="uMA-iU-bQy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jmA-v0-CqR" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="100" id="6QX-Hd-6Ga"/>
+                            <constraint firstItem="ViZ-ET-kqH" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="50" id="4JV-EQ-xZl"/>
+                            <constraint firstItem="jmA-v0-CqR" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="200" id="6QX-Hd-6Ga"/>
+                            <constraint firstItem="ViZ-ET-kqH" firstAttribute="leading" secondItem="aGY-Dq-s1h" secondAttribute="leadingMargin" constant="20" id="BJf-Xh-A7a"/>
                             <constraint firstItem="jmA-v0-CqR" firstAttribute="leading" secondItem="aGY-Dq-s1h" secondAttribute="leadingMargin" constant="20" id="aTj-J7-Qeq"/>
                         </constraints>
                     </view>
@@ -542,6 +569,7 @@
         <image name="allBooksIcon" width="25" height="25"/>
         <image name="delete-button" width="32" height="32"/>
         <image name="edit-button" width="32" height="32"/>
+        <image name="placeHolder" width="50" height="50"/>
         <image name="searchIcon" width="25" height="25"/>
     </resources>
 </document>
