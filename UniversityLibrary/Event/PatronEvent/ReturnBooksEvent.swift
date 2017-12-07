@@ -50,15 +50,20 @@ class ReturnBooksEvent: AbstractEvent{
     }
     
     func email(list: [ReturnBookInfo]){
+        
+        Logger.log(clzz: "ReturnBooksEvent", message: "email")
        
         DataService.shared.returnConfirmationTransaction(data: ReturnBookInfo.convertToArrayString(books: list), email: self.patron.email!, completion: { (success) in
             
             if (success){
-                /*
+                
+                
+                Logger.log(clzz: "ReturnBooksEvent", message: "success")
                 self.state = .success
-                self.delegate?.complete(event: self)*/
+                self.delegate?.complete(event: self)
               
             }else{
+                Logger.log(clzz: "ReturnBooksEvent", message: "error")
                 self.state = .error
                 self.delegate?.error(event: self)
                 
@@ -106,8 +111,20 @@ class ReturnBooksEvent: AbstractEvent{
                             users[self.event.patron.id!] = nil
                             value["users"] = users
                             
+                            // update book
                             db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
+                            // update user 
                             
+                            if let index = self.event.patron.booksCheckedOut.index(of: book.key){
+                                
+                                self.event.patron.booksCheckedOut.remove(at: index)
+                                db?.child(DatabaseInfo.patronTable).child(self.event.patron.id!).updateChildValues(self.event.patron.dict)
+                                
+                                AppDelegate.setPatron(self.event.patron)
+                            }
+                            
+                            
+                            // mock
                             self.returnBooksInfo.append(ReturnBookInfo(nameOfBook: book.title!, fineAmount: 10))
                            
                         }else{

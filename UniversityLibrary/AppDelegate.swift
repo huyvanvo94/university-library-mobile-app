@@ -28,10 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
     }
     
     static func fetchLibrarian() -> Librarian?{
+        Logger.log(clzz: "AppDelegate", message: "is Librarian: \(user is Librarian)")
         return user as? Librarian
     }
     
     static func fetchPatron() -> Patron?{
+        Logger.log(clzz: "AppDelegate", message: "is Patron: \(user is Patron)")
         return user as? Patron
     }
  
@@ -142,12 +144,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
     
     func tryLogin(){
         if let user = User.fetch(){
+            Logger.log(clzz: "AppDelegate", message: "Login user with \(user.email) & \(user.password)")
             
-          
-                let event = LoginUserEvent( user : user )
+            if user.email.isSJSUEmail(){
+                
+                let librarian = Librarian(email: user.email, password: user.password)
+                let event = LoginUserEvent(librarian: librarian)
                 event.delegate = self
             
+            }else{
+                let patron = Patron(email: user.email, password: user.password)
+                
+                let event = LoginUserEvent(patron: patron)
+                event.delegate = self
+            }
+            
+          
+            
         }else{
+            Logger.log(clzz: "AppDelegate", message: "try login but going to main")
             self.goToMain()
         }
     }

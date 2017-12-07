@@ -23,7 +23,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
     //action
     @IBAction func returnBookAction(_ sender: Any) {
-        
+        Logger.log(clzz: "PatronBookViewController", message: "returnBookAction")
         if let book = self.book{
             self.doReturn(books: [book])
         }

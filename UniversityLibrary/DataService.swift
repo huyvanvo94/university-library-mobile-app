@@ -61,9 +61,18 @@ final class DataService{
     // data is a json string 
     func returnConfirmationTransaction(data: String, email: String, completion: ((Bool) -> ())?){
         
-         let data = data.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        Logger.log(clzz: "DataService", message: "return confirmation")
         
-        let url = BASE_URL+"returnBooks?data=\(data)&email=\(email)"
+        
+        let data = data.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        if data == nil{
+            return
+        }
+        
+        let url = BASE_URL+"returnBooks?data=\(data!)&email=\(email)"
+        
+        Logger.log(clzz: "DataService", message: "return books url: \(url)")
         
         let requestURL = URL(string: url)
         
