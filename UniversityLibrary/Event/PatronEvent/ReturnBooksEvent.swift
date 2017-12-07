@@ -54,10 +54,9 @@ class ReturnBooksEvent: AbstractEvent{
         DataService.shared.returnConfirmationTransaction(data: ReturnBookInfo.convertToArrayString(books: list), email: self.patron.email!, completion: { (success) in
             
             if (success){
-                
+                /*
                 self.state = .success
-                
-                self.delegate?.complete(event: self)
+                self.delegate?.complete(event: self)*/
               
             }else{
                 self.state = .error
@@ -80,8 +79,10 @@ class ReturnBooksEvent: AbstractEvent{
         
         func doReturn(){
             if self.event.books.isEmpty{
+   
                 event.email(list: self.returnBooksInfo)
-                
+                event.state = .success
+                self.event.delegate!.complete(event: event)
                 return
             }
             

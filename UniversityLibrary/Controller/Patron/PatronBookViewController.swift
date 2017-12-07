@@ -23,7 +23,10 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
     //action
     @IBAction func returnBookAction(_ sender: Any) {
-        self.doReturn(book: book!)
+        
+        if let book = self.book{
+            self.doReturn(books: [book])
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,6 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     private func loadBookToUI(){
         self.title = "Book Details"
         
-     
         if let title = self.book?.title{
             bookTitleLabel.text = "Title: " + title
         }
@@ -69,8 +71,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
                 bookStatusLabel.text = "Status: Not Available"
             }
         }
- 
-        
+  
     }
 
     func checkout(book: Book) {
@@ -110,8 +111,8 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     
     func complete(event: AbstractEvent){
         switch event{
-        case let event as ReturnBookEvent:
-            if event.state == ReturnBookState.success{
+        case let event as ReturnBooksEvent:
+            if event.state == ReturnBooksState.success{
                 self.alertMessage(title: "Return Receipt", message: "Return successful", actionTitle: "OK", handler: { (handler) in
                     
                     if let vc = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? MyCheckoutBooksViewController{

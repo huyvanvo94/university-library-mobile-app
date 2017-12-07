@@ -83,10 +83,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
             
             // logic to return books to firebase
            
-                for book in books{
-                
-                    self.doReturn(book: book)
-                }
+            self.doReturn(books: books)
          }
         
         super.displayAnimateSuccess()
@@ -177,9 +174,9 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
                 self.tableView.reloadData()
             }
            
-        case let event as ReturnBookEvent:
+        case let event as ReturnBooksEvent:
             
-            if event.state == ReturnBookState.success{
+            if event.state == ReturnBooksState.success{
                 self.showToast(message: "Success")
             }
             
@@ -217,6 +214,8 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
                 self.checkoutBooks[index].toReturn = true
                 
                 self.tableView.cellForRow(at: indexPath )?.accessoryType = .checkmark
+            }else{
+                super.showToast(message: "max is 9!")
             }
         }else {
             self.tableView.deselectRow(at: indexPath, animated: true)

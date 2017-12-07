@@ -85,8 +85,14 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         if let location = bookLocationTextField.text {
             newBook.locationInLibrary = location
         }
-        if let copies = self.bookCopiesTextField.text{
+        if let copies = Int(self.bookCopiesTextField.text!){
 
+            newBook.numberOfCopies = copies
+        }
+        
+        if let bookStatus = self.bookStatusTextField.text{
+            
+            newBook.bookStatus = bookStatus
         }
 
         self.book?.updateBook = newBook
@@ -188,8 +194,10 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     
     func update(book: Book) {
-        Logger.log(clzz: "LibrarianBookViewController", message: "uppdate")
+        Logger.log(clzz: "LibrarianBookViewController", message: "update")
         if let librarian = self.librarian {
+            
+            
             let event = BookEvent(librarian: librarian, book: book, action: .update)
             event.delegate = self
         }
