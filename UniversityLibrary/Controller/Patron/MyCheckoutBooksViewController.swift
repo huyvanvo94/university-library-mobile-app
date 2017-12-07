@@ -249,12 +249,14 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     func waiting(book: Book){
 
     }
+    // bad function
     func doReturn(book: Book){
         if let patron = self.patron {
             let event = ReturnBookEvent(patron: patron, book: book)
             event.delegate = self
         }
     }
+    
     func doReturn(books: [Book]){
         if let patron = self.patron {
             let event = ReturnBooksEvent(patron: patron, books: books)
@@ -286,7 +288,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
         self.patron = AppDelegate.fetchPatron()!
         if let patron = self.patron{
             
-
+            // must update patron runtime
             for key in patron.booksCheckedOut {
                 
                 let event = FetchBookEvent(key: key)

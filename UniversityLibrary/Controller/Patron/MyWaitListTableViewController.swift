@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Turn to ViewController
+
 class MyWaitListTableViewController: UITableViewController, AbstractEventDelegate {
 
     var myWaitListBooks = [Book]()
