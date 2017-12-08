@@ -48,12 +48,13 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             
             for (index, book) in self.booksFromDatabase.enumerated().reversed(){
                 if book.toggle{
+                    
+                    
                     books.append(book)
                 }
                 
                 print("Loop")
             }
-            
             
             self.numberOfBooksCheckedOut = books.count
             
@@ -209,18 +210,18 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         if self.isCheckoutMode{
             // allow 3 books to be checkout
             
-            if (self.patron?.canCheckoutBook)!{
-                if self.numberOfBooksCheckedOut < 3{
-                    let index = indexPath.row
+            if (self.patron?.numberOfBooksCheckoutToday)! < 3{
+               
+                self.patron?.numberOfBooksCheckoutToday += 1
+                let index = indexPath.row
                     
-                    self.numberOfBooksCheckedOut += 1
-                    self.booksFromDatabase[index].toggle = true
+                self.numberOfBooksCheckedOut += 1
+                self.booksFromDatabase[index].toggle = true
                     
-                    self.tableView.cellForRow(at: indexPath )?.accessoryType = .checkmark
-                }else{
-                    self.showToast(message: "Max is 3!")
-                }
-            }else{
+                self.tableView.cellForRow(at: indexPath )?.accessoryType = .checkmark
+                
+            }
+            else{
                 self.showToast(message: "3 per day!")
             }
             
@@ -282,7 +283,12 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func complete(event: AbstractEvent) {
         switch event {
         case let event as CheckoutListEvent:
+            
+            self.numberOfBooksCheckedOut -= 1
+            
+            print(self.numberOfBooksCheckedOut)
             if event.state == .full{
+                
                 
                 
                 self.waitlistBookMessage()
@@ -294,20 +300,21 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                     self.booksFromDatabase[index].toggle = false 
                 }
                 
-                super.alertMessage(title: "Already checkout", message: event.checkoutList.book.title!)
+             //   super.alertMessage(title: "Already checkout", message: event.checkoutList.book.title!)
  
             }else if event.state == CheckoutState.success{
+                
+                super.displayAnimateSuccess()
+                
+                // create view
+                if let info = event.transactionInfo{
+                    let transactionString = "Book: \(event.checkoutList.book.title!)  \nDue Date: \(info.dueDate)\n"
+                    self.reciept += transactionString
+                }
+                
                 if self.numberOfBooksCheckedOut == 0{
                     
                     super.alertMessage(title: "Checkout Info", message: self.reciept)
-                    
-                }else{
-                    self.numberOfBooksCheckedOut -= 0
-                    // create view 
-                    if let info = event.transactionInfo{
-                        let transactionString = "Book: \(event.checkoutList.book.title!)  \nDue Date: \(info.dueDate)\n"
-                        self.reciept += transactionString
-                    }
                     
                 }
             }
