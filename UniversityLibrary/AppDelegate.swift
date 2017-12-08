@@ -119,6 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
         self.window?.makeKeyAndVisible()
     }
     
+
     func complete(event: AbstractEvent) {
         
         switch event {

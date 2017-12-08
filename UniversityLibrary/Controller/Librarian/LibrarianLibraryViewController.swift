@@ -12,9 +12,19 @@ class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDD
     
     var librarian: Librarian?
  
-    
     @IBAction func logout(_ sender: UIBarButtonItem) {
-        super.logout()
+       // super.logout()
+        
+        let event = SignoutUserEvent()
+        event.delegate = self
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = root
+        
+        
     }
     
     @IBAction func goToAddBooksVC(_ sender: MenuUIButton) {

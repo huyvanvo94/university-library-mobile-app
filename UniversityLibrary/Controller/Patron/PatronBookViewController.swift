@@ -125,6 +125,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
             print("No Action")
         }
     }
+    
     func error(event: AbstractEvent){
         
     }

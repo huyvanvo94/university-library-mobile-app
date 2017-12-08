@@ -13,6 +13,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     override func loadView() {
         super.loadView()
         self.title = "Login"
@@ -21,7 +22,10 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.tryLogin()
+       
+        
       
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
@@ -147,6 +151,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     */
     
     func tryLogin(){
+     
         if let user = User.fetch(){
             Logger.log(clzz: "AppDelegate", message: "Login user with \(user.email) & \(user.password)")
             
@@ -161,10 +166,6 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
                 let event = LoginUserEvent(patron: patron)
                 event.delegate = self
             }
-        }else{
-           
-            let event = SignoutUserEvent()
-            event.delegate = self
             
         }
     }

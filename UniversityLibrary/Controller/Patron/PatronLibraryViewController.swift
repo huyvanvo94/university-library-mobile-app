@@ -9,7 +9,7 @@
 import UIKit
 
 // Main
-class PatronLibraryViewController: BaseViewController, BookManager {
+class PatronLibraryViewController: BaseViewController, BookManager, AbstractEventDelegate {
  
     override func loadView() {
         super.loadView()
@@ -30,7 +30,16 @@ class PatronLibraryViewController: BaseViewController, BookManager {
     }
     @IBAction func logout(_ sender: UIBarButtonItem) {
     
-        super.logout() 
+        let event = SignoutUserEvent()
+        event.delegate = self
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = root
+   
+        
     }
     
     func search(by book: Book){
@@ -53,6 +62,14 @@ class PatronLibraryViewController: BaseViewController, BookManager {
     
     func search(exact book: Book){
         
+    }
+    
+    func complete(event: AbstractEvent) {
+        
+    }
+    
+    func error(event: AbstractEvent) {
+ 
     }
 
     /*
