@@ -62,12 +62,9 @@ class CheckoutListEvent: AbstractEvent{
                                 self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.key)
                                 self.checkoutList.patron.totalNumberOfBooksCheckout += 1
                                 
-                                value = self.checkoutList.patron.dict
-                                
-                                db.child(self.checkoutList.patron.id!).updateChildValues(value)
+                                db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
                                 
                                 AppDelegate.setPatron(self.checkoutList.patron)
-
                                 delegate.complete(event: self)
                             }
                             

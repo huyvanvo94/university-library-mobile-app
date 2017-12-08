@@ -177,10 +177,10 @@ class Patron: User{
     var canCheckoutBook: Bool{
         get{
             if self.booksCheckedOut.count >= 9{
+               
                 return false
             }
-            if numberOfBooksCheckoutToday < 3{
-                numberOfBooksCheckoutToday += 1
+            if numberOfBooksCheckoutToday < 4{ 
                 return true
             }else{
                 return false
@@ -194,7 +194,7 @@ class Patron: User{
            
             pDict["totalNumberOfBooksCheckout"] = self.totalNumberOfBooksCheckout
             pDict["transaction"] = self.transaction
-            pDict["booksCheckedOut"] = self.booksCheckedOut
+            pDict["booksCheckedOut"] = booksCheckedOut
             pDict["booksOnWaitingList"] = self.booksOnWaitingList
             return pDict
         }
