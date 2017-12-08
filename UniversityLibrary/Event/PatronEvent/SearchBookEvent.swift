@@ -58,6 +58,10 @@ class SearchBookEvent: AbstractEvent{
                             })
                             
                         }
+                    }else{
+                        self.state = .error
+                        delegate.error(event: self)
+                        
                     }
                 }else{
                     
