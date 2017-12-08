@@ -36,6 +36,8 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     override func loadView() {
         super.loadView()
         self.title = "Search"
+        
+        self.hideKeyboardWhenTappedAround()
     }
     func clearText(){
         bookTitle.text = ""

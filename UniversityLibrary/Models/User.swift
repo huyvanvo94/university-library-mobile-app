@@ -166,9 +166,12 @@ class Patron: User{
         
         if let numberOfBooksCheckoutToday = dict["numberOfBooksCheckoutToday"] as? Int{
             
-            if DateHelper.isToday(dt: self.lastCheckout!){
-                self.numberOfBooksCheckoutToday = numberOfBooksCheckoutToday
-            }else{
+            if let lastCheckout = self.lastCheckout{
+                if DateHelper.isToday(dt: lastCheckout){
+                    self.numberOfBooksCheckoutToday = numberOfBooksCheckoutToday
+                }
+            }
+            else{
                 self.numberOfBooksCheckoutToday = 0
             }
             
