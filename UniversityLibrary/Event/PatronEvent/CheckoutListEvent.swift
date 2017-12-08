@@ -55,12 +55,13 @@ class CheckoutListEvent: AbstractEvent{
                         db.child(self.checkoutList.patron.id!).observeSingleEvent(of: .value, with: {(snapshot) in
                             
                             
-                            if var value = snapshot.value as? [String: Any]{
+                            if let _ = snapshot.value as? [String: Any]{
                                 // update patron
                                 Logger.log(clzz: "CheckoutListEvent", message: "Update books")
                       
                                 self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.key)
                                 self.checkoutList.patron.totalNumberOfBooksCheckout += 1
+                                self.checkoutList.patron.timeStamp()
                                 
                                 db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
                                 

@@ -55,7 +55,7 @@ class LoginUserEvent: BaseEventWithUser{
                         db.child(returnUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
                             
                             if let value = snapshot.value as? Dictionary<String, Any>{
-                                
+                               
                                 if (email?.isSJSUEmail())!{
                                     let user = Librarian(dict: value)
                                     user.save()

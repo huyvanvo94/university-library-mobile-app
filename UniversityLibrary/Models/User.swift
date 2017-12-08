@@ -12,6 +12,7 @@ class User: UniModel{
     var password: String!
     var universityId: Int?
     
+    
     // for sign in
     convenience init(email: String, password: String){
         self.init(email: email, password: password, universityId: nil)
@@ -108,6 +109,8 @@ class Librarian: User{
 }
 
 class Patron: User{
+    
+    var lastCheckout: Double?
     let today = Date()
     var numberOfBooksCheckoutToday = 0
     var totalNumberOfBooksCheckout = 0
@@ -120,6 +123,10 @@ class Patron: User{
     static let MAX_BOOKS = 9
     //var booksChecked = [Book]()
     
+    func timeStamp(){
+        self.lastCheckout = Date().timeIntervalSince1970
+        
+    }
     
     
     override init(email: String, password: String, universityId: Int?) {
@@ -153,6 +160,22 @@ class Patron: User{
             self.booksOnWaitingList = booksOnWaitingList
         }
         
+        if let lastCheckout = dict["lastCheckout"] as? Double{
+            self.lastCheckout = lastCheckout
+        }
+        
+        if let numberOfBooksCheckoutToday = dict["numberOfBooksCheckoutToday"] as? Int{
+            
+            if DateHelper.isToday(dt: self.lastCheckout!){
+                self.numberOfBooksCheckoutToday = numberOfBooksCheckoutToday
+            }else{
+                self.numberOfBooksCheckoutToday = 0
+            }
+            
+            
+            print("numberOfBooksCheckout: \(self.numberOfBooksCheckoutToday)")
+        }
+        
         
     }
     
@@ -180,7 +203,7 @@ class Patron: User{
                
                 return false
             }
-            if numberOfBooksCheckoutToday < 4{ 
+            if numberOfBooksCheckoutToday < 4{
                 return true
             }else{
                 return false
@@ -192,9 +215,11 @@ class Patron: User{
         get{
             var pDict = super.dict
            
+            pDict["lastCheckout"] = self.lastCheckout
+            pDict["numberOfBooksCheckoutToday"] = self.numberOfBooksCheckoutToday
             pDict["totalNumberOfBooksCheckout"] = self.totalNumberOfBooksCheckout
             pDict["transaction"] = self.transaction
-            pDict["booksCheckedOut"] = booksCheckedOut
+            pDict["booksCheckedOut"] = self.booksCheckedOut
             pDict["booksOnWaitingList"] = self.booksOnWaitingList
             return pDict
         }

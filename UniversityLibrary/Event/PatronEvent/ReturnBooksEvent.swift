@@ -118,6 +118,8 @@ class ReturnBooksEvent: AbstractEvent{
                             if let index = self.event.patron.booksCheckedOut.index(of: book.key){
                                 
                                 self.event.patron.booksCheckedOut.remove(at: index)
+                                self.event.patron.numberOfBooksCheckoutToday -= 1
+                                
                                 db?.child(DatabaseInfo.patronTable).child(self.event.patron.id!).updateChildValues(self.event.patron.dict)
                                 
                                 AppDelegate.setPatron(self.event.patron)
