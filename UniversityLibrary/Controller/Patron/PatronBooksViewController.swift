@@ -21,6 +21,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     var bookToCheckoutIndex: Int?
     var booksFromDatabase = [Book]()
     
+    var toRemoveIndexAt = [Int: Int]()
+    
     lazy var checkoutBooksButton: UIButton = {
         
         let button = UIButton(frame: CGRect(x: 10, y: Screen.height - 50, width: 44, height: 44))
@@ -47,28 +49,27 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             for (index, book) in self.booksFromDatabase.enumerated().reversed(){
                 if book.toggle{
                     books.append(book)
-                    
-                    self.booksFromDatabase.remove(at: index)
-                    self.tableView.reloadData()
                 }
+                
+                print("Loop")
             }
             
-            self.tableView.reloadData()
-            
-            
-            // logic to return books to firebase
-        
             
             self.numberOfBooksCheckedOut = books.count
             
             for book in books{
+                
                 self.checkout(book: book)
             }
             
+            
+            self.tableView.reloadData()
+            
+            // logic to return books to firebase
+          
         }
         
-        super.displayAnimateSuccess()
-        
+   
     }
     
     @IBAction func toggleAction(_ sender: Any) {
@@ -263,6 +264,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func checkout(book: Book) {
+        Logger.log(clzz: "PatronBooksVC", message: "checkout")
         
         let checkout = CheckoutList(patron: self.patron!, book: book)
         let event = CheckoutListEvent(checkoutList: checkout)
@@ -287,9 +289,13 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 //let book = event.checkoutList.book
                 //self.waiting(book: book)
             }else if event.state == CheckoutState.contain {
-
-                super.showToast(message: "Already checked")
-
+                
+                if let index = self.booksFromDatabase.index(of: event.checkoutList.book){
+                    self.booksFromDatabase[index].toggle = false 
+                }
+                
+                super.alertMessage(title: "Already checkout", message: event.checkoutList.book.title!)
+ 
             }else if event.state == CheckoutState.success{
                 if self.numberOfBooksCheckedOut == 0{
                     
