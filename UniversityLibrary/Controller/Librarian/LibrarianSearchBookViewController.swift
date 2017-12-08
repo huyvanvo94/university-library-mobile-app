@@ -28,9 +28,18 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     @IBOutlet weak var callNumber: UITextField!
     
+    @IBOutlet weak var test: GeneralUILabel!
+    
+    
     override func loadView() {
         super.loadView()
         self.title = "Search"
+        
+        
+        test.text = "Exact Search"
+        test.textAlignment = .center
+        
+        self.callNumber.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -84,6 +93,8 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     func search(exact book: Book) {
 
         if let librarian = self.librarian {
+            
+            Logger.log(clzz: "PatronBookVC", message: "search")
             let event = BookEvent(librarian: librarian, book: book, action: .searchExactly)
             event.delegate = self
         }
@@ -123,8 +134,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
                 print("No action")
             }
             
-            
-            
+             
             
         }
         
@@ -132,6 +142,8 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     }
     
     func error(event: AbstractEvent) {
+        
+        self.showToast(message: "Cannot find!")
         
     }
     
