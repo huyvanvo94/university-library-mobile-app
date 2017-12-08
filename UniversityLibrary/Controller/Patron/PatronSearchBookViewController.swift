@@ -163,6 +163,8 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
         
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckoutBookViewController") as? CheckoutBookViewController{
             
+            vc.book = book
+            
            self.navigationController?.pushViewController(vc, animated: true)
         }
         
