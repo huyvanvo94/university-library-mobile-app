@@ -327,6 +327,7 @@
                         <outlet property="bookTitle" destination="MS1-tJ-9ni" id="MU3-TY-cls"/>
                         <outlet property="callNumber" destination="lKx-sa-vKG" id="okq-TZ-Xn9"/>
                         <outlet property="publisher" destination="kwc-Pp-NIT" id="oRT-bZ-ooQ"/>
+                        <outlet property="test" destination="v3w-C5-Xpr" id="2Ld-IY-ksQ"/>
                         <outlet property="yearOfPublication" destination="MTo-td-3fF" id="6vG-O7-F5h"/>
                     </connections>
                 </viewController>

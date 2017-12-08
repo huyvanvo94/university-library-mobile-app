@@ -160,8 +160,6 @@ class BookEvent: AbstractEvent{
                 
                 db?.child(DatabaseInfo.booksAdded).observeSingleEvent(of: .value, with: {(snapshot) in
                     if let value = snapshot.value as? NSDictionary{
-                        print(value)
-                        print(self.book.key)
                         if let metaInfo = value[self.book.key] as? Dictionary<String, Any>{
                             if let id = metaInfo["id"] as? String{
                                 print(id)
@@ -183,8 +181,15 @@ class BookEvent: AbstractEvent{
                                 })
                                 
                             }
+                        }else{
+                            self.state = .error
+                            delegate.error(event: self)
                         }
                     }else{
+                        
+                        self.state = .error
+                        delegate.error(event: self)
+
                         
                         
                     }

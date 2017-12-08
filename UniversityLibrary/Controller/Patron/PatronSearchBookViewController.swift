@@ -149,14 +149,9 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
                 self.clearText()
                 self.showToast(message: "Invalid inputs")
             }
-        }
- 
-        
+        }  
     }
     
-    
-   
-   
 
     func goToCheckoutBookVC(with book: Book ){
         //CheckoutBookViewController
