@@ -20,9 +20,9 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let event = SignoutUserEvent()
-        event.delegate = self
         
+        self.tryLogin()
+      
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
     
@@ -145,5 +145,29 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tryLogin(){
+        if let user = User.fetch(){
+            Logger.log(clzz: "AppDelegate", message: "Login user with \(user.email) & \(user.password)")
+            
+            if user.email.isSJSUEmail(){
+                
+                let librarian = Librarian(email: user.email, password: user.password)
+                let event = LoginUserEvent(librarian: librarian)
+                event.delegate = self
+                
+            }else{
+                let patron = Patron(email: user.email, password: user.password)
+                let event = LoginUserEvent(patron: patron)
+                event.delegate = self
+            }
+        }else{
+           
+            let event = SignoutUserEvent()
+            event.delegate = self
+            
+        }
+    }
+    
 
 }
