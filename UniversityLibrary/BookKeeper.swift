@@ -14,6 +14,9 @@ import Foundation
  
 protocol BookKeeper: class{
     func checkout(book: Book)
+    func checkout(books: [Book])
+    
+
     func waiting(book: Book)
     func doReturn(book: Book)
     func doReturn(books: [Book])

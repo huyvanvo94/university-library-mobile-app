@@ -298,6 +298,9 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
         }
 
     }
- 
+
+    func checkout(books: [Book]){
+
+    }
 
 }

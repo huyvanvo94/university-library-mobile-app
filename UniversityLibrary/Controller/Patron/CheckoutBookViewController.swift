@@ -161,6 +161,10 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     func error(event: AbstractEvent){
 
     }
+
+    func checkout(books: [Book]){
+
+    }
     
     
     /*

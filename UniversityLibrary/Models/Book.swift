@@ -12,7 +12,6 @@ import Firebase
 class Book: UniModel{
 
     // For application logic
-    
     var toggle = false 
     // for mywistinglist view controller 
     var toReturn = false
@@ -40,6 +39,8 @@ class Book: UniModel{
     
     // if a user checks out this book, this count is increase
     var numberOfBooksCheckedOut: Int = 0
+    
+    var base64Image: String?
  
     var canCheckout: Bool {
         get{
@@ -209,9 +210,7 @@ class Book: UniModel{
             return "\(title!) by \(author!)"
         }
     }
-    
-    
-    // We will use the builder design pattern to build the Book class easier
+
     class Builder{
         private var book: Book!
         
@@ -275,6 +274,17 @@ class Book: UniModel{
             return self
         }
         
+        func setImage(base64: String) -> Builder{
+            book?.base64Image = base64
+            return self
+        }
+        
+        func setImage(image: UIImage) -> Builder{
+            book?.base64Image = book?.base64Str(image: image)
+            
+            return self
+        }
+        
         func build() -> Book{
             return book
         }
@@ -282,7 +292,9 @@ class Book: UniModel{
 
     var updateBook: Book?
 
-/*
+
+
+
     func base64Str(image: UIImage) -> String{
     
         let imageData:NSData = UIImagePNGRepresentation(image)! as NSData
@@ -293,7 +305,18 @@ class Book: UniModel{
     func makeImageFrom(base64: String)-> UIImage{
         let dataDecoded : Data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters)!
         return UIImage(data: dataDecoded)!
+
     }
- */
+    
+    var image: UIImage?{
+        get{ 
+            if let base64Image = self.base64Image{
+                return self.makeImageFrom(base64: base64Image)
+            }
+            
+            return nil
+        }
+    }
+ 
     
 }
