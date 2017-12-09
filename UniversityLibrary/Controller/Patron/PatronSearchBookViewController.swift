@@ -110,6 +110,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
         event.delegate = self
         
     }
+
     func complete(event: AbstractEvent){
         super.activityIndicatorView.stopAnimating()
         
@@ -119,8 +120,8 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
                 self.goToCheckoutBookVC(with: event.book)
             }
         }
-        
     }
+
     func error(event: AbstractEvent){
         super.activityIndicatorView.stopAnimating()
         
@@ -150,16 +151,12 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
             }
         }  
     }
-    
 
     func goToCheckoutBookVC(with book: Book ){
         //CheckoutBookViewController
-        
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckoutBookViewController") as? CheckoutBookViewController{
-            
             vc.book = book
-            
-           self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }

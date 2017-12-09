@@ -26,9 +26,10 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         let llm = LibrarianManager(user: Mock.mock_Librarian())
         
         llm.add(with: Mock.mock_Book())*/
+     
         
         let p = PatronManager(patorn: Mock.mock_Patron())
-        p.checkout(book: Mock.mock_Book())
+        p.doRenew(book: Mock.mock_Book())
         
         /*
         self.tryLogin()

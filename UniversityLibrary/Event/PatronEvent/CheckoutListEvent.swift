@@ -125,9 +125,7 @@ class CheckoutListEvent: AbstractEvent{
                         }else{
                             
                             let checkoutInfo = CheckoutBookInfo(patron: self.checkoutList.patron, book: self.checkoutList.book)
-                           
                             
-                          
                             users[self.checkoutList.patron.id!] = checkoutInfo.dict
                             
                             value["users"] = users

@@ -41,7 +41,51 @@ class RenewBookEvent: AbstractEvent{
             db?.child(DatabaseInfo.waitingListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                 
                 if let value = snapshot.value as? Dictionary<String, Any>{
-                    
+
+                    if let _ = value["users"]{
+                        
+                        self.state = .isFull
+                        delegate.error(event: self)
+                        
+                    }else{
+                        print(2)
+                        
+                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                            
+                            if var value = snapshot.value as? Dictionary<String, Any>{
+                                
+                                if var users = value["users"] as? Dictionary<String, Any>{
+ 
+                                    if let user = users[self.patron.id!] as? Dictionary<String, Any>{
+
+                                        if let renewCount = user["renewCount"] as? Int{
+ 
+                                            if renewCount < 2{
+                                                var transactionInfo = CheckoutBookInfo(patron: self.patron, book: self.book)
+                                            
+                                                transactionInfo.returnCount = (renewCount + 1)
+
+
+                                                value["users"] = transactionInfo.dict
+
+
+                                                db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(value)
+
+
+                                            }
+
+                                        }
+
+                                        
+                                    }
+                                }
+                                
+                            }
+                        })
+                        
+                        
+                        
+                    }
                 }
                 
             })
@@ -52,9 +96,6 @@ class RenewBookEvent: AbstractEvent{
     
 }
 
-protocol RenewBookEventDelegate: AbstractEventDelegate {
-    
-}
 
 enum RenewBookAction{
   
@@ -64,4 +105,6 @@ enum RenewBookState{
     case success
     case error
     case renew
+    case isFull
+
 }
