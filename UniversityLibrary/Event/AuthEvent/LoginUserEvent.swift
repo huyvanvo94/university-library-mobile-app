@@ -12,6 +12,9 @@ import Firebase
 
 class LoginUserEvent: BaseEventWithUser{
     
+    
+    var loginFromLocal = false 
+    
     weak var delegate: LoginUserEventDelegate?{
         didSet{
             self.async_ProcessEvent()
@@ -31,10 +34,13 @@ class LoginUserEvent: BaseEventWithUser{
         queue.async {
             
             Auth.auth().signIn(withEmail: user.email, password: user.password, completion: {(returnUser, error) in
-                if let error = error{
-                    print(error)
-                    delegate.error(event: self)
+                if let _ = error{
                     
+                    if self.loginFromLocal {
+                        User.signOut()
+                    }else{
+                        delegate.error(event: self)
+                    }
                 }else{
                     if returnUser!.isEmailVerified{
                         self.state = .success

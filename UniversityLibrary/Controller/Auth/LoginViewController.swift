@@ -118,8 +118,9 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         print("error")
         
         switch event {
-        case let _ as LoginUserEvent:
+        case let event as LoginUserEvent: 
             self.showToast(message: "Invalid email or password")
+      
         default:
             print("No action taken")
         }
@@ -139,16 +140,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         }
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
     
     func tryLogin(){
      
@@ -159,11 +151,13 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
                 
                 let librarian = Librarian(email: user.email, password: user.password)
                 let event = LoginUserEvent(librarian: librarian)
+                event.loginFromLocal = true
                 event.delegate = self
                 
             }else{
                 let patron = Patron(email: user.email, password: user.password)
                 let event = LoginUserEvent(patron: patron)
+                event.loginFromLocal = true
                 event.delegate = self
             }
             
