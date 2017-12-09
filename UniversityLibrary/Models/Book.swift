@@ -101,6 +101,9 @@ class Book: UniModel{
         if let bookStatus = dict["bookStatus"] as? String{
             self.bookStatus = bookStatus
         }
+        if let base64Image = dict["base64Image"] as? String{
+            self.base64Image = base64Image
+        }
     }
     
      
@@ -200,6 +203,7 @@ class Book: UniModel{
             dict["lastUpDateBy"] = lastUpDateBy
             dict["locationInLibrary"] = locationInLibrary
             dict["bookStatus"] = bookStatus
+            dict["base64Image"] = base64Image
             return dict
         }
     }
@@ -279,8 +283,11 @@ class Book: UniModel{
             return self
         }
         
-        func setImage(image: UIImage) -> Builder{
-            book?.base64Image = book?.base64Str(image: image)
+        func setImage(image: UIImage?) -> Builder{
+            if let image = image{
+                book?.base64Image = book?.base64Str(image: image)
+            }
+            
             
             return self
         }

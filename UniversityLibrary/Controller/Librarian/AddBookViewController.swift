@@ -46,11 +46,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     }
     
     
-    //tap action
-    @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
-       hideKeyboard()
-        fetchImage()
-    }
     
     func fetchImage(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -61,6 +56,20 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             //   imagePicker.modalPresentationStyle = .popover
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    func initCoverImageTap(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddBookViewController.imageOnTap(_:)))
+        
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.coverImage.addGestureRecognizer(tap)
+        self.coverImage.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func imageOnTap(_ sender: UITapGestureRecognizer){
+        fetchImage()
     }
     
     
@@ -108,6 +117,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         super.viewDidLoad()
         
         addBookItemBar.isEnabled = true
+        initCoverImageTap()
         
         if let librarian = AppDelegate.fetchLibrarian(){
             self.librarian = librarian
@@ -116,6 +126,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         }
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,6 +152,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             .setYearOfPublication( Int(yearOfPublication)!)
             .setPublisher(publisher)
             .setBookStatus(currentStatus)
+            .setImage(image: self.coverImage.image!)
             .build()
         
         return book

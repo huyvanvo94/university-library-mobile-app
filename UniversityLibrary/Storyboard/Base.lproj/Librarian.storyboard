@@ -56,9 +56,6 @@
                                             <constraint firstAttribute="height" constant="125" id="efN-2A-4EJ"/>
                                             <constraint firstAttribute="width" constant="125" id="gUs-P1-MPp"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Alm-8z-sTP" appends="YES" id="NMr-hK-ieR"/>
-                                        </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiM-Xf-TFS">
                                         <rect key="frame" x="34.5" y="175" width="250" height="558"/>
@@ -252,11 +249,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxw-ID-qLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Alm-8z-sTP">
-                    <connections>
-                        <action selector="selectImageFromLibrary:" destination="zTc-hU-leN" id="hi1-cp-Zso"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-503" y="-558"/>
         </scene>
@@ -481,6 +473,7 @@
                         <outlet property="bookPublisherTextField" destination="Bzj-el-2M5" id="aQ3-58-b81"/>
                         <outlet property="bookStatusTextField" destination="PLL-wv-7Wh" id="vEV-N4-A4n"/>
                         <outlet property="bookTitleTextField" destination="Hfj-Iw-28c" id="Zgy-4U-GYE"/>
+                        <outlet property="coverImage" destination="ViZ-ET-kqH" id="kRl-Ad-c9b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCL-aa-YuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
