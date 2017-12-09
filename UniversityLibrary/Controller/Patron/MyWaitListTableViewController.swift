@@ -105,4 +105,8 @@ class MyWaitListTableViewController: UITableViewController, AbstractEventDelegat
     func error(event: AbstractEvent) {
         print("Error")
     }
+
+    func checkout(books: [Book]){
+
+    }
 }

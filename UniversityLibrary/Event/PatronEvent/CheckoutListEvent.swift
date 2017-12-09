@@ -208,44 +208,6 @@ class CheckoutListEvent: AbstractEvent{
         
     }
 
-    
- 
-
-    
-    
-    // remove user from list
-    private func deleteFromList(delegate: AbstractEventDelegate, checkoutList: CheckoutList){
-        let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
-        
-        db.child(checkoutList.book.key).observe(.value, with: {(snapshot) in
-            
-            if var value = snapshot.value as? [String: Any]{
-                // if list is empty, we know user isn't in the list
-                if let isEmpty = value["isEmpty"] as? Bool{
-                    
-                    if isEmpty{
-                        
-                    }else{
-                        
-                        if var users = value["users"] as? [String]{
-                            
-                            if let index = users.index(of: checkoutList.patron.id!){
-                                users.remove(at: index)
-                                if users.isEmpty{
-                                    db.child(checkoutList.book.key).updateChildValues(["isEmpty": true])
-                                }
-                                db.child(checkoutList.book.key).updateChildValues(["users": users])
-                            }
-                            
-                        }
-                    }
-                }
-            }
-            
-            db.child(checkoutList.book.key).removeAllObservers()
-        })
-        
-    }
 }
 
 protocol CheckoutListDelegate: AbstractEventDelegate {}

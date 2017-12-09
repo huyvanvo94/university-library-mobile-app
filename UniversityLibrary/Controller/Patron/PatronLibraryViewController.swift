@@ -82,4 +82,8 @@ class PatronLibraryViewController: BaseViewController, BookManager, AbstractEven
     }
     */
 
+    func checkout(books: [Book]){
+
+    }
+
 }

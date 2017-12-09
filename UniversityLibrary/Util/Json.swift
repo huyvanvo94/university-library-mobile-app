@@ -10,6 +10,7 @@ import Foundation
 
 
 struct CheckoutBookInfo{
+    var returnCount = 0
     
     let patron: Patron
     let book: Book
@@ -65,10 +66,11 @@ struct CheckoutBookInfo{
             
             let transaction = Date().timeIntervalSince1970
             
-            
             user["dueDateInfo"] = dueDate
             
             user["transactionDateInfo"] = transactionDate
+            
+            user["renewCount"] = self.returnCount
         
             return user
         }

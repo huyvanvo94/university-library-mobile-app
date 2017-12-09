@@ -98,5 +98,9 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
         let event = CheckoutEmailEvent(checkoutBookInfo: checkoutBookInfo)
         event.delegate = self
     }
+    
+    func checkout(books: [Book]){
+        
+    }
 }
 
