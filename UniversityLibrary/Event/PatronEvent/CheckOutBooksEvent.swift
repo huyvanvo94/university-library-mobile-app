@@ -39,11 +39,8 @@ class CheckoutBooksEvent: AbstractEvent{
         let queue = DispatchQueue(label: "com.huyvo.checkoutbooksevent")
         
         queue.async {
-        
-            
             let helper = CheckoutBooksHelper(event: self)
-            helper.doCheckout()
-             
+            helper.doCheckout() 
         }
     }
     

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5834d57-b53a-4edf-b33b-4eeeb1eac710" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/UniversityLibrary.xcworkspace/xcuserdata/huyvo.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/UniversityLibrary.xcworkspace/xcuserdata/huyvo.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBooksViewController.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBooksViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckoutListEvent.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckoutListEvent.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/ReturnBooksEvent.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/ReturnBooksEvent.swift" />
-      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Models/User.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Models/User.swift" />
+      <change beforePath="$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift" />
+      <change beforePath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckOutBooksEvent.swift" afterPath="$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckOutBooksEvent.swift" />
     </list>
     <ignored path="$USER_HOME$/Library/Caches/AppCode2017.3/DerivedData/UniversityLibrary-clpypycarafhoabxervvsjxqmokd/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,33 +18,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_B2131E39-4E07-4848-904F-56A1398ED7DF" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BookEvent.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniversityLibrary/Event/BookEvent.swift">
+      <file leaf-file-name="PatronManager.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UniversityLibrary/PatronManager.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3525">
-              <caret line="236" column="0" lean-forward="false" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+            <state relative-caret-position="1530">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatronManager.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniversityLibrary/PatronManager.swift">
+      <file leaf-file-name="Book.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UniversityLibrary/Models/Book.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-              <folding>
-                <marker date="1512688813080" expanded="true" signature="2154:2160" ph="{...}" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="207" column="12" lean-forward="false" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Book.swift" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/UniversityLibrary/Models/Book.swift">
+      <file leaf-file-name="BookKeeper.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="207" column="12" lean-forward="false" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
+            <state relative-caret-position="195">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -84,7 +81,7 @@
       <file leaf-file-name="Json.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UniversityLibrary/Util/Json.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="855">
               <caret line="57" column="19" lean-forward="false" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
               <folding />
             </state>
@@ -94,7 +91,7 @@
       <file leaf-file-name="DateHelper.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UniversityLibrary/Util/DateHelper.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="435">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
@@ -114,8 +111,8 @@
       <file leaf-file-name="CheckoutListEvent.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckoutListEvent.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3195">
-              <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+            <state relative-caret-position="3360">
+              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -145,7 +142,6 @@
         <option value="$PROJECT_DIR$/UniversityLibrary/Extensions.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/PatronBookViewController.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/Controller/Auth/SignUpViewController.swift" />
-        <option value="$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/Controller/Patron/MyCheckoutBooksViewController.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/Event/FetchBookEvent.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/AppDelegate.swift" />
@@ -168,6 +164,7 @@
         <option value="$PROJECT_DIR$/UniversityLibrary/DataService.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/TestCase.swift" />
         <option value="$PROJECT_DIR$/UniversityLibrary/Models/Book.swift" />
+        <option value="$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift" />
       </list>
     </option>
   </component>
@@ -205,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,7 +271,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,6 +315,7 @@
       <workItem from="1512517913017" duration="12741000" />
       <workItem from="1512607735816" duration="5292000" />
       <workItem from="1512694287823" duration="59000" />
+      <workItem from="1512847888061" duration="100000" />
     </task>
     <task id="LOCAL-00001" summary="hashValue">
       <created>1512506116317</created>
@@ -337,7 +335,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21594000" />
+    <option name="totallyTimeSpent" value="21694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -560,14 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/BookManager.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -732,11 +722,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/PatronManager.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
+        <state relative-caret-position="1530">
           <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding>
-            <marker date="1512688813080" expanded="true" signature="2154:2160" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -766,7 +754,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/Util/Json.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="855">
           <caret line="57" column="19" lean-forward="false" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
           <folding />
         </state>
@@ -774,7 +762,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/Util/DateHelper.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="435">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
@@ -790,16 +778,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/Event/PatronEvent/CheckoutListEvent.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3195">
-          <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+        <state relative-caret-position="3360">
+          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UniversityLibrary/Models/Book.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="15">
           <caret line="207" column="12" lean-forward="false" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniversityLibrary/BookKeeper.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding />
         </state>
       </provider>

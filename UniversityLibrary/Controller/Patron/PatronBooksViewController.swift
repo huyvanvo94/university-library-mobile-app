@@ -381,6 +381,10 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func doRenew(book: Book) {
         
     }
+
+    func checkout(books: [Book]){
+
+    }
     
     func resetAccessoryType(){
         for section in 0..<self.tableView.numberOfSections{

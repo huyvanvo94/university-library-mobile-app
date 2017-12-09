@@ -18,8 +18,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     func fetch() {
         
     }
-    
-    
+
     //MARK: Properties
     @IBOutlet weak var bookTitle: UITextField!
     
@@ -163,5 +162,9 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
            self.navigationController?.pushViewController(vc, animated: true)
         }
         
+    }
+
+    func checkout(books: [Book]){
+
     }
 }
