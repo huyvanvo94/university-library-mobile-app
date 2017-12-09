@@ -282,17 +282,18 @@ class Book: UniModel{
 
     var updateBook: Book?
 
-
+/*
     func base64Str(image: UIImage) -> String{
     
-        let imageData:NSData = UIImagePNGRepresentation(image)!
+        let imageData:NSData = UIImagePNGRepresentation(image)! as NSData
         return imageData.base64EncodedString(options: .lineLength64Characters)
         
     }
     
     func makeImageFrom(base64: String)-> UIImage{
-        let dataDecoded : Data = Data(base64Encoded: strBase64, options: .ignoreUnknownCharacters)!
-        return UIImage(data: dataDecoded)
+        let dataDecoded : Data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters)!
+        return UIImage(data: dataDecoded)!
     }
+ */
     
 }

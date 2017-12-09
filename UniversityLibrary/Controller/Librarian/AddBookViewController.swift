@@ -14,7 +14,7 @@ import UIKit
  */
 
 
-class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
+class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     var librarian: Librarian?
     
@@ -30,8 +30,39 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     @IBOutlet weak var callNumber: UITextField!
     
     @IBOutlet weak var currentStatus: GeneralUITextField!
+    @IBOutlet weak var coverImage: UIImageView!
     
     // end outlets
+    
+    func hideKeyboard(){
+        bookTitle.resignFirstResponder()
+        publisher.resignFirstResponder()
+        yearOfPublication.resignFirstResponder()
+        locationInLibrary.resignFirstResponder()
+        numberOfCopies.resignFirstResponder()
+        callNumber.resignFirstResponder()
+        currentStatus.resignFirstResponder()
+        
+    }
+    
+    
+    //tap action
+    @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
+       hideKeyboard()
+        fetchImage()
+    }
+    
+    func fetchImage(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            //   imagePicker.modalPresentationStyle = .popover
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
     
     lazy var addBookItemBar: UIBarButtonItem = {
         let image =  UIImage(named: "addBooksIcon.png")
@@ -173,14 +204,26 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     func search(exact book: Book){
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.coverImage.image = image
+        dismiss(animated:true, completion: nil)
+        
+        self.fetchImageComplete()
+        
     }
-    */
+    
+    // use this to do application logic
+    func fetchImageComplete(){
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
+
 
 }

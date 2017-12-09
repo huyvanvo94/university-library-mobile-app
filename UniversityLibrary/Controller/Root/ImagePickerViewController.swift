@@ -54,3 +54,4 @@ class ImagePickerViewController: BaseViewController, UIImagePickerControllerDele
     }
 
 }
+ 

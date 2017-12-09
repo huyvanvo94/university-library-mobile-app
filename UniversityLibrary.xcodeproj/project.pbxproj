@@ -124,7 +124,7 @@
 		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchWaitListBookEvent.swift; sourceTree = "<group>"; };
 		5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutEmailEvent.swift; sourceTree = "<group>"; };
-		5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerViewController.swift; path = ../Root/ImagePickerViewController.swift; sourceTree = "<group>"; };
 		5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookEvent.swift; sourceTree = "<group>"; };
 		5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnBookEmailEvent.swift; sourceTree = "<group>"; };
@@ -298,7 +298,6 @@
 				8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */,
 				8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */,
 				8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */,
-				5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -333,6 +332,7 @@
 				8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */,
 				8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */,
 				8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */,
+				5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */,
 			);
 			path = Librarian;
 			sourceTree = "<group>";

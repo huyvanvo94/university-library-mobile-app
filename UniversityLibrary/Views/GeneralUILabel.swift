@@ -22,7 +22,7 @@ class GeneralUILabel: UILabel {
 
         self.clipsToBounds = true
         self.textColor = UIColor(rgb: 0x143468)
-        self.font = UIFont(name: "Verdana", size: Screen.height * 0.025)
+        self.font = UIFont(name: "Verdana", size: Screen.height * 0.020)
         self.textAlignment = .left
    
     }

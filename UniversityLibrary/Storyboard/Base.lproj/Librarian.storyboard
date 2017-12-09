@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1036" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,79 +37,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNO-DU-DfY">
-                                <rect key="frame" x="20" y="10" width="303" height="622"/>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNO-DU-DfY">
+                                <rect key="frame" x="36" y="-30" width="319" height="726"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cover Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKB-a0-ZIi" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="10" width="96.5" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="aj2-Hp-dUe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="MsJ-pT-gfy">
+                                        <rect key="frame" x="21" y="41" width="125" height="125"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="efN-2A-4EJ"/>
+                                            <constraint firstAttribute="width" constant="125" id="gUs-P1-MPp"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Alm-8z-sTP" appends="YES" id="NMr-hK-ieR"/>
+                                        </connections>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiM-Xf-TFS">
-                                        <rect key="frame" x="1" y="10" width="300" height="558"/>
+                                        <rect key="frame" x="34.5" y="175" width="250" height="558"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ5-qg-sS8" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="iaB-ZT-kMN"/>
+                                                    <constraint firstAttribute="height" constant="21" id="ZWl-v7-5aV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQJ-Eq-NkK" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="31" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="31" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="tyl-jv-7p1"/>
+                                                    <constraint firstAttribute="height" constant="30" id="03b-OC-am4"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTA-bR-4c9" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="71" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="71" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="Spn-5T-kaW"/>
+                                                    <constraint firstAttribute="height" constant="21" id="1l7-mO-kmS"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R6x-22-c8R" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="102" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="102" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="w0f-AY-9kW"/>
+                                                    <constraint firstAttribute="height" constant="30" id="HRe-Wm-tET"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM0-LF-aMa" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="142" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="142" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="qiu-ES-q7t"/>
+                                                    <constraint firstAttribute="height" constant="21" id="x7w-ov-qiP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nov-32-QWo" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="173" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="173" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="3o7-Yr-4uU"/>
+                                                    <constraint firstAttribute="height" constant="30" id="irb-f6-hFn"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-Pb-EnS" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="213" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="213" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="lVR-dg-lh2"/>
+                                                    <constraint firstAttribute="height" constant="21" id="IT8-IE-MwS"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kA2-zl-1dE" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="244" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="244" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Llt-KE-TXN"/>
+                                                    <constraint firstAttribute="height" constant="30" id="GtQ-pq-1RJ"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -122,100 +141,109 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location in Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-61-GzY" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="284" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="284" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="46H-xV-0aX"/>
+                                                    <constraint firstAttribute="height" constant="21" id="SlU-XB-usE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GJx-mS-AnL" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="315" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="315" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="FVo-u7-GWd"/>
+                                                    <constraint firstAttribute="height" constant="30" id="hzk-dX-DmX"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CL-wL-aI4" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="355" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="355" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="FxJ-be-gIz"/>
+                                                    <constraint firstAttribute="height" constant="21" id="dth-Od-Nju"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ua-UC-9fc" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="386" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="386" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="oUa-sa-pxf"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Str-ut-WgF"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sna-zx-jjv" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="426" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="426" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="neL-7e-EaT"/>
+                                                    <constraint firstAttribute="height" constant="21" id="foh-mI-5fn"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4t-JW-SaO" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="457" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="457" width="250" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="YNH-UU-7vb"/>
+                                                    <constraint firstAttribute="height" constant="30" id="5VK-TK-t2U"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="864-AH-eDy" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="497" width="300" height="21"/>
+                                                <rect key="frame" x="0.0" y="497" width="250" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="ou2-3T-Hpx"/>
+                                                    <constraint firstAttribute="height" constant="21" id="mZk-vS-iAK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uaj-Gm-EJS" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="528" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="528" width="250" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="RZg-wF-Vfg"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="IHo-wO-zAf"/>
+                                            <constraint firstAttribute="width" constant="250" id="6KO-f2-9hl"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="centerX" secondItem="nNO-DU-DfY" secondAttribute="centerX" id="Fvl-Ck-2PY"/>
-                                    <constraint firstAttribute="trailing" secondItem="jiM-Xf-TFS" secondAttribute="trailing" constant="2" id="YBT-KK-fNJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="jiM-Xf-TFS" secondAttribute="bottom" constant="10" id="kxP-cO-UN1"/>
-                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="top" secondItem="nNO-DU-DfY" secondAttribute="top" constant="10" id="ney-DW-uRA"/>
+                                    <constraint firstItem="fKB-a0-ZIi" firstAttribute="leading" secondItem="nNO-DU-DfY" secondAttribute="leading" constant="20" id="1ae-3r-8vk"/>
+                                    <constraint firstItem="fKB-a0-ZIi" firstAttribute="leading" secondItem="nNO-DU-DfY" secondAttribute="leading" constant="20" id="Auf-aJ-8YT"/>
+                                    <constraint firstItem="fKB-a0-ZIi" firstAttribute="top" secondItem="nNO-DU-DfY" secondAttribute="top" constant="10" id="DBq-cy-GCe"/>
+                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="centerX" secondItem="nNO-DU-DfY" secondAttribute="centerX" id="G6a-ve-OaK"/>
+                                    <constraint firstAttribute="bottom" secondItem="jiM-Xf-TFS" secondAttribute="bottom" constant="-112" id="OSd-8A-Mot"/>
+                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="top" secondItem="nNO-DU-DfY" secondAttribute="top" constant="175" id="U2Y-fc-VIg"/>
+                                    <constraint firstAttribute="trailing" secondItem="fKB-a0-ZIi" secondAttribute="trailing" constant="20" id="Z29-qu-aV8"/>
+                                    <constraint firstItem="MsJ-pT-gfy" firstAttribute="leading" secondItem="nNO-DU-DfY" secondAttribute="leading" constant="21" id="bID-DQ-YUv"/>
+                                    <constraint firstItem="MsJ-pT-gfy" firstAttribute="top" secondItem="fKB-a0-ZIi" secondAttribute="bottom" constant="10" id="ffU-mD-3Fg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yFl-Hs-y53" firstAttribute="top" secondItem="nNO-DU-DfY" secondAttribute="bottom" constant="20" id="DLJ-fT-giJ"/>
-                            <constraint firstItem="nNO-DU-DfY" firstAttribute="top" secondItem="eOF-yq-e0F" secondAttribute="bottom" constant="5" id="FIF-d6-ic2"/>
-                            <constraint firstItem="nNO-DU-DfY" firstAttribute="leading" secondItem="5AY-R0-D5N" secondAttribute="leadingMargin" constant="20" id="kAY-xc-xKf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nNO-DU-DfY" secondAttribute="trailing" constant="20" id="u70-xe-kod"/>
+                            <constraint firstItem="nNO-DU-DfY" firstAttribute="leading" secondItem="5AY-R0-D5N" secondAttribute="leadingMargin" constant="20" id="QOG-2h-GVV"/>
+                            <constraint firstItem="nNO-DU-DfY" firstAttribute="centerY" secondItem="5AY-R0-D5N" secondAttribute="centerY" id="Zin-Uh-NwO"/>
+                            <constraint firstItem="nNO-DU-DfY" firstAttribute="top" secondItem="eOF-yq-e0F" secondAttribute="bottom" constant="-50" id="kkn-Jw-r7j"/>
+                            <constraint firstAttribute="trailing" secondItem="nNO-DU-DfY" secondAttribute="trailing" constant="20" id="sAQ-5K-3tX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="author" destination="R6x-22-c8R" id="naO-jz-p7z"/>
                         <outlet property="bookTitle" destination="XQJ-Eq-NkK" id="7n7-QF-cQF"/>
                         <outlet property="callNumber" destination="C4t-JW-SaO" id="yz1-2m-QxU"/>
+                        <outlet property="coverImage" destination="MsJ-pT-gfy" id="fIJ-S7-dg5"/>
                         <outlet property="currentStatus" destination="0Ua-UC-9fc" id="ha7-FY-GGp"/>
                         <outlet property="locationInLibrary" destination="GJx-mS-AnL" id="v4V-yU-lTr"/>
                         <outlet property="numberOfCopies" destination="uaj-Gm-EJS" id="sKJ-SB-GAy"/>
@@ -224,6 +252,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxw-ID-qLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Alm-8z-sTP">
+                    <connections>
+                        <action selector="selectImageFromLibrary:" destination="zTc-hU-leN" id="hi1-cp-Zso"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-503" y="-558"/>
         </scene>
@@ -555,7 +588,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="lNE-8u-84g" id="fcc-cK-vV9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kD1-J6-LjI">
