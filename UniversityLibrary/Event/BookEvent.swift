@@ -247,13 +247,7 @@ class BookEvent: AbstractEvent{
                                         }catch let err{
                                             print(err)
                                         }
-                                        
-
-
-                                        
-
-
-
+                                    
                                     }
                                     
                                     self.state = .success
@@ -264,6 +258,8 @@ class BookEvent: AbstractEvent{
                             
                         })
 
+                        self.state = .success
+                        delegate.complete(event: self)
   
                     }
 
