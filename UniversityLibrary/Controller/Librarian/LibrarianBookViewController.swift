@@ -122,6 +122,11 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             newBook.bookStatus = bookStatus
         }
 
+        if let image = self.coverImage.image{
+            newBook.base64Image = newBook.base64Str(image: image)
+        }
+        
+        
         self.book?.updateBook = newBook
     }
 
