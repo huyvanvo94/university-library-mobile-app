@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate, UITextFieldDelegate{
+class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     var librarian: Librarian?
     var book: Book?
@@ -148,7 +147,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     }
     
-    // MARK: Kevin
+      // MARK: Kevin
     func loadBookToView(){
         self.title = "Book Details"
         // then load book to view 
@@ -280,12 +279,51 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
      
     }
     
+    func fetchImage(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            //   imagePicker.modalPresentationStyle = .popover
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        self.pickedImage = image
+        
+        dismiss(animated:true, completion: fetchImageComplete)
+        
+        
+    }
+    
+    var pickedImage: UIImage?
+    
+    // use this to do application logic
+    func fetchImageComplete(){
+        
+        if self.getSize(image: self.pickedImage!){
+            self.coverImage.image = self.pickedImage!
+            //     self.showToast(message: "Image Size Too Large")
+        }else{
+            self.showToast(message: "Image Size Too Large")
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
+    
     
     
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
