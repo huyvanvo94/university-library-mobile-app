@@ -36,10 +36,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
         self.title = "Search"
         
         
-        test.text = "Exact Search"
-        test.textAlignment = .center
-        
-        self.callNumber.isHidden = true
+
     }
     
     override func viewDidLoad() {
