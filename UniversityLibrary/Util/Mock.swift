@@ -12,6 +12,10 @@ class Mock{
     
     static let isMockMode = false
     
+    static var mockDate = Date()
+    
+    
+    
     static func mock_Patron() -> Patron{ 
         let p = Patron(email: "tes2t@gmail.com", password: "123123", universityId: 123124)
         p.id = "OJ9l7IyjsAVg3ATqkdhsRl0AqJG3"

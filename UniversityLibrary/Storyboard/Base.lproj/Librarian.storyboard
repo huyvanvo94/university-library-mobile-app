@@ -277,6 +277,57 @@
             </objects>
             <point key="canvasLocation" x="-503" y="-558"/>
         </scene>
+        <!--Testing View Controller-->
+        <scene sceneID="5r4-kV-7Oz">
+            <objects>
+                <viewController id="Nk6-0y-ERL" customClass="TestingViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XQY-Uo-PM9"/>
+                        <viewControllerLayoutGuide type="bottom" id="fyy-je-fRG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L6P-AE-QNd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-WI-F7d">
+                                <rect key="frame" x="27" y="225" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="534559908.86486">
+                                    <!--2017-12-10 00:51:48 +0000-->
+                                </date>
+                            </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btc-6S-8L0">
+                                <rect key="frame" x="26" y="84" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleMode:" destination="Nk6-0y-ERL" eventType="valueChanged" id="MKg-qk-Sgi"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJp-wr-i5L" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                <rect key="frame" x="26" y="165" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gJp-wr-i5L" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leadingMargin" constant="10" id="5f4-4T-IPE"/>
+                            <constraint firstItem="btc-6S-8L0" firstAttribute="top" secondItem="XQY-Uo-PM9" secondAttribute="bottom" constant="20" id="60Y-5l-QQH"/>
+                            <constraint firstItem="gJp-wr-i5L" firstAttribute="top" secondItem="btc-6S-8L0" secondAttribute="bottom" constant="50" id="Ax8-7v-WsE"/>
+                            <constraint firstItem="FOV-WI-F7d" firstAttribute="centerX" secondItem="L6P-AE-QNd" secondAttribute="centerX" id="B42-jk-7tW"/>
+                            <constraint firstItem="FOV-WI-F7d" firstAttribute="centerY" secondItem="L6P-AE-QNd" secondAttribute="centerY" id="LUH-Ye-FhT"/>
+                            <constraint firstItem="btc-6S-8L0" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leadingMargin" constant="10" id="oCH-XB-j9P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="FOV-WI-F7d" id="zfz-zo-HU8"/>
+                        <outlet property="switchLabel" destination="gJp-wr-i5L" id="Fbz-Lo-1Br"/>
+                        <outlet property="testingSwitch" destination="btc-6S-8L0" id="5Mf-L7-V9P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9s-hy-itE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1238" y="-611"/>
+        </scene>
         <!--Librarian Search Book View Controller-->
         <scene sceneID="Bd0-9I-1qF">
             <objects>
@@ -290,7 +341,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-g8-SDT">
-                                <rect key="frame" x="36" y="94" width="303" height="342.5"/>
+                                <rect key="frame" x="36" y="94" width="303" height="272"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-2o-VaR" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
@@ -340,21 +391,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3w-C5-Xpr" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="282" width="303" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKx-sa-vKG" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312.5" width="303" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="340" id="Zr0-VU-bH7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="Zr0-VU-bH7"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -375,9 +414,7 @@
                     <connections>
                         <outlet property="author" destination="qmm-y1-0s6" id="fsu-9r-spA"/>
                         <outlet property="bookTitle" destination="MS1-tJ-9ni" id="MU3-TY-cls"/>
-                        <outlet property="callNumber" destination="lKx-sa-vKG" id="okq-TZ-Xn9"/>
                         <outlet property="publisher" destination="kwc-Pp-NIT" id="oRT-bZ-ooQ"/>
-                        <outlet property="test" destination="v3w-C5-Xpr" id="2Ld-IY-ksQ"/>
                         <outlet property="yearOfPublication" destination="MTo-td-3fF" id="6vG-O7-F5h"/>
                     </connections>
                 </viewController>
@@ -577,6 +614,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="EOc-O6-XsL">
                             <connections>
                                 <action selector="logout:" destination="wdj-at-ZNv" id="2Gc-R3-XYL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Testing" id="Va1-tA-7nE">
+                            <connections>
+                                <segue destination="Nk6-0y-ERL" kind="show" id="XRG-fu-h02"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

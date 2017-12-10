@@ -35,7 +35,7 @@ extension UIViewController{
     
     func getSize(image: UIImage) -> Bool{
         let data = UIImagePNGRepresentation(image) as! Data
-         
+        
         return (Double(data.count)/(1024*1024)) <= 8
     }
     
