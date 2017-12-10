@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
+class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate, UITextFieldDelegate{
 
     var librarian: Librarian?
     var book: Book?
@@ -25,16 +25,19 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     override func loadView() {
         super.loadView()
-
-
+        
+        
+     
         self.disableTextViewInput()
      
         self.navigationController?.isToolbarHidden = false
       
         self.initCoverImageTap()
         self.loadBookToView()
-        
     }
+    
+
+    
     
     func initCoverImageTap(){
         
@@ -255,8 +258,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
                 
             }else if event.action == .delete{
                  if event.state == BookActionState.success{
-                    print("YO!")
-                    
+                   
                    self.navigationController?.popToRootViewController(animated: true)
                  }else if event.state == BookActionState.checkoutListNotEmpty{
 

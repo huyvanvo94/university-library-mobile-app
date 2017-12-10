@@ -267,6 +267,11 @@ class Book: UniModel{
             book?.keywords = keywords
             return self
         }
+        
+        func setKeywords(_ keywords: String) -> Builder{
+            book?.keywords = keywords.components(separatedBy: .whitespaces)
+            return self 
+        }
 
         func setLastUpDateBy(_ lastUpDateBy: String ) -> Builder{
             book?.lastUpDateBy = lastUpDateBy
