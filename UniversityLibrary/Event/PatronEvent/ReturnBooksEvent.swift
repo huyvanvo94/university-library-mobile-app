@@ -106,8 +106,9 @@ class ReturnBooksEvent: AbstractEvent{
                     if var users = value["users"] as? Dictionary<String, Any>{
                         
                         if users[self.event.patron.id!] != nil{
-                            
-                            
+
+                            let dueDateTimeInterval = users["dueDate"] as! Double
+
                             users[self.event.patron.id!] = nil
                             value["users"] = users
                             
@@ -124,11 +125,18 @@ class ReturnBooksEvent: AbstractEvent{
                                 
                                 AppDelegate.setPatron(self.event.patron)
                             }
-                            
-                            
+
                             // mock
-                            self.returnBooksInfo.append(ReturnBookInfo(nameOfBook: book.title!, fineAmount: 10))
-                           
+
+                            let dueDate = DateHelper.numberFromLocalToday(dt: dueDateTimeInterval)
+
+                            if dueDate <= 0{
+                                let fineAmount = (-1 * dueDate) + 1
+                                self.returnBooksInfo.append(ReturnBookInfo(nameOfBook: book.title!, fineAmount: fineAmount))
+                            }else{
+                                self.returnBooksInfo.append(ReturnBookInfo(nameOfBook: book.title!, fineAmount: 0))
+                            }
+
                         }else{
                            
                         }

@@ -84,7 +84,9 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     }
     
     func doRenew(book: Book) {
-        
+
+        let event = RenewBookEvent(book: book, patron: self.patorn)
+        event.delegate = self
     }
 
     
