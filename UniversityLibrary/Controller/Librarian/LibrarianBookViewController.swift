@@ -50,7 +50,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     }
     
     @objc func imageOnTap(_ sender: UITapGestureRecognizer){
-        print("tap")
+        self.fetchImage()
     }
     
     
