@@ -101,6 +101,9 @@ class Book: UniModel{
         if let bookStatus = dict["bookStatus"] as? String{
             self.bookStatus = bookStatus
         }
+        if let base64Image = dict["base64Image"] as? String{
+            self.base64Image = base64Image
+        }
     }
     
      
@@ -200,6 +203,7 @@ class Book: UniModel{
             dict["lastUpDateBy"] = lastUpDateBy
             dict["locationInLibrary"] = locationInLibrary
             dict["bookStatus"] = bookStatus
+            dict["base64Image"] = base64Image
             return dict
         }
     }
@@ -263,6 +267,11 @@ class Book: UniModel{
             book?.keywords = keywords
             return self
         }
+        
+        func setKeywords(_ keywords: String) -> Builder{
+            book?.keywords = keywords.components(separatedBy: .whitespaces)
+            return self 
+        }
 
         func setLastUpDateBy(_ lastUpDateBy: String ) -> Builder{
             book?.lastUpDateBy = lastUpDateBy
@@ -279,8 +288,11 @@ class Book: UniModel{
             return self
         }
         
-        func setImage(image: UIImage) -> Builder{
-            book?.base64Image = book?.base64Str(image: image)
+        func setImage(image: UIImage?) -> Builder{
+            if let image = image{
+                book?.base64Image = book?.base64Str(image: image)
+            }
+            
             
             return self
         }
@@ -292,6 +304,9 @@ class Book: UniModel{
 
     var updateBook: Book?
 
+
+
+
     func base64Str(image: UIImage) -> String{
     
         let imageData:NSData = UIImagePNGRepresentation(image)! as NSData
@@ -302,6 +317,7 @@ class Book: UniModel{
     func makeImageFrom(base64: String)-> UIImage{
         let dataDecoded : Data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters)!
         return UIImage(data: dataDecoded)!
+
     }
     
     var image: UIImage?{
@@ -313,5 +329,6 @@ class Book: UniModel{
             return nil
         }
     }
+ 
     
 }

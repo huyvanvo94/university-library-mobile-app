@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate {
+class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate, UITextFieldDelegate{
 
     var librarian: Librarian?
     var book: Book?
@@ -21,17 +21,39 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     @IBOutlet weak var bookLocationTextField: CustomUITextField!
     @IBOutlet weak var bookCopiesTextField: CustomUITextField!
     @IBOutlet weak var bookStatusTextField: CustomUITextField!
+    @IBOutlet weak var coverImage: UIImageView!
     
     override func loadView() {
         super.loadView()
-
-
+        
+        
+     
         self.disableTextViewInput()
      
         self.navigationController?.isToolbarHidden = false
       
+        self.initCoverImageTap()
         self.loadBookToView()
     }
+    
+
+    
+    
+    func initCoverImageTap(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(LibrarianBookViewController.imageOnTap(_:)))
+        
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.coverImage.addGestureRecognizer(tap)
+      
+        
+    }
+    
+    @objc func imageOnTap(_ sender: UITapGestureRecognizer){
+        print("tap")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +71,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         Logger.log(clzz: "LibrariranVC", message: "edit action")
         if !editOn{
             self.enableTextViewInput()
+            self.coverImage.isUserInteractionEnabled = true
             editOn = true
             return
         }
@@ -149,6 +172,9 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             if let status = self.book?.bookStatus{
                 bookStatusTextField.text = status
             }
+            if let image = self.book?.base64Image{
+                coverImage.image = self.book?.image!
+            }
          
           
 
@@ -232,8 +258,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
                 
             }else if event.action == .delete{
                  if event.state == BookActionState.success{
-                    print("YO!")
-                    
+                   
                    self.navigationController?.popToRootViewController(animated: true)
                  }else if event.state == BookActionState.checkoutListNotEmpty{
 

@@ -14,10 +14,9 @@ import UIKit
  */
 
 
-class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
+class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
 
     var librarian: Librarian?
-    
     // outlets
  
     @IBOutlet weak var bookTitle: UITextField!
@@ -29,9 +28,54 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     @IBOutlet weak var numberOfCopies: UITextField!
     @IBOutlet weak var callNumber: UITextField!
     
-    @IBOutlet weak var currentStatus: GeneralUITextField!
+    @IBOutlet weak var currentStatus: UITextField!
+    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var keywords: GeneralUITextField!
     
     // end outlets
+    
+    func hideKeyboard(){
+        bookTitle.resignFirstResponder()
+        publisher.resignFirstResponder()
+        yearOfPublication.resignFirstResponder()
+        locationInLibrary.resignFirstResponder()
+        numberOfCopies.resignFirstResponder()
+        callNumber.resignFirstResponder()
+        currentStatus.resignFirstResponder()
+        keywords.resignFirstResponder()
+        
+    }
+    
+    
+    
+    func fetchImage(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            //   imagePicker.modalPresentationStyle = .popover
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    //cover image tap
+    func initCoverImageTap(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddBookViewController.imageOnTap(_:)))
+        
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.coverImage.addGestureRecognizer(tap)
+        self.coverImage.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func imageOnTap(_ sender: UITapGestureRecognizer){
+        fetchImage()
+    }
+    
+
     
     lazy var addBookItemBar: UIBarButtonItem = {
         let image =  UIImage(named: "addBooksIcon.png")
@@ -51,6 +95,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         callNumber.text = ""
         yearOfPublication.text = ""
         currentStatus.text = ""
+        keywords.text = ""
     }
     
     func addBookAction(_ sender: Any){
@@ -76,8 +121,13 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBookItemBar.isEnabled = true
+        self.currentStatus.delegate = self
+        self.currentStatus.tag = 1
         
+        
+        
+        addBookItemBar.isEnabled = true
+        initCoverImageTap()
         if let librarian = AppDelegate.fetchLibrarian(){
             self.librarian = librarian
         }else{
@@ -85,7 +135,32 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
         }
 
         // Do any additional setup after loading the view.
+        
     }
+    
+  
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if(string == " "){
+            
+            if let _ = self.keywords.text{
+                
+                self.keywords.text! += " "
+                
+                
+            }
+            
+            return false
+        }
+        
+        if textField.tag == 1{
+            return false
+        }
+        
+        return true
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -95,7 +170,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     
     func buildBook() -> Book? {
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text,
-            let currentStatus = self.currentStatus.text
+            let currentStatus = self.currentStatus.text, let keywords = self.keywords.text
             else {
             
             return nil
@@ -110,6 +185,8 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
             .setYearOfPublication( Int(yearOfPublication)!)
             .setPublisher(publisher)
             .setBookStatus(currentStatus)
+            .setImage(image: self.coverImage.image!)
+            .setKeywords(keywords)
             .build()
         
         return book
@@ -173,14 +250,35 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager{
     func search(exact book: Book){
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        self.pickedImage = image
+       
+        dismiss(animated:true, completion: fetchImageComplete)
+        
+        
     }
-    */
+    
+    var pickedImage: UIImage?
+    
+    // use this to do application logic
+    func fetchImageComplete(){
+        
+        if self.getSize(image: self.pickedImage!){
+            self.coverImage.image = self.pickedImage!
+            //     self.showToast(message: "Image Size Too Large")
+        }else{
+            self.showToast(message: "Image Size Too Large")
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
+
 
 }

@@ -16,8 +16,9 @@ class GeneralUITextField: UITextField {
         
         self.borderStyle = UITextBorderStyle.roundedRect
 
-            self.font = UIFont(name: "Helvetica", size: Screen.height * 0.04)
+            self.font = UIFont(name: "Helvetica", size: Screen.height * 0.03)
             self.layer.cornerRadius = 5.0
+            self.heightAnchor.constraint(equalToConstant: Screen.height * 0.03).isActive = true
             self.layer.borderColor = UIColor(red: 55/255, green: 78/255, blue: 95/255, alpha: 1.0).cgColor
             self.layer.borderWidth = 1.0
             self.layer.masksToBounds = true
