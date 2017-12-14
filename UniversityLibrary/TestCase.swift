@@ -32,9 +32,6 @@ final class TestCase{
     static func testCheckoutByPatron(){
 
 
-
-
-
         let patron = Mock.mock_Patron()
 
         patron.email = "huy_vo80@yahoo.com"

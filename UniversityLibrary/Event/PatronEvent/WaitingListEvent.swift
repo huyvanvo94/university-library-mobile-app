@@ -54,45 +54,42 @@ class WaitingListEvent: AbstractEvent{
         db.child(self.waitingList.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
             
             if let value = snapshot.value as? [String: Any]{
-                let isEmpty = value["isEmpty"] as! Bool
-                
-                if isEmpty{
+
+                // not empty
+                if var users = value["users"] as? [String] {
+                    if users.contains(self.waitingList.patron.id!) == false{
+                        users.append(self.waitingList.patron.id!)
+                        db.child(waitingList.book.key).updateChildValues(["users": users])
+
+                        self.state = .success
+                        delegate.complete(event: self)
+
+                    }else{
+
+                        self.state = .duplicate
+                        delegate.complete(event: self)
+                    }
+
+                }else{
+
                     var users = [String: Any]()
                     
                     // add as string array
                     users["users"] = [self.waitingList.patron.id]
                     
                     // start update child values
-                    db.child(self.waitingList.book.key).updateChildValues(["isEmpty": false])
                     db.child(self.waitingList.book.key).updateChildValues(users)
                     // end uddate child values
                     
                     self.state = .success
                     delegate.complete(event: self)
                     
-                }else{
-                    if var users = value["users"] as? [String]{
-                        if users.contains(self.waitingList.patron.id!) == false{
-                            users.append(self.waitingList.patron.id!)
-                            db.child(waitingList.book.key).updateChildValues(["users": users])
-                            
-                            self.state = .success
-                            delegate.complete(event: self)
-                            
-                        }else{
-                            
-                            self.state = .duplicate
-                            delegate.complete(event: self)
-                            
-                            
-                        }
-                    }
-                    
                 }
-        
                 
             }else{
-                
+
+                self.state = .error
+                delegate.error(event: self)
                 
             } 
         })

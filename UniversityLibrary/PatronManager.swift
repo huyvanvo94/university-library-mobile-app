@@ -59,6 +59,8 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
         switch event {
         case let event as CheckoutListEvent:
             if event.state == .full{
+                print("is full, checkout list")
+
                 
                 let book = event.checkoutList.book
                 self.waiting(book: book)
@@ -84,7 +86,6 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     }
     
     func doRenew(book: Book) {
-
         let event = RenewBookEvent(book: book, patron: self.patorn)
         event.delegate = self
     }

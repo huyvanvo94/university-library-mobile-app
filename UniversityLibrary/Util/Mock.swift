@@ -59,11 +59,11 @@ class Mock{
             .setKeywords(["A", "B", "C"])
             .setCallNumber("124214214")
             .setLocationInLibrary("Floor A")
-            .setNumberOfCopies( 11)
+            .setNumberOfCopies( 1)
             .setYearOfPublication( 1923)
             .build()
 
-        book.id = "-L-dkhzLimnNrRJ_IxkE"
+        book.id = "-L0L3XcwPwUblrQkKV3n"
         
         return book
     
