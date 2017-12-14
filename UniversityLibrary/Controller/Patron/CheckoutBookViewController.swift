@@ -110,6 +110,12 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     }
 
     func waiting(book: Book) {
+        
+        if let patron = self.patron{
+            let waitlist = WaitingList(book: book, patron: patron)
+            let event = WaitingListEvent(waitingList: waitlist, action: .add)
+            event.delegate = self
+        }
 
     }
 
@@ -137,25 +143,46 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
 
         Logger.log(clzz: "CheckoutbookView", message: "complete")
         self.activityIndicatorView.stopAnimating()
-
-        if let event = event as? CheckoutListEvent{
-
+ 
+        switch event {
+        case let event as CheckoutListEvent:
             if event.state == CheckoutState.success{
-               
+                
                 let info = event.transactionInfo
                 
                 let infoString = "\(event.checkoutList.book.title!) due on \(info!.dueDate)"
                 
                 super.alertMessage(title: "Receipt", message: infoString, actionTitle: "OK", handler: {(alert) in
-                
+                    
                     self.popBackView()
                 })
                 
             }else if event.state == CheckoutState.contain{
                 self.showToast(message: "Already checked out!")
-
+                
+            }else if event.state == CheckoutState.full{
+                // show add to wait list
+                let alert = UIAlertController(title: "Wait List", message: "Would you like to be addded to wait list?",  preferredStyle: .actionSheet)
+                
+                let yes = UIAlertAction(title: "Yes", style: .destructive, handler: {(handler) in
+                    let book = event.checkoutList.book
+                    self.checkout(book: book)
+                })
+                let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                alert.addAction(yes)
+                alert.addAction(no)
+                present(alert, animated: true, completion: nil)
+                
             }
-
+        case let event as WaitingListEvent:
+            
+            Logger.log(clzz: "CheckoutBookVC", message: "waitlist")
+            
+            
+            
+            
+        default:
+            print("No action")
         }
     }
     func error(event: AbstractEvent){
@@ -167,14 +194,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     }
     
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
