@@ -104,6 +104,9 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     
     func checkout(books: [Book]){
         
+        let event = CheckoutBooksEvent(books: books, patron: self.patorn)
+        event.delegate = self 
+        
     }
 }
 

@@ -56,8 +56,7 @@ class ReturnBooksEvent: AbstractEvent{
         DataService.shared.returnConfirmationTransaction(data: ReturnBookInfo.convertToArrayString(books: list), email: self.patron.email!, completion: { (success) in
             
             if (success){
-                
-                
+                 
                 Logger.log(clzz: "ReturnBooksEvent", message: "success")
                 self.state = .success
                 self.delegate?.complete(event: self)
@@ -87,7 +86,10 @@ class ReturnBooksEvent: AbstractEvent{
    
                 event.email(list: self.returnBooksInfo)
                 event.state = .success
-                self.event.delegate!.complete(event: event)
+                
+                if let delegate = self.event.delegate{
+                    delegate.complete(event: event)
+                }
                 return
             }
             
@@ -105,9 +107,9 @@ class ReturnBooksEvent: AbstractEvent{
                 if var value = snapshot.value as? [String: Any]{
                     if var users = value["users"] as? Dictionary<String, Any>{
                         
-                        if users[self.event.patron.id!] != nil{
-
-                            let dueDateTimeInterval = users["dueDate"] as! Double
+                        if var user = users[self.event.patron.id!] as? Dictionary<String, Any>{
+                       
+                            let dueDateTimeInterval = user["dueDate"] as! Double
 
                             users[self.event.patron.id!] = nil
                             value["users"] = users
@@ -116,6 +118,7 @@ class ReturnBooksEvent: AbstractEvent{
                             db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
                             // update user 
                             
+                            // comment for testing
                             if let index = self.event.patron.booksCheckedOut.index(of: book.key){
                                 
                                 self.event.patron.booksCheckedOut.remove(at: index)
@@ -125,9 +128,7 @@ class ReturnBooksEvent: AbstractEvent{
                                 
                                 AppDelegate.setPatron(self.event.patron)
                             }
-
-                            // mock
-
+ 
                             let dueDate = DateHelper.numberFromLocalToday(dt: dueDateTimeInterval)
 
                             if dueDate <= 0{
@@ -136,7 +137,24 @@ class ReturnBooksEvent: AbstractEvent{
                             }else{
                                 self.returnBooksInfo.append(ReturnBookInfo(nameOfBook: book.title!, fineAmount: 0))
                             }
-
+                            
+                            // When a book becomes available, the first person on the waiting list is notified about its availability,
+                            // and the person is removed from the waiting list.
+                            
+                            // optional binding
+                            if let numberOfCopies = value["numberOfCopies"] as? Int{
+                                // room for one more
+                                if users.count == numberOfCopies - 1{
+                                
+                                    DispatchQueue.global().async {
+                                
+                                        self.notifyNextUserFromWaitList(book: book)
+                                        
+                                    }
+                                    
+                                }
+                            }
+                            
                         }else{
                            
                         }
@@ -150,7 +168,49 @@ class ReturnBooksEvent: AbstractEvent{
             
             
         }
+        
+        private func notifyNextUserFromWaitList(book: Book){
+            Logger.log(clzz: "ReturnBooksEvent", message: "notifyNextUserFromWaitList")
+            let db = FirebaseManager().reference
+            
+            
+            db?.child(DatabaseInfo.waitingListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                if var value = snapshot.value as? Dictionary<String, Any>{
+                    if var users = value["users"] as? Dictionary<String, Any>{
+                        let firstKey = Array(users.keys)[users.count-1]
+                        
+                        if let user = users[firstKey] as? Dictionary<String, Any>{
+                            
+                            users[firstKey] = nil
+                            
+                            value["users"] = users
+                            db?.child(DatabaseInfo.waitingListTable).child(book.key).updateChildValues(value)
+                            
+                            if let title = book.title{
+                                
+                                if let email = user["email"] as? String{
+                                    
+                                    let message = "\(title) is able to checkout right now for three days"
+                                    DataService.shared.sendEmail(email: email, message: message, subject: "Hello", completion: nil)
+                                    
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                }
+            })
+      
+                             
+            
+        }
+        
     }
+   
+    
 }
 
 

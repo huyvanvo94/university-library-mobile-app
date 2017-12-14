@@ -164,8 +164,19 @@ final class DataService{
     }
     
     func sendEmail(email: String, message: String, subject: String, completion: ((Bool) -> () )?){
+        if !email.isValidEmail(){
+            return
+        }
         
-        let url = "https://us-central1-universitylibrary-8e17c.cloudfunctions.net/sendGeneralEmail?email=\(email)&text=\(message)&subject=\(subject)"
+        let subject = subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let message = message.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        if message == nil || subject == nil{
+            return
+        }
+        
+        let url = "https://us-central1-universitylibrary-8e17c.cloudfunctions.net/sendGeneralEmail?email=\(email)&text=\(message!)&subject=\(subject!)"
+        
         
         Logger.log(clzz: "DataService", message:"url: \(url)")
         

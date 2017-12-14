@@ -71,15 +71,7 @@ class SearchBookEvent: AbstractEvent{
                     
                 }
             })
-
-
-
-
-
         }
-
-
-
 
     }
 }
