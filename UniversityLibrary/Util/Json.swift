@@ -94,11 +94,17 @@ struct ReturnBookInfo{
     
     static func convertToArrayString(books: [ReturnBookInfo]) -> String{
         
+        if books.count == 0{
+            return "none"
+        }
+        
         if books.count == 1{
             return "[" + books[0].convertToJsonString() + "]"
         }
         
         var msg = "["
+        
+      
         
         for i in 0..<books.count-1{
             msg += books[i].convertToJsonString() + ","

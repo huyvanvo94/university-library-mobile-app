@@ -56,9 +56,11 @@ class WaitingListEvent: AbstractEvent{
             if let value = snapshot.value as? [String: Any]{
 
                 // not empty
-                if var users = value["users"] as? [String] {
-                    if users.contains(self.waitingList.patron.id!) == false{
-                        users.append(self.waitingList.patron.id!)
+                if var users = value["users"] as? Dictionary<String, Any> {
+                    if users[self.waitingList.patron.id!] == nil{
+                       
+                        users[self.waitingList.patron.id!] = self.waitingList.dict
+                        
                         db.child(waitingList.book.key).updateChildValues(["users": users])
 
                         self.state = .success
@@ -71,11 +73,13 @@ class WaitingListEvent: AbstractEvent{
                     }
 
                 }else{
+                    
+                    let user = [self.waitingList.patron.id!:self.waitingList.dict]
 
                     var users = [String: Any]()
                     
                     // add as string array
-                    users["users"] = [self.waitingList.patron.id]
+                    users["users"] = user
                     
                     // start update child values
                     db.child(self.waitingList.book.key).updateChildValues(users)

@@ -21,4 +21,14 @@ class WaitingList: UniModel{
         self.patron = patron
     }
     
+    override var dict: [String : Any]{
+        get{
+            var wDict = [String: Any]()
+            wDict["id"] = self.patron.id
+            wDict["email"] = self.patron.email
+            return wDict
+            
+        }
+    
+    }
 }

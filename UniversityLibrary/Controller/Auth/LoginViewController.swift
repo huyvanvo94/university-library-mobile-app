@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: BaseViewController, LoginUserEventDelegate{
 
@@ -26,10 +27,12 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         let llm = LibrarianManager(user: Mock.mock_Librarian())
         
         llm.add(with: Mock.mock_Book())*/
-
-        let p = PatronManager(patorn: Mock.mock_Patron2())
-        p.checkout(book: Mock.mock_Book())
-
+ 
+       
+        let p = PatronManager(patorn: Mock.mock_Patron())
+      
+        p.doReturn(books: [Mock.mock_Book()!])
+ 
         /*
         self.tryLogin()
        
