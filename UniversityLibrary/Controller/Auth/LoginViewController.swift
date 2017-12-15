@@ -59,6 +59,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         print("LoginViewController login")
         
         guard let email = self.emailAddressTextField.text, let password = self.passwordTextField.text else{
+            self.showToast("All fields required")
             return
         }
         
