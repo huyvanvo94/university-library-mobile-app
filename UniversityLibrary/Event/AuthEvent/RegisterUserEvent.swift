@@ -35,94 +35,94 @@ class RegisterUserEvent: BaseEventWithUser{
             if user is Patron{
                 table = DatabaseInfo.patronTable
             }else{
-                
                 table = DatabaseInfo.librarianTable
-                
             }
-          
-            Auth.auth().createUser(withEmail: user.email, password: user.password) { (returnUser, error) in
-                if let error = error{
-                    print(error)
-                    self.state = .error
-                    delegate.error(event: self)
-                    
-                }else{
-                    
-                    user.id = returnUser!.uid
+         
+            db?.child(table).observeSingleEvent(of: .value, with: {(snapshot) in
                 
-                    db?.child(table).child(returnUser!.uid)
-                        .setValue(user.dict)
-                    
-                    Auth.auth().currentUser?.sendEmailVerification { (error) in
-                       
-                        if let error = error{
+                if let value = snapshot.value as? Dictionary<String, Any>{
+                    if var universityIds = value["universityIds"] as? [String]{
+                        if universityIds.contains("\(user.universityId!)"){
+                            self.state = .universityIdTaken
+                            delegate.error(event: self)
                             
                         }else{
-                            
+                            Auth.auth().createUser(withEmail: user.email, password: user.password) { (returnUser, error) in
+                                if let error = error{
+                                    print(error)
+                                    self.state = .error
+                                    delegate.error(event: self)
+                                    
+                                }else{
+                                    
+                                    user.id = returnUser!.uid
+                                    
+                                    db?.child(table).child(returnUser!.uid)
+                                        .setValue(user.dict)
+                                    
+                                    universityIds.append("\(user.universityId!)")
+                                    
+                                    db?.child(table).updateChildValues(["universityIds": universityIds])
+                                    
+                                    Auth.auth().currentUser?.sendEmailVerification { (error) in
+                                        
+                                        if let _ = error{
+                                            
+                                        }else{
+                                            
+                                        }
+                                    }
+                                    
+                                    
+                                    self.state = .success
+                                    delegate.complete(event: self)
+                                    
+                                }
+                                
+                            }
                         }
                     }
                     
-                    
-                    self.state = .success
-                    delegate.complete(event: self)
-                    
-                } 
-                
-            }
-            /*
-            let table: String
-            
-            if user is Patron{
-                table = DatabaseInfo.patronTable
-            }else{
-                table = DatabaseInfo.librarianTable
-            }
-            
-            self.containsEmail(user: user, completion: { doesContainEmail in
-                if !doesContainEmail{
-                    // set current user to use
-                    (UIApplication.shared.delegate as! AppDelegate).user = user
-                    
-                    self.insertToDb(table: table, key: key!, user: user)
-                    self.state = .success
-                    delegate.complete(event: self)
-                   
                 }else{
-                    self.state = .error 
-                    delegate.complete(event: self)
+                    // first user created for application
+                    Auth.auth().createUser(withEmail: user.email, password: user.password) { (returnUser, error) in
+                        if let error = error{
+                            print(error)
+                            self.state = .error
+                            delegate.error(event: self)
+                            
+                        }else{
+                            
+                            user.id = returnUser!.uid
+                            
+                            db?.child(table).child(returnUser!.uid)
+                                .setValue(user.dict)
+                            
+                            db?.child(table).updateChildValues(["universityIds": ["\(user.universityId!)"]])
+                            
+                            Auth.auth().currentUser?.sendEmailVerification { (error) in
+                                
+                                if let _ = error{
+                                    
+                                }else{
+                                    
+                                }
+                            }
+                            
+                            
+                            self.state = .success
+                            delegate.complete(event: self)
+                            
+                        }
+                        
+                    }
                 }
-            })*/
-            
+            })
             
         }
+            
     }
-    /*
-    
-    func insertToDb(table: String, key: String, user: User){
    
-        let db = FirebaseManager().reference
-        // add user first
-        db?.child(table).child(key).setValue(user.dict)
-        // denormalization
-        // add data for quick access for future CRUD operations 
-        db?.child(DatabaseInfo.registerEmailTable).child(user.emailKey).setValue(["id": key])
-        
-    }
-    */
-    /*
-    func containsEmail(user: User, completion: @escaping ( (Bool) ->Void )){
-        let db = FirebaseManager().reference
-        let ref = db?.child(DatabaseInfo.registerEmailTable)
-        
-        ref?.observeSingleEvent(of: .value, with: {(snapshot) in
-            // contains child in database
-            if snapshot.hasChild(user.emailKey){
-                completion(true)
-            }else{
-                completion(false)
-            }
-        })
-    }*/
 }
 
 enum RegisterUserEventState{

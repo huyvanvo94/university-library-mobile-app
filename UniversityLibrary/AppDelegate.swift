@@ -47,8 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
         
         self.goToMain()
         
-       
-  
         return true
     }
 
