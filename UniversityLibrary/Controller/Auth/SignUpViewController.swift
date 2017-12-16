@@ -50,8 +50,15 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     @IBAction func signUp(_ sender: UIButton) {
         
         guard let email = emailTextField.text, let password = passwordTextField.text, let universityId = Int(studentIdTextField.text!) else{
+            self.showToast(message: "all text fields required")
             return
         }
+        
+        if studentIdTextField.text?.count != 6{
+            self.showToast(message: "invalid university id!")
+            return 
+        }
+        
         
         super.activityIndicatorView.startAnimating()
         
@@ -148,7 +155,7 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
         
         switch event {
         case let event as RegisterUserEvent:
-            // release to memory
+            
             event.delegate = nil
            
             self.handleRegisterUser(event: event)
@@ -163,9 +170,16 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
         
         switch event {
         case let event as RegisterUserEvent:
-            // release to memory
-            event.delegate = nil
-            self.showToast(message: "email is taken!")
+            if event.state == .universityIdTaken{
+                self.showToast(message: "university id is taken")
+            }else if event.state == .emailTaken{
+                // release to memory
+                event.delegate = nil
+                self.showToast(message: "email is taken!")
+            }else{
+                self.showToast(message: "error")
+            }
+           
         default:
             print("No action taken")
         }
