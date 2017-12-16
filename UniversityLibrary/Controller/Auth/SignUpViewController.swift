@@ -54,7 +54,7 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
             return
         }
         
-        if studentIdTextField.text?.count != 6{
+        if studentIdTextField.text?.characters.count != 6{
             self.showToast(message: "invalid university id!")
             return 
         }
