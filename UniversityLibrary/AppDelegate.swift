@@ -43,9 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
      
         UINavigationBar.appearance().tintColor = UIColor.white
         
-       // self.goToLibrarian()
+       
+        self.goToLibrarian()
         
-        self.goToMain()
+        //self.goToMain()
         
         return true
     }
