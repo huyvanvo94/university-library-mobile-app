@@ -186,6 +186,24 @@ class ReturnBooksEvent: AbstractEvent{
                             value["users"] = users
                             db?.child(DatabaseInfo.waitingListTable).child(book.key).updateChildValues(value)
                             
+                            db?.child(DatabaseInfo.checkedOutListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                                
+                                if var value = snapshot.value as? Dictionary<String, Any>{
+                                    
+                                    var reservation = [String: Any]()
+                                    
+                                    reservation["id"] = user["id"]
+                                    reservation["duration"] = Date().threeDaysFromNow.timeIntervalSince1970
+                                    reservation["durationInfo"] = DateHelper.getLocalDate(dt: Date().threeDaysFromNow.timeIntervalSince1970)
+                                    
+                                
+                                    
+                                    value["reservation"] = reservation
+                                    
+                                    db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
+                                  
+                                }
+                            })
                             if let title = book.title{
                                 
                                 if let email = user["email"] as? String{

@@ -22,7 +22,20 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        /*
+        let lm = LibrarianManager(user: Mock.mock_Librarian())
+        
+        lm.add(with: Mock.mock_Book())*/
+        
+        
+        let pm = PatronManager(patorn: Mock.mock_Patron())
+        pm.doReturn(books: [Mock.mock_Book()])
+        
+        
  
+        /*
         self.tryLogin()
        
         
@@ -30,7 +43,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
     
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround() */
  
     }
     
