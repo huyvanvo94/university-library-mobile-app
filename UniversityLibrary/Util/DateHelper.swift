@@ -25,7 +25,7 @@ class DateHelper{
     }
     
     static func numberFromToday(dt: TimeInterval) -> Int{
-        let today = Date()
+        let today = Date.getCurrentDate
         let requestedDate = Date(timeIntervalSince1970: dt)
         
         let calendar = NSCalendar.current
@@ -39,7 +39,7 @@ class DateHelper{
     }
     
     static func numberFromLocalToday(dt: TimeInterval) -> Int{
-        let today = Date()
+        let today = Date.getCurrentDate
         let requestedDate = Date(timeIntervalSince1970: dt)
         
         let calendar = NSCalendar.current
@@ -83,6 +83,17 @@ class DateHelper{
 
 
 extension Date{
+    
+    static var getCurrentDate: Date{
+        if Mock.isMockMode{
+            return Mock.mockDate
+        }
+        
+        return Date()
+    }
+    
+    
+    
     var mock_thirdyDaysfromNow: Date{
         return Date().addingTimeInterval(10000)
     }

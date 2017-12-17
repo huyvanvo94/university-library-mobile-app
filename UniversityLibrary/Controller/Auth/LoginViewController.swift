@@ -30,16 +30,15 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
         lm.add(with: Mock.mock_Book())*/
         
         
-        let pm = PatronManager(patorn: Mock.mock_Patron())
-        pm.doReturn(books: [Mock.mock_Book()])
+        let pm = PatronManager(patorn: Mock.mock_Patron2())
+        pm.doReturn(books: [Mock.mock_Book()!])
         
         
  
         /*
         self.tryLogin()
        
-        
-      
+         
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
     

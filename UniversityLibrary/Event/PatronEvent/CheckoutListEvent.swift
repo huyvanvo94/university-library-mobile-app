@@ -9,6 +9,9 @@
 import Foundation
 import Firebase
 
+// Event class to checkout books
+// Should only surport 9 books at a time
+
 class CheckoutListEvent: AbstractEvent{
     
     var transactionInfo: CheckoutBookInfo?
@@ -80,6 +83,9 @@ class CheckoutListEvent: AbstractEvent{
                         
                     case .full:
                         delegate.complete(event: self)
+                        
+                    case .alreadyOnReserve:
+                        delegate.complete(event: self)
                     default:
                         delegate.error(event: self)
                     }
@@ -92,11 +98,117 @@ class CheckoutListEvent: AbstractEvent{
                 delegate.error(event: self)
             }
         }
+    }
+    // check if wait_list contains a user
+    private func canCheckout(completion: @escaping ((Bool) -> () )){
         
+        let db = FirebaseManager().reference
+        db?.child(DatabaseInfo.waitingListTable).observeSingleEvent(of: .value, with: {(snapshot) in
+            if let value = snapshot.value as? Dictionary<String, Any>{
+                if let _ = value["users"] as? Dictionary<String, Any>{
+                    completion(false)
+                }else{
+                    completion(true)
+                }
+            }
+        })
     }
     
     // add user to list
     private func addToList(checkoutList: CheckoutList, completion: ((CheckoutState) -> () )?){
+        Logger.log(clzz: "CheckoutListEvent", message: "addToList")
+        let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
+        
+        // init database connection
+        db.child(self.checkoutList.book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            if var value = snapshot.value as? [String: Any]{
+           
+                // each book must have a numberOfCopies field, else return errpr
+                if let _ = value["numberOfCopies"] as? Int{
+                 
+                    // check if book is on reservation
+                    if let reservation = value["reservation"] as? Dictionary<String, Any>{
+                        
+                        Logger.log(clzz: "CheckoutListEvent", message: "contains reservation")
+                        if let duration = reservation["duration"] as? Double{
+                            
+                            // If a patron is added to the reservation
+                            // Only can be on for 3 days
+                            // If over 3 days, can checkout book
+                            if DateHelper.numberFromLocalToday(dt: duration) > 3{
+                                Logger.log(clzz: "CheckoutListEvent", message: "Delete user from reservation")
+                                // must delete user from reservation
+                                value["reservation"] = nil
+                                // clear and update reservation in database
+                                db.child(self.checkoutList.book.key).updateChildValues(value)
+                                // check if waiting list exists
+                                self.canCheckout(completion: {(canCheckoutBook) in
+                                    if canCheckoutBook {
+                                        self.checkoutPatron(checkoutList: checkoutList, completion: completion)
+                                        
+                                    }else{
+                                        // waiting list exists
+                                        self.notifyNextUserFromWaitList(book: self.checkoutList.book)
+                                        if let completion = completion{
+                                            completion(.full)
+                                        }
+                                    }
+                                })
+                                
+                            }
+                            else{
+                                // reservation is still valid, less than 3 days
+                                // checkout if user id is same on reservation dictionary
+                                
+                                if let id = reservation["id"] as? String{
+                                    if id == self.checkoutList.patron.id{
+                                     
+                                        self.checkoutPatron(checkoutList: checkoutList, removeReservation: true, completion: completion)
+                                    }else{
+                                        
+                                        if let completion = completion{
+                                            completion(.alreadyOnReserve)
+                                        }
+                                    }
+                                    
+                                }else{
+                                    if let completion = completion{
+                                        completion(.error)
+                                    }
+                                    
+                                }
+                                
+                            }
+                      
+                        }else{
+                            // no reservation is on checkout list
+                            // we can treat normally
+                            self.checkoutPatron(checkoutList: checkoutList, completion: completion)
+                          
+                        }
+                    }else{
+                        // no reservation is on checkout list
+                        // we can treat normally
+                        self.checkoutPatron(checkoutList: checkoutList, completion: completion)
+                    }
+                    
+                }else{
+                    // error!
+                    if let completion = completion{
+                        completion(.error)
+                    }
+                }
+                
+               
+            }
+            
+        })
+        
+    }
+    
+    // main function that adds patron to checkout list 
+    private func checkoutPatron(checkoutList: CheckoutList, removeReservation: Bool=false, completion: ((CheckoutState) -> () )?){
         Logger.log(clzz: "CheckoutListEvent", message: "addToList")
         let db = FirebaseManager().reference.child(DatabaseInfo.checkedOutListTable)
         
@@ -110,17 +222,17 @@ class CheckoutListEvent: AbstractEvent{
                         
                         if users[self.checkoutList.patron.id!] != nil{
                             Logger.log(clzz: "CheckoutListEvent", message: "already checked out")
-        
+                            
                             if let completion = completion{
                                 completion(.contain)
                             }
                         }
                         else if users.count == numberOfCopies{
-                         
+                            
                             if let completion = completion{
                                 completion(.full)
                             }
-
+                            
                             Logger.log(clzz: "CheckoutListEvent", message: "Is Full")
                         }else{
                             
@@ -129,8 +241,15 @@ class CheckoutListEvent: AbstractEvent{
                             users[self.checkoutList.patron.id!] = checkoutInfo.dict
                             
                             value["users"] = users
+                            if(removeReservation){
+                                value["reservation"] = nil
+                            }
                             db.child(self.checkoutList.book.key).updateChildValues(value)
- 
+                             // important to update checkoutlist value before notify next user
+                            if(removeReservation){
+                                self.notifyNextUserFromWaitList(book: self.checkoutList.book)
+                            }
+                            
                             if let completion = completion{
                                 print("success")
                                 
@@ -148,16 +267,16 @@ class CheckoutListEvent: AbstractEvent{
                                             print("error")
                                             
                                         }
-                                       
+                                        
                                 })
-                            
-                                 
+                                
+                                
                                 self.transactionInfo = checkoutInfo
                                 completion(.success)
                             }
-
-
-                        
+                            
+                            
+                            
                             
                         }
                     }else{
@@ -168,10 +287,14 @@ class CheckoutListEvent: AbstractEvent{
                         let user = checkoutInfo.dict
                         
                         value["users"] = [self.checkoutList.patron.id! : user]
-                        
+                        if(removeReservation){
+                            value["reservation"] = nil
+                        }
                         db.child(checkoutList.book.key).updateChildValues(value)
-
- 
+                        // important to update checkoutlist value before notify next user
+                        if(removeReservation){
+                            self.notifyNextUserFromWaitList(book: self.checkoutList.book)
+                        }
                         if let completion = completion{
                             
                             DataService.shared.confirmCheckout(
@@ -194,7 +317,7 @@ class CheckoutListEvent: AbstractEvent{
                             self.transactionInfo = checkoutInfo
                             completion(.success)
                         }
- 
+                        
                     }
                     
                 }
@@ -205,8 +328,58 @@ class CheckoutListEvent: AbstractEvent{
         
         
     }
-
+    
+    // check if there is a user in waiting list
+    private func notifyNextUserFromWaitList(book: Book){
+        Logger.log(clzz: "ReturnBooksEvent", message: "notifyNextUserFromWaitList")
+        let db = FirebaseManager().reference
+        
+        db?.child(DatabaseInfo.waitingListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+            if var value = snapshot.value as? Dictionary<String, Any>{
+                if var users = value["users"] as? Dictionary<String, Any>{
+                    let firstKey = Array(users.keys)[users.count-1]
+                    
+                    if let user = users[firstKey] as? Dictionary<String, Any>{
+                        
+                        users[firstKey] = nil
+                        
+                        value["users"] = users
+                        db?.child(DatabaseInfo.waitingListTable).child(book.key).updateChildValues(value)
+                        
+                        db?.child(DatabaseInfo.checkedOutListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
+                            
+                            if var value = snapshot.value as? Dictionary<String, Any>{
+                                
+                                var reservation = [String: Any]()
+                                
+                                reservation["id"] = user["id"]
+                                reservation["duration"] = Date().threeDaysFromNow.timeIntervalSince1970
+                                reservation["durationInfo"] = DateHelper.getLocalDate(dt: Date().threeDaysFromNow.timeIntervalSince1970)
+                                
+                                value["reservation"] = reservation
+                                
+                                db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
+                                
+                            }
+                        })
+                        if let title = book.title{
+                            if let email = user["email"] as? String{
+                                let message = "\(title) is able to checkout right now for three days"
+                                DataService.shared.sendEmail(email: email, message: message, subject: "Hello", completion: nil)
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        })
+        
+        
+        
+    }
+    
 }
+
 
 protocol CheckoutListDelegate: AbstractEventDelegate {}
 
@@ -220,4 +393,5 @@ enum CheckoutState{
     case error
     case success
     case contain
+    case alreadyOnReserve
 }

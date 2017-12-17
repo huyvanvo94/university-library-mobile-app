@@ -69,6 +69,8 @@ class CheckoutBooksEvent: AbstractEvent{
                             }
                             
                             Logger.log(clzz: "CheckoutListEvent", message: "Is Full")
+                        }else if var reservation = value["reservation"] as? Dictionary<String, Any>{
+                             
                         }else{
                             
                             let checkoutInfo = CheckoutBookInfo(patron: patron, book: book)
