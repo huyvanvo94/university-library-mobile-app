@@ -482,13 +482,29 @@
                                     <constraint firstAttribute="height" constant="125" id="uMA-iU-bQy"/>
                                 </constraints>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V1-TW-Nrp" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                <rect key="frame" x="207" y="105" width="132" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="librarian email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL2-8U-2w3" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                <rect key="frame" x="232.5" y="133" width="106.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WL2-8U-2w3" firstAttribute="top" secondItem="9V1-TW-Nrp" secondAttribute="bottom" constant="7.5" id="06H-ED-OLE"/>
                             <constraint firstItem="ViZ-ET-kqH" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="50" id="4JV-EQ-xZl"/>
                             <constraint firstItem="jmA-v0-CqR" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="200" id="6QX-Hd-6Ga"/>
                             <constraint firstItem="ViZ-ET-kqH" firstAttribute="leading" secondItem="aGY-Dq-s1h" secondAttribute="leadingMargin" constant="20" id="BJf-Xh-A7a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9V1-TW-Nrp" secondAttribute="trailing" constant="20" id="PX0-nU-pRz"/>
                             <constraint firstItem="jmA-v0-CqR" firstAttribute="leading" secondItem="aGY-Dq-s1h" secondAttribute="leadingMargin" constant="20" id="aTj-J7-Qeq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WL2-8U-2w3" secondAttribute="trailing" constant="20" id="mYO-II-3Ac"/>
+                            <constraint firstItem="9V1-TW-Nrp" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="85" id="wwF-wj-u8X"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -513,6 +529,8 @@
                         <outlet property="bookStatusTextField" destination="PLL-wv-7Wh" id="vEV-N4-A4n"/>
                         <outlet property="bookTitleTextField" destination="Hfj-Iw-28c" id="Zgy-4U-GYE"/>
                         <outlet property="coverImage" destination="ViZ-ET-kqH" id="kRl-Ad-c9b"/>
+                        <outlet property="lastUpdatedEmailLabel" destination="WL2-8U-2w3" id="d8C-eH-BdA"/>
+                        <outlet property="lastUpdatedLabel" destination="9V1-TW-Nrp" id="SS0-15-fHj"/>
                         <outlet property="stackView" destination="jmA-v0-CqR" id="RFQ-46-Emg"/>
                     </connections>
                 </viewController>

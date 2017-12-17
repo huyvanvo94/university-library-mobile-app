@@ -260,6 +260,7 @@
 		8F04075B1FCD32EA001987D8 /* Patron */ = {
 			isa = PBXGroup;
 			children = (
+				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
 				8FB285041FD56A7E000A7C48 /* PatronBooksViewController.swift */,
 				8F401B861FD54B1C007306CD /* MyCheckoutBooksViewController.swift */,
 				8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */,
@@ -381,7 +382,6 @@
 		8FBAC2AD1FBFBD6B00589262 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
 				8F04075B1FCD32EA001987D8 /* Patron */,
 				8F3ABAFD1FC10B9700551B3B /* Librarian */,
 				8F3ABAFA1FC1089400551B3B /* Auth */,

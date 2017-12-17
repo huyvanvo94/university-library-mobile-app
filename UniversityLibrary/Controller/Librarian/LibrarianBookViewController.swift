@@ -26,6 +26,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     @IBOutlet weak var coverImage: UIImageView!
     //outlet for stackview to change its position
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var lastUpdatedLabel: GeneralUILabel!
+    @IBOutlet weak var lastUpdatedEmailLabel: GeneralUILabel!
     
     
     func initView(){
@@ -213,6 +215,11 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             }
             if let _ = self.book?.base64Image{
                 coverImage.image = self.book?.image!
+            }
+            if let lastUpdated = self.book?.lastUpDateBy{
+                lastUpdatedLabel.isHidden = false
+                lastUpdatedEmailLabel.isHidden = false
+                lastUpdatedEmailLabel.text = lastUpdated
             }
          
           
