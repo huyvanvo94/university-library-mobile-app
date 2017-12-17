@@ -16,6 +16,9 @@ import UIKit
 
 class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
 
+    // determine if textfield needs to change
+    var positionChange = false
+    
     var librarian: Librarian?
     // outlets
  
@@ -31,11 +34,13 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     @IBOutlet weak var currentStatus: UITextField!
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var keywords: GeneralUITextField!
+    @IBOutlet weak var stackView: UIStackView!
     
     // end outlets
     
     func hideKeyboard(){
         bookTitle.resignFirstResponder()
+        author.resignFirstResponder()
         publisher.resignFirstResponder()
         yearOfPublication.resignFirstResponder()
         locationInLibrary.resignFirstResponder()
@@ -46,6 +51,39 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         
     }
     
+    func initView(){
+        bookTitle.delegate = self
+        author.delegate = self
+        publisher.delegate = self
+        yearOfPublication.delegate = self
+        yearOfPublication.delegate = self
+        locationInLibrary.delegate = self
+        numberOfCopies.delegate = self
+        callNumber.delegate = self
+        currentStatus.delegate = self
+        keywords.delegate = self
+        
+        currentStatus.delegate = self
+        
+        
+    }
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+       // stackView.frame.origin.y -= 100
+        
+        switch textField {
+        case bookTitle, author:
+            return true
+        default:
+      
+            stackView.frame.origin.y -= 100
+            coverImage.frame.origin.y -= 100
+            self.positionChange = true
+         
+            return true
+        }
+    }
     
     
     func fetchImage(){
@@ -120,9 +158,9 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initView()
         
-        self.currentStatus.delegate = self
-        self.currentStatus.tag = 1
+       
         
         
         
@@ -141,25 +179,39 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
   
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if(string == " "){
-            
-            if let _ = self.keywords.text{
+        
+        if textField == keywords{
+            if(string == " "){
                 
-                self.keywords.text! += " "
+                if let _ = self.keywords.text{
+                    
+                    self.keywords.text! += " "
+                    
+                    
+                }
                 
-                
+                return false
             }
-            
-            return false
         }
         
-        if textField.tag == 1{
+        
+        if textField == currentStatus{
             return false
         }
         
         return true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        if self.positionChange{
+            stackView.frame.origin.y += 100
+            coverImage.frame.origin.y += 100
+            self.positionChange = false
+        }
+        return true
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -200,6 +252,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             if event.state == .success{
                
                 self.clearAllTextFromTextField()
+                self.coverImage.image = UIImage(named: "placeHolder.png")
                 super.displayAnimateSuccess()
             }else if event.state == .exist{
                 

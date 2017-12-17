@@ -16,7 +16,7 @@ extension UIViewController{
     
     func showToast(message : String) {
         
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height - 200, width: Screen.width/2, height: 35))
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height/5, width: Screen.width/2, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.textAlignment = .center;
@@ -34,7 +34,7 @@ extension UIViewController{
     }
     
     func getSize(image: UIImage) -> Bool{
-        let data = UIImagePNGRepresentation(image) as! Data
+        let data = UIImagePNGRepresentation(image)!
         
         return (Double(data.count)/(1024*1024)) <= 8
     }

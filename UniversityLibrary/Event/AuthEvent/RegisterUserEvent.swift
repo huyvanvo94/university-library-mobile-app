@@ -67,17 +67,23 @@ class RegisterUserEvent: BaseEventWithUser{
                                     Auth.auth().currentUser?.sendEmailVerification { (error) in
                                         
                                         if let _ = error{
+                                            Logger.log(clzz: "RegisterUserEvent", message: "error")
+                                            self.state = .error
+                                            delegate.error(event: self)
                                             
                                         }else{
+                                            Logger.log(clzz: "RegisterUserEvent", message: "success")
                                             
+                                            self.state = .success
+                                            delegate.complete(event: self)
+                                            
+                                        
                                         }
                                     }
                                     
-                                    
-                                    self.state = .success
-                                    delegate.complete(event: self)
-                                    
                                 }
+                                
+                                    
                                 
                             }
                         }
@@ -104,16 +110,22 @@ class RegisterUserEvent: BaseEventWithUser{
                                 
                                 if let _ = error{
                                     
+                                    Logger.log(clzz: "RegisterUserEvent", message: "error")
+                                    self.state = .error
+                                    delegate.complete(event: self)
                                 }else{
+                                    Logger.log(clzz: "RegisterUserEvent", message: "success")
+                                    
+                                    
+                                    self.state = .success
+                                    delegate.complete(event: self)
                                     
                                 }
                             }
                             
-                            
-                            self.state = .success
-                            delegate.complete(event: self)
-                            
                         }
+                        
+                            
                         
                     }
                 }

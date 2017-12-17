@@ -12,9 +12,11 @@ class BaseViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.view.backgroundColor = UIColor(rgb: 0xf9f9f9)
 
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
