@@ -27,6 +27,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     @IBOutlet weak var bookLocationLabel: GeneralUILabel!
     @IBOutlet weak var bookCopiesLabel: GeneralUILabel!
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
+    @IBOutlet weak var coverImage: UIImageView!
     
     
 
@@ -65,12 +66,11 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
             bookCopiesLabel.text = "# of Copies: " + String(copies)
         }
 
-        if let status = self.book?.canCheckout{
-            if status{
-                bookStatusLabel.text = "Status: Available";
-            }else{
-                bookStatusLabel.text = "Status: Not Available";
-            }
+        if let status = self.book?.bookStatus{
+            bookStatusLabel.text = "Status: \(status)";
+        }
+        if let _ = self.book?.base64Image{
+            coverImage.image = self.book?.image
         }
         
     }

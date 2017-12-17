@@ -21,6 +21,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     @IBOutlet weak var bookLocationLabel: GeneralUILabel!
     @IBOutlet weak var bookCopiesLabel: GeneralUILabel!
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
+    @IBOutlet weak var coverImage: UIImageView!
     //action
     @IBAction func returnBookAction(_ sender: Any) {
         Logger.log(clzz: "PatronBookViewController", message: "returnBookAction")
@@ -47,7 +48,9 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     private func loadBookToUI(){
+        Logger.log(clzz: "PatronBookVC", message: "loadBookToUI")
         self.title = "Book Details"
+   
         
         if let title = self.book?.title{
             bookTitleLabel.text = "Title: " + title
@@ -64,12 +67,13 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
         if let copies = self.book?.numberOfCopies{
             bookCopiesLabel.text = "# of Copies: " + String(copies)
         }
-        if let status = self.book?.canCheckout{
-            if status{
-                bookStatusLabel.text = "Status: Available"
-            }else{
-                bookStatusLabel.text = "Status: Not Available"
-            }
+        
+        if let _ = self.book?.base64Image{
+            self.coverImage.image = self.book?.image
+        }
+       
+        if let status = self.book?.bookStatus{
+            bookStatusLabel.text = "Status: \(status)"
         }
   
     }
