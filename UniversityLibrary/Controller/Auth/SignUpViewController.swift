@@ -170,6 +170,7 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
     
     
     func complete(event: AbstractEvent){
+        super.activityIndicatorView.stopAnimating()
         print("Event complete")
         
         switch event {
@@ -188,6 +189,7 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
     }
     func error(event: AbstractEvent){
         print("Event error")
+        super.activityIndicatorView.stopAnimating()
         
         switch event {
         case let event as RegisterUserEvent:

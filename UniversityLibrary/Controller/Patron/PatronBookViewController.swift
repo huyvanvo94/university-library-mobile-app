@@ -29,6 +29,15 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
             self.doReturn(books: [book])
         }
     }
+    
+    @IBAction func renewBook(_ sender: Any) {
+        self.activityIndicatorView.startAnimating()
+        if let book = self.book{
+            self.doRenew(book: book)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -114,6 +123,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func complete(event: AbstractEvent){
+        self.activityIndicatorView.stopAnimating()
         switch event{
         case let event as ReturnBooksEvent:
             if event.state == ReturnBooksState.success{
@@ -125,6 +135,9 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
                     }
                 })
             }
+            
+        case let event as RenewBookEvent:
+            self.showToast(message: "Success!")
         default:
             print("No Action")
         }
@@ -132,6 +145,15 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     
     func error(event: AbstractEvent){
         
+        self.activityIndicatorView.stopAnimating()
+        
+        switch event {
+        case let event as RenewBookEvent:
+            
+            self.showToast(message: "Error, renew twice only!")
+        default:
+            print("No action")
+        }
     }
     
     func fetch(book: Book) {
@@ -143,6 +165,11 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func doRenew(book: Book) {
+        if let patron = self.patron{
+        
+            let event = RenewBookEvent(book: book, patron: patron)
+            event.delegate = self
+        }
         
     }
 

@@ -46,7 +46,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
         // Do any additional setup after loading the view.
     }
     
-    // MARK: Kevin
+    
     func loadBookToUI(){
         self.title = "Book Details"
         

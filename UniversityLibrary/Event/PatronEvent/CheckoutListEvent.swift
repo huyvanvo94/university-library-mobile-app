@@ -56,8 +56,7 @@ class CheckoutListEvent: AbstractEvent{
                         let db = FirebaseManager().reference.child(DatabaseInfo.patronTable)
                         
                         db.child(self.checkoutList.patron.id!).observeSingleEvent(of: .value, with: {(snapshot) in
-                            
-                            
+              
                             if let _ = snapshot.value as? [String: Any]{
                                 // update patron
                                 Logger.log(clzz: "CheckoutListEvent", message: "Update books")
@@ -199,8 +198,7 @@ class CheckoutListEvent: AbstractEvent{
                         completion(.error)
                     }
                 }
-                
-               
+                 
             }
             
         })
