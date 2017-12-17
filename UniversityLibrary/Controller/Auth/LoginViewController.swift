@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: BaseViewController, LoginUserEventDelegate{
+class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFieldDelegate{
 
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,30 +22,22 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        /*
-        let lm = LibrarianManager(user: Mock.mock_Librarian())
-        
-        lm.add(with: Mock.mock_Book())*/
-        
-        
-        let pm = PatronManager(patorn: Mock.mock_Patron2())
-        pm.doReturn(books: [Mock.mock_Book()!])
-        
-        
- 
-        /*
+     
         self.tryLogin()
        
+        self.emailAddressTextField.delegate = self
+        self.passwordTextField.delegate = self
          
         self.emailAddressTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
     
-        self.hideKeyboardWhenTappedAround() */
+        self.hideKeyboardWhenTappedAround() 
  
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,6 +47,11 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
 
     @IBAction func login(_ sender: UIButton) {
         print("LoginViewController login")
+
+        self.login()
+    }
+    
+    private func login(){
         
         guard let email = self.emailAddressTextField.text, let password = self.passwordTextField.text else{
             self.showToast(message: "All field required")
@@ -68,17 +65,15 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate{
                 
                 let event = LoginUserEvent(librarian: user)
                 event.delegate = self
-            // is patron
+                // is patron
             }else{
                 let user = Patron(email: email, password: password)
                 let event = LoginUserEvent(patron: user)
                 event.delegate = self
-               
+                
             }
             
-        }
-        
-    }
+        }    }
     
     @IBAction func goToSignupView(_ sender: UIButton) {
         goToSignupView()

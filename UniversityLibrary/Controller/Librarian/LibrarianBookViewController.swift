@@ -7,10 +7,13 @@
 //
 
 import UIKit
-class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
 
     var librarian: Librarian?
     var book: Book?
+    
+    // determine if textfield needs to change
+    var positionChange = false
 
     var editOn = false
     //Outlets
@@ -18,14 +21,29 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     @IBOutlet weak var bookAuthorTextField: CustomUITextField!
     @IBOutlet weak var bookPublisherTextField: CustomUITextField!
     @IBOutlet weak var bookLocationTextField: CustomUITextField!
-    @IBOutlet weak var bookCopiesTextField: CustomUITextField!
-    @IBOutlet weak var bookStatusTextField: CustomUITextField!
+    @IBOutlet weak var bookStatusTextField: StatusTextField!
+    @IBOutlet weak var bookCallNumberTextField: CustomUITextField!
     @IBOutlet weak var coverImage: UIImageView!
+    //outlet for stackview to change its position
+    @IBOutlet weak var stackView: UIStackView!
+    
+    
+    func initView(){
+         
+        
+        //init delegates
+        bookTitleTextField.delegate = self
+        bookAuthorTextField.delegate = self
+        bookPublisherTextField.delegate = self
+        bookLocationTextField.delegate = self
+        bookStatusTextField.delegate = self
+        bookCallNumberTextField.delegate = self
+    }
     
     override func loadView() {
         super.loadView()
         
-        
+        self.initView()
      
         self.disableTextViewInput()
      
@@ -35,8 +53,26 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         self.loadBookToView()
     }
     
-
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+      
+        switch textField {
+        case bookAuthorTextField, bookTitleTextField:
+            return true
+        default:
+          
+            stackView.frame.origin.y -= 100
+            coverImage.frame.origin.y -= 100
+        
+            self.positionChange = true
+        
+            return true
+        }
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func initCoverImageTap(){
         
@@ -112,11 +148,10 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         if let location = bookLocationTextField.text {
             newBook.locationInLibrary = location
         }
-        if let copies = Int(self.bookCopiesTextField.text!){
-
-            newBook.numberOfCopies = copies
+        if let callNumber = bookCallNumberTextField.text{
+            newBook.callNumber = callNumber
         }
-        
+
         if let bookStatus = self.bookStatusTextField.text{
             
             newBook.bookStatus = bookStatus
@@ -169,14 +204,14 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             if let location = book.locationInLibrary{
                 bookLocationTextField.text = location
             }
-            if let copies = self.book?.numberOfCopies{
-                bookCopiesTextField.text = String(copies)
-            }
 
             if let status = self.book?.bookStatus{
                 bookStatusTextField.text = status
             }
-            if let image = self.book?.base64Image{
+            if let callNumber = self.book?.callNumber{
+                bookCallNumberTextField.text = callNumber
+            }
+            if let _ = self.book?.base64Image{
                 coverImage.image = self.book?.image!
             }
          
@@ -192,7 +227,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         bookAuthorTextField.makeNotEditable()
         bookPublisherTextField.makeNotEditable()
         bookLocationTextField.makeNotEditable()
-        bookCopiesTextField.makeNotEditable()
+        bookCallNumberTextField.makeNotEditable()
         bookStatusTextField.makeNotEditable()
     }
 
@@ -203,7 +238,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         bookAuthorTextField.makeEditable()
         bookPublisherTextField.makeEditable()
         bookLocationTextField.makeEditable()
-        bookCopiesTextField.makeEditable()
+        bookCallNumberTextField.makeEditable()
         bookStatusTextField.makeEditable()
     }
     

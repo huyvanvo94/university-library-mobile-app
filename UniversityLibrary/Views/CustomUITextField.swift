@@ -16,9 +16,10 @@ class CustomUITextField: UITextField {
     override func awakeFromNib() {
         
         self.borderStyle = UITextBorderStyle.none
-        self.font = UIFont(name: "Verdana", size: Screen.height * 0.025)
+        self.font = UIFont(name: "Verdana", size: Screen.height * 0.02)
+        self.heightAnchor.constraint(equalToConstant: Screen.height * 0.03).isActive = true
         self.layer.cornerRadius = 5.0
-        self.textColor = UIColor(rgb: 0x143468)
+        self.textColor = UIColor(rgb: 0x000000)
         self.textAlignment = .left
         self.isUserInteractionEnabled = false
         

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F18DB9F1FE6F03C003364B9 /* ResendEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18DB9E1FE6F03C003364B9 /* ResendEmailEvent.swift */; };
+		3F18DBA31FE704F3003364B9 /* BookUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18DBA21FE704F3003364B9 /* BookUILabel.swift */; };
 		3F1D4AC11FD7ACB800724500 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D4AC01FD7ACB800724500 /* CustomImageView.swift */; };
 		3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */; };
 		3F9505571FD61E7C0069F391 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9505561FD61E7C0069F391 /* CustomUITextField.swift */; };
@@ -118,6 +120,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F18DB9E1FE6F03C003364B9 /* ResendEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResendEmailEvent.swift; sourceTree = "<group>"; };
+		3F18DBA21FE704F3003364B9 /* BookUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookUILabel.swift; sourceTree = "<group>"; };
 		3F1D4AC01FD7ACB800724500 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUISubLabel.swift; sourceTree = "<group>"; };
 		3F9505561FD61E7C0069F391 /* CustomUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
@@ -256,7 +260,6 @@
 		8F04075B1FCD32EA001987D8 /* Patron */ = {
 			isa = PBXGroup;
 			children = (
-				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
 				8FB285041FD56A7E000A7C48 /* PatronBooksViewController.swift */,
 				8F401B861FD54B1C007306CD /* MyCheckoutBooksViewController.swift */,
 				8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */,
@@ -318,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3ABAF31FC0FEBB00551B3B /* SignoutUserEvent.swift */,
+				3F18DB9E1FE6F03C003364B9 /* ResendEmailEvent.swift */,
 				8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */,
 				8FEABA0B1FC0E76E00EA26E9 /* LoginUserEvent.swift */,
 				8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */,
@@ -377,6 +381,7 @@
 		8FBAC2AD1FBFBD6B00589262 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
 				8F04075B1FCD32EA001987D8 /* Patron */,
 				8F3ABAFD1FC10B9700551B3B /* Librarian */,
 				8F3ABAFA1FC1089400551B3B /* Auth */,
@@ -411,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */,
+				8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */,
 				8F54D6071FBFD0EE00E25156 /* Constants.swift */,
 				8F209B8B1FD20EA40018C6FB /* Toast.swift */,
 				8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */,
@@ -426,7 +432,6 @@
 				8F401B841FD4F20F007306CD /* Database.swift */,
 				8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */,
 				8FEABA061FC0DE2000EA26E9 /* Event */,
-				8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */,
 				8FC6FAC81FCFF92C00FBC1D8 /* Views */,
 				8FC2EC9F1FBAC6EF00BB15D1 /* Assets.xcassets */,
 				8FC2ECA11FBAC6EF00BB15D1 /* LaunchScreen.storyboard */,
@@ -472,6 +477,7 @@
 				3F9505561FD61E7C0069F391 /* CustomUITextField.swift */,
 				3F1D4AC01FD7ACB800724500 /* CustomImageView.swift */,
 				3FB5A9D61FDC85FF00341265 /* StatusTextField.swift */,
+				3F18DBA21FE704F3003364B9 /* BookUILabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -725,6 +731,7 @@
 				8FBAC29D1FBF919100589262 /* Book.swift in Sources */,
 				8F401B851FD4F20F007306CD /* Database.swift in Sources */,
 				8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */,
+				3F18DB9F1FE6F03C003364B9 /* ResendEmailEvent.swift in Sources */,
 				8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */,
 				8F3ABB011FC1288B00551B3B /* Mock.swift in Sources */,
 				8F3ABAF81FC107D700551B3B /* Logger.swift in Sources */,
@@ -777,6 +784,7 @@
 				8F3ABAF61FC107C300551B3B /* PatronNavViewController.swift in Sources */,
 				3F1D4AC11FD7ACB800724500 /* CustomImageView.swift in Sources */,
 				8FC6FABD1FCFF02F00FBC1D8 /* UIViewFactory.swift in Sources */,
+				3F18DBA31FE704F3003364B9 /* BookUILabel.swift in Sources */,
 				5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */,
 				5F090F328040C78A38412D9D /* DatabaseHelper.swift in Sources */,
 				5F090CA66B803E43078F25C6 /* SearchBookEvent.swift in Sources */,

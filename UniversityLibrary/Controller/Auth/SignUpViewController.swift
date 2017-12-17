@@ -9,13 +9,18 @@
 import UIKit
 import MessageUI
 
-class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUserEventDelegate{
+class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var studentIdTextField: UITextField!
+    
+    @IBOutlet weak var resendEmail: UIButton!
+    
+    var email: String?
+    var password: String?
     
     override func loadView() {
         super.loadView()
@@ -41,6 +46,8 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
         self.hideKeyboardWhenTappedAround()
         
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,6 +101,9 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
             self.showToast(message: "University Id Taken!")
             self.studentIdTextField.text = ""
         default:
+            self.email = event.user?.email
+            self.password = event.user?.password
+            
             let email = event.user!.email!
             let alert = UIAlertController(title: "Validation", message: "Validation code sent to \(email)", preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "OK", style: .destructive, handler: handleValidation)
@@ -113,9 +123,18 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
     }
     
     func handleValidation(_ alertAction: UIAlertAction!) -> Void{
-        self.popBackView()
+       
+        resendEmail.isHidden = false
     }
 
+    @IBAction func resendEmailClick(_ sender: UIButton) {
+        if let email = self.email, let password = self.password{
+            let patron = Patron(email: email, password: password)
+            let event = ResendEmailEvent(patron: patron)
+            event.delegate = self
+        }
+        
+    }
     
     
     // UITextField Delegates
@@ -159,6 +178,8 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
             event.delegate = nil
            
             self.handleRegisterUser(event: event)
+        case let event as ResendEmailEvent:
+            self.showToast(message: (event.state?.rawValue)!)
             
         default:
             print("No action taken")
@@ -179,6 +200,9 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate, RegisterUse
             }else{
                 self.showToast(message: "error")
             }
+            
+        case let event as ResendEmailEvent:
+            self.showToast(message: (event.state?.rawValue)!)
            
         default:
             print("No action taken")

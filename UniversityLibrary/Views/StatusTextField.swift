@@ -12,27 +12,30 @@ import UIKit
 
 class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate{
     
-    let options = ["Available", "Not Available"]
+    let options = ["", "Available", "Not Available"]
     
     override func awakeFromNib() {
-         super.awakeFromNib()
+        
+        super.awakeFromNib()
+        
+        self.borderStyle = UITextBorderStyle.none
+        self.font = UIFont(name: "Verdana", size: Screen.height * 0.02)
+        self.heightAnchor.constraint(equalToConstant: Screen.height * 0.03).isActive = true
+        self.layer.cornerRadius = 5.0
+        self.textColor = UIColor(rgb: 0x000000)
+        self.textAlignment = .left
+        
         let picker = UIPickerView()
         self.inputView = picker
         picker.delegate = self
         picker.showsSelectionIndicator = true
+    
         let tap = UITapGestureRecognizer(target: self, action: #selector(StatusTextField.pickerOnTap(_:)))
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
         picker.addGestureRecognizer(tap)
         picker.isUserInteractionEnabled = true
         tap.delegate = self
-        /*
-        self.font = UIFont(name: "Helvetica", size: Screen.height * 0.03)
-        self.layer.cornerRadius = 5.0
-        self.layer.borderColor = UIColor(red: 55/255, green: 78/255, blue: 95/255, alpha: 1.0).cgColor
-        self.layer.borderWidth = 1.0
-        self.layer.masksToBounds = true
- */
     }
     
     
@@ -54,7 +57,7 @@ class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDa
     }
     
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
@@ -65,6 +68,20 @@ class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDa
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return false
     }
+    
+    func makeEditable(){
+        self.borderStyle = UITextBorderStyle.roundedRect
+        self.isUserInteractionEnabled = true
+        self.layer.borderColor = UIColor(red: 55/255, green: 78/255, blue: 95/255, alpha: 1.0).cgColor
+        self.layer.borderWidth = 1.0
+    }
+    
+    func makeNotEditable(){
+        self.borderStyle = UITextBorderStyle.none
+        self.isUserInteractionEnabled = false
+        
 
+        
+    }
 }
 
