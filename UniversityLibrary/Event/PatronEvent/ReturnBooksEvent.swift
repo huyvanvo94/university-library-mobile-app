@@ -169,10 +169,10 @@ class ReturnBooksEvent: AbstractEvent{
             
         }
         
+        // check if there is a user in waiting list
         private func notifyNextUserFromWaitList(book: Book){
             Logger.log(clzz: "ReturnBooksEvent", message: "notifyNextUserFromWaitList")
             let db = FirebaseManager().reference
-            
             
             db?.child(DatabaseInfo.waitingListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                 if var value = snapshot.value as? Dictionary<String, Any>{
@@ -196,8 +196,6 @@ class ReturnBooksEvent: AbstractEvent{
                                     reservation["duration"] = Date().threeDaysFromNow.timeIntervalSince1970
                                     reservation["durationInfo"] = DateHelper.getLocalDate(dt: Date().threeDaysFromNow.timeIntervalSince1970)
                                     
-                                
-                                    
                                     value["reservation"] = reservation
                                     
                                     db?.child(DatabaseInfo.checkedOutListTable).child(book.key).updateChildValues(value)
@@ -205,16 +203,10 @@ class ReturnBooksEvent: AbstractEvent{
                                 }
                             })
                             if let title = book.title{
-                                
                                 if let email = user["email"] as? String{
-                                    
                                     let message = "\(title) is able to checkout right now for three days"
                                     DataService.shared.sendEmail(email: email, message: message, subject: "Hello", completion: nil)
-                                    
-                                    
-                                    
                                 }
-                                
                             }
                             
                         }

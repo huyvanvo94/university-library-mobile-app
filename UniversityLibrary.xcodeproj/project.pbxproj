@@ -43,7 +43,6 @@
 		8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6071FBFD0EE00E25156 /* Constants.swift */; };
 		8F54D60A1FBFD48B00E25156 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6091FBFD48B00E25156 /* DateHelper.swift */; };
 		8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D60B1FBFD57F00E25156 /* DateMocker.swift */; };
-		8F54D60E1FBFDDB100E25156 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D60D1FBFDDB100E25156 /* Formatter.swift */; };
 		8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6131FBFEC2200E25156 /* DataService.swift */; };
 		8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */; };
 		8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61B1FC01ED700E25156 /* Patron.storyboard */; };
@@ -154,7 +153,6 @@
 		8F54D6071FBFD0EE00E25156 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F54D6091FBFD48B00E25156 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		8F54D60B1FBFD57F00E25156 /* DateMocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMocker.swift; sourceTree = "<group>"; };
-		8F54D60D1FBFDDB100E25156 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		8F54D6131FBFEC2200E25156 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
 		8F54D61C1FC01ED700E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patron.storyboard; sourceTree = "<group>"; };
@@ -330,6 +328,7 @@
 		8F3ABAFD1FC10B9700551B3B /* Librarian */ = {
 			isa = PBXGroup;
 			children = (
+				3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */,
 				8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */,
 				8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */,
 				8F0407571FCD2552001987D8 /* ScanBookViewController.swift */,
@@ -371,7 +370,6 @@
 				8F54D60B1FBFD57F00E25156 /* DateMocker.swift */,
 				8F3ABB001FC1288B00551B3B /* Mock.swift */,
 				8F54D6091FBFD48B00E25156 /* DateHelper.swift */,
-				8F54D60D1FBFDDB100E25156 /* Formatter.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -437,7 +435,6 @@
 				8FC2EC9C1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld */,
 				5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */,
 				8F0D76251FD8D09C00EF1F89 /* TestCase.swift */,
-				3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */,
 			);
 			path = UniversityLibrary;
 			sourceTree = "<group>";
@@ -753,7 +750,6 @@
 				8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */,
 				3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */,
 				8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */,
-				8F54D60E1FBFDDB100E25156 /* Formatter.swift in Sources */,
 				8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */,
 				8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */,
 				3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */,
