@@ -101,6 +101,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     
     func doReturn(book: Book) {
         if let patron = self.patron {
+            print("return book")
             let event = ReturnBookEvent(patron: patron, book: book)
             event.delegate = self
         }
@@ -108,6 +109,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     
     func doReturn(books: [Book]) {
         if let patron = self.patron {
+            print("return books")
             let event = ReturnBooksEvent(patron: patron, books: books)
             event.delegate = self
         }

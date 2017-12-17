@@ -63,7 +63,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 self.checkout(book: book)
             }
             
-            
+            self.numberOfBooksCheckedOut = 0
+             
             self.tableView.reloadData()
             
             // logic to return books to firebase

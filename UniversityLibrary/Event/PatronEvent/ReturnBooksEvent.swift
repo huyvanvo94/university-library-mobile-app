@@ -100,6 +100,7 @@ class ReturnBooksEvent: AbstractEvent{
         }
         
         private func doReturn(book: Book){
+            Logger.log(clzz: "Return Books Helper", message: "doReturn")
             let db = FirebaseManager().reference
             
             db?.child(DatabaseInfo.checkedOutListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
