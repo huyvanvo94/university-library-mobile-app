@@ -17,7 +17,6 @@ class DateHelper{
         dateFormatter.timeZone = TimeZone(identifier: timeZoneId)
 
         return dateFormatter.string(from: date as Date)
-
     }
     
     static func isTomorrow(dt: TimeInterval) -> Bool{
@@ -25,7 +24,7 @@ class DateHelper{
     }
     
     static func numberFromToday(dt: TimeInterval) -> Int{
-        let today = Date.getCurrentDate
+        let today = Date().getCurrentDate
         let requestedDate = Date(timeIntervalSince1970: dt)
         
         let calendar = NSCalendar.current
@@ -39,7 +38,7 @@ class DateHelper{
     }
     
     static func numberFromLocalToday(dt: TimeInterval) -> Int{
-        let today = Date.getCurrentDate
+        let today = Date().getCurrentDate
         let requestedDate = Date(timeIntervalSince1970: dt)
         
         let calendar = NSCalendar.current
@@ -81,35 +80,29 @@ class DateHelper{
     }
 }
 
-
 extension Date{
     
-    static var getCurrentDate: Date{
+    var getCurrentDate: Date{
         if Mock.isMockMode{
             return Mock.mockDate
         }
         
-        return Date()
+        return self
     }
-    
-    
-    
-    var mock_thirdyDaysfromNow: Date{
-        return Date().addingTimeInterval(10000)
-    }
+   
     
     // books will be due 30 days from today
     var thirtyDaysfromNow: Date {
-        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 30, to: self, options: [])!
+        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 30, to: Date().getCurrentDate, options: [])!
     }
     
     // books can we reserve 3 days
     var threeDaysFromNow: Date{
-         return (Calendar.current as NSCalendar).date(byAdding: .day, value: 3, to: self, options: [])!
+         return (Calendar.current as NSCalendar).date(byAdding: .day, value: 3, to: Date().getCurrentDate, options: [])!
     }
     
     var oneDayFromNow: Date{
-        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
+        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: Date().getCurrentDate, options: [])!
     }
 }
 
