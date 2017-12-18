@@ -221,7 +221,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     
     func buildBook() -> Book? {
-        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text,
+        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = Int(self.numberOfCopies.text), let callNumber = self.callNumber.text,
             let currentStatus = self.currentStatus.text, let keywords = self.keywords.text
             else {
             
@@ -233,7 +233,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             .setAuthor(author)
             .setCallNumber( callNumber)
             .setLocationInLibrary(locationInLibrary)
-            .setNumberOfCopies(Int(numberOfCopies)!)
+            .setNumberOfCopies(numberOfCopies)
             .setYearOfPublication( Int(yearOfPublication)!)
             .setPublisher(publisher)
             .setBookStatus(currentStatus)
