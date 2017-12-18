@@ -224,24 +224,20 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     
     func buildBook() -> Book? {
-        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text, let callNumber = self.callNumber.text,
+        guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text?.number, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text?.number, let callNumber = self.callNumber.text,
             let currentStatus = self.currentStatus.text, let keywords = self.keywords.text
             else {
             
             return nil
         }
-    
-        if Int(numberOfCopies) == nil{
-            return nil
-        }
-        
+     
         let book = Book.Builder()
             .setTitle(bookTitle)
             .setAuthor(author)
             .setCallNumber( callNumber)
             .setLocationInLibrary(locationInLibrary)
-            .setNumberOfCopies(Int(numberOfCopies)!)
-            .setYearOfPublication( Int(yearOfPublication)!)
+            .setNumberOfCopies(numberOfCopies)
+            .setYearOfPublication(yearOfPublication)
             .setPublisher(publisher)
             .setBookStatus(currentStatus)
             .setImage(image: self.coverImage.image!)
