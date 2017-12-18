@@ -162,7 +162,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
                 
             }else if event.state == CheckoutState.full{
                 // show add to wait list
-                let alert = UIAlertController(title: "Wait List", message: "Would you like to be addded to wait list?",  preferredStyle: .actionSheet)
+                let alert = UIAlertController(title: "Wait List", message: "Would you like to be added to wait list?",  preferredStyle: .actionSheet)
                 
                 let yes = UIAlertAction(title: "Yes", style: .destructive, handler: {(handler) in
                     let book = event.checkoutList.book
