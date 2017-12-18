@@ -62,7 +62,7 @@ class CheckoutListEvent: AbstractEvent{
                                 // update patron
                                 Logger.log(clzz: "CheckoutListEvent", message: "Update books")
                       
-                                self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.key)
+                                self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.id!)
                                 self.checkoutList.patron.totalNumberOfBooksCheckout += 1
                                 self.checkoutList.patron.timeStamp()
                                 
