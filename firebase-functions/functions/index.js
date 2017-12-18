@@ -124,7 +124,7 @@ exports.mock_scheduledEmail = functions.https.onRequest((req, res) =>{
 					//looping through users of each book node in checkout_list
 					var dueDate = parseInt(userSnapshot.child("dueDate").val() * 1000);
 						//check if dueDate is within 5 days from today
-						if(dueDate - currentDate < 432000000){
+						if(true){
 							//send an email for every user if cond matches
 							mailOptions.to = userSnapshot.child("email").val();
 							mailOptions.text = "hi, you have a book due at: " + Date(dueDate);
@@ -164,7 +164,7 @@ exports.mock_scheduledEmail = functions.https.onRequest((req, res) =>{
 
 
 exports.scheduledEmail = functions.https.onRequest((req, res) => {
-	const currentDate = Date.now(); //returns # of ms since Jan 1 1970
+	//const currentDate = Date.now(); //returns # of ms since Jan 1 1970
 	
 	var mailOptions = {
         from: "universitylibrary-8e17c<noreply@firebase.com>",
@@ -172,7 +172,7 @@ exports.scheduledEmail = functions.https.onRequest((req, res) => {
     };
 	//need admin SDK to read db
 	const ref = admin.database().ref("checkout_list");
-	
+	/*
 	ref.once("value")
 		.then(function(snapshot){
 			snapshot.forEach(function(childSnapshot){
@@ -190,33 +190,34 @@ exports.scheduledEmail = functions.https.onRequest((req, res) => {
 				});
 				
 			});
-		});
-		res.send("Success");
+		});*/
+		
 	
 	//loop through db every 24 hrs, /24 after third asterisk
-	/*
-	var j = schedule.scheduleJob({ start: startTime, end: endTime, rule: '* * * * * *' }, function(){
-	var currentDate = Date.now();
-	ref.once("value")
-		.then(function(snapshot){
-			snapshot.forEach(function(childSnapshot){
-				//looping through book child nodes in checkout_list now				
-				childSnapshot.child("users").forEach(function(userSnapshot){
-					//looping through users of each book node in checkout_list
-					var dueDate = userSnapshot.child("dueDate").val();
-						//check if dueDate is within 5 days from today
-						if(dueDate - currentDate < 432000000){
-							//send an email for every user if cond matches
-							mailOptions.to = userSnapshot.child("email").val();
-							mailOptions.text = "hi, you have a book due at: " + Date(dueDate);
-							mailTransport.sendMail(mailOptions);
-						}
-				});
-				
-			});
-		});
-	*/
 	
+	var j = schedule.scheduleJob({ start: startTime, end: endTime, rule: '* * */24 * * *' }, function() {
+        var currentDate = Date.now();
+        ref.once("value")
+            .then(function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    //looping through book child nodes in checkout_list now
+                    childSnapshot.child("users").forEach(function (userSnapshot) {
+                        //looping through users of each book node in checkout_list
+                        var dueDate = userSnapshot.child("dueDate").val();
+                        //check if dueDate is within 5 days from today
+                        if (dueDate - currentDate < 432000000) {
+                            //send an email for every user if cond matches
+                            mailOptions.to = userSnapshot.child("email").val();
+                            mailOptions.text = "Hello good sir, you have a book due at: " + Date(dueDate);
+                            mailTransport.sendMail(mailOptions);
+                        }
+                    });
+
+                });
+            });
+    });
+	
+	res.send("Success");
 });
 		
 
