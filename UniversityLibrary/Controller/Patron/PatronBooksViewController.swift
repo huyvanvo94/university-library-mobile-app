@@ -114,7 +114,9 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         self.title = "Library"
         self.initCheckoutAction()
      
-        let event = FetchAllBooksIdEvent()
+       
+       // let event = FetchAllBooksIdEvent()
+        let event = FetchBooksEvent()
         event.delegate = self
         
         
@@ -322,6 +324,14 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 
             }
             
+        case let event as FetchBooksEvent:
+            if let book = event.book{
+                DispatchQueue.main.async {
+                    
+                    self.booksFromDatabase.append(book)
+                    self.tableView.reloadData()
+                }
+            }
             
         case let event as FetchAllBooksIdEvent:
             

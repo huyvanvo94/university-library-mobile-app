@@ -169,13 +169,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
 
     
     @IBAction func deleteBookAction(_ sender: UIBarButtonItem) {
-    
-        if Mock.isMockMode {
-            self.librarian = Mock.mock_Librarian()
-
-            self.delete(book: book!)
-
-        }
+     
         if let book = self.book{
             super.activityIndicatorView.startAnimating()
             

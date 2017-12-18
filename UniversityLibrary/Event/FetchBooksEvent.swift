@@ -10,8 +10,9 @@ import Foundation
 import Firebase
 
 class FetchBooksEvent: AbstractEvent{
+    var book: Book?
     
-    var delegate: FetchBooksDelegate?{
+    var delegate: AbstractEventDelegate?{
         didSet{
             self.async_ProcessEvent()
         }
@@ -34,7 +35,7 @@ class FetchBooksEvent: AbstractEvent{
             
             let db = FirebaseManager().reference
             
-            db?.child(DatabaseInfo.bookTable).observe(.value, with: { snapshot in
+            db?.child(DatabaseInfo.bookTable).observeSingleEvent(of: .value, with: { snapshot in
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                     for child in snapshots {
                         
@@ -42,7 +43,9 @@ class FetchBooksEvent: AbstractEvent{
                             
                             let book = Book(dict: bookDict)
                             
-                            delegate.complete(book: book)
+                            self.book = book
+                            
+                            delegate.complete(event: self)
                         }
                         
                         
