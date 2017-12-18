@@ -206,7 +206,7 @@ class Patron: User{
                
                 return false
             }
-            if numberOfBooksCheckoutToday < 4{
+            if numberOfBooksCheckoutToday < 3{
                 return true
             }else{
                 return false
