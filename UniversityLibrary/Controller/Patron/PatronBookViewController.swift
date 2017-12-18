@@ -10,11 +10,14 @@ import UIKit
 
 class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
  
+    /*
     @IBAction func renewBook(_ sender: MenuUIButton) {
         if let book = self.book{
             self.doRenew(book: book)
         }
-    }
+    }*/
+ 
+ 
     
     var patron: Patron?
     var book: Book?
@@ -27,13 +30,8 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     @IBOutlet weak var bookCopiesLabel: GeneralUILabel!
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
     @IBOutlet weak var coverImage: UIImageView!
-    //action
-    @IBAction func returnBookAction(_ sender: Any) {
-        Logger.log(clzz: "PatronBookViewController", message: "returnBookAction")
-        if let book = self.book{
-            self.doReturn(books: [book])
-        }
-    }
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -96,10 +94,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func doReturn(book: Book) {
-        if let patron = self.patron {
-            let event = ReturnBookEvent(patron: patron, book: book)
-            event.delegate = self
-        }
+  
     }
     
     func doReturn(books: [Book]) {
@@ -141,7 +136,7 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
         
         switch event {
         case let event as RenewBookEvent:
-            self.showToast(message: "Error. Max return is 2!")
+            self.showToast(message: "Error. Max Renew is 2!")
         default:
             print("no action")
         }

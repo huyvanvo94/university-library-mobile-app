@@ -63,10 +63,10 @@ class CheckoutListEvent: AbstractEvent{
                                 Logger.log(clzz: "CheckoutListEvent", message: "Update books")
                       
                                 self.checkoutList.patron.booksCheckedOut.append(self.checkoutList.book.id!)
+                                self.checkoutList.patron.numberOfBooksCheckoutToday += 1
                                 self.checkoutList.patron.totalNumberOfBooksCheckout += 1
                                 self.checkoutList.patron.timeStamp()
-                                
-                                db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
+                            db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
                                 
                                 AppDelegate.setPatron(self.checkoutList.patron)
                                 delegate.complete(event: self)

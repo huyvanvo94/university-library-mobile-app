@@ -87,7 +87,6 @@
 		8FCF61031FD1028B008D8C72 /* PatronBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */; };
 		8FCF61071FD104E9008D8C72 /* PatronSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */; };
 		8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */; };
-		8FD459541FD6445B0093B8E7 /* CheckOutBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */; };
 		8FD7E37D1FD767D1000F4E36 /* LibrarianBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */; };
 		8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */; };
 		8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */; };
@@ -203,7 +202,6 @@
 		8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronBookViewController.swift; sourceTree = "<group>"; };
 		8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronSearchBookViewController.swift; sourceTree = "<group>"; };
 		8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBooksEvent.swift; sourceTree = "<group>"; };
-		8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutBooksEvent.swift; sourceTree = "<group>"; };
 		8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianBooksViewController.swift; sourceTree = "<group>"; };
 		8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserEvent.swift; sourceTree = "<group>"; };
 		8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 				8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */,
 				8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */,
 				8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */,
-				8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */,
 				8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */,
 				3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */,
 				5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */,
@@ -703,7 +700,6 @@
 			files = (
 				8FD7E37D1FD767D1000F4E36 /* LibrarianBooksViewController.swift in Sources */,
 				8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */,
-				8FD459541FD6445B0093B8E7 /* CheckOutBooksEvent.swift in Sources */,
 				8FCF60FF1FD0FA39008D8C72 /* LibrarianBookViewController.swift in Sources */,
 				8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */,
 				8FB285051FD56A7E000A7C48 /* PatronBooksViewController.swift in Sources */,

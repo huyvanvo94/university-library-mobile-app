@@ -249,12 +249,9 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     func waiting(book: Book){
 
     }
-    // bad function
+ 
     func doReturn(book: Book){
-        if let patron = self.patron {
-            let event = ReturnBookEvent(patron: patron, book: book)
-            event.delegate = self
-        }
+     
     }
     
     func doReturn(books: [Book]){

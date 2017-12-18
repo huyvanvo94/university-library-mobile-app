@@ -120,11 +120,17 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     }
 
     func doReturn(book: Book) {
+        
 
     }
 
     func doReturn(books: [Book]) {
-
+       
+        if let patron = self.patron{
+            let event = ReturnBooksEvent(patron: patron, books: books)
+            event.delegate = self
+        
+        }
     }
 
     func search(for: Book) {
