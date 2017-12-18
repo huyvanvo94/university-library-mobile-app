@@ -32,7 +32,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
 
-        if pause == true{
+        if pause{
 
             booksFromDatabase = [Book]()
             pause = false
@@ -51,9 +51,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
             self.librarian = Mock.mock_Librarian()
         }
         
-
-        self.initTableView()
-
+        self.initTableView() 
         self.title = "Library"
        // let event = FetchAllBooksIdEvent()
         let event = FetchBooksEvent()

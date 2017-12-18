@@ -138,19 +138,15 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     func addBookAction(_ sender: Any){
         Logger.log(clzz: "AddBookViewController", message: "addBookAction")
-        
-        if Mock.isMockMode {
-            self.librarian = Mock.mock_Librarian()
-            self.add(with: Mock.mock_Book())
+ 
+        if let book = self.buildBook(){
+          
+            self.add(with: book)
         }else{
-            if let book = self.buildBook(){
-              
-                self.add(with: book)
-            }else{
-                self.showToast(message: "Invalid inputs!")
-                self.clearAllTextFromTextField()
-            }
+            self.showToast(message: "Invalid inputs!")
+            self.clearAllTextFromTextField()
         }
+
     }
 
     
@@ -162,9 +158,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initView()
-        
-       
-        
         
         
         addBookItemBar.isEnabled = true
