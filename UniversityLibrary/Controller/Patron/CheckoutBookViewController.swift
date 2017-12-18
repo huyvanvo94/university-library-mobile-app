@@ -40,9 +40,15 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
             self.patron = Mock.mock_Patron()
         }
     
+        self.activityIndicatorView.stopAnimating()
+        if let book = self.book{
+            let event = FetchBookEvent(key: book.key)
+            event.delegate = self
+            
+        }
         
         
-        self.loadBookToUI()
+       // self.loadBookToUI()
         // Do any additional setup after loading the view.
     }
     
@@ -151,6 +157,13 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
         self.activityIndicatorView.stopAnimating()
  
         switch event {
+        case let event as FetchBookEvent:
+            
+            if let book = event.book{
+                self.book = book
+                self.loadBookToUI()
+            }
+            
         case let event as CheckoutListEvent:
             if event.state == CheckoutState.success{
                 
