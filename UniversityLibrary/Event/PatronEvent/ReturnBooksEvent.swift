@@ -156,7 +156,7 @@ class ReturnBooksEvent: AbstractEvent{
                             }
                             
                         }else{
-                           
+                            
                         }
                         
                         self.doReturn()
@@ -204,7 +204,7 @@ class ReturnBooksEvent: AbstractEvent{
                             })
                             if let title = book.title{
                                 if let email = user["email"] as? String{
-                                    let message = "\(title) is able to checkout right now for three days"
+                                    let message = "The book \(title) is able to checkout right now. On reservation for three days"
                                     DataService.shared.sendEmail(email: email, message: message, subject: "Hello", completion: nil)
                                 }
                             }

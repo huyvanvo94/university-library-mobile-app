@@ -65,18 +65,31 @@ class RenewBookEvent: AbstractEvent{
                                             
                                                 transactionInfo.returnCount = (renewCount + 1)
 
+                                                users[self.patron.id!] = transactionInfo.dict
 
-                                                value["users"] = transactionInfo.dict
+                                                value["users"] = users
 
 
                                                 db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(value)
+                                                
+                                                self.state = .success
+                                                delegate.complete(event: self)
 
 
+                                            }else{
+                                                self.state = .error
+                                                delegate.error(event: self)
                                             }
 
+                                        }else{
+                                            self.state = .error
+                                            delegate.error(event: self)
                                         }
 
                                         
+                                    }else{
+                                        self.state = .error
+                                        delegate.error(event: self)
                                     }
                                 }
                                 

@@ -146,6 +146,9 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             if let book = self.buildBook(){
               
                 self.add(with: book)
+            }else{
+                self.showToast(message: "Invalid inputs!")
+                self.clearAllTextFromTextField()
             }
         }
     }
@@ -225,6 +228,10 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             let currentStatus = self.currentStatus.text, let keywords = self.keywords.text
             else {
             
+            return nil
+        }
+    
+        if Int(numberOfCopies) == nil{
             return nil
         }
         

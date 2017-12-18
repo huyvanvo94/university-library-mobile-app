@@ -19,7 +19,6 @@
 		3FB5A9D91FDCB71A00341265 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */; };
 		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
 		5F0906FDC8141B055FA9F85E /* ReturnBookEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */; };
-		5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */; };
 		5F090BAC921D7CA6F9F5006E /* CheckoutEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */; };
 		5F090CA66B803E43078F25C6 /* SearchBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */; };
 		5F090F328040C78A38412D9D /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */; };
@@ -86,7 +85,6 @@
 		8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */; };
 		8FCF60FF1FD0FA39008D8C72 /* LibrarianBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */; };
 		8FCF61031FD1028B008D8C72 /* PatronBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */; };
-		8FCF61051FD104CD008D8C72 /* MyWaitListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61041FD104CD008D8C72 /* MyWaitListTableViewController.swift */; };
 		8FCF61071FD104E9008D8C72 /* PatronSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */; };
 		8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */; };
 		8FD459541FD6445B0093B8E7 /* CheckOutBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */; };
@@ -131,7 +129,6 @@
 		3FB5A9D61FDC85FF00341265 /* StatusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
 		3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutEmailEvent.swift; sourceTree = "<group>"; };
-		5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerViewController.swift; path = ../Root/ImagePickerViewController.swift; sourceTree = "<group>"; };
 		5F0907985E2FC324409EE7F1 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		5F090D13F2767DB5FA9CAE82 /* SearchBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookEvent.swift; sourceTree = "<group>"; };
 		5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnBookEmailEvent.swift; sourceTree = "<group>"; };
@@ -204,7 +201,6 @@
 		8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnBooksEvent.swift; sourceTree = "<group>"; };
 		8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianBookViewController.swift; sourceTree = "<group>"; };
 		8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronBookViewController.swift; sourceTree = "<group>"; };
-		8FCF61041FD104CD008D8C72 /* MyWaitListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWaitListTableViewController.swift; sourceTree = "<group>"; };
 		8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronSearchBookViewController.swift; sourceTree = "<group>"; };
 		8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBooksEvent.swift; sourceTree = "<group>"; };
 		8FD459531FD6445B0093B8E7 /* CheckOutBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutBooksEvent.swift; sourceTree = "<group>"; };
@@ -265,7 +261,6 @@
 				8F401B861FD54B1C007306CD /* MyCheckoutBooksViewController.swift */,
 				8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */,
 				8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */,
-				8FCF61041FD104CD008D8C72 /* MyWaitListTableViewController.swift */,
 				8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */,
 			);
 			path = Patron;
@@ -340,7 +335,6 @@
 				8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */,
 				8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */,
 				8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */,
-				5F0907945BCADC9F861DF269 /* ImagePickerViewController.swift */,
 			);
 			path = Librarian;
 			sourceTree = "<group>";
@@ -767,7 +761,6 @@
 				8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */,
 				8FC6FAC31FCFF3A100FBC1D8 /* GeneralUILabel.swift in Sources */,
 				8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */,
-				8FCF61051FD104CD008D8C72 /* MyWaitListTableViewController.swift in Sources */,
 				8F209B8C1FD20EA40018C6FB /* Toast.swift in Sources */,
 				8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */,
 				8F1E7CCF1FD2AF95009A11BA /* BaseTableViewController.swift in Sources */,
@@ -785,7 +778,6 @@
 				3F1D4AC11FD7ACB800724500 /* CustomImageView.swift in Sources */,
 				8FC6FABD1FCFF02F00FBC1D8 /* UIViewFactory.swift in Sources */,
 				3F18DBA31FE704F3003364B9 /* BookUILabel.swift in Sources */,
-				5F090ABDCB2AA180C610AD6E /* ImagePickerViewController.swift in Sources */,
 				5F090F328040C78A38412D9D /* DatabaseHelper.swift in Sources */,
 				5F090CA66B803E43078F25C6 /* SearchBookEvent.swift in Sources */,
 				5F090BAC921D7CA6F9F5006E /* CheckoutEmailEvent.swift in Sources */,

@@ -26,11 +26,13 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
         super.loadView()
         
         self.title = "Sign Up"
-
-        let image = UIImage(named: "book-return-box.png")
-        let returnBooksButton = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
-        
-        self.navigationItem.rightBarButtonItem = returnBooksButton 
+ 
+    }
+    
+    private func clearText(){
+        studentIdTextField.text = ""
+        passwordTextField.text = ""
+        emailTextField.text = ""
     }
     
     override func viewDidLoad() {
@@ -101,6 +103,7 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
             self.showToast(message: "University Id Taken!")
             self.studentIdTextField.text = ""
         default:
+            self.clearText()
             self.email = event.user?.email
             self.password = event.user?.password
             
@@ -174,6 +177,8 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
         
         switch event {
         case let event as RegisterUserEvent:
+            
+            
             
             event.delegate = nil
            

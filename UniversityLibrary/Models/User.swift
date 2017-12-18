@@ -175,8 +175,7 @@ class Patron: User{
                 self.numberOfBooksCheckoutToday = 0
             }
             
-            
-            print("numberOfBooksCheckout: \(self.numberOfBooksCheckoutToday)")
+             
         }
         
         
@@ -236,10 +235,5 @@ class Patron: User{
 
 
     var transaction: Double?
-    
-    // A patron must be able to check out up to 3 books in any day.
-    func numberOfBookCheckedOut(on date: Date) -> Int{
-        
-        return -1 
-    }
+ 
 }

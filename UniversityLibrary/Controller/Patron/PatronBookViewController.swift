@@ -10,6 +10,11 @@ import UIKit
 
 class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
  
+    @IBAction func renewBook(_ sender: MenuUIButton) {
+        if let book = self.book{
+            self.doRenew(book: book)
+        }
+    }
     
     var patron: Patron?
     var book: Book?
@@ -125,6 +130,8 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
                     }
                 })
             }
+        case let event as RenewBookEvent:
+            self.showToast(message: "Success!")
         default:
             print("No Action")
         }
@@ -132,6 +139,12 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     
     func error(event: AbstractEvent){
         
+        switch event {
+        case let event as RenewBookEvent:
+            self.showToast(message: "Error. Max return is 2!")
+        default:
+            print("no action")
+        }
     }
     
     func fetch(book: Book) {
@@ -143,6 +156,10 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     }
     
     func doRenew(book: Book) {
+        if let patron = self.patron{
+            let event = RenewBookEvent(book: book, patron: patron)
+            event.delegate = self
+        }
         
     }
 

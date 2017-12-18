@@ -89,7 +89,7 @@ struct ReturnBookInfo{
     }
     
     func convertToJsonString()->String{
-        return "{\"nameOfBook\":\"\(self.nameOfBook)\",\"fineAmount\":\"\(self.fineAmount)\"}"
+        return "{\"nameOfBook\":\"\(self.nameOfBook)\",\"fineAmount\":\"\(self.fineAmount) dollars\"}"
     }
     
     static func convertToArrayString(books: [ReturnBookInfo]) -> String{
