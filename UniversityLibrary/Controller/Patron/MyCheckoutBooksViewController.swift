@@ -289,9 +289,9 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
         if let patron = self.patron{
             
             // must update patron runtime
-            for key in patron.booksCheckedOut {
+            for id in patron.booksCheckedOut {
                 
-                let event = FetchBookEvent(key: key)
+                let event = FetchBookEvent(id: id)
                 event.delegate = self
 
             }
