@@ -70,13 +70,25 @@ class RenewBookEvent: AbstractEvent{
 
 
                                                 db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key).updateChildValues(value)
+                                                
+                                                self.state = .success
+                                                delegate.complete(event: self)
 
 
+                                            }else{
+                                                self.state = .error
+                                                delegate.error(event: self)
                                             }
 
+                                        }else{
+                                            self.state = .error
+                                            delegate.error(event: self)
                                         }
 
                                         
+                                    }else{
+                                        self.state = .error
+                                        delegate.error(event: self)
                                     }
                                 }
                                 

@@ -166,7 +166,8 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
                 
                 let yes = UIAlertAction(title: "Yes", style: .destructive, handler: {(handler) in
                     let book = event.checkoutList.book
-                    self.checkout(book: book)
+                    self.waiting(book: book)
+                    self.popBackView()
                 })
                 let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 alert.addAction(yes)
