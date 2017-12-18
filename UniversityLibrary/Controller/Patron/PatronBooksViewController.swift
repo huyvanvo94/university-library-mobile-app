@@ -53,7 +53,6 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                     books.append(book)
                 }
                 
-                print("Loop")
             }
             
             self.numberOfBooksCheckedOut = books.count
@@ -143,15 +142,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         
     }
     
-    func waitlistBookMessage(){
-        let alert = UIAlertController(title: "Waitlist", message: "Waitlist book?",  preferredStyle: .actionSheet)
-        let waitlistBook = UIAlertAction(title: "Confirm", style: .destructive, handler: waitlistBookHandler)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelHandler)
-        alert.addAction(waitlistBook)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-        
-    }
+ 
     
     func waitlistBookHandler(_ alertAction:UIAlertAction!) -> Void{
         if let _ = self.bookToCheckoutIndex{
@@ -210,9 +201,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         if self.isCheckoutMode{
             // allow 3 books to be checkout
             
-            if (self.patron?.numberOfBooksCheckoutToday)! < 3{
-               
-                self.patron?.numberOfBooksCheckoutToday += 1
+            if (self.patron?.numberOfBooksCheckoutToday)! < 3 || self.numberOfBooksCheckedOut < 3{
+                
                 let index = indexPath.row
                     
                 self.numberOfBooksCheckedOut += 1
@@ -281,19 +271,25 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
      
     func complete(event: AbstractEvent) {
+        self.activityIndicatorView.stopAnimating()
         switch event {
         case let event as CheckoutListEvent:
             
             self.numberOfBooksCheckedOut -= 1
             
-            print(self.numberOfBooksCheckedOut)
             if event.state == .full{
+                // show add to wait list
+                let alert = UIAlertController(title: "Wait List", message: "Would you like to be added to wait list?",  preferredStyle: .actionSheet)
                 
-                
-                
-                self.waitlistBookMessage()
-                //let book = event.checkoutList.book
-                //self.waiting(book: book)
+                let yes = UIAlertAction(title: "Yes", style: .destructive, handler: {(handler) in
+                    let book = event.checkoutList.book
+                    self.waiting(book: book)
+                    self.showToast(message: "Success")
+                })
+                let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                alert.addAction(yes)
+                alert.addAction(no)
+                present(alert, animated: true, completion: nil)
             }else if event.state == CheckoutState.contain {
                 
                 if let index = self.booksFromDatabase.index(of: event.checkoutList.book){
@@ -322,6 +318,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         case let event as WaitingListEvent:
             
             if event.state == WaitingListState.success{
+                self.displayAnimateSuccess()
                 
             }
             
@@ -335,7 +332,6 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                     for id in event.ids{
                         
                         let event = FetchBookEvent(id: id)
-                        
                         event.delegate = self
                         
                     }
@@ -345,10 +341,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             
         case let event as FetchBookEvent:
             
-            if let book = event.book{ 
-
-
-
+            if let book = event.book{
                 self.booksFromDatabase.append(book)
                 self.tableView.reloadData()
                 
@@ -368,6 +361,10 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func error(event: AbstractEvent) {
+     
+        self.activityIndicatorView.stopAnimating()
+        self.displayAnimateError()
+        
     
     }
     func fetch(book: Book) {
