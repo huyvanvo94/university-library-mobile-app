@@ -100,11 +100,13 @@ class ReturnBooksEvent: AbstractEvent{
         }
         
         private func doReturn(book: Book){
+            Logger.log(clzz: "ReturnBooksEvent", message: "doReturn")
             let db = FirebaseManager().reference
             
             db?.child(DatabaseInfo.checkedOutListTable).child(book.key).observeSingleEvent(of: .value, with: {(snapshot) in
                 
                 if var value = snapshot.value as? [String: Any]{
+                  
                     if var users = value["users"] as? Dictionary<String, Any>{
                         
                         if var user = users[self.event.patron.id!] as? Dictionary<String, Any>{
@@ -119,10 +121,10 @@ class ReturnBooksEvent: AbstractEvent{
                             // update user 
                             
                             // comment for testing
-                            if let index = self.event.patron.booksCheckedOut.index(of: book.key){
+                            if let index = self.event.patron.booksCheckedOut.index(of: book.id!){
                                 
                                 self.event.patron.booksCheckedOut.remove(at: index)
-                                self.event.patron.numberOfBooksCheckoutToday -= 1
+                                //self.event.patron.numberOfBooksCheckoutToday -= 1
                                 
                                 db?.child(DatabaseInfo.patronTable).child(self.event.patron.id!).updateChildValues(self.event.patron.dict)
                                 

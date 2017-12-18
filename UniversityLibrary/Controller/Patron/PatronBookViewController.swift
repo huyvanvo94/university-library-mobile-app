@@ -10,14 +10,7 @@ import UIKit
 
 class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
  
-    /*
-    @IBAction func renewBook(_ sender: MenuUIButton) {
-        if let book = self.book{
-            self.doRenew(book: book)
-        }
-    }*/
- 
- 
+  
     
     var patron: Patron?
     var book: Book?
@@ -48,6 +41,20 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func renewButtonClicked(_ sender: MenuUIButton) {
+        if let book = self.book{
+                self.doRenew(book: book)
+         
+        }
+    }
+    
+    @IBAction func returnButtonClicked(_ sender: MenuUIButton) {
+        
+        if let book = self.book{
+            self.doReturn(books: [book])
+        }
     }
     
     private func loadBookToUI(){

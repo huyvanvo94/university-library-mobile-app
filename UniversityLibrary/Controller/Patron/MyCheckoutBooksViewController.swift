@@ -121,17 +121,10 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
             
             self.checkoutBooks = [Book]()
             self.tableView.reloadData()
-
-            if Mock.isMockMode{
-
-                self.patron = Mock.mock_Patron()
-
-                self.fetch()
-
-            }else {
-
-                self.fetch()
-            }
+ 
+            
+            self.fetch()
+        
         }
     }
     
