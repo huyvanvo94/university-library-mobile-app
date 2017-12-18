@@ -9,9 +9,7 @@
 import UIKit
 
 class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDelegate {
- 
-  
-    
+
     var patron: Patron?
     var book: Book?
     

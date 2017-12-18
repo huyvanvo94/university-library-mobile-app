@@ -134,22 +134,18 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     }
  
     @IBAction func searchForBook(_ sender: UIButton) {
-        
-        if Mock.isMockMode{
-            self.goToCheckoutBookVC(with: Mock.mock_Book())
-        }else{
+    
+        if let book = buildSearchBook(){
             
-            if let book = buildSearchBook(){
-                
-                super.activityIndicatorView.startAnimating()
-                self.search(exact: book)
-                
-                self.clearText()
-            }else{
-                self.clearText()
-                self.showToast(message: "Invalid inputs")
-            }
-        }  
+            super.activityIndicatorView.startAnimating()
+            self.search(exact: book)
+            
+            self.clearText()
+        }else{
+            self.clearText()
+            self.showToast(message: "Invalid inputs")
+        }
+ 
     }
 
     func goToCheckoutBookVC(with book: Book ){

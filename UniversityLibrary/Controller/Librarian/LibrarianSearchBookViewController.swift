@@ -57,13 +57,9 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     }
      
     @IBAction func searchAction(_ sender: UIBarButtonItem) {
-        if Mock.isMockMode{
-            self.goToBookView(with: Mock.mock_Book())
-        }else{
-            
-            self.doSearchBook()
-            
-        }
+    
+        
+        self.doSearchBook()
     }
     
     

@@ -113,15 +113,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             return
         }
         
-        if Mock.isMockMode{
-            self.buildUpdatedBook()
-
-            self.librarian = Mock.mock_Librarian()
-
-            self.update(book: book!)
-
-        }
-        else if let book = self.book{
+   
+        if let book = self.book{
             if self.librarian == nil{
                 self.librarian = Mock.mock_Librarian()
             }
