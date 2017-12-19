@@ -29,7 +29,6 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     @IBOutlet weak var bookStatusLabel: GeneralUILabel!
     @IBOutlet weak var coverImage: UIImageView!
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,20 +40,17 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
         }
     
         self.activityIndicatorView.stopAnimating()
-        if let book = self.book{
-            let event = FetchBookEvent(key: book.key)
-            event.delegate = self
-            
-        }
-        
-        
-       // self.loadBookToUI()
+       
+       
+        self.loadBookToUI()
         // Do any additional setup after loading the view.
     }
     
-    // MARK: Kevin
+ 
     func loadBookToUI(){
         self.title = "Book Details"
+        
+        print(book?.bookStatus)
         
         if let title = self.book?.title{
             bookTitleLabel.text = "Title: " + title

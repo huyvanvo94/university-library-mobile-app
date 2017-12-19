@@ -61,11 +61,19 @@ class FetchBookEvent: AbstractEvent{
                                         self.book = book
                                         delegate.complete(event: self)
                                     }
+                                }else{
+                                    delegate.error(event: self)
                                 }
                                 
                             })
+                        }else{
+                            delegate.error(event: self)
                         }
                         
+                        
+                    }else{
+                        
+                        delegate.error(event: self)
                         
                     }
                 })
@@ -82,11 +90,14 @@ class FetchBookEvent: AbstractEvent{
 
                             delegate.complete(event: self)
                         }
+                    }else{
+                        delegate.error(event: self)
                     }
                 })
+            }else{
+                delegate.error(event: self)
             }
         }
         
     }
-    
 }

@@ -114,10 +114,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         self.title = "Library"
         self.initCheckoutAction()
      
-       
-       // let event = FetchAllBooksIdEvent()
-        let event = FetchBooksEvent()
-        event.delegate = self
+        self.fetch()
         
         
     }
@@ -382,7 +379,9 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func fetch() {
-        
+        self.activityIndicatorView.startAnimating()
+        let event = FetchBooksEvent()
+        event.delegate = self
     }
     
     func doRenew(book: Book) {

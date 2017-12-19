@@ -12,7 +12,10 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     var patron: Patron?
     
     func fetch(book: Book) {
-        
+  
+        let event = FetchBookEvent(key: book.key)
+        event.delegate = self
+      
     }
     
     func fetch() {
@@ -34,7 +37,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     
     override func loadView() {
         super.loadView()
-        self.title = "Search"
+        self.title = "Exact Search"
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -106,26 +109,30 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     }
  
     func search(exact book: Book){
-        let event = SearchBookEvent(book: book)
-        event.delegate = self
-        
+     
     }
 
     func complete(event: AbstractEvent){
         super.activityIndicatorView.stopAnimating()
         
-        if let event = event as? SearchBookEvent{
-            if event.state == SearchBookState.success{
-                
-                self.goToCheckoutBookVC(with: event.book)
+        
+        switch event {
+     
+        case let event as FetchBookEvent:
+            if let book = event.book{
+                self.goToCheckoutBookVC(with: book)
             }
+            
+ 
+        default:
+            print("No action")
         }
     }
 
     func error(event: AbstractEvent){
         super.activityIndicatorView.stopAnimating()
         
-        if let _ = event as? SearchBookEvent{
+        if let _ = event as? FetchBookEvent{
             super.showToast(message: "Can't find book")
             
             
@@ -138,7 +145,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
         if let book = buildSearchBook(){
             
             super.activityIndicatorView.startAnimating()
-            self.search(exact: book)
+            self.fetch(book: book)
             
             self.clearText()
         }else{
@@ -149,7 +156,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
     }
 
     func goToCheckoutBookVC(with book: Book ){
-        //CheckoutBookViewController
+        Logger.log(clzz: "PatronSearchBoookVC", message: "go to checkout view controller")
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckoutBookViewController") as? CheckoutBookViewController{
             vc.book = book
             self.navigationController?.pushViewController(vc, animated: true)
