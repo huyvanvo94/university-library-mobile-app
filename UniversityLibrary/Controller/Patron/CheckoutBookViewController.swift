@@ -50,8 +50,6 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     func loadBookToUI(){
         self.title = "Book Details"
         
-        print(book?.bookStatus)
-        
         if let title = self.book?.title{
             bookTitleLabel.text = "Title: " + title
         }
@@ -173,7 +171,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
                 })
                 
             }else if event.state == CheckoutState.contain{
-                self.showToast(message: "Already checked out!")
+                self.alertMessage(title: "Error", message: "Already checked out!")
                 
             }else if event.state == CheckoutState.full{
                 // show add to wait list

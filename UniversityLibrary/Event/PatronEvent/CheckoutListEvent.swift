@@ -69,7 +69,11 @@ class CheckoutListEvent: AbstractEvent{
                             db.child(self.checkoutList.patron.id!).updateChildValues(self.checkoutList.patron.dict)
                                 
                                 AppDelegate.setPatron(self.checkoutList.patron)
-                                delegate.complete(event: self)
+                                
+                                DispatchQueue.main.async { 
+                                    delegate.complete(event: self)
+                                }
+                         
                             }
                             
                         })

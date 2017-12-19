@@ -39,8 +39,16 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }()
     
     func checkoutBooksAction(_ sender: Any){
-       
+        
         Logger.log(clzz: "PatronBooksVC", message: "checkout action")
+        // validated
+        
+        if self.numberOfBooksCheckedOut > 3{
+            self.alertMessage(title: "Error", message: "Can only checkout 3 books!")
+            return
+        }
+   
+       
         self.toggle()
         
         DispatchQueue.main.async {
@@ -57,19 +65,16 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             
             self.numberOfBooksCheckedOut = books.count
             
+            self.showToast(message: "Success")
+            
             for book in books{
-                
                 self.checkout(book: book)
             }
             
             
             self.tableView.reloadData()
             
-            // logic to return books to firebase
-          
-        }
-        
-   
+        } 
     }
     
     @IBAction func toggleAction(_ sender: Any) {
@@ -196,6 +201,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Logger.log(clzz: "PatronBooksVC", message: "current number:\(self.numberOfBooksCheckedOut)")
         
         if self.isCheckoutMode{
             // allow 3 books to be checkout
@@ -211,7 +217,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 
             }
             else{
-                self.showToast(message: "3 per day!")
+               
+                self.alertMessage(title: "Error", message: "Max is 3 books per day")
             }
             
            
@@ -270,13 +277,17 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
      
     func complete(event: AbstractEvent) {
+        Logger.log(clzz: "PatronBooksVC", message: "complete")
         self.activityIndicatorView.stopAnimating()
+        
         switch event {
         case let event as CheckoutListEvent:
             
             self.numberOfBooksCheckedOut -= 1
             
             if event.state == .full{
+               
+               
                 // show add to wait list
                 let alert = UIAlertController(title: "Wait List", message: "Would you like to be added to wait list?",  preferredStyle: .actionSheet)
                 
@@ -288,17 +299,21 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 alert.addAction(yes)
                 alert.addAction(no)
-                present(alert, animated: true, completion: nil)
-            }else if event.state == CheckoutState.contain {
+                self.present(alert, animated: true, completion: nil)
+           
+            }else if event.state == .contain {
                 
                 if let index = self.booksFromDatabase.index(of: event.checkoutList.book){
-                    self.booksFromDatabase[index].toggle = false 
+                    self.booksFromDatabase[index].toggle = false
                 }
                 
-             //   super.alertMessage(title: "Already checkout", message: event.checkoutList.book.title!)
- 
-            }else if event.state == CheckoutState.success{
+                if let title = event.checkoutList.book.title{
+                    super.alertMessage(title: "Oops", message: "Already checked out for \(title)")
+                }
                 
+            }else if event.state == .success{
+                
+      
                 super.displayAnimateSuccess()
                 
                 // create view
@@ -312,6 +327,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                     super.alertMessage(title: "Checkout Info", message: self.reciept)
                     
                 }
+           
             }
             
         case let event as WaitingListEvent:

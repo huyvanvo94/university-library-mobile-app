@@ -195,6 +195,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
         
     }
     
+ 
     
     func error(event: AbstractEvent) {
         self.activityIndicatorView.stopAnimating()

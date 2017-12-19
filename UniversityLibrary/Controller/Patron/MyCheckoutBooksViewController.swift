@@ -207,8 +207,8 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
                 self.checkoutBooks[index].toReturn = true
                 
                 self.tableView.cellForRow(at: indexPath )?.accessoryType = .checkmark
-            }else{
-                super.showToast(message: "max is 9!")
+            }else{ 
+                self.alertMessage(title: "Error", message: "Max is 9!")
             }
         }else {
             self.tableView.deselectRow(at: indexPath, animated: true)

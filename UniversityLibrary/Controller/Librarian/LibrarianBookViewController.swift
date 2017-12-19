@@ -299,7 +299,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
                    self.navigationController?.popToRootViewController(animated: true)
                  }else if event.state == BookActionState.checkoutListNotEmpty{
 
-                    super.showToast(message: "Is Checkout!")
+                    self.alertMessage(title: "Error", message: "Book is currently checkedout")
+                
                 }
                     
                     

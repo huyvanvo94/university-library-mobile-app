@@ -131,7 +131,8 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
                 })
             }
         case let event as RenewBookEvent:
-            self.showToast(message: "Success!")
+            
+            self.alertMessage(title: "Success!", message: "Book is renewed")
         default:
             print("No Action")
         }
@@ -140,8 +141,8 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     func error(event: AbstractEvent){
         
         switch event {
-        case let event as RenewBookEvent:
-            self.showToast(message: "Error. Max Renew is 2!")
+        case let event as RenewBookEvent: 
+            self.alertMessage(title: "Error", message: "Max is 2!")
         default:
             print("no action")
         }
