@@ -578,7 +578,7 @@
 				TargetAttributes = {
 					8FC2EC911FBAC6EF00BB15D1 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					8FC2ECA81FBAC6EF00BB15D1 = {
 						CreatedOnToolsVersion = 9.1;
@@ -961,11 +961,12 @@
 			baseConfigurationReference = E8BDF6A4789ED32AF50683DA /* Pods-UniversityLibrary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96555JQZZZ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UniversityLibrary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -980,11 +981,12 @@
 			baseConfigurationReference = 9D053ED7E29C194C0C876D86 /* Pods-UniversityLibrary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96555JQZZZ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UniversityLibrary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -58,6 +58,8 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFie
             return
         }
         
+        self.activityIndicatorView.startAnimating()
+        
         if email.isValidEmail(){
             // is librian
             if email.isSJSUEmail(){
@@ -73,7 +75,9 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFie
                 
             }
             
-        }    }
+        }
+        
+    }
     
     @IBAction func goToSignupView(_ sender: UIButton) {
         goToSignupView()
@@ -99,10 +103,11 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFie
     }
     
     func handleLoginEvent(event: LoginUserEvent){
+        self.activityIndicatorView.stopAnimating()
         switch event.state{
             
         case LoginUserEventState.emailNotVerified:
-            self.showToast(message: "Email Not Verified")
+            self.alertMessage(title:"Error", message: "Email Not Verified")
              
             
         case LoginUserEventState.success:
@@ -121,11 +126,15 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFie
  
     
     func error(event: AbstractEvent) {
+        self.activityIndicatorView.stopAnimating()
         print("error")
         
         switch event {
         case let event as LoginUserEvent: 
-            self.showToast(message: "Invalid email or password")
+    
+            self.alertMessage(title: "Error", message: "Invalid email or password")
+            
+            
       
         default:
             print("No action taken")

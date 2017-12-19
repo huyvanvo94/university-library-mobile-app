@@ -192,6 +192,7 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
         
     }
     func error(event: AbstractEvent){
+        super.activityIndicatorView.stopAnimating()
         print("Event error")
         
         switch event {
@@ -203,7 +204,10 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
                 event.delegate = nil
                 self.showToast(message: "email is taken!")
             }else{
-                self.showToast(message: "error")
+              //  self.showToast(message: "error!")
+                if let errorMsg = event.errorMsg{
+                    super.alertMessage(title: "Error", message: errorMsg.localizedDescription)
+                }
             }
             
         case let event as ResendEmailEvent:
