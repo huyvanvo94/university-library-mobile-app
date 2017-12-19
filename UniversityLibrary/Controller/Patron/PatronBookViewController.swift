@@ -141,14 +141,14 @@ class PatronBookViewController: BaseViewController, BookKeeper, AbstractEventDel
     func error(event: AbstractEvent){
         
         switch event {
-        case let event as RenewBookEvent: 
+        case let event as RenewBookEvent:
             self.alertMessage(title: "Error", message: "Max is 2!")
         default:
             print("no action")
         }
     }
     
-    func fetch(book: Book) {
+    func fetch(book: Book){
         
     }
     
