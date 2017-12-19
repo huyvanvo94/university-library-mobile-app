@@ -53,29 +53,34 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFie
     
     private func login(){
         
+        
         guard let email = self.emailAddressTextField.text, let password = self.passwordTextField.text else{
-            self.showToast(message: "All field required")
+            self.alertMessage(title: "Error", message: "All fields required")
             return
         }
         
+        if !email.isValidEmail(){
+            self.alertMessage(title: "Error", message: "Invalid email")
+        }
+        
+        
         self.activityIndicatorView.startAnimating()
         
-        if email.isValidEmail(){
-            // is librian
-            if email.isSJSUEmail(){
-                let user = Librarian(email: email, password: password )
-                
-                let event = LoginUserEvent(librarian: user)
-                event.delegate = self
-                // is patron
-            }else{
-                let user = Patron(email: email, password: password)
-                let event = LoginUserEvent(patron: user)
-                event.delegate = self
-                
-            }
+        // is librian
+        if email.isSJSUEmail(){
+            let user = Librarian(email: email, password: password )
+            
+            let event = LoginUserEvent(librarian: user)
+            event.delegate = self
+            // is patron
+        }else{
+            let user = Patron(email: email, password: password)
+            let event = LoginUserEvent(patron: user)
+            event.delegate = self
             
         }
+            
+     
         
     }
     
