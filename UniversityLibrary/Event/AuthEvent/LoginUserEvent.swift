@@ -32,6 +32,7 @@ class LoginUserEvent: BaseEventWithUser{
         let queue = DispatchQueue(label: "com.huyvo.cmpe277.dispatchqueue.loginuserevent")
         
         queue.async {
+            Logger.log(clzz: "Login Event", message: "email:\(user.email), password: \(user.password)")
             
             Auth.auth().signIn(withEmail: user.email, password: user.password, completion: {(returnUser, error) in
                 if let _ = error{

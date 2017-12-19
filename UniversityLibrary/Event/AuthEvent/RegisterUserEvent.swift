@@ -11,6 +11,8 @@ import UIKit
 import Firebase
 
 class RegisterUserEvent: BaseEventWithUser{
+    
+    var errorMsg: Error?
   
     weak var delegate: RegisterUserEventDelegate? {
         didSet{
@@ -29,6 +31,7 @@ class RegisterUserEvent: BaseEventWithUser{
         let dispatchQueue = DispatchQueue(label: "com.huyvo.cmpe277.dispatchqueue.registeruserevent")
         
         dispatchQueue.async {
+            Logger.log(clzz: "RegisterUserEvent", message: "email:\(user.email) password:\(user.password)")
             let db = FirebaseManager().reference
          
             let table: String
@@ -49,7 +52,8 @@ class RegisterUserEvent: BaseEventWithUser{
                         }else{
                             Auth.auth().createUser(withEmail: user.email, password: user.password) { (returnUser, error) in
                                 if let error = error{
-                                    print(error)
+                                    
+                                    self.errorMsg = error
                                     self.state = .error
                                     delegate.error(event: self)
                                     
@@ -66,10 +70,13 @@ class RegisterUserEvent: BaseEventWithUser{
                                     
                                     Auth.auth().currentUser?.sendEmailVerification { (error) in
                                         
-                                        if let _ = error{
+                                        if let error = error{
                                             Logger.log(clzz: "RegisterUserEvent", message: "error")
+                                            
+                                            self.errorMsg = error
                                             self.state = .error
                                             delegate.error(event: self)
+                                        
                                             
                                         }else{
                                             Logger.log(clzz: "RegisterUserEvent", message: "success")
@@ -93,12 +100,14 @@ class RegisterUserEvent: BaseEventWithUser{
                     // first user created for application
                     Auth.auth().createUser(withEmail: user.email, password: user.password) { (returnUser, error) in
                         if let error = error{
-                            print(error)
+                       
+                            
+                            self.errorMsg = error
                             self.state = .error
                             delegate.error(event: self)
                             
                         }else{
-                            
+                             
                             user.id = returnUser!.uid
                             
                             db?.child(table).child(returnUser!.uid)
@@ -108,9 +117,10 @@ class RegisterUserEvent: BaseEventWithUser{
                             
                             Auth.auth().currentUser?.sendEmailVerification { (error) in
                                 
-                                if let _ = error{
+                                if let error = error{
                                     
                                     Logger.log(clzz: "RegisterUserEvent", message: "error")
+                                    self.errorMsg = error 
                                     self.state = .error
                                     delegate.complete(event: self)
                                 }else{

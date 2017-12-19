@@ -36,7 +36,7 @@ extension UIViewController{
     func getSize(image: UIImage) -> Bool{
         let data = UIImagePNGRepresentation(image)!
         
-        return (Double(data.count)/(1024*1024)) <= 9
+        return (Double(data.count)/(1024*1024)) <= 10
     }
     
     func hideKeyboardWhenTappedAround() {

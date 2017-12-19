@@ -130,8 +130,7 @@ class Patron: User{
     
     
     override init(email: String, password: String, universityId: Int?) {
-
-        super.init(email: email, password: email, universityId: universityId)
+        super.init(email: email, password: password, universityId: universityId)
     }
     
     
