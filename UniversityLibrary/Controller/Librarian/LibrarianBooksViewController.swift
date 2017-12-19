@@ -15,6 +15,8 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
     var pause = false
     var booksFromDatabase = [Book]()
+    
+    var books = [String: Book]()
 
     override func loadView() {
 
@@ -22,7 +24,8 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     }
 
     func fetch(){
-        let event = FetchAllBooksIdEvent()
+        self.activityIndicatorView.startAnimating()
+        let event = FetchBooksEvent()
         event.delegate = self
     }
 
@@ -30,11 +33,14 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
         self.booksFromDatabase = [Book]()
     }
     override func viewWillAppear(_ animated: Bool){
+        Logger.log(clzz: "LibrarianVC", message: "viewWillAppear")
         super.viewWillAppear(animated)
 
         if pause{
 
-            booksFromDatabase = [Book]()
+            booksFromDatabase.removeAll()
+            self.tableView.reloadData()
+            
             pause = false
             self.fetch()
 
@@ -53,9 +59,9 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
         
         self.initTableView() 
         self.title = "Library"
-       // let event = FetchAllBooksIdEvent()
-        let event = FetchBooksEvent()
-        event.delegate = self
+       
+       
+        self.fetch()
  
     }
 
@@ -86,6 +92,13 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        Logger.log(clzz: "LibrarianBooksController", message: "didSelectRowAt: \(indexPath.row)")
+        
+        if indexPath.row >= self.booksFromDatabase.count {
+            
+            self.popBackView()
+        }
 
 
         let book = self.booksFromDatabase[indexPath.row]
@@ -121,6 +134,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
 
     func complete(event: AbstractEvent) {
+        self.activityIndicatorView.stopAnimating()
         if self.pause == true{
             return
         }
@@ -129,8 +143,14 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
         case let event as FetchBooksEvent:
             if let book = event.book{
                 DispatchQueue.main.async {
+                  
                     self.booksFromDatabase.append(book)
                     self.tableView.reloadData()
+                    /*
+                    if let id = book.id{
+                        self.books[id] = book
+                        self.tableView.reloadData()
+                    }*/
                 }
             }
             
@@ -177,6 +197,10 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     
     
     func error(event: AbstractEvent) {
+        self.activityIndicatorView.stopAnimating()
+        self.alertMessage(title: "Error", message: "Something went wrong", handler: {(action) in
+            self.popBackView() 
+        })
 
     }
 

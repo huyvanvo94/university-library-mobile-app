@@ -23,6 +23,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     @IBOutlet weak var bookLocationTextField: CustomUITextField!
     @IBOutlet weak var bookStatusTextField: StatusTextField!
     @IBOutlet weak var bookCallNumberTextField: CustomUITextField!
+    // image of book
     @IBOutlet weak var coverImage: UIImageView!
     //outlet for stackview to change its position
     @IBOutlet weak var stackView: UIStackView!
@@ -200,7 +201,10 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             if let callNumber = self.book?.callNumber{
                 bookCallNumberTextField.text = callNumber
             }
+            
+           
             if let _ = self.book?.base64Image{
+                print("OK")
                 coverImage.image = self.book?.image!
             }
             if let lastUpdated = self.book?.lastUpDateBy{

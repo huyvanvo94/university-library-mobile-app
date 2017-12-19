@@ -78,11 +78,7 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     }
     
     func search(exact book: Book){
-       
-        let event = SearchBookEvent(book: book)
-        event.delegate = self 
-        
-        
+     
     }
     
     func doRenew(book: Book) {
