@@ -22,7 +22,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     }
 
     func fetch(){
-        let event = FetchAllBooksIdEvent()
+        let event = FetchBooksEvent()
         event.delegate = self
     }
 
