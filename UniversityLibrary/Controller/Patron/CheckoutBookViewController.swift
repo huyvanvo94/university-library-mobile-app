@@ -170,10 +170,10 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
                     self.popBackView()
                 })
                 
-            }else if event.state == CheckoutState.contain{
+            }else if event.state == .contain{
                 self.alertMessage(title: "Error", message: "Already checked out!")
                 
-            }else if event.state == CheckoutState.full{
+            }else if event.state == .full{
                 // show add to wait list
                 let alert = UIAlertController(title: "Wait List", message: "Would you like to be added to wait list?",  preferredStyle: .actionSheet)
                 
@@ -187,19 +187,29 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
                 alert.addAction(no)
                 present(alert, animated: true, completion: nil)
                 
+            }else if event.state == .alreadyOnReserve{
+                
+                self.alertMessage(title: "Error", message: "On Reserve!")
             }
+      
         case let event as WaitingListEvent:
             
             Logger.log(clzz: "CheckoutBookVC", message: "waitlist")
             
-            
-            
-            
+            if event.state == .success{
+                self.alertMessage(title: "Success", message: "Added to wait list success!")
+            }else if event.state == .duplicate{
+                self.alertMessage(title: "Hey", message: "Already on wait list")
+            }
+     
         default:
             print("No action")
         }
     }
     func error(event: AbstractEvent){
+        super.activityIndicatorView.stopAnimating()
+        
+        self.alertMessage(title: "Oops", message: "Something went wrong")
 
     }
 

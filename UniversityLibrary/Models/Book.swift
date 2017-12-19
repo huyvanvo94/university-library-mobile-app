@@ -136,21 +136,25 @@ class Book: UniModel{
             
             var key = 0
             
-            if let value = self.title?.myHash{
-                key += value
+            if let title = self.title{
+               
+                key += title.hashValue
+            }
+         
+            if let author = self.author{
+                key += author.hashValue
             }
             
-            if let value = self.author?.myHash{
-                key += value
-            }
-            if let value = self.yearOfPublication?.myHash{
-                key += value
-            }
-            if let value = self.publisher?.myHash{
-                key += value
+            if let yearOfPublication = self.yearOfPublication{
+               
+                key += yearOfPublication.hashValue
             }
             
-            return "\(key)"
+            if let publisher = self.publisher{
+                key += publisher.hashValue
+            }
+            
+            return String(key)
         }
     }
     
