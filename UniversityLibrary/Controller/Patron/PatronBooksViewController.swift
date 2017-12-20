@@ -39,10 +39,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }()
     
     func checkoutBooksAction(_ sender: Any){
-        
         Logger.log(clzz: "PatronBooksVC", message: "checkout action")
-        // validated
-        
+  
         if self.numberOfBooksCheckedOut > 3{
             self.alertMessage(title: "Error", message: "Can only checkout 3 books!")
             return
@@ -54,10 +52,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         DispatchQueue.main.async {
             var books = [Book]()
             
-            for (index, book) in self.booksFromDatabase.enumerated().reversed(){
+            for (_ , book) in self.booksFromDatabase.enumerated().reversed(){
                 if book.toggle{
-                    
-                    
                     books.append(book)
                 }
                 

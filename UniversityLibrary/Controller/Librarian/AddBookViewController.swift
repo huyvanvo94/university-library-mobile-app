@@ -64,8 +64,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         currentStatus.delegate = self
         keywords.delegate = self
         
-        currentStatus.delegate = self
-        
+       
        
         self.scollView.hideIndicators()
        
@@ -75,14 +74,12 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
        // stackView.frame.origin.y -= 100
         
+      //  textField.becomeFirstResponder()
         switch textField {
         case bookTitle, author:
             return true
         default:
-      
-            stackView.frame.origin.y -= 100
-            coverImage.frame.origin.y -= 100
-            self.positionChange = true
+       
          
             return true
         }
@@ -160,7 +157,11 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
         self.initView()
+        
+        
         
         
         addBookItemBar.isEnabled = true
@@ -201,16 +202,24 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         return true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unregisterNotifications()
+    }
+
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        if self.positionChange{
-            stackView.frame.origin.y += 100
-            coverImage.frame.origin.y += 100
-            self.positionChange = false
-        }
+       
         return true
     }
+ 
     
 
     override func didReceiveMemoryWarning() {
@@ -331,6 +340,24 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         
     }
-
+    
+    func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unregisterNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification){
+        guard let keyboardFrame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
+        scollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 20
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        scollView.contentInset.bottom = 0
+    }
 
 }
