@@ -122,9 +122,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
       
         self.title = "Library"
         self.initCheckoutAction()
-     
-        self.fetch()
-        
+      
         
     }
     
