@@ -49,39 +49,46 @@ class BookEvent: AbstractEvent{
                 db?.child(DatabaseInfo.booksAdded).observeSingleEvent(of: .value, with: {
                     (snapshot) in
                     
-                    // I cannot add because database already has a book with same author and title
-                    if snapshot.hasChild(self.book.key){
-                        self.state = .exist
-                        delegate.complete(event: self)
-                   
-                    }else{
-               
-                        let db = FirebaseManager().reference
-
-                        // set last add by
-
-                 
-                        let email = self.librarian.email
-                        self.book.lastUpDateBy = email
- 
-                        let id = db?.child(DatabaseInfo.bookTable).childByAutoId().key
-                        
-                        // The books added so far table currently contains book id for quick reference
-                        db?.child(DatabaseInfo.booksAdded).child(self.book.key).setValue(["id": id])
-                        
-                        // Insert child book into book table 
-                        self.book.id = id
-                        db?.child(DatabaseInfo.bookTable).child(id!).setValue(self.book.dict)
+                    do{
+                    
+                        let key = try self.book.getKey()
+                  
+                        if snapshot.hasChild(key){
+                            self.state = .exist
+                            delegate.complete(event: self)
                        
-                        // init waiting list table with empty users and number of copies 
-                        db?.child(DatabaseInfo.waitingListTable).child(self.book.key)
-                            .setValue(self.book.initWaitingList())
-                        // init checkout list table with empy users and number of copies
-                        db?.child(DatabaseInfo.checkedOutListTable).child(self.book.key)
-                            .setValue(self.book.initCheckoutList())
-                        
-                        self.state = .success
-                        delegate.complete(event: self)
+                        }else{
+                            
+                            // set last add by
+                            let email = self.librarian.email
+                            self.book.lastUpDateBy = email
+
+                            let id = db?.child(DatabaseInfo.bookTable).childByAutoId().key
+                            
+                            // The books added so far table currently contains book id for quick reference
+                            db?.child(DatabaseInfo.booksAdded).child(key).setValue(["id": id])
+                            
+                            // Insert child book into book table
+                            self.book.id = id
+                            db?.child(DatabaseInfo.bookTable).child(id!).setValue(self.book.dict)
+                           
+                            // init waiting list table with empty users and number of copies
+                            db?.child(DatabaseInfo.waitingListTable).child(key)
+                                .setValue(self.book.initWaitingList())
+                            // init checkout list table with empy users and number of copies
+                            db?.child(DatabaseInfo.checkedOutListTable).child(key)
+                                .setValue(self.book.initCheckoutList())
+                            
+                            DispatchQueue.main.async {
+                                
+                                self.state = .success
+                                delegate.complete(event: self)
+                                
+                            }
+                        }
+                    }catch{
+                        self.state = .error
+                        delegate.error(event: self)
                     }
                 })
                

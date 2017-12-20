@@ -134,27 +134,27 @@ class Book: UniModel{
     var key: String{
         get{
             
-            var key = 0
+         
+            var key = ""
             
             if let title = self.title{
-               
-                key += title.hashValue
+                key += title
             }
-         
+          
             if let author = self.author{
-                key += author.hashValue
+                key += author
             }
             
             if let yearOfPublication = self.yearOfPublication{
                
-                key += yearOfPublication.hashValue
+                key += String(yearOfPublication)
             }
             
             if let publisher = self.publisher{
-                key += publisher.hashValue
+                key += String(publisher)
             }
             
-            return String(key)
+            return String(key.hashValue)
         }
     }
     
@@ -334,5 +334,33 @@ class Book: UniModel{
         }
     }
  
+    func getKey() throws -> String{
+        
+        var key = ""
+        
+        if let title = self.title{
+            key += title
+        }
+        
+        if let author = self.author{
+            key += author
+        }
+        
+        if let yearOfPublication = self.yearOfPublication{
+            
+            key += String(yearOfPublication)
+        }
+        
+        if let publisher = self.publisher{
+            key += String(publisher)
+        }
+        
+        return String(key.hashValue)
+        
+    }
     
+}
+
+enum HashError: Error{
+    case one
 }

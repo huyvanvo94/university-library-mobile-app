@@ -276,9 +276,9 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     }
     
     func add(with book: Book){
+        super.activityIndicatorView.startAnimating()
         if let librarian = self.librarian {
-            super.activityIndicatorView.startAnimating()
-
+            
             let event = BookEvent(librarian: librarian, book: book, action: .add)
             event.delegate = self
         }
