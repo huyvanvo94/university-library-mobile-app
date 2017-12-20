@@ -396,6 +396,9 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func fetch() {
         self.activityIndicatorView.startAnimating()
+        // tell user unable to fetch books in 3 seconds if booksFromDatabase in empty
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
+        
         let event = FetchBooksEvent()
         event.delegate = self
     }
@@ -414,6 +417,15 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 let cell = self.tableView.cellForRow(at: IndexPath(row: row, section: section))
                 cell?.accessoryType = .none
             }
+        }
+    }
+    
+    @objc func removeActivityIndicatorView(){
+        
+        if self.booksFromDatabase.isEmpty{
+            
+            self.activityIndicatorView.stopAnimating()
+            self.alertMessage(title: "Oops", message: "Unable to fetch books.")
         }
     }
         

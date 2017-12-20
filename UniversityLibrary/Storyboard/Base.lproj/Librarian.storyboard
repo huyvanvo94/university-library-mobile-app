@@ -650,16 +650,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kD1-J6-LjI">
-                                                    <rect key="frame" x="0.0" y="10" width="375" height="73"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kD1-J6-LjI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yiy-AQ-T1d" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yiy-AQ-T1d" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="15" width="341.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caa-rH-fop" customClass="GeneralUISubLabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caa-rH-fop" customClass="GeneralUISubLabel" customModule="UniversityLibrary" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="35" width="341.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -668,28 +668,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="Yiy-AQ-T1d" firstAttribute="top" secondItem="kD1-J6-LjI" secondAttribute="top" constant="15" id="1OK-r5-dmJ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="caa-rH-fop" secondAttribute="bottom" constant="17" id="6V8-3s-O0d"/>
-                                                        <constraint firstAttribute="trailing" secondItem="caa-rH-fop" secondAttribute="trailing" constant="15.5" id="79y-AO-Fzq"/>
-                                                        <constraint firstItem="Yiy-AQ-T1d" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="Oco-cO-Kxi"/>
+                                                        <constraint firstItem="caa-rH-fop" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="5KZ-5w-Pc9"/>
+                                                        <constraint firstItem="Yiy-AQ-T1d" firstAttribute="top" secondItem="kD1-J6-LjI" secondAttribute="top" constant="15" id="D07-xe-AA0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="caa-rH-fop" secondAttribute="bottom" constant="34" id="Roh-np-s3K"/>
                                                         <constraint firstItem="caa-rH-fop" firstAttribute="top" secondItem="Yiy-AQ-T1d" secondAttribute="bottom" constant="2" id="VO4-aZ-Oor"/>
-                                                        <constraint firstItem="caa-rH-fop" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="tKm-cm-rnF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Yiy-AQ-T1d" secondAttribute="trailing" constant="15.5" id="wcD-bA-hg5"/>
-                                                        <constraint firstItem="caa-rH-fop" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="ybk-Mb-aeN"/>
+                                                        <constraint firstItem="Yiy-AQ-T1d" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="aa4-RB-gzs"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="kD1-J6-LjI" secondAttribute="bottom" constant="-4" id="Mlo-lO-s5S"/>
-                                                <constraint firstItem="kD1-J6-LjI" firstAttribute="leading" secondItem="fcc-cK-vV9" secondAttribute="leadingMargin" constant="10" id="SwM-Y9-S1o"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kD1-J6-LjI" secondAttribute="trailing" constant="10" id="gBV-od-VUE"/>
-                                                <constraint firstItem="kD1-J6-LjI" firstAttribute="top" secondItem="fcc-cK-vV9" secondAttribute="top" constant="10" id="wuy-20-w6q"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="kD1-J6-LjI" firstAttribute="width" secondItem="lNE-8u-84g" secondAttribute="width" id="5eH-1L-VoC"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="BookView" destination="kD1-J6-LjI" id="Wu3-eE-y1G"/>
                                             <outlet property="bookAuthorLabel" destination="caa-rH-fop" id="4Al-eu-lMx"/>
@@ -714,7 +702,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGq-MH-DJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="895"/>
+            <point key="canvasLocation" x="816.79999999999995" y="894.60269865067471"/>
         </scene>
     </scenes>
     <resources>
