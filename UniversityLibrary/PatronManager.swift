@@ -48,7 +48,7 @@ class PatronManager: BookKeeper, AbstractEventDelegate{
     func waiting(book: Book) {
         let waitingList = WaitingList(book: book, patron: self.patorn)
         
-        let event = WaitingListEvent(waitingList: waitingList, action: .add)
+        let event = WaitingListEvent(waitingList: waitingList)
         event.delegate = self
  
     }

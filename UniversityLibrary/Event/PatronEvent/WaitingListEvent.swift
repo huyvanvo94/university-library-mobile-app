@@ -14,7 +14,7 @@ class WaitingListEvent: AbstractEvent{
     var state: WaitingListState?
   
     let waitingList: WaitingList
-    let action: WaitingListAction
+ 
     
     weak var delegate: AbstractEventDelegate? {
         didSet{
@@ -22,9 +22,9 @@ class WaitingListEvent: AbstractEvent{
         }
     }
     
-    init(waitingList: WaitingList, action: WaitingListAction) {
+    init(waitingList: WaitingList) {
         self.waitingList = waitingList
-        self.action = action
+        
     }
     
     func async_ProcessEvent() {
@@ -36,14 +36,10 @@ class WaitingListEvent: AbstractEvent{
         let queue = DispatchQueue(label: "com.huy.vo.cmpe277.waitinglistevent")
         
         queue.async {
+           
             
-            switch self.action{
-            case .add:
-                self.add(delegate: delegate, waitingList: self.waitingList)
-            default:
-                print("no action")
-            }
-            
+            self.add(delegate: delegate, waitingList: self.waitingList)
+          
             
         }
     }
@@ -63,13 +59,20 @@ class WaitingListEvent: AbstractEvent{
                         
                         db.child(waitingList.book.key).updateChildValues(["users": users])
 
-                        self.state = .success
-                        delegate.complete(event: self)
+                        DispatchQueue.main.async {
+                            
+                        
+                            self.state = .success
+                            delegate.complete(event: self)
+                        }
 
                     }else{
-
-                        self.state = .duplicate
-                        delegate.complete(event: self)
+                        
+                        DispatchQueue.main.async {
+                            self.state = .duplicate
+                        
+                            delegate.complete(event: self)
+                        }
                     }
 
                 }else{
@@ -85,24 +88,27 @@ class WaitingListEvent: AbstractEvent{
                     db.child(self.waitingList.book.key).updateChildValues(users)
                     // end uddate child values
                     
-                    self.state = .success
-                    delegate.complete(event: self)
+                    DispatchQueue.main.async {
+                        
+                     
+                        self.state = .success
+                        delegate.complete(event: self)
+                        
+                    }
                     
                 }
                 
             }else{
-
-                self.state = .error
-                delegate.error(event: self)
+                
+                DispatchQueue.main.async {
+                    self.state = .error
+                    delegate.error(event: self)
+                }
                 
             } 
         })
     }
-    
-    private func delete(){
-        
-    }
-    
+ 
 }
 
 protocol WaitingListDelegate: AbstractEventDelegate {

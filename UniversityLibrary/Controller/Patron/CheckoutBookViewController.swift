@@ -83,19 +83,8 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     
     //Actions
     @IBAction func checkoutAction(_ sender: MenuUIButton) {
-        if Mock.isMockMode{
-
-            self.patron = Mock.mock_Patron()
-
-            if let book = self.book{
-                super.activityIndicatorView.startAnimating()
-                self.checkout(book: book)
-            }
-        }else{
-
-            self.checkout(book: book!)
-
-        }
+        self.checkout(book: book!)
+ 
     }
 
 
@@ -112,8 +101,9 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
     func waiting(book: Book) {
         
         if let patron = self.patron{
+            self.activityIndicatorView.startAnimating()
             let waitlist = WaitingList(book: book, patron: patron)
-            let event = WaitingListEvent(waitingList: waitlist, action: .add)
+            let event = WaitingListEvent(waitingList: waitlist)
             event.delegate = self
         }
 
@@ -180,7 +170,7 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
                 let yes = UIAlertAction(title: "Yes", style: .destructive, handler: {(handler) in
                     let book = event.checkoutList.book
                     self.waiting(book: book)
-                    self.popBackView()
+                    
                 })
                 let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 alert.addAction(yes)
@@ -197,9 +187,15 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
             Logger.log(clzz: "CheckoutBookVC", message: "waitlist")
             
             if event.state == .success{
-                self.alertMessage(title: "Success", message: "Added to wait list success!")
+             
+                self.alertMessage(title: "Success", message: "Added to wait list success!", handler: {handler in
+                    
+                    self.popBackView()
+                })
             }else if event.state == .duplicate{
                 self.alertMessage(title: "Hey", message: "Already on wait list")
+            }else{
+                self.alertMessage(title: "Oops", message: "Error")
             }
      
         default:
@@ -207,9 +203,21 @@ class CheckoutBookViewController: BaseViewController, BookKeeper, AbstractEventD
         }
     }
     func error(event: AbstractEvent){
+     
+  
         super.activityIndicatorView.stopAnimating()
         
-        self.alertMessage(title: "Oops", message: "Something went wrong")
+        switch event {
+        case let event as CheckoutListEvent:
+              self.alertMessage(title: "Oops", message: "You can't check out any more books")
+        case let event as WaitingListEvent:
+            self.alertMessage(title: "Oops", message: "Cannot be added to waiting list")
+        default:
+            self.alertMessage(title: "Oops", message: "Someting went wrong.")
+        }
+    
+       
+
 
     }
 

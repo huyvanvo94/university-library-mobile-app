@@ -98,10 +98,19 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool){
+        Logger.log(clzz: "PatronBooksViewController", message: "viewWillAppear")
         super.viewWillAppear(animated)
+        
         booksFromDatabase.removeAll()
         self.tableView.reloadData()
         self.fetch()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        stopTimer()
+        
     }
     
     override func loadView() {
@@ -195,11 +204,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             self.booksFromDatabase[index].toggle = false
             self.tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
             
-        }else{
-            
         }
-        
-        
+         
     }
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -219,7 +225,6 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 
             }
             else{
-               
                 self.alertMessage(title: "Error", message: "Max is 3 books per day")
             }
             
@@ -273,7 +278,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func waiting(book: Book) {
         let waitingList = WaitingList(book: book, patron: self.patron!)
         
-        let event = WaitingListEvent(waitingList: waitingList, action: .add)
+        let event = WaitingListEvent(waitingList: waitingList)
         event.delegate = self
         
     }
@@ -407,6 +412,13 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func doRenew(book: Book) {
         
+    }
+    
+    func stopTimer(){
+        if timer != nil{
+            timer?.invalidate()
+            timer = nil 
+        }
     }
 
     func checkout(books: [Book]){

@@ -80,26 +80,31 @@ class CheckoutListEvent: AbstractEvent{
                         
 
                         
-                    case .contain:
+                    case .contain, .full, .alreadyOnReserve:
 
                         Logger.log(clzz: "CheckoutListEvent", message: "contain")
-                        delegate.complete(event: self)
                         
-                    case .full:
-                        delegate.complete(event: self)
-                        
-                    case .alreadyOnReserve:
-                        delegate.complete(event: self)
+                        DispatchQueue.main.async {
+                            
+                            delegate.complete(event: self)
+                        }
+                  
                     default:
-                        delegate.error(event: self)
+                        
+                        DispatchQueue.main.async { 
+                            delegate.error(event: self)
+                        }
                     }
                 })
+                
             }else{
-                // cannot checkout
                 
-                self.state = .error
-                
-                delegate.error(event: self)
+                DispatchQueue.main.async {
+    
+                    // cannot checkout
+                    self.state = .error
+                    delegate.error(event: self)
+                }
             }
         }
     }
