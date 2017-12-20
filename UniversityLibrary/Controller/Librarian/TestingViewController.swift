@@ -17,6 +17,9 @@ class TestingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.setToolbarHidden(true, animated: false)
+        
  datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         
         if !Mock.isMockMode{

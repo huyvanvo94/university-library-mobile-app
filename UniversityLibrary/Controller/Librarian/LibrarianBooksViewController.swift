@@ -15,18 +15,19 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
     var pause = false
     var booksFromDatabase = [Book]()
-    
+    var timer: Timer?
     var books = [String: Book]()
 
     override func loadView() {
         super.loadView()
         
     }
+   
 
     func fetch(){
         self.activityIndicatorView.startAnimating()
         // tell user unable to fetch books in 3 seconds if booksFromDatabase in empty
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
+       timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
         
         let event = FetchBooksEvent()
         event.delegate = self
@@ -55,6 +56,9 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         Logger.log(clzz: "LibrarianVC", message: "viewDidLoad")
         super.viewDidLoad()
+        
+        navigationController?.setToolbarHidden(true, animated: false)
+        
         if let librarian = AppDelegate.fetchLibrarian(){
             self.librarian = librarian
         }else{
@@ -67,6 +71,15 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
        
         self.fetch()
  
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if timer != nil{
+            timer?.invalidate()
+            timer = nil
+        }
     }
 
     private func initTableView(){

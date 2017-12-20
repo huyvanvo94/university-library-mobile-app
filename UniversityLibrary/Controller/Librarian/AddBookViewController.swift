@@ -160,7 +160,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.setToolbarHidden(true, animated: false)
       
         self.initView()
         

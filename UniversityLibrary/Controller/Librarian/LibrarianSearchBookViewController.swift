@@ -41,6 +41,8 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setToolbarHidden(true, animated: false)
+        
         
         if let librarian = AppDelegate.fetchLibrarian(){
             self.librarian = librarian

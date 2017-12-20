@@ -45,7 +45,8 @@ class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
+        navigationController?.setToolbarHidden(true, animated: false)
         self.title = "Library"
         // Do any additional setup after loading the view.
     }

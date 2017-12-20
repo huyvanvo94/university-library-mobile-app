@@ -10,6 +10,7 @@ import UIKit
 
 class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate, BookKeeper {
  
+    var timer: Timer?
     var reciept: String = ""
     
     @IBOutlet weak var tableView: UITableView!
@@ -94,6 +95,13 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             tableView.allowsMultipleSelection = false
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        booksFromDatabase.removeAll()
+        self.tableView.reloadData()
+        self.fetch()
     }
     
     override func loadView() {
@@ -393,7 +401,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func fetch() {
         self.activityIndicatorView.startAnimating()
         // tell user unable to fetch books in 3 seconds if booksFromDatabase in empty
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
         
         let event = FetchBooksEvent()
         event.delegate = self
