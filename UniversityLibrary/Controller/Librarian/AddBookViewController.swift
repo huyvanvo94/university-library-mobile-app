@@ -21,7 +21,8 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     var librarian: Librarian?
     // outlets
- 
+    @IBOutlet weak var scollView: UIScrollView!
+    
     @IBOutlet weak var bookTitle: UITextField!
     
     @IBOutlet weak var author: UITextField!
@@ -65,7 +66,9 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         
         currentStatus.delegate = self
         
-        
+       
+        self.scollView.hideIndicators()
+       
     }
     
     

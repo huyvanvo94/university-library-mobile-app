@@ -38,6 +38,7 @@ class BookCell: UITableViewCell {
         BookView.layer.shadowOpacity = 0.09
         BookView.layer.shadowRadius = 20
         BookView.layer.cornerRadius = 6
+       
     }
     
  

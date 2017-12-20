@@ -19,12 +19,15 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     var books = [String: Book]()
 
     override func loadView() {
-
         super.loadView()
+        
     }
 
     func fetch(){
         self.activityIndicatorView.startAnimating()
+        // tell user unable to fetch books in 3 seconds if booksFromDatabase in empty
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
+        
         let event = FetchBooksEvent()
         event.delegate = self
     }
@@ -42,6 +45,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
             self.tableView.reloadData()
             
             pause = false
+            
             self.fetch()
 
         }
@@ -66,6 +70,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     }
 
     private func initTableView(){
+         
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -121,6 +126,8 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
         let book = self.booksFromDatabase[index]
         cell.bookAuthorLabel.text = book.author
         cell.bookTitleLabel.text = book.title
+        
+        cell.layoutMargins = UIEdgeInsets.zero
 
 
         return cell
@@ -206,4 +213,12 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     }
 
 
+    @objc func removeActivityIndicatorView(){
+        
+        if self.booksFromDatabase.isEmpty{
+            
+            self.activityIndicatorView.stopAnimating()
+            self.alertMessage(title: "Oops", message: "Unable to fetch books.")
+        }
+    }
 }

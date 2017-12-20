@@ -193,6 +193,13 @@ extension Int{
     }
 }
 
+extension UIScrollView {
+    func hideIndicators() {
+        showsHorizontalScrollIndicator = false
+        showsVerticalScrollIndicator = false
+    }
+}
+
 
 
 

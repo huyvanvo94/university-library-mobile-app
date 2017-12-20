@@ -204,7 +204,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             
            
             if let _ = self.book?.base64Image{
-                print("OK")
+               
                 coverImage.image = self.book?.image!
             }
             if let lastUpdated = self.book?.lastUpDateBy{
@@ -296,7 +296,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             }else if event.action == .delete{
                  if event.state == BookActionState.success{
                    
-                   self.navigationController?.popToRootViewController(animated: true)
+                    self.popBackView()
+                 //  self.navigationController?.popToRootViewController(animated: true)
                  }else if event.state == BookActionState.checkoutListNotEmpty{
 
                     self.alertMessage(title: "Error", message: "Book is currently checkedout")

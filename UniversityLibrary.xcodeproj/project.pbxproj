@@ -24,7 +24,6 @@
 		8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */; };
 		8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */; };
 		8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */; };
-		8F0407581FCD2552001987D8 /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407571FCD2552001987D8 /* ScanBookViewController.swift */; };
 		8F04075A1FCD26CC001987D8 /* LibrarianLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */; };
 		8F0D76261FD8D09C00EF1F89 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D76251FD8D09C00EF1F89 /* TestCase.swift */; };
 		8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */; };
@@ -129,7 +128,6 @@
 		8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianSearchBookViewController.swift; sourceTree = "<group>"; };
 		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
 		8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatronLibraryViewController.swift; path = UniversityLibrary/Controller/Patron/PatronLibraryViewController.swift; sourceTree = SOURCE_ROOT; };
-		8F0407571FCD2552001987D8 /* ScanBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBookViewController.swift; sourceTree = "<group>"; };
 		8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianLibraryViewController.swift; sourceTree = "<group>"; };
 		8F0D76251FD8D09C00EF1F89 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
@@ -319,7 +317,6 @@
 				3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */,
 				8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */,
 				8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */,
-				8F0407571FCD2552001987D8 /* ScanBookViewController.swift */,
 				8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */,
 				8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */,
 				8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */,
@@ -698,7 +695,6 @@
 				8F9367911FBBA921007716E5 /* User.swift in Sources */,
 				8FEDF5E01FC554F900CEA2CB /* ReturnBookEvent.swift in Sources */,
 				8FEABA041FC0BB3600EA26E9 /* BaseViewController.swift in Sources */,
-				8F0407581FCD2552001987D8 /* ScanBookViewController.swift in Sources */,
 				8FA5D0891FC192560048EB74 /* WaitingList.swift in Sources */,
 				8FC6FAC71FCFF4F900FBC1D8 /* BookSearchBar.swift in Sources */,
 				8FEABA0C1FC0E76E00EA26E9 /* LoginUserEvent.swift in Sources */,

@@ -280,10 +280,8 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
             
             // must update patron runtime
             for id in patron.booksCheckedOut {
-                
                 let event = FetchBookEvent(id: id)
-                event.delegate = self
-
+                event.delegate = self 
             }
         }
 
