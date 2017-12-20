@@ -273,7 +273,11 @@ class Book: UniModel{
         }
         
         func setKeywords(_ keywords: String) -> Builder{
-            book?.keywords = keywords.components(separatedBy: .whitespaces)
+            var keywords = keywords.trimmingCharacters(in: .whitespacesAndNewlines)
+            keywords = keywords.replacingOccurrences(of: " ", with: ",", options: .literal, range: nil)
+            let arrKeywords = keywords.components(separatedBy: ",")
+            book.keywords = arrKeywords
+          
             return self 
         }
 

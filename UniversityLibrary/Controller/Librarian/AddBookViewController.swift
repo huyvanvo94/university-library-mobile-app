@@ -34,7 +34,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     @IBOutlet weak var currentStatus: UITextField!
     @IBOutlet weak var coverImage: UIImageView!
-  //  @IBOutlet weak var keywords: GeneralUITextField!
+ 
     @IBOutlet weak var stackView: UIStackView!
      
     @IBOutlet weak var keywords: GeneralTextArea!
@@ -48,7 +48,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         numberOfCopies.resignFirstResponder()
         callNumber.resignFirstResponder()
         currentStatus.resignFirstResponder()
-  
         keywords.resignFirstResponder()
         
     }
@@ -63,30 +62,12 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         numberOfCopies.delegate = self
         callNumber.delegate = self
         currentStatus.delegate = self
-      
         keywords.delegate = self
         
-       
        
         self.scollView.hideIndicators()
        
     }
-    
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-       // stackView.frame.origin.y -= 100
-        
-      //  textField.becomeFirstResponder()
-        switch textField {
-        case bookTitle, author:
-            return true
-        default:
-       
-         
-            return true
-        }
-    }
-    
     
     func fetchImage(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -99,7 +80,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         }
     }
     
-    //cover image tap
+    // cover image tap
     func initCoverImageTap(){
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(AddBookViewController.imageOnTap(_:)))
@@ -111,6 +92,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         
     }
     
+    // fetch image
     @objc func imageOnTap(_ sender: UITapGestureRecognizer){
         fetchImage()
     }
@@ -135,7 +117,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         callNumber.text = ""
         yearOfPublication.text = ""
         currentStatus.text = ""
-    
         keywords.text = ""
     }
     
@@ -143,7 +124,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         Logger.log(clzz: "AddBookViewController", message: "addBookAction")
  
         if let book = self.buildBook(){
-          
             self.add(with: book)
         }else{
             self.showToast(message: "Invalid inputs!")
@@ -171,9 +151,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         }else{
             self.librarian = Mock.mock_Librarian()
         }
-
-        // Do any additional setup after loading the view.
-        
+ 
     }
     
   
@@ -205,16 +183,17 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        registerNotifications()
+      
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unregisterNotifications()
+        
     }
 
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+     
         textField.resignFirstResponder()
         
        
@@ -233,10 +212,11 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         guard let bookTitle = self.bookTitle.text, let author = self.author.text, let publisher = self.publisher.text, let yearOfPublication = self.yearOfPublication.text?.number, let locationInLibrary = self.locationInLibrary.text, let numberOfCopies = self.numberOfCopies.text?.number, let callNumber = self.callNumber.text,
             let currentStatus = self.currentStatus.text, let keywords = self.keywords.text
             else {
-            
             return nil
         }
      
+        
+        
         let book = Book.Builder()
             .setTitle(bookTitle)
             .setAuthor(author)
@@ -265,8 +245,8 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
                 super.displayAnimateSuccess()
             }else if event.state == .exist{
                 
-               /* self.view.makeToast("Already contains book", point: Screen.center, title: "Error", image: UIImage(named: "error.png"), completion: nil) */
-           
+                self.alertMessage(title: "Ooopse", message: "Already contains book in database")
+       
             }
         default:
             print("No action")
@@ -341,23 +321,43 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         
     }
     
-    func registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+ 
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // don't allow view to move up if is book title or author
+        if textField == bookTitle || textField == author {
+            return
+        }
+        animateViewMoving(true, moveValue: 200)
     }
     
-    func unregisterNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // don't allow view to move down if is book title or author
+        if textField == bookTitle || textField == author {
+            return
+        }
+        animateViewMoving(false, moveValue: 200)
     }
     
-    func keyboardWillShow(notification: NSNotification){
-        guard let keyboardFrame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
-        scollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 20
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        animateViewMoving(true, moveValue: 200)
     }
     
-    func keyboardWillHide(notification: NSNotification){
-        scollView.contentInset.bottom = 0
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        animateViewMoving(false, moveValue: 200)
+    }
+    
+    func animateViewMoving(_ up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        
+        
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
 
 }

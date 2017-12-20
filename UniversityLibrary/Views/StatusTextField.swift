@@ -12,7 +12,7 @@ import UIKit
 
 class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate{
     
-    let options = ["", "Available", "Not Available"]
+    let options = ["", "Available", "Not Available", "Processing", "Deactivated", "Unknown"]
     
     override func awakeFromNib() {
         
@@ -62,7 +62,7 @@ class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @objc func pickerOnTap(_ sender: UITapGestureRecognizer){
-        print("tap")
+        
     }
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
