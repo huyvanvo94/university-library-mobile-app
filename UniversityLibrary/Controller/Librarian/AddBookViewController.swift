@@ -14,7 +14,7 @@ import UIKit
  */
 
 
-class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
+class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate{
 
     // determine if textfield needs to change
     var positionChange = false
@@ -34,10 +34,10 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
     
     @IBOutlet weak var currentStatus: UITextField!
     @IBOutlet weak var coverImage: UIImageView!
-    @IBOutlet weak var keywords: GeneralUITextField!
+  //  @IBOutlet weak var keywords: GeneralUITextField!
     @IBOutlet weak var stackView: UIStackView!
-    
-    // end outlets
+     
+    @IBOutlet weak var keywords: GeneralTextArea!
     
     func hideKeyboard(){
         bookTitle.resignFirstResponder()
@@ -48,6 +48,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         numberOfCopies.resignFirstResponder()
         callNumber.resignFirstResponder()
         currentStatus.resignFirstResponder()
+  
         keywords.resignFirstResponder()
         
     }
@@ -62,6 +63,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         numberOfCopies.delegate = self
         callNumber.delegate = self
         currentStatus.delegate = self
+      
         keywords.delegate = self
         
        
@@ -133,6 +135,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         callNumber.text = ""
         yearOfPublication.text = ""
         currentStatus.text = ""
+    
         keywords.text = ""
     }
     
@@ -161,9 +164,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
       
         self.initView()
         
-        
-        
-        
         addBookItemBar.isEnabled = true
         initCoverImageTap()
         if let librarian = AppDelegate.fetchLibrarian(){
@@ -180,6 +180,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        /*
         if textField == keywords{
             if(string == " "){
                 
@@ -192,7 +193,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
                 
                 return false
             }
-        }
+        }*/
         
         
         if textField == currentStatus{
@@ -331,7 +332,6 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         
         if self.getSize(image: self.pickedImage!){
             self.coverImage.image = self.pickedImage!
-            //     self.showToast(message: "Image Size Too Large")
         }else{
             self.showToast(message: "Image Size Too Large")
         }

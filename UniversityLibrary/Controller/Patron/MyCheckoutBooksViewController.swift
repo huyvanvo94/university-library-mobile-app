@@ -9,7 +9,6 @@
 import UIKit
 
 class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate, BookKeeper {
-  
 
     var patron: Patron?
 
@@ -274,8 +273,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
     func fetch(){
 
         Logger.log(clzz: "MyCheckoutBooksVC", message: "fetch")
-
-        self.patron = AppDelegate.fetchPatron()!
+ 
         if let patron = self.patron{
             
             // must update patron runtime
