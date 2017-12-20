@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestingViewController: UIViewController {
+class TestingViewController: BaseViewController {
     
     @IBOutlet weak var switchLabel: GeneralUILabel!
     @IBOutlet weak var testingSwitch: UISwitch!
@@ -71,15 +71,26 @@ class TestingViewController: UIViewController {
             switchLabel.text = "Testing Mode: Off"
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+ 
+    @IBAction func notifyUsers(_ sender: Any) {
+        self.notifyUsersOfDueDate()
     }
-    */
+    
+    func notifyUsersOfDueDate(){
+        DispatchQueue.global().async {
+            
+            DataService.shared.sendAlertReminder(completion: {success in
+                if success {
+                    
+                    DispatchQueue.main.async { 
+                        self.alertMessage(title: "Success", message: "Notified all users success")
+                    }
+                }else{
+                    
+                }
+            })
+        }
+    }
+ 
 
 }

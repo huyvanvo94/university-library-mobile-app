@@ -15,17 +15,12 @@ final class DataService{
     private init(){}
     
     static let shared = DataService()
-    func sendDailyAlertReminder(startDate: Double, endDate: Double, email: String, completion: ((Bool)-> ())?){
+    
+    
+    func sendAlertReminder(completion: ((Bool)-> ())?){
         
-        let url: String
-        
-        if Mock.isMockMode{
-        
-            url = BASE_URL + "mock_scheduledEmail?twentyFiveDaysFromNowTimeInterval=\(startDate)&thirtyDaysFromNowTimeInterval=\(endDate)&email=\(email)"
-        }else{
-             url = BASE_URL + "scheduledEmail?twentyFiveDaysFromNowTimeInterval=\(startDate)&thirtyDaysFromNowTimeInterval=\(endDate)&email=\(email)"
-        }
-        
+        let url = BASE_URL + "mock_scheduledEmail"
+            
         let requestURL = URL(string: url)
         
         if let theRequestURL = requestURL{
