@@ -359,7 +359,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         
     }
     
-    
+    /*
     func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
@@ -377,7 +377,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     func keyboardWillHide(notification: NSNotification){
         scollView.contentInset.bottom = 0
-    }
+    }*/
 
     
     
