@@ -33,7 +33,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     override func loadView() {
         super.loadView()
-        self.title = "Search"
+        self.title = "Exact Search"
         
         
 
