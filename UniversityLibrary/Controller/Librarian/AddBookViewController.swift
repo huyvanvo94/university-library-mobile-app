@@ -214,8 +214,10 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             else {
             return nil
         }
-     
-        
+        // negative number 
+        if numberOfCopies < 0{
+            return nil
+        }
         
         let book = Book.Builder()
             .setTitle(bookTitle)

@@ -116,10 +116,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         
    
         if let book = self.book{
-            if self.librarian == nil{
-                self.librarian = Mock.mock_Librarian()
-            }
-
+      
             self.buildUpdatedBook()
             self.update(book: book)
         }
@@ -131,7 +128,6 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
 
         let newBook = Book(dict: self.book!.dict)
  
-        
         if let title = bookTitleTextField.text {
             newBook.title = title
         }
@@ -166,12 +162,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
      
         if let book = self.book{
             super.activityIndicatorView.startAnimating()
-            
-            if self.librarian == nil{
-                self.librarian = Mock.mock_Librarian()
-            }
-            
-            
+          
             self.delete(book: book)
         }
     
@@ -300,7 +291,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
                  //  self.navigationController?.popToRootViewController(animated: true)
                  }else if event.state == BookActionState.checkoutListNotEmpty{
 
-                    self.alertMessage(title: "Error", message: "Book is currently checkedout")
+                    self.alertMessage(title: "Error", message: "Book is currently checked out")
                 
                 }
                     
@@ -325,7 +316,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary;
             imagePicker.allowsEditing = true
-            //   imagePicker.modalPresentationStyle = .popover
+         
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
@@ -379,36 +370,5 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         UIView.commitAnimations()
     }
     
-    /*
-    func registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-    }
-    
-    func unregisterNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardWillShow(notification: NSNotification){
-        guard let keyboardFrame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
-        scollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 20
-    }
-    
-    func keyboardWillHide(notification: NSNotification){
-        scollView.contentInset.bottom = 0
-    }*/
-
-    
-    
-
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
