@@ -12,6 +12,7 @@ class PatronNavViewController: BaseNavViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.view.backgroundColor = .white
         Logger.log(clzz: "PatronNavViewController", message: "viewDidLoad")
 
         // Do any additional setup after loading the view.

@@ -18,8 +18,10 @@ class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDa
         
         super.awakeFromNib()
         
+        
+        
         self.borderStyle = UITextBorderStyle.none
-        self.font = UIFont(name: "Verdana", size: Screen.height * 0.02)
+        self.font = UIFont(name: "Verdana", size: Screen.height * 0.03)
         self.heightAnchor.constraint(equalToConstant: Screen.height * 0.03).isActive = true
         self.layer.cornerRadius = 5.0
         self.textColor = UIColor(rgb: 0x000000)
@@ -51,7 +53,6 @@ class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDa
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.text = options[row]
-        print(options[row])
         pickerView.removeFromSuperview()
         
     }
@@ -70,16 +71,17 @@ class StatusTextField : GeneralUITextField, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func makeEditable(){
-        self.borderStyle = UITextBorderStyle.roundedRect
+        self.borderStyle = .roundedRect
         self.isUserInteractionEnabled = true
         self.layer.borderColor = UIColor(red: 55/255, green: 78/255, blue: 95/255, alpha: 1.0).cgColor
         self.layer.borderWidth = 1.0
     }
     
     func makeNotEditable(){
-        self.borderStyle = UITextBorderStyle.none
+        self.borderStyle = .none
         self.isUserInteractionEnabled = false
         
+        self.layer.borderWidth = 0
 
         
     }

@@ -36,5 +36,7 @@ class CustomUITextField: UITextField {
         self.borderStyle = UITextBorderStyle.none
         self.isUserInteractionEnabled = false
         
+        self.layer.borderWidth = 0
+
     }
 }

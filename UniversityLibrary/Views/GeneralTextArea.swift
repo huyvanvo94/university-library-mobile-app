@@ -16,5 +16,8 @@ class GeneralTextArea: UITextView{
         self.textColor = UIColor(rgb: 0x143468)
         self.font = UIFont(name: "Verdana", size: Screen.height * 0.020)
         self.textAlignment = .left
+        
+        self.layer.borderColor = UIColor(red: 55/255, green: 78/255, blue: 95/255, alpha: 1.0).cgColor
+        self.layer.borderWidth = 1.0
     }
 }
