@@ -10,5 +10,5 @@
    
    <li> Pod </li>
    
-   <li> Node.JS for back end <li>
+   <li> Node.JS for back end </li>
  </ul>
