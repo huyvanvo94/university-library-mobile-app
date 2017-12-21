@@ -35,22 +35,38 @@ class FetchBooksEvent: AbstractEvent{
             
             let db = FirebaseManager().reference
             
+           
+            
             db?.child(DatabaseInfo.bookTable).observeSingleEvent(of: .value, with: { snapshot in
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                    for child in snapshots {
-                        
-                        if let bookDict = child.value as? Dictionary<String, Any> {
+               
+                    if snapshots.isEmpty{
+                        DispatchQueue.main.async {
                             
-                            let book = Book(dict: bookDict)
-                            
-                            self.book = book
-                            
-                            delegate.complete(event: self)
+                            delegate.error(event: self)
                         }
-                        
-                        
+                    }else{
+                        for child in snapshots {
+                            
+                            if let bookDict = child.value as? Dictionary<String, Any> {
+                                
+                                let book = Book(dict: bookDict)
+                                
+                                self.book = book
+                                
+                                delegate.complete(event: self)
+                            }
+                            
+                        }
                     }
-                    
+                
+                }else{
+                    DispatchQueue.main.async {
+                        
+                        delegate.error(event: self)
+                    }
+                   
+                   
                 }
             })
         }

@@ -15,7 +15,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
     var pause = false
     var booksFromDatabase = [Book]()
-    var timer: Timer?
+    
     var books = [String: Book]()
 
     override func loadView() {
@@ -26,9 +26,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
     func fetch(){
         self.activityIndicatorView.startAnimating()
-        // tell user unable to fetch books in 10 seconds if booksFromDatabase in empty
-       timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
-        
+   
         let event = FetchBooksEvent()
         event.delegate = self
     }
@@ -76,17 +74,8 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // stop timer 
-        stopTimer()
-        
     }
-    
-    func stopTimer(){
-        if timer != nil{
-            timer?.invalidate()
-            timer = nil
-        }
-    }
+ 
     
     private func initTableView(){
          
@@ -224,20 +213,19 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
  
     
     func error(event: AbstractEvent) {
-        self.activityIndicatorView.stopAnimating()
-        self.alertMessage(title: "Error", message: "Something went wrong", handler: {(action) in
-            self.popBackView() 
-        })
-
-    }
-
-
-    @objc func removeActivityIndicatorView(){
         
-        if self.booksFromDatabase.isEmpty{
-            
-            self.activityIndicatorView.stopAnimating()
-            self.alertMessage(title: "Oops", message: "Possible unable to fetch books.")
+        self.activityIndicatorView.stopAnimating()
+        if event is FetchBooksEvent{
+            self.alertMessage(title: "Oops", message: "Unable to fetch books.")
+             
+        }else{
+           
+            self.alertMessage(title: "Error", message: "Something went wrong", handler: {(action) in
+                self.popBackView()
+            })
         }
+
     }
+
+ 
 }
