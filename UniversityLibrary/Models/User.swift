@@ -20,22 +20,32 @@ class User: UniModel{
     
     static func signOut(){
         let defaults = UserDefaults.standard
-        defaults.set(nil, forKey: "email")
-        defaults.set(nil, forKey: "password")
+        
+        defaults.removeObject(forKey: "email")
+        defaults.removeObject(forKey: "password")
+     
+      
+    }
+    
+    func signout(){
+        User.signOut()
+        
+        email = nil
+        password = nil
     }
     
     func save(){
+        Logger.log(clzz: "User", message: "save")
         let defaults = UserDefaults.standard
         defaults.set(email, forKey: "email")
         defaults.set(password, forKey: "password")
     }
-    
-    static func loadUser(){}
-    
+     
     static func fetch() -> User?{
         let defaults = UserDefaults.standard
       
         if let email = defaults.string(forKey: "email"), let password = defaults.string(forKey: "password"){
+            Logger.log(clzz: "User", message: "fetch with email:\(email) password:\(password)")
             return User(email: email, password: password)
         }else{
             return nil

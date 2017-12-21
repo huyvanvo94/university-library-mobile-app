@@ -61,6 +61,7 @@ class LoginViewController: BaseViewController, LoginUserEventDelegate, UITextFie
         
         if !email.isValidEmail(){
             self.alertMessage(title: "Error", message: "Invalid email")
+            return
         }
         
         

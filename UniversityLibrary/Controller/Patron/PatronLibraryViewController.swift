@@ -30,8 +30,11 @@ class PatronLibraryViewController: BaseViewController, BookManager, AbstractEven
     }
     @IBAction func logout(_ sender: UIBarButtonItem) {
     
-        let event = SignoutUserEvent()
-        event.delegate = self
+        if let user = AppDelegate.user{
+            let event = SignoutUserEvent(user: user)
+            event.delegate = self
+        }
+ 
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
