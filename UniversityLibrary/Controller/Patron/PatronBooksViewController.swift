@@ -9,8 +9,7 @@
 import UIKit
 
 class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, AbstractEventDelegate, BookKeeper {
- 
-    var timer: Timer?
+  
     var reciept: String = ""
     
     @IBOutlet weak var tableView: UITableView!
@@ -109,7 +108,6 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        stopTimer()
         
     }
     
@@ -393,7 +391,15 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func error(event: AbstractEvent) {
      
         self.activityIndicatorView.stopAnimating()
-        self.displayAnimateError()
+        
+        if event is FetchBooksEvent{
+          
+            self.alertMessage(title: "Oops", message: "Unable to fetch books.")
+            
+        }else{
+            
+            self.displayAnimateError()
+        }
         
     
     }
@@ -403,8 +409,6 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func fetch() {
         self.activityIndicatorView.startAnimating()
-        // tell user unable to fetch books in 10 seconds if booksFromDatabase in empty
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
         
         let event = FetchBooksEvent()
         event.delegate = self
@@ -413,13 +417,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     func doRenew(book: Book) {
         
     }
-    
-    func stopTimer(){
-        if timer != nil{
-            timer?.invalidate()
-            timer = nil 
-        }
-    }
+  
 
     func checkout(books: [Book]){
 
