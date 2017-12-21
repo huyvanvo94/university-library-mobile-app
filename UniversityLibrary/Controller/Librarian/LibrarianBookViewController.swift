@@ -117,14 +117,15 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
    
         if let book = self.book{
       
-            self.buildUpdatedBook()
-            self.update(book: book)
+            if self.buildUpdatedBook(){
+                self.update(book: book)
+            }
         }
 
 
     }
 
-    func buildUpdatedBook(){
+    func buildUpdatedBook() -> Bool{
 
         let newBook = Book(dict: self.book!.dict)
  
@@ -155,6 +156,8 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         
         
         self.book?.updateBook = newBook
+        
+        return true
     }
 
     
@@ -168,7 +171,6 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     
     }
     
-      // MARK: Kevin
     func loadBookToView(){
         self.title = "Book Details"
         // then load book to view 
@@ -256,6 +258,7 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         Logger.log(clzz: "LibrarianBookViewController", message: "update")
         if let librarian = self.librarian {
             
+            self.activityIndicatorView.startAnimating()
             
             let event = BookEvent(librarian: librarian, book: book, action: .update)
             event.delegate = self
@@ -302,6 +305,13 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
     }
     
     func error(event: AbstractEvent) {
+        
+        DispatchQueue.main.async {
+        
+            self.activityIndicatorView.stopAnimating()
+            self.alertMessage(title: "Error", message: "error code 404")
+            
+        }
         
     }
     
