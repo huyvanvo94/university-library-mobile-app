@@ -141,7 +141,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ua-UC-9fc" customClass="StatusTextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3Z-Mq-Yi0" customClass="StatusTextField" customModule="UniversityLibrary" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="409.5" width="319" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -226,7 +226,7 @@
                         <outlet property="bookTitle" destination="XQJ-Eq-NkK" id="7n7-QF-cQF"/>
                         <outlet property="callNumber" destination="C4t-JW-SaO" id="yz1-2m-QxU"/>
                         <outlet property="coverImage" destination="MsJ-pT-gfy" id="fIJ-S7-dg5"/>
-                        <outlet property="currentStatus" destination="0Ua-UC-9fc" id="ha7-FY-GGp"/>
+                        <outlet property="currentStatus" destination="m3Z-Mq-Yi0" id="QSR-Fq-6zF"/>
                         <outlet property="keywords" destination="ffN-RT-M3U" id="hVM-lV-wWq"/>
                         <outlet property="locationInLibrary" destination="GJx-mS-AnL" id="v4V-yU-lTr"/>
                         <outlet property="numberOfCopies" destination="uaj-Gm-EJS" id="sKJ-SB-GAy"/>
