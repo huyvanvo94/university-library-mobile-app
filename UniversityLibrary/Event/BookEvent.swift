@@ -264,14 +264,12 @@ class BookEvent: AbstractEvent{
                             
                             
                         })
+ 
+                    }else{
 
-                        self.state = .success
-                        delegate.complete(event: self)
-  
+                        self.state = .error
+                        delegate.error(event: self)
                     }
-
-                    self.state = .error
-                    delegate.error(event: self)
 
                 })
           
