@@ -269,6 +269,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZ5-rU-wGS">
+                                <rect key="frame" x="42" y="599" width="252" height="30"/>
+                                <state key="normal" title="Notify All Users of Due Date"/>
+                                <connections>
+                                    <action selector="notifyUsers:" destination="Nk6-0y-ERL" eventType="touchUpInside" id="vSG-wg-FuZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -277,7 +284,9 @@
                             <constraint firstItem="gJp-wr-i5L" firstAttribute="top" secondItem="btc-6S-8L0" secondAttribute="bottom" constant="50" id="Ax8-7v-WsE"/>
                             <constraint firstItem="FOV-WI-F7d" firstAttribute="centerX" secondItem="L6P-AE-QNd" secondAttribute="centerX" id="B42-jk-7tW"/>
                             <constraint firstItem="FOV-WI-F7d" firstAttribute="centerY" secondItem="L6P-AE-QNd" secondAttribute="centerY" id="LUH-Ye-FhT"/>
+                            <constraint firstItem="DZ5-rU-wGS" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leading" constant="42" id="h1a-6m-8Pf"/>
                             <constraint firstItem="btc-6S-8L0" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leadingMargin" constant="10" id="oCH-XB-j9P"/>
+                            <constraint firstItem="fyy-je-fRG" firstAttribute="top" secondItem="DZ5-rU-wGS" secondAttribute="bottom" constant="38" id="qF1-FU-Vsa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -288,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9s-hy-itE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="-611"/>
+            <point key="canvasLocation" x="1237.5999999999999" y="-611.24437781109452"/>
         </scene>
         <!--Librarian Search Book View Controller-->
         <scene sceneID="Bd0-9I-1qF">

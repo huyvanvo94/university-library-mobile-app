@@ -17,32 +17,40 @@ class SignoutUserEvent: AbstractEvent{
         }
     }
     
+    let user: User
+    
+    init(user: User){
+        self.user = user
+    }
+    
     var state: SignoutUserState = .none
     
     func async_ProcessEvent() {
         let queue = DispatchQueue(label: "com.huyvo.cmpe277.dispatchqueue.signoutusereevent")
         
         queue.async {
-            
+           
+            self.user.signout()
+          
             do{
                 try Auth.auth().signOut()  
-                User.signOut()
                 
-                self.state = .success
-                self.delegate?.complete(event: self)
+                DispatchQueue.main.async {
+                    self.state = .success
+                    self.delegate?.complete(event: self) 
+                }
                 
             }catch{
-                self.state = .error
-                self.delegate?.error(event: self)
-            }
-            
+                DispatchQueue.main.async {
+                    self.state = .error
+                    self.delegate?.error(event: self)
+                    
+                }
+            } 
         }
     }
 }
 
-protocol SignoutUserDelegate: AbstractEventDelegate {
-
-}
 
 enum SignoutUserState{
     case none

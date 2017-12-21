@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate  {
 
     var window: UIWindow?
 
@@ -119,50 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginUserEventDelegate {
         self.window?.makeKeyAndVisible()
     }
     
-
-    func complete(event: AbstractEvent) {
-        
-        switch event {
-        case let event as LoginUserEvent:
-            
-            if event.user! is Patron{
-                self.goToPatron()
-            }else{
-                self.goToLibrarian()
-            }
-            
-        default:
-            self.goToMain()
-        }
-    }
  
-    
-    func error(event: AbstractEvent) {
-       
-        self.goToMain()
-    }
-    
-    func tryLogin(){
-        if let user = User.fetch(){
-            Logger.log(clzz: "AppDelegate", message: "Login user with \(user.email) & \(user.password)")
-            
-            if user.email.isSJSUEmail(){
-                
-                let librarian = Librarian(email: user.email, password: user.password)
-                let event = LoginUserEvent(librarian: librarian)
-                event.delegate = self
-            
-            }else{
-                let patron = Patron(email: user.email, password: user.password)
-                let event = LoginUserEvent(patron: patron)
-                event.delegate = self
-            }
-        }else{
-            Logger.log(clzz: "AppDelegate", message: "try login but going to main")
-            self.goToMain()
-        }
-    }
-    
     
 }
 

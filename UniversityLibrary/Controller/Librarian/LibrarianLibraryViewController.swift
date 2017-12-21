@@ -14,17 +14,19 @@ class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDD
  
     @IBAction func logout(_ sender: UIBarButtonItem) {
        // super.logout()
+        Logger.log(clzz: "LibrarianLibraryViewController", message: "logout")
+   
         
-        let event = SignoutUserEvent()
-        event.delegate = self
+        if let user = AppDelegate.user{
+            let event = SignoutUserEvent(user: user)
+            event.delegate = self
+        }
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = root
-        
-        
     }
     
     @IBAction func goToAddBooksVC(_ sender: MenuUIButton) {
@@ -71,8 +73,7 @@ class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDD
        
     }
     
-    
-    func update( book: Book) {
+    func update(book: Book) {
  
     }
     
@@ -81,12 +82,19 @@ class LibrarianLibraryViewController: BaseViewController, BookManager, BookCRUDD
     }
     
     func complete(event: AbstractEvent) {
-        
-        
-        
+     
+     
     }
     
     func error(event: AbstractEvent) {
+        Logger.log(clzz: "LibrarianLibraryVC", message: "error")
+        
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = root
         
     }
     

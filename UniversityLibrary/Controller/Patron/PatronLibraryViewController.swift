@@ -30,8 +30,11 @@ class PatronLibraryViewController: BaseViewController, BookManager, AbstractEven
     }
     @IBAction func logout(_ sender: UIBarButtonItem) {
     
-        let event = SignoutUserEvent()
-        event.delegate = self
+        if let user = AppDelegate.user{
+            let event = SignoutUserEvent(user: user)
+            event.delegate = self
+        }
+ 
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let root = mainStoryboard.instantiateViewController(withIdentifier: "NavRootViewController") as! NavRootViewController
@@ -72,15 +75,7 @@ class PatronLibraryViewController: BaseViewController, BookManager, AbstractEven
  
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
     func checkout(books: [Book]){
 
