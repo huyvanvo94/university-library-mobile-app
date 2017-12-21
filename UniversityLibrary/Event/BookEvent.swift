@@ -220,9 +220,9 @@ class BookEvent: AbstractEvent{
                         let email = self.librarian.email!
 
                         updatedBook.lastUpDateBy = email
-
+ 
                         db?.child(DatabaseInfo.bookTable).child(self.book.id!).updateChildValues(updatedBook.dict)
-
+                       
 
                         // update child
 

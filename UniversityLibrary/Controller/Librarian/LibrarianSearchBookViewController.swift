@@ -138,7 +138,7 @@ class LibrarianSearchBookViewController: BaseViewController, BookManager, BookCR
     
     func error(event: AbstractEvent) {
         
-        self.showToast(message: "Cannot find!")
+        self.alertMessage(title: "Error", message: "Cannot find!")
         
     }
     

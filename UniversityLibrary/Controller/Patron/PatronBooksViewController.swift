@@ -62,7 +62,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
             
             self.numberOfBooksCheckedOut = books.count
             
-            self.showToast(message: "Success")
+            self.alertMessage(title: "Success", message: "Success!")
             
             for book in books{
                 self.checkout(book: book)
@@ -301,7 +301,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
                 let yes = UIAlertAction(title: "Yes", style: .destructive, handler: {(handler) in
                     let book = event.checkoutList.book
                     self.waiting(book: book)
-                    self.showToast(message: "Success")
+                    self.alertMessage(title: "Succcess", message: "Success!")
                 })
                 let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
                 alert.addAction(yes)
@@ -403,8 +403,8 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func fetch() {
         self.activityIndicatorView.startAnimating()
-        // tell user unable to fetch books in 3 seconds if booksFromDatabase in empty
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
+        // tell user unable to fetch books in 10 seconds if booksFromDatabase in empty
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
         
         let event = FetchBooksEvent()
         event.delegate = self
@@ -439,7 +439,7 @@ class PatronBooksViewController: BaseViewController, UITableViewDelegate, UITabl
         if self.booksFromDatabase.isEmpty{
             
             self.activityIndicatorView.stopAnimating()
-            self.alertMessage(title: "Oops", message: "Unable to fetch books.")
+            self.alertMessage(title: "Oops", message: "Possible unable to fetch books.")
         }
     }
         

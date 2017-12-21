@@ -126,7 +126,8 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         if let book = self.buildBook(){
             self.add(with: book)
         }else{
-            self.showToast(message: "Invalid inputs!")
+            self.alertMessage(title: "Error", message: "Invalid inputs!")
+      
             self.clearAllTextFromTextField()
         }
 
@@ -311,7 +312,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
         if self.getSize(image: self.pickedImage!){
             self.coverImage.image = self.pickedImage!
         }else{
-            self.showToast(message: "Image Size Too Large")
+            self.alertMessage(title: "Error", message: "Image to large!")
         }
     }
     

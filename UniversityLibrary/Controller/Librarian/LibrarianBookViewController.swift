@@ -350,9 +350,9 @@ class LibrarianBookViewController: BaseViewController, BookManager, BookCRUDDele
         
         if self.getSize(image: self.pickedImage!){
             self.coverImage.image = self.pickedImage!
-            //     self.showToast(message: "Image Size Too Large")
+            
         }else{
-            self.showToast(message: "Image Size Too Large")
+            self.alertMessage(title: "Error", message: "image Size too large!")
         }
     }
     

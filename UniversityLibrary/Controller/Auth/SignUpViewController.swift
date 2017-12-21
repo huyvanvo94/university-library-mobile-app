@@ -59,12 +59,13 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
     @IBAction func signUp(_ sender: UIButton) {
         
         guard let email = emailTextField.text, let password = passwordTextField.text, let universityId = Int(studentIdTextField.text!) else{
-            self.showToast(message: "all text fields required")
+            self.alertMessage(title: "Error", message: "All text fields required!")
             return
         }
         
         if studentIdTextField.text?.characters.count != 6{
-            self.showToast(message: "invalid university id!")
+            
+            self.alertMessage(title: "Error", message: "Invalid University Id")
             return 
         }
         
@@ -93,14 +94,15 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
         super.activityIndicatorView.stopAnimating()
         switch event.state {
         case .error:
-            self.showToast(message: "Error!")
+            self.alertMessage(title: "Error", message: "Oops, something went wrong")
             
-        case .emailTaken:
-            self.showToast(message: "Email Taken!")
+        case .emailTaken: 
+            self.alertMessage(title: "Error", message: "Email taken!")
             self.emailTextField.text = ""
             
         case .universityIdTaken:
-            self.showToast(message: "University Id Taken!")
+            self.alertMessage(title: "Error", message: "Univesrity Id Taken")
+            
             self.studentIdTextField.text = ""
         default:
             self.clearText()
@@ -184,7 +186,7 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
            
             self.handleRegisterUser(event: event)
         case let event as ResendEmailEvent:
-            self.showToast(message: (event.state?.rawValue)!)
+            self.alertMessage(title: "Hey!", message: (event.state?.rawValue)!)
             
         default:
             print("No action taken")
@@ -198,11 +200,12 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
         switch event {
         case let event as RegisterUserEvent:
             if event.state == .universityIdTaken{
-                self.showToast(message: "university id is taken")
+               
+                self.alertMessage(title: "Error", message: "university id is taken")
             }else if event.state == .emailTaken{
                 // release to memory
                 event.delegate = nil
-                self.showToast(message: "email is taken!")
+                self.alertMessage(title: "Error", message: "email is taken!")
             }else{
               //  self.showToast(message: "error!")
                 if let errorMsg = event.errorMsg{
@@ -211,7 +214,7 @@ class SignUpViewController: BaseViewController, RegisterUserEventDelegate, UITex
             }
             
         case let event as ResendEmailEvent:
-            self.showToast(message: (event.state?.rawValue)!)
+            self.alertMessage(title: "Hey!", message: (event.state?.rawValue)!)
            
         default:
             print("No action taken")

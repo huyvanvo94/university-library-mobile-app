@@ -169,7 +169,7 @@ class MyCheckoutBooksViewController: BaseViewController, UITableViewDelegate, UI
         case let event as ReturnBooksEvent:
             
             if event.state == ReturnBooksState.success{
-                self.showToast(message: "Success")
+               self.alertMessage(title: "Success", message: "success!")
             }
             
         default:

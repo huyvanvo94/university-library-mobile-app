@@ -26,8 +26,8 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
 
     func fetch(){
         self.activityIndicatorView.startAnimating()
-        // tell user unable to fetch books in 3 seconds if booksFromDatabase in empty
-       timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
+        // tell user unable to fetch books in 10 seconds if booksFromDatabase in empty
+       timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector( removeActivityIndicatorView ), userInfo: nil, repeats: false)
         
         let event = FetchBooksEvent()
         event.delegate = self
@@ -237,7 +237,7 @@ class LibrarianBooksViewController: BaseViewController, UITableViewDelegate, UIT
         if self.booksFromDatabase.isEmpty{
             
             self.activityIndicatorView.stopAnimating()
-            self.alertMessage(title: "Oops", message: "Unable to fetch books.")
+            self.alertMessage(title: "Oops", message: "Possible unable to fetch books.")
         }
     }
 }

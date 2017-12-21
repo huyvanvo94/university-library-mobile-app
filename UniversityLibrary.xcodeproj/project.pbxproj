@@ -56,7 +56,6 @@
 		8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC29E1FBF921000589262 /* UniModel.swift */; };
 		8FBAC2A11FBF9AB300589262 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A01FBF9AB300589262 /* SignUpViewController.swift */; };
 		8FBAC2A31FBFA27300589262 /* LibrarianManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A21FBFA27300589262 /* LibrarianManager.swift */; };
-		8FBAC2A71FBFA44900589262 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A61FBFA44900589262 /* Validation.swift */; };
 		8FBAC2AA1FBFB7AE00589262 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A91FBFB7AE00589262 /* GoogleService-Info.plist */; };
 		8FBAC2AC1FBFBA5B00589262 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */; };
 		8FBAC2AF1FBFBE2400589262 /* NavRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */; };
@@ -159,7 +158,6 @@
 		8FBAC29E1FBF921000589262 /* UniModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniModel.swift; sourceTree = "<group>"; };
 		8FBAC2A01FBF9AB300589262 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8FBAC2A21FBFA27300589262 /* LibrarianManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianManager.swift; sourceTree = "<group>"; };
-		8FBAC2A61FBFA44900589262 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		8FBAC2A91FBFB7AE00589262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRootViewController.swift; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */,
-				8FBAC2A61FBFA44900589262 /* Validation.swift */,
 				8F3ABAF71FC107D700551B3B /* Logger.swift */,
 				8F54D60B1FBFD57F00E25156 /* DateMocker.swift */,
 				8F3ABB001FC1288B00551B3B /* Mock.swift */,
@@ -694,7 +691,6 @@
 				8FEABA041FC0BB3600EA26E9 /* BaseViewController.swift in Sources */,
 				8FA5D0891FC192560048EB74 /* WaitingList.swift in Sources */,
 				8FEABA0C1FC0E76E00EA26E9 /* LoginUserEvent.swift in Sources */,
-				8FBAC2A71FBFA44900589262 /* Validation.swift in Sources */,
 				8FC6FABF1FCFF06100FBC1D8 /* LogoutUIButton.swift in Sources */,
 				8FBAC2A11FBF9AB300589262 /* SignUpViewController.swift in Sources */,
 				8FC6FAC11FCFF07400FBC1D8 /* BlueSquareButton.swift in Sources */,

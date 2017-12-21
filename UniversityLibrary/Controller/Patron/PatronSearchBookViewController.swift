@@ -133,7 +133,7 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
         super.activityIndicatorView.stopAnimating()
         
         if let _ = event as? FetchBookEvent{
-            super.showToast(message: "Can't find book")
+            self.alertMessage(title: "Oops", message: "Cannot find book!")
             
             
         }
@@ -150,7 +150,8 @@ class PatronSearchBookViewController: BaseViewController, BookKeeper, AbstractEv
             self.clearText()
         }else{
             self.clearText()
-            self.showToast(message: "Invalid inputs")
+          
+            self.alertMessage(title: "Error", message: "Invalid inputs")
         }
  
     }
