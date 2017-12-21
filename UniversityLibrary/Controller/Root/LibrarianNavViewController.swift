@@ -13,6 +13,7 @@ class LibrarianNavViewController: BaseNavViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .white
         Logger.log(clzz: "LibrarianNavViewController", message: "viewDidLoad")
         
       //  self.goToTestLibrarianView()

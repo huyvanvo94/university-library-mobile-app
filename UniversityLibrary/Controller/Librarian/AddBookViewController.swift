@@ -214,7 +214,7 @@ class AddBookViewController: BaseViewController, BookCRUDDelegate, BookManager, 
             else {
             return nil
         }
-     
+ 
         let book = Book.Builder()
             .setTitle(bookTitle)
             .setAuthor(author)

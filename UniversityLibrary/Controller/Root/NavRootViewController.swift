@@ -16,6 +16,8 @@ class NavRootViewController: BaseNavViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
         Logger.log(clzz: "NavRootViewController", message: "viewDidLoad")
         self.goToLoginView()
         // Do any additional setup after loading the view.

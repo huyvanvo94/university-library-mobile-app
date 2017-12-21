@@ -18,7 +18,8 @@ class BaseNavViewController: UINavigationController {
         let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
          
         self.navigationBar.titleTextAttributes = textAttributes
-       
+        
+        self.view.backgroundColor = .white
 
     }
 
