@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Librarian Nav View Controller-->
+        <scene sceneID="6xT-Ue-u0Y">
+            <objects>
+                <navigationController storyboardIdentifier="LibrarianNavViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iYh-UP-n9F" customClass="LibrarianNavViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tct-gf-CCa">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wdj-at-ZNv" kind="relationship" relationship="rootViewController" id="8jX-Gx-TGx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwb-eP-8c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1308" y="895"/>
+        </scene>
+        <!--Add Book View Controller-->
+        <scene sceneID="ULT-pF-z2o">
+            <objects>
+                <viewController storyboardIdentifier="AddBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zTc-hU-leN" customClass="AddBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eOF-yq-e0F"/>
+                        <viewControllerLayoutGuide type="bottom" id="yFl-Hs-y53"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5AY-R0-D5N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNO-DU-DfY">
+                                <rect key="frame" x="36" y="-30" width="319" height="726"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="MsJ-pT-gfy">
+                                        <rect key="frame" x="21" y="20" width="125" height="125"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="efN-2A-4EJ"/>
+                                            <constraint firstAttribute="width" constant="125" id="gUs-P1-MPp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiM-Xf-TFS">
+                                        <rect key="frame" x="0.0" y="150" width="319" height="700"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ5-qg-sS8" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="ZWl-v7-5aV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQJ-Eq-NkK" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="31" width="319" height="53.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTA-bR-4c9" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="94.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="1l7-mO-kmS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R6x-22-c8R" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="125.5" width="319" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM0-LF-aMa" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="165.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="x7w-ov-qiP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nov-32-QWo" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="196.5" width="319" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-Pb-EnS" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="236.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="IT8-IE-MwS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kA2-zl-1dE" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="267.5" width="319" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location in Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-61-GzY" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="307.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="SlU-XB-usE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GJx-mS-AnL" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="338.5" width="319" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CL-wL-aI4" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="378.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="dth-Od-Nju"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3Z-Mq-Yi0" customClass="StatusTextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="409.5" width="319" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sna-zx-jjv" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="449.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="foh-mI-5fn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4t-JW-SaO" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="480.5" width="319" height="30"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                                </accessibility>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="864-AH-eDy" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="520.5" width="319" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="mZk-vS-iAK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uaj-Gm-EJS" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="551.5" width="319" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keywords" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-c6-AX1" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="591.5" width="319" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20.5" id="Ag5-gt-hLm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-RT-M3U" customClass="GeneralTextArea" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="622" width="319" height="78"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="700" id="5uo-E3-B9d"/>
+                                            <constraint firstAttribute="width" constant="250" id="6KO-f2-9hl"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="650" id="GyA-Dy-xyN"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="width" secondItem="nNO-DU-DfY" secondAttribute="width" id="2Ni-Ez-lOm"/>
+                                    <constraint firstItem="MsJ-pT-gfy" firstAttribute="top" secondItem="nNO-DU-DfY" secondAttribute="top" constant="20" id="72j-dc-YbO"/>
+                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="centerX" secondItem="nNO-DU-DfY" secondAttribute="centerX" id="G6a-ve-OaK"/>
+                                    <constraint firstAttribute="bottom" secondItem="jiM-Xf-TFS" secondAttribute="bottom" constant="-15" id="OSd-8A-Mot"/>
+                                    <constraint firstItem="jiM-Xf-TFS" firstAttribute="top" secondItem="nNO-DU-DfY" secondAttribute="top" constant="150" id="U2Y-fc-VIg"/>
+                                    <constraint firstItem="MsJ-pT-gfy" firstAttribute="leading" secondItem="nNO-DU-DfY" secondAttribute="leading" constant="21" id="bID-DQ-YUv"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nNO-DU-DfY" firstAttribute="leading" secondItem="5AY-R0-D5N" secondAttribute="leadingMargin" constant="20" id="QOG-2h-GVV"/>
+                            <constraint firstItem="nNO-DU-DfY" firstAttribute="centerY" secondItem="5AY-R0-D5N" secondAttribute="centerY" id="Zin-Uh-NwO"/>
+                            <constraint firstItem="nNO-DU-DfY" firstAttribute="top" secondItem="eOF-yq-e0F" secondAttribute="bottom" constant="-50" id="kkn-Jw-r7j"/>
+                            <constraint firstAttribute="trailing" secondItem="nNO-DU-DfY" secondAttribute="trailing" constant="20" id="sAQ-5K-3tX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="author" destination="R6x-22-c8R" id="naO-jz-p7z"/>
+                        <outlet property="bookTitle" destination="XQJ-Eq-NkK" id="7n7-QF-cQF"/>
+                        <outlet property="callNumber" destination="C4t-JW-SaO" id="yz1-2m-QxU"/>
+                        <outlet property="coverImage" destination="MsJ-pT-gfy" id="fIJ-S7-dg5"/>
+                        <outlet property="currentStatus" destination="m3Z-Mq-Yi0" id="QSR-Fq-6zF"/>
+                        <outlet property="keywords" destination="ffN-RT-M3U" id="hVM-lV-wWq"/>
+                        <outlet property="locationInLibrary" destination="GJx-mS-AnL" id="v4V-yU-lTr"/>
+                        <outlet property="numberOfCopies" destination="uaj-Gm-EJS" id="sKJ-SB-GAy"/>
+                        <outlet property="publisher" destination="Nov-32-QWo" id="9mI-DS-gaC"/>
+                        <outlet property="scollView" destination="nNO-DU-DfY" id="JUM-1Y-mv9"/>
+                        <outlet property="stackView" destination="jiM-Xf-TFS" id="7KA-KZ-08A"/>
+                        <outlet property="yearOfPublication" destination="kA2-zl-1dE" id="uDx-p5-ut2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sxw-ID-qLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503.19999999999999" y="-558.17091454272872"/>
+        </scene>
+        <!--Testing View Controller-->
+        <scene sceneID="5r4-kV-7Oz">
+            <objects>
+                <viewController id="Nk6-0y-ERL" customClass="TestingViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XQY-Uo-PM9"/>
+                        <viewControllerLayoutGuide type="bottom" id="fyy-je-fRG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L6P-AE-QNd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-WI-F7d">
+                                <rect key="frame" x="27" y="225" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="534559908.86486">
+                                    <!--2017-12-10 00:51:48 +0000-->
+                                </date>
+                            </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btc-6S-8L0">
+                                <rect key="frame" x="26" y="84" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleMode:" destination="Nk6-0y-ERL" eventType="valueChanged" id="MKg-qk-Sgi"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJp-wr-i5L" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                <rect key="frame" x="26" y="165" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZ5-rU-wGS">
+                                <rect key="frame" x="42" y="599" width="252" height="30"/>
+                                <state key="normal" title="Notify All Users of Due Date"/>
+                                <connections>
+                                    <action selector="notifyUsers:" destination="Nk6-0y-ERL" eventType="touchUpInside" id="vSG-wg-FuZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gJp-wr-i5L" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leadingMargin" constant="10" id="5f4-4T-IPE"/>
+                            <constraint firstItem="btc-6S-8L0" firstAttribute="top" secondItem="XQY-Uo-PM9" secondAttribute="bottom" constant="20" id="60Y-5l-QQH"/>
+                            <constraint firstItem="gJp-wr-i5L" firstAttribute="top" secondItem="btc-6S-8L0" secondAttribute="bottom" constant="50" id="Ax8-7v-WsE"/>
+                            <constraint firstItem="FOV-WI-F7d" firstAttribute="centerX" secondItem="L6P-AE-QNd" secondAttribute="centerX" id="B42-jk-7tW"/>
+                            <constraint firstItem="FOV-WI-F7d" firstAttribute="centerY" secondItem="L6P-AE-QNd" secondAttribute="centerY" id="LUH-Ye-FhT"/>
+                            <constraint firstItem="DZ5-rU-wGS" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leading" constant="42" id="h1a-6m-8Pf"/>
+                            <constraint firstItem="btc-6S-8L0" firstAttribute="leading" secondItem="L6P-AE-QNd" secondAttribute="leadingMargin" constant="10" id="oCH-XB-j9P"/>
+                            <constraint firstItem="fyy-je-fRG" firstAttribute="top" secondItem="DZ5-rU-wGS" secondAttribute="bottom" constant="38" id="qF1-FU-Vsa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="FOV-WI-F7d" id="zfz-zo-HU8"/>
+                        <outlet property="switchLabel" destination="gJp-wr-i5L" id="Fbz-Lo-1Br"/>
+                        <outlet property="testingSwitch" destination="btc-6S-8L0" id="5Mf-L7-V9P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9s-hy-itE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237.5999999999999" y="-611.24437781109452"/>
+        </scene>
+        <!--Librarian Search Book View Controller-->
+        <scene sceneID="Bd0-9I-1qF">
+            <objects>
+                <viewController storyboardIdentifier="LibrarianSearchBookViewController" id="dT4-An-1v1" customClass="LibrarianSearchBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BYh-OQ-6Wu"/>
+                        <viewControllerLayoutGuide type="bottom" id="nwG-6X-GCu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Djm-zC-4lC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-g8-SDT">
+                                <rect key="frame" x="36" y="94" width="303" height="272"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-2o-VaR" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MS1-tJ-9ni" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="30.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Tx-L9-kWv" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70.5" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmm-y1-0s6" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="101" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dJ-z8-jjX" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="141" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-Pp-NIT" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="171.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year of Publication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6f-NZ-jjv" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="211.5" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-td-3fF" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="242" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="Zr0-VU-bH7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="3h9-g8-SDT" secondAttribute="trailing" constant="20" id="POc-Xp-yA1"/>
+                            <constraint firstItem="3h9-g8-SDT" firstAttribute="top" secondItem="BYh-OQ-6Wu" secondAttribute="bottom" constant="30" id="UB1-i1-5dx"/>
+                            <constraint firstItem="3h9-g8-SDT" firstAttribute="leading" secondItem="Djm-zC-4lC" secondAttribute="leadingMargin" constant="20" id="h6y-FT-Pqa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qN7-ap-1LN">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="searchIcon" id="05Q-de-48U">
+                            <connections>
+                                <action selector="searchAction:" destination="dT4-An-1v1" id="JUb-LV-KtS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="author" destination="qmm-y1-0s6" id="fsu-9r-spA"/>
+                        <outlet property="bookTitle" destination="MS1-tJ-9ni" id="MU3-TY-cls"/>
+                        <outlet property="publisher" destination="kwc-Pp-NIT" id="oRT-bZ-ooQ"/>
+                        <outlet property="yearOfPublication" destination="MTo-td-3fF" id="6vG-O7-F5h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nh-ep-qfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="161.46926536731635"/>
+        </scene>
+        <!--Librarian Book View Controller-->
+        <scene sceneID="x89-fs-KIN">
+            <objects>
+                <viewController storyboardIdentifier="LibrarianBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nkj-ot-7iW" customClass="LibrarianBookViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bqk-Iu-O16"/>
+                        <viewControllerLayoutGuide type="bottom" id="dXV-aW-pql"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aGY-Dq-s1h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-v0-CqR">
+                                <rect key="frame" x="36" y="220" width="303" height="404"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBi-as-d8d" customClass="BookUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-Iw-28c" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="30.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKr-yb-qX7" customClass="BookUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70.5" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Author" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-fB-gYn" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="101" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d5-Ny-6Cj" customClass="BookUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="141" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Publisher" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-el-2M5" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="171.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfw-3i-2FI" customClass="BookUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="211.5" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7U3-27-sEb" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="242" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wk-wk-uEk" customClass="BookUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="282" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Call Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHB-OG-biP" customClass="CustomUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="312.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqu-oI-2AM" customClass="BookUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="352.5" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Current Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLL-wv-7Wh" customClass="StatusTextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="383" width="303" height="21"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.86439611289999996" green="0.86439611289999996" blue="0.86439611289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="303" id="mbx-8I-Hoz"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="ViZ-ET-kqH">
+                                <rect key="frame" x="36" y="70" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="ZCq-aI-GpV"/>
+                                    <constraint firstAttribute="height" constant="125" id="uMA-iU-bQy"/>
+                                </constraints>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V1-TW-Nrp" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                <rect key="frame" x="207" y="105" width="132" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="librarian email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL2-8U-2w3" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                <rect key="frame" x="232.5" y="133" width="106.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WL2-8U-2w3" firstAttribute="top" secondItem="9V1-TW-Nrp" secondAttribute="bottom" constant="7.5" id="06H-ED-OLE"/>
+                            <constraint firstItem="ViZ-ET-kqH" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="50" id="4JV-EQ-xZl"/>
+                            <constraint firstItem="jmA-v0-CqR" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="200" id="6QX-Hd-6Ga"/>
+                            <constraint firstItem="ViZ-ET-kqH" firstAttribute="leading" secondItem="aGY-Dq-s1h" secondAttribute="leadingMargin" constant="20" id="BJf-Xh-A7a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9V1-TW-Nrp" secondAttribute="trailing" constant="20" id="PX0-nU-pRz"/>
+                            <constraint firstItem="jmA-v0-CqR" firstAttribute="leading" secondItem="aGY-Dq-s1h" secondAttribute="leadingMargin" constant="20" id="aTj-J7-Qeq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WL2-8U-2w3" secondAttribute="trailing" constant="20" id="mYO-II-3Ac"/>
+                            <constraint firstItem="9V1-TW-Nrp" firstAttribute="top" secondItem="bqk-Iu-O16" secondAttribute="bottom" constant="85" id="wwF-wj-u8X"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" image="delete-button" id="V6d-50-zrf">
+                            <connections>
+                                <action selector="deleteBookAction:" destination="Nkj-ot-7iW" id="HoF-0z-RhI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JR9-5Y-kLC"/>
+                        <barButtonItem title="Item" image="edit-button" id="f7K-tm-b3C">
+                            <connections>
+                                <action selector="editBookAction:" destination="Nkj-ot-7iW" id="P56-r6-RXw"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bookAuthorTextField" destination="q1O-fB-gYn" id="Jcr-lD-0bH"/>
+                        <outlet property="bookCallNumberTextField" destination="HHB-OG-biP" id="RrD-Zp-hVn"/>
+                        <outlet property="bookLocationTextField" destination="7U3-27-sEb" id="dlk-pu-d64"/>
+                        <outlet property="bookPublisherTextField" destination="Bzj-el-2M5" id="aQ3-58-b81"/>
+                        <outlet property="bookStatusTextField" destination="PLL-wv-7Wh" id="vEV-N4-A4n"/>
+                        <outlet property="bookTitleTextField" destination="Hfj-Iw-28c" id="Zgy-4U-GYE"/>
+                        <outlet property="coverImage" destination="ViZ-ET-kqH" id="kRl-Ad-c9b"/>
+                        <outlet property="lastUpdatedEmailLabel" destination="WL2-8U-2w3" id="d8C-eH-BdA"/>
+                        <outlet property="lastUpdatedLabel" destination="9V1-TW-Nrp" id="SS0-15-fHj"/>
+                        <outlet property="stackView" destination="jmA-v0-CqR" id="RFQ-46-Emg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCL-aa-YuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="162"/>
+        </scene>
+        <!--Librarian Library View Controller-->
+        <scene sceneID="Gjz-tc-0dt">
+            <objects>
+                <viewController storyboardIdentifier="LibrarianLibraryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wdj-at-ZNv" customClass="LibrarianLibraryViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nek-kG-bcz"/>
+                        <viewControllerLayoutGuide type="bottom" id="YCO-yA-WcY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QVq-uz-xo6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uEh-T8-lvi">
+                                <rect key="frame" x="37.5" y="173.5" width="300" height="320"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Am7-Gp-fLM" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Fkt-h3-mVP"/>
+                                            <constraint firstAttribute="height" constant="100" id="yvd-pc-T6k"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
+                                        <state key="normal" title="Search Books" image="searchIcon">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToSearchBooks:" destination="wdj-at-ZNv" eventType="touchUpInside" id="KyW-69-xnx"/>
+                                            <segue destination="dT4-An-1v1" kind="show" id="V3d-3B-dOV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ces-Ww-bLw" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="70K-bv-APf"/>
+                                            <constraint firstAttribute="width" constant="300" id="f8M-9F-wGd"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
+                                        <state key="normal" title="Add Books" image="addBooksIcon">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToAddBooksVC:" destination="wdj-at-ZNv" eventType="touchUpInside" id="WCJ-8T-wbB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ga-vC-WNc" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="220" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="gj7-BF-wvU"/>
+                                            <constraint firstAttribute="width" constant="300" id="tkx-kk-ntn"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
+                                        <state key="normal" title="Library" image="allBooksIcon">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToSearchBooks:" destination="wdj-at-ZNv" eventType="touchUpInside" id="e3f-ZM-jFb"/>
+                                            <segue destination="cWi-Jb-J7i" kind="show" id="X52-Bf-Lo2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uEh-T8-lvi" firstAttribute="centerY" secondItem="QVq-uz-xo6" secondAttribute="centerY" id="Dpf-t8-yJ5"/>
+                            <constraint firstItem="uEh-T8-lvi" firstAttribute="centerX" secondItem="QVq-uz-xo6" secondAttribute="centerX" id="U4s-Z2-x4L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3q2-Rv-Bfc">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="EOc-O6-XsL">
+                            <connections>
+                                <action selector="logout:" destination="wdj-at-ZNv" id="2Gc-R3-XYL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Testing" id="Va1-tA-7nE">
+                            <connections>
+                                <segue destination="Nk6-0y-ERL" kind="show" id="XRG-fu-h02"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJr-FT-aMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="161"/>
+        </scene>
+        <!--Librarian Books View Controller-->
+        <scene sceneID="510-62-w14">
+            <objects>
+                <viewController storyboardIdentifier="LibrarianBooksViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cWi-Jb-J7i" customClass="LibrarianBooksViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CYW-qk-VbJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="3c9-Bk-Agh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GlZ-K1-5az">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-tU-7dR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BookCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="90" id="lNE-8u-84g" customClass="BookCell" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="lNE-8u-84g" id="fcc-cK-vV9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kD1-J6-LjI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" text="Star Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yiy-AQ-T1d" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="15" width="341.5" height="17.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="JK Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caa-rH-fop" customClass="GeneralUISubLabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="35" width="341.5" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="caa-rH-fop" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="5KZ-5w-Pc9"/>
+                                                        <constraint firstItem="Yiy-AQ-T1d" firstAttribute="top" secondItem="kD1-J6-LjI" secondAttribute="top" constant="15" id="D07-xe-AA0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="caa-rH-fop" secondAttribute="bottom" constant="34" id="Roh-np-s3K"/>
+                                                        <constraint firstItem="caa-rH-fop" firstAttribute="top" secondItem="Yiy-AQ-T1d" secondAttribute="bottom" constant="2" id="VO4-aZ-Oor"/>
+                                                        <constraint firstItem="Yiy-AQ-T1d" firstAttribute="leading" secondItem="kD1-J6-LjI" secondAttribute="leading" constant="18" id="aa4-RB-gzs"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="BookView" destination="kD1-J6-LjI" id="Wu3-eE-y1G"/>
+                                            <outlet property="bookAuthorLabel" destination="caa-rH-fop" id="4Al-eu-lMx"/>
+                                            <outlet property="bookTitleLabel" destination="Yiy-AQ-T1d" id="4cq-5X-zIT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XEr-Us-yDd">
+                        <barButtonItem key="rightBarButtonItem" image="searchIcon" id="FMS-bO-X56">
+                            <connections>
+                                <action selector="goToSearchView:" destination="cWi-Jb-J7i" id="73c-ps-rcP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ubO-tU-7dR" id="7vj-xj-US8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGq-MH-DJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816.79999999999995" y="894.60269865067471"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="addBooksIcon" width="25" height="25"/>
+        <image name="allBooksIcon" width="25" height="25"/>
+        <image name="delete-button" width="32" height="32"/>
+        <image name="edit-button" width="32" height="32"/>
+        <image name="placeHolder" width="50" height="50"/>
+        <image name="searchIcon" width="25" height="25"/>
+    </resources>
+</document>

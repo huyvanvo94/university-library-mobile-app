@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Nav Root View Controller-->
+        <scene sceneID="ULC-HL-yLS">
+            <objects>
+                <navigationController storyboardIdentifier="NavRootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TqB-qr-KuQ" customClass="NavRootViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MwR-CG-hUg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1XZ-yK-GWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1071" y="805"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SignUpViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uNv-QY-zAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="9rv-P2-ejT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Ct-6W-uzn">
+                                <rect key="frame" x="87" y="213.5" width="200" height="241.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-rE-Agc">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="241.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEc-DB-daN" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttY-oo-ROF" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="30.5" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-bo-34W" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="70.5" width="200" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-gs-6Mh" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="101" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1i-cF-Vnc" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="141" width="200" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u87-dk-hFk" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="171.5" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMM-zB-hSD" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="211.5" width="200" height="30"/>
+                                                <state key="normal" title="Sign Up"/>
+                                                <connections>
+                                                    <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4N-bo-vHZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="d16-rO-SQ4"/>
+                                </constraints>
+                            </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PY0-7Q-oDx">
+                                <rect key="frame" x="267" y="617" width="92" height="30"/>
+                                <state key="normal" title="Resend Email"/>
+                                <connections>
+                                    <action selector="resendEmailClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="REK-cS-1jg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Ct-6W-uzn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4cn-rI-89y"/>
+                            <constraint firstItem="PY0-7Q-oDx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ltm-b9-Bqd"/>
+                            <constraint firstItem="9rv-P2-ejT" firstAttribute="top" secondItem="PY0-7Q-oDx" secondAttribute="bottom" constant="20" id="ZX8-0W-nEh"/>
+                            <constraint firstItem="1Ct-6W-uzn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fCq-hr-XPp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4o6-BE-whV"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ttY-oo-ROF" id="Ac9-cN-t2W"/>
+                        <outlet property="passwordTextField" destination="nEh-gs-6Mh" id="Rzj-AF-KBy"/>
+                        <outlet property="resendEmail" destination="PY0-7Q-oDx" id="8S3-Xs-AFK"/>
+                        <outlet property="studentIdTextField" destination="u87-dk-hFk" id="oDH-yL-EXl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Cz1-XP-nKV">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Myc-97-yTI" customClass="LoginViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xh5-10-wQK"/>
+                        <viewControllerLayoutGuide type="bottom" id="CLe-2M-aNe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ztF-vv-U4A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XjW-qf-qMW">
+                                <rect key="frame" x="87" y="170" width="200" height="211"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2fy-QP-MZS">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="211"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-DL-Lry">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="211"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0l-Wg-LKK" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aeV-he-oj3" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="30.5" width="200" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSn-9O-Y5a" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="70.5" width="200" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T6A-l9-5FE" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="101" width="200" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbx-3I-B7i" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="141" width="200" height="30"/>
+                                                        <state key="normal" title="Login">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="login:" destination="Myc-97-yTI" eventType="touchUpInside" id="Nf5-ck-HE5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8h-yA-daK" customClass="MenuUIButton" customModule="UniversityLibrary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="181" width="200" height="30"/>
+                                                        <state key="normal" title="Sign Up">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="goToSignupView:" destination="Myc-97-yTI" eventType="touchUpInside" id="Z6x-yW-Gpb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1nz-ij-Pxt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XjW-qf-qMW" firstAttribute="centerX" secondItem="ztF-vv-U4A" secondAttribute="centerX" id="1Nj-SH-egQ"/>
+                            <constraint firstItem="XjW-qf-qMW" firstAttribute="top" secondItem="Xh5-10-wQK" secondAttribute="bottom" constant="150" id="3Cq-0j-lod"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="aeV-he-oj3" id="RzC-FY-Ley"/>
+                        <outlet property="passwordTextField" destination="T6A-l9-5FE" id="ewl-we-Ix7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zkf-Qx-Jpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="98.400000000000006" y="804.64767616191909"/>
+        </scene>
+        <!--Validation View Controller-->
+        <scene sceneID="fMj-He-Dl0">
+            <objects>
+                <viewController storyboardIdentifier="ValidationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rcd-bf-NfD" customClass="ValidationViewController" customModule="UniversityLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kY5-Ke-iQd"/>
+                        <viewControllerLayoutGuide type="bottom" id="gLq-KF-kkI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JpI-WQ-DuO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jyT-ss-64X">
+                                <rect key="frame" x="106" y="303.5" width="163.5" height="60.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Validation Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bm-Dp-H9G" customClass="GeneralUILabel" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J51-zP-dga" customClass="GeneralUITextField" customModule="UniversityLibrary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="30.5" width="163.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jyT-ss-64X" firstAttribute="centerX" secondItem="JpI-WQ-DuO" secondAttribute="centerX" id="bxN-WZ-EHJ"/>
+                            <constraint firstItem="jyT-ss-64X" firstAttribute="centerY" secondItem="JpI-WQ-DuO" secondAttribute="centerY" id="jrE-Oq-9jH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tuo-Y1-cnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71.200000000000003" y="1498.2008995502249"/>
+        </scene>
+    </scenes>
+</document>

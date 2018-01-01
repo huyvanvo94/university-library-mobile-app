@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>867156534324-bdoalc2n0rvq5hvre622pvjuuipaharh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.867156534324-bdoalc2n0rvq5hvre622pvjuuipaharh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB1WND9pFcV6TrpFlYwsO1mA0q_Z_M1BKY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>867156534324</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.huyvo.sjsu.cmpe277.UniversityLibrary</string>
+	<key>PROJECT_ID</key>
+	<string>universitylibrary-8e17c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>universitylibrary-8e17c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:867156534324:ios:76915802d29930cf</string>
+	<key>DATABASE_URL</key>
+	<string>https://universitylibrary-8e17c.firebaseio.com</string>
+</dict>
+</plist>

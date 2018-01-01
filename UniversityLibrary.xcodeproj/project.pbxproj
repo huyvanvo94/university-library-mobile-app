@@ -1,0 +1,1088 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F18DB9F1FE6F03C003364B9 /* ResendEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18DB9E1FE6F03C003364B9 /* ResendEmailEvent.swift */; };
+		3F18DBA31FE704F3003364B9 /* BookUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18DBA21FE704F3003364B9 /* BookUILabel.swift */; };
+		3F1D4AC11FD7ACB800724500 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D4AC01FD7ACB800724500 /* CustomImageView.swift */; };
+		3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */; };
+		3F9505571FD61E7C0069F391 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9505561FD61E7C0069F391 /* CustomUITextField.swift */; };
+		3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C981FD20616007CDD60 /* MenuUIButton.swift */; };
+		3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04C9A1FD208E4007CDD60 /* BookCell.swift */; };
+		3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */; };
+		3FB5A9D71FDC85FF00341265 /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5A9D61FDC85FF00341265 /* StatusTextField.swift */; };
+		3FB5A9D91FDCB71A00341265 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */; };
+		56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */; };
+		5F0906FDC8141B055FA9F85E /* ReturnBookEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */; };
+		5F090BAC921D7CA6F9F5006E /* CheckoutEmailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */; };
+		8F01B1EA1FEAD3BD009C8959 /* GeneralTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F01B1E91FEAD3BD009C8959 /* GeneralTextArea.swift */; };
+		8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */; };
+		8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */; };
+		8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */; };
+		8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */; };
+		8F04075A1FCD26CC001987D8 /* LibrarianLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */; };
+		8F0D76261FD8D09C00EF1F89 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D76251FD8D09C00EF1F89 /* TestCase.swift */; };
+		8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */; };
+		8F209B8E1FD264830018C6FB /* FetchCheckedOutBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F209B8D1FD264830018C6FB /* FetchCheckedOutBookEvent.swift */; };
+		8F2469BA1FC9684700BAF71B /* ReserveBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */; };
+		8F3ABAF41FC0FEBB00551B3B /* SignoutUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAF31FC0FEBB00551B3B /* SignoutUserEvent.swift */; };
+		8F3ABAF61FC107C300551B3B /* PatronNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */; };
+		8F3ABAF81FC107D700551B3B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAF71FC107D700551B3B /* Logger.swift */; };
+		8F3ABAFF1FC1253600551B3B /* BookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABAFE1FC1253600551B3B /* BookEvent.swift */; };
+		8F3ABB011FC1288B00551B3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ABB001FC1288B00551B3B /* Mock.swift */; };
+		8F401B871FD54B1C007306CD /* MyCheckoutBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F401B861FD54B1C007306CD /* MyCheckoutBooksViewController.swift */; };
+		8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6071FBFD0EE00E25156 /* Constants.swift */; };
+		8F54D60A1FBFD48B00E25156 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6091FBFD48B00E25156 /* DateHelper.swift */; };
+		8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D60B1FBFD57F00E25156 /* DateMocker.swift */; };
+		8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6131FBFEC2200E25156 /* DataService.swift */; };
+		8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */; };
+		8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61B1FC01ED700E25156 /* Patron.storyboard */; };
+		8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F54D61E1FC01EE100E25156 /* Librarian.storyboard */; };
+		8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */; };
+		8F81CD331FD66E3F00CB5A74 /* FetchAllBooksIdEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */; };
+		8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90C0431FC29FE7003CD88C /* BookManager.swift */; };
+		8F9367911FBBA921007716E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367901FBBA921007716E5 /* User.swift */; };
+		8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */; };
+		8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5D0861FC192130048EB74 /* WaitingListEvent.swift */; };
+		8FA5D0891FC192560048EB74 /* WaitingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5D0881FC192560048EB74 /* WaitingList.swift */; };
+		8FA5D08B1FC19A2B0048EB74 /* BookKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */; };
+		8FB285051FD56A7E000A7C48 /* PatronBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB285041FD56A7E000A7C48 /* PatronBooksViewController.swift */; };
+		8FBAC29D1FBF919100589262 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC29C1FBF919100589262 /* Book.swift */; };
+		8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC29E1FBF921000589262 /* UniModel.swift */; };
+		8FBAC2A11FBF9AB300589262 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A01FBF9AB300589262 /* SignUpViewController.swift */; };
+		8FBAC2A31FBFA27300589262 /* LibrarianManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A21FBFA27300589262 /* LibrarianManager.swift */; };
+		8FBAC2AA1FBFB7AE00589262 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FBAC2A91FBFB7AE00589262 /* GoogleService-Info.plist */; };
+		8FBAC2AC1FBFBA5B00589262 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */; };
+		8FBAC2AF1FBFBE2400589262 /* NavRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */; };
+		8FBAC2B11FBFBEE500589262 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC2B01FBFBEE500589262 /* LoginViewController.swift */; };
+		8FC2EC961FBAC6EF00BB15D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */; };
+		8FC2EC9B1FBAC6EF00BB15D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */; };
+		8FC2EC9E1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2EC9C1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld */; };
+		8FC2ECA01FBAC6EF00BB15D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC2EC9F1FBAC6EF00BB15D1 /* Assets.xcassets */; };
+		8FC2ECA31FBAC6EF00BB15D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC2ECA11FBAC6EF00BB15D1 /* LaunchScreen.storyboard */; };
+		8FC2ECAE1FBAC6EF00BB15D1 /* UniversityLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2ECAD1FBAC6EF00BB15D1 /* UniversityLibraryTests.swift */; };
+		8FC2ECB91FBAC6EF00BB15D1 /* UniversityLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2ECB81FBAC6EF00BB15D1 /* UniversityLibraryUITests.swift */; };
+		8FC3E9AF1FC22D3600940427 /* CheckoutListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */; };
+		8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3E9B01FC235BF00940427 /* PatronManager.swift */; };
+		8FC3E9B31FC2484A00940427 /* CheckoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3E9B21FC2484A00940427 /* CheckoutList.swift */; };
+		8FC6FABD1FCFF02F00FBC1D8 /* UIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */; };
+		8FC6FABF1FCFF06100FBC1D8 /* LogoutUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */; };
+		8FC6FAC11FCFF07400FBC1D8 /* BlueSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */; };
+		8FC6FAC31FCFF3A100FBC1D8 /* GeneralUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */; };
+		8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */; };
+		8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */; };
+		8FCF60FF1FD0FA39008D8C72 /* LibrarianBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */; };
+		8FCF61031FD1028B008D8C72 /* PatronBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */; };
+		8FCF61071FD104E9008D8C72 /* PatronSearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */; };
+		8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */; };
+		8FD7E37D1FD767D1000F4E36 /* LibrarianBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */; };
+		8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */; };
+		8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */; };
+		8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */; };
+		8FEABA041FC0BB3600EA26E9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA031FC0BB3600EA26E9 /* BaseViewController.swift */; };
+		8FEABA081FC0DE2B00EA26E9 /* AbstractEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA071FC0DE2B00EA26E9 /* AbstractEvent.swift */; };
+		8FEABA0A1FC0DE9300EA26E9 /* RegisterUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */; };
+		8FEABA0C1FC0E76E00EA26E9 /* LoginUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEABA0B1FC0E76E00EA26E9 /* LoginUserEvent.swift */; };
+		8FEDF5E01FC554F900CEA2CB /* ReturnBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */; };
+		8FFE0F961FCEBF3D008183EC /* RenewBookEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8FC2ECAA1FBAC6EF00BB15D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FC2EC8A1FBAC6EF00BB15D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FC2EC911FBAC6EF00BB15D1;
+			remoteInfo = UniversityLibrary;
+		};
+		8FC2ECB51FBAC6EF00BB15D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FC2EC8A1FBAC6EF00BB15D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FC2EC911FBAC6EF00BB15D1;
+			remoteInfo = UniversityLibrary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F18DB9E1FE6F03C003364B9 /* ResendEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResendEmailEvent.swift; sourceTree = "<group>"; };
+		3F18DBA21FE704F3003364B9 /* BookUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookUILabel.swift; sourceTree = "<group>"; };
+		3F1D4AC01FD7ACB800724500 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUISubLabel.swift; sourceTree = "<group>"; };
+		3F9505561FD61E7C0069F391 /* CustomUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		3FB04C981FD20616007CDD60 /* MenuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuUIButton.swift; sourceTree = "<group>"; };
+		3FB04C9A1FD208E4007CDD60 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchWaitListBookEvent.swift; sourceTree = "<group>"; };
+		3FB5A9D61FDC85FF00341265 /* StatusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
+		3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
+		5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutEmailEvent.swift; sourceTree = "<group>"; };
+		5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnBookEmailEvent.swift; sourceTree = "<group>"; };
+		8F01B1E91FEAD3BD009C8959 /* GeneralTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTextArea.swift; sourceTree = "<group>"; };
+		8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianSearchBookViewController.swift; sourceTree = "<group>"; };
+		8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutBookViewController.swift; path = UniversityLibrary/Controller/Patron/CheckoutBookViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatronLibraryViewController.swift; path = UniversityLibrary/Controller/Patron/PatronLibraryViewController.swift; sourceTree = SOURCE_ROOT; };
+		8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianLibraryViewController.swift; sourceTree = "<group>"; };
+		8F0D76251FD8D09C00EF1F89 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
+		8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		8F209B8D1FD264830018C6FB /* FetchCheckedOutBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCheckedOutBookEvent.swift; sourceTree = "<group>"; };
+		8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveBookEvent.swift; sourceTree = "<group>"; };
+		8F3ABAF31FC0FEBB00551B3B /* SignoutUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignoutUserEvent.swift; sourceTree = "<group>"; };
+		8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronNavViewController.swift; sourceTree = "<group>"; };
+		8F3ABAF71FC107D700551B3B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8F3ABAFE1FC1253600551B3B /* BookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEvent.swift; sourceTree = "<group>"; };
+		8F3ABB001FC1288B00551B3B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		8F401B861FD54B1C007306CD /* MyCheckoutBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCheckoutBooksViewController.swift; sourceTree = "<group>"; };
+		8F54D6071FBFD0EE00E25156 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8F54D6091FBFD48B00E25156 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		8F54D60B1FBFD57F00E25156 /* DateMocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMocker.swift; sourceTree = "<group>"; };
+		8F54D6131FBFEC2200E25156 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		8F54D61C1FC01ED700E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patron.storyboard; sourceTree = "<group>"; };
+		8F54D61F1FC01EE100E25156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Librarian.storyboard; sourceTree = "<group>"; };
+		8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBookEvent.swift; sourceTree = "<group>"; };
+		8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAllBooksIdEvent.swift; sourceTree = "<group>"; };
+		8F90C0431FC29FE7003CD88C /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
+		8F9367901FBBA921007716E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		8FA5D0861FC192130048EB74 /* WaitingListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingListEvent.swift; sourceTree = "<group>"; };
+		8FA5D0881FC192560048EB74 /* WaitingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingList.swift; sourceTree = "<group>"; };
+		8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookKeeper.swift; sourceTree = "<group>"; };
+		8FB285041FD56A7E000A7C48 /* PatronBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronBooksViewController.swift; sourceTree = "<group>"; };
+		8FBAC29C1FBF919100589262 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		8FBAC29E1FBF921000589262 /* UniModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniModel.swift; sourceTree = "<group>"; };
+		8FBAC2A01FBF9AB300589262 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8FBAC2A21FBFA27300589262 /* LibrarianManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianManager.swift; sourceTree = "<group>"; };
+		8FBAC2A91FBFB7AE00589262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRootViewController.swift; sourceTree = "<group>"; };
+		8FBAC2B01FBFBEE500589262 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8FC2EC921FBAC6EF00BB15D1 /* UniversityLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FC2EC9A1FBAC6EF00BB15D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8FC2EC9D1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UniversityLibrary.xcdatamodel; sourceTree = "<group>"; };
+		8FC2EC9F1FBAC6EF00BB15D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FC2ECA21FBAC6EF00BB15D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FC2ECA41FBAC6EF00BB15D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC2ECA91FBAC6EF00BB15D1 /* UniversityLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniversityLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC2ECAD1FBAC6EF00BB15D1 /* UniversityLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityLibraryTests.swift; sourceTree = "<group>"; };
+		8FC2ECAF1FBAC6EF00BB15D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC2ECB41FBAC6EF00BB15D1 /* UniversityLibraryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniversityLibraryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC2ECB81FBAC6EF00BB15D1 /* UniversityLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityLibraryUITests.swift; sourceTree = "<group>"; };
+		8FC2ECBA1FBAC6EF00BB15D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutListEvent.swift; sourceTree = "<group>"; };
+		8FC3E9B01FC235BF00940427 /* PatronManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronManager.swift; sourceTree = "<group>"; };
+		8FC3E9B21FC2484A00940427 /* CheckoutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutList.swift; sourceTree = "<group>"; };
+		8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewFactory.swift; path = UniversityLibrary/Views/UIViewFactory.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogoutUIButton.swift; path = UniversityLibrary/Views/LogoutUIButton.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueSquareButton.swift; path = UniversityLibrary/Views/BlueSquareButton.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUILabel.swift; path = UniversityLibrary/Views/GeneralUILabel.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUITextField.swift; path = UniversityLibrary/Views/GeneralUITextField.swift; sourceTree = SOURCE_ROOT; };
+		8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnBooksEvent.swift; sourceTree = "<group>"; };
+		8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianBookViewController.swift; sourceTree = "<group>"; };
+		8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronBookViewController.swift; sourceTree = "<group>"; };
+		8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronSearchBookViewController.swift; sourceTree = "<group>"; };
+		8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBooksEvent.swift; sourceTree = "<group>"; };
+		8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianBooksViewController.swift; sourceTree = "<group>"; };
+		8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserEvent.swift; sourceTree = "<group>"; };
+		8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
+		8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianNavViewController.swift; sourceTree = "<group>"; };
+		8FEABA031FC0BB3600EA26E9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8FEABA071FC0DE2B00EA26E9 /* AbstractEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractEvent.swift; sourceTree = "<group>"; };
+		8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserEvent.swift; sourceTree = "<group>"; };
+		8FEABA0B1FC0E76E00EA26E9 /* LoginUserEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserEvent.swift; sourceTree = "<group>"; };
+		8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnBookEvent.swift; sourceTree = "<group>"; };
+		8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewBookEvent.swift; sourceTree = "<group>"; };
+		9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniversityLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D053ED7E29C194C0C876D86 /* Pods-UniversityLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversityLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniversityLibrary/Pods-UniversityLibrary.release.xcconfig"; sourceTree = "<group>"; };
+		E8BDF6A4789ED32AF50683DA /* Pods-UniversityLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversityLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniversityLibrary/Pods-UniversityLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FC2EC8F1FBAC6EF00BB15D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56A1762495A2DA1BA3914A5F /* libPods-UniversityLibrary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC2ECA61FBAC6EF00BB15D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC2ECB11FBAC6EF00BB15D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CF0E2842717F5F3E1436CB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9162EB6782265E85BE12EB89 /* libPods-UniversityLibrary.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F04075B1FCD32EA001987D8 /* Patron */ = {
+			isa = PBXGroup;
+			children = (
+				8F0407531FCD24AF001987D8 /* CheckoutBookViewController.swift */,
+				8FB285041FD56A7E000A7C48 /* PatronBooksViewController.swift */,
+				8F401B861FD54B1C007306CD /* MyCheckoutBooksViewController.swift */,
+				8FCF61061FD104E9008D8C72 /* PatronSearchBookViewController.swift */,
+				8FCF61021FD1028B008D8C72 /* PatronBookViewController.swift */,
+				8F0407551FCD24D9001987D8 /* PatronLibraryViewController.swift */,
+			);
+			path = Patron;
+			sourceTree = "<group>";
+		};
+		8F0D76271FD8E4B200EF1F89 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				5F0905E8ABB2D357F1274C5D /* CheckoutEmailEvent.swift */,
+				5F090DCA4DCAB829789537FB /* ReturnBookEmailEvent.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		8F2469B81FC9682500BAF71B /* PatronEvent */ = {
+			isa = PBXGroup;
+			children = (
+				8FA5D0861FC192130048EB74 /* WaitingListEvent.swift */,
+				8F209B8D1FD264830018C6FB /* FetchCheckedOutBookEvent.swift */,
+				8FFE0F951FCEBF3D008183EC /* RenewBookEvent.swift */,
+				8F2469B91FC9684700BAF71B /* ReserveBookEvent.swift */,
+				8FEDF5DF1FC554F900CEA2CB /* ReturnBookEvent.swift */,
+				8FC6FAC91FD0145700FBC1D8 /* ReturnBooksEvent.swift */,
+				8FC3E9AE1FC22D3600940427 /* CheckoutListEvent.swift */,
+				3FB04CA01FD36BFC007CDD60 /* FetchWaitListBookEvent.swift */,
+			);
+			path = PatronEvent;
+			sourceTree = "<group>";
+		};
+		8F3ABAF91FC1086100551B3B /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				8FEABA051FC0DDFA00EA26E9 /* Parent */,
+				8F3ABAF51FC107C300551B3B /* PatronNavViewController.swift */,
+				8FEABA011FC0B90D00EA26E9 /* LibrarianNavViewController.swift */,
+				8FBAC2AE1FBFBE2400589262 /* NavRootViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		8F3ABAFA1FC1089400551B3B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8F54D6151FBFF3A300E25156 /* ValidationViewController.swift */,
+				8FBAC2A01FBF9AB300589262 /* SignUpViewController.swift */,
+				8FBAC2B01FBFBEE500589262 /* LoginViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		8F3ABAFB1FC109D700551B3B /* AuthEvent */ = {
+			isa = PBXGroup;
+			children = (
+				8F3ABAF31FC0FEBB00551B3B /* SignoutUserEvent.swift */,
+				3F18DB9E1FE6F03C003364B9 /* ResendEmailEvent.swift */,
+				8FE9C3561FC4DE6F002A0A55 /* DeleteUserEvent.swift */,
+				8FEABA0B1FC0E76E00EA26E9 /* LoginUserEvent.swift */,
+				8FEABA091FC0DE9300EA26E9 /* RegisterUserEvent.swift */,
+			);
+			path = AuthEvent;
+			sourceTree = "<group>";
+		};
+		8F3ABAFD1FC10B9700551B3B /* Librarian */ = {
+			isa = PBXGroup;
+			children = (
+				3FB5A9D81FDCB71A00341265 /* TestingViewController.swift */,
+				8F0407511FCD249A001987D8 /* LibrarianSearchBookViewController.swift */,
+				8FD7E37C1FD767D1000F4E36 /* LibrarianBooksViewController.swift */,
+				8FCF60FE1FD0FA39008D8C72 /* LibrarianBookViewController.swift */,
+				8F0407591FCD26CC001987D8 /* LibrarianLibraryViewController.swift */,
+				8F04074F1FCD23F2001987D8 /* AddBookViewController.swift */,
+			);
+			path = Librarian;
+			sourceTree = "<group>";
+		};
+		8F54D6221FC01F2700E25156 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8F54D61B1FC01ED700E25156 /* Patron.storyboard */,
+				8F54D61E1FC01EE100E25156 /* Librarian.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		8FBAC29B1FBF918100589262 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F9367901FBBA921007716E5 /* User.swift */,
+				8FA5D0881FC192560048EB74 /* WaitingList.swift */,
+				8FC3E9B21FC2484A00940427 /* CheckoutList.swift */,
+				8FBAC29C1FBF919100589262 /* Book.swift */,
+				8FBAC29E1FBF921000589262 /* UniModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8FBAC2A81FBFA45400589262 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8F1AAB5B1FCE20AA00BC86E5 /* Json.swift */,
+				8F3ABAF71FC107D700551B3B /* Logger.swift */,
+				8F54D60B1FBFD57F00E25156 /* DateMocker.swift */,
+				8F3ABB001FC1288B00551B3B /* Mock.swift */,
+				8F54D6091FBFD48B00E25156 /* DateHelper.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		8FBAC2AD1FBFBD6B00589262 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8F04075B1FCD32EA001987D8 /* Patron */,
+				8F3ABAFD1FC10B9700551B3B /* Librarian */,
+				8F3ABAFA1FC1089400551B3B /* Auth */,
+				8F3ABAF91FC1086100551B3B /* Root */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8FC2EC891FBAC6EF00BB15D1 = {
+			isa = PBXGroup;
+			children = (
+				8FC2EC941FBAC6EF00BB15D1 /* UniversityLibrary */,
+				8FC2ECAC1FBAC6EF00BB15D1 /* UniversityLibraryTests */,
+				8FC2ECB71FBAC6EF00BB15D1 /* UniversityLibraryUITests */,
+				8FC2EC931FBAC6EF00BB15D1 /* Products */,
+				CC0B222CA82F57A7603E21E3 /* Pods */,
+				5CF0E2842717F5F3E1436CB9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8FC2EC931FBAC6EF00BB15D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FC2EC921FBAC6EF00BB15D1 /* UniversityLibrary.app */,
+				8FC2ECA91FBAC6EF00BB15D1 /* UniversityLibraryTests.xctest */,
+				8FC2ECB41FBAC6EF00BB15D1 /* UniversityLibraryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FC2EC941FBAC6EF00BB15D1 /* UniversityLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				8FC2EC951FBAC6EF00BB15D1 /* AppDelegate.swift */,
+				8FBAC2AB1FBFBA5B00589262 /* Extensions.swift */,
+				8F54D6071FBFD0EE00E25156 /* Constants.swift */,
+				8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */,
+				8F54D6221FC01F2700E25156 /* Storyboard */,
+				8F9367921FBBA9A6007716E5 /* FirebaseManager.swift */,
+				8FBAC29B1FBF918100589262 /* Models */,
+				8FBAC2A81FBFA45400589262 /* Util */,
+				8FBAC2AD1FBFBD6B00589262 /* Controller */,
+				8FBAC2A21FBFA27300589262 /* LibrarianManager.swift */,
+				8FC3E9B01FC235BF00940427 /* PatronManager.swift */,
+				8F54D6131FBFEC2200E25156 /* DataService.swift */,
+				8F90C0431FC29FE7003CD88C /* BookManager.swift */,
+				8FA5D08A1FC19A2B0048EB74 /* BookKeeper.swift */,
+				8FEABA061FC0DE2000EA26E9 /* Event */,
+				8FC6FAC81FCFF92C00FBC1D8 /* Views */,
+				8FC2EC9F1FBAC6EF00BB15D1 /* Assets.xcassets */,
+				8FC2ECA11FBAC6EF00BB15D1 /* LaunchScreen.storyboard */,
+				8FC2ECA41FBAC6EF00BB15D1 /* Info.plist */,
+				8FBAC2A91FBFB7AE00589262 /* GoogleService-Info.plist */,
+				8FC2EC9C1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld */,
+				8F0D76251FD8D09C00EF1F89 /* TestCase.swift */,
+			);
+			path = UniversityLibrary;
+			sourceTree = "<group>";
+		};
+		8FC2ECAC1FBAC6EF00BB15D1 /* UniversityLibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				8FC2ECAD1FBAC6EF00BB15D1 /* UniversityLibraryTests.swift */,
+				8FC2ECAF1FBAC6EF00BB15D1 /* Info.plist */,
+			);
+			path = UniversityLibraryTests;
+			sourceTree = "<group>";
+		};
+		8FC2ECB71FBAC6EF00BB15D1 /* UniversityLibraryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8FC2ECB81FBAC6EF00BB15D1 /* UniversityLibraryUITests.swift */,
+				8FC2ECBA1FBAC6EF00BB15D1 /* Info.plist */,
+			);
+			path = UniversityLibraryUITests;
+			sourceTree = "<group>";
+		};
+		8FC6FAC81FCFF92C00FBC1D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8FC6FAC21FCFF3A100FBC1D8 /* GeneralUILabel.swift */,
+				8F01B1E91FEAD3BD009C8959 /* GeneralTextArea.swift */,
+				8FC6FAC41FCFF3FB00FBC1D8 /* GeneralUITextField.swift */,
+				8FC6FABE1FCFF06100FBC1D8 /* LogoutUIButton.swift */,
+				8FC6FAC01FCFF07400FBC1D8 /* BlueSquareButton.swift */,
+				8FC6FABC1FCFF02F00FBC1D8 /* UIViewFactory.swift */,
+				3FB04C981FD20616007CDD60 /* MenuUIButton.swift */,
+				3FB04C9A1FD208E4007CDD60 /* BookCell.swift */,
+				3F9505541FD615C60069F391 /* GeneralUISubLabel.swift */,
+				3F9505561FD61E7C0069F391 /* CustomUITextField.swift */,
+				3F1D4AC01FD7ACB800724500 /* CustomImageView.swift */,
+				3FB5A9D61FDC85FF00341265 /* StatusTextField.swift */,
+				3F18DBA21FE704F3003364B9 /* BookUILabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8FEABA051FC0DDFA00EA26E9 /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				8FEABA031FC0BB3600EA26E9 /* BaseViewController.swift */,
+				8FEAB9FF1FC0B86800EA26E9 /* BaseNavViewController.swift */,
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
+		8FEABA061FC0DE2000EA26E9 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				8FEABA071FC0DE2B00EA26E9 /* AbstractEvent.swift */,
+				8F0D76271FD8E4B200EF1F89 /* Email */,
+				8F3ABAFE1FC1253600551B3B /* BookEvent.swift */,
+				8F81CD321FD66E3E00CB5A74 /* FetchAllBooksIdEvent.swift */,
+				8FD459511FD642D30093B8E7 /* FetchBooksEvent.swift */,
+				8F81CD2E1FD6691F00CB5A74 /* FetchBookEvent.swift */,
+				8F2469B81FC9682500BAF71B /* PatronEvent */,
+				8F3ABAFB1FC109D700551B3B /* AuthEvent */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		CC0B222CA82F57A7603E21E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8BDF6A4789ED32AF50683DA /* Pods-UniversityLibrary.debug.xcconfig */,
+				9D053ED7E29C194C0C876D86 /* Pods-UniversityLibrary.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FC2EC911FBAC6EF00BB15D1 /* UniversityLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC2ECBD1FBAC6EF00BB15D1 /* Build configuration list for PBXNativeTarget "UniversityLibrary" */;
+			buildPhases = (
+				F15CA13C7B4C864036C7AA13 /* [CP] Check Pods Manifest.lock */,
+				8FC2EC8E1FBAC6EF00BB15D1 /* Sources */,
+				8FC2EC8F1FBAC6EF00BB15D1 /* Frameworks */,
+				8FC2EC901FBAC6EF00BB15D1 /* Resources */,
+				E33427379059F1CA0912F33E /* [CP] Embed Pods Frameworks */,
+				3A169653035BF26DA03E0006 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UniversityLibrary;
+			productName = UniversityLibrary;
+			productReference = 8FC2EC921FBAC6EF00BB15D1 /* UniversityLibrary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8FC2ECA81FBAC6EF00BB15D1 /* UniversityLibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC2ECC01FBAC6EF00BB15D1 /* Build configuration list for PBXNativeTarget "UniversityLibraryTests" */;
+			buildPhases = (
+				8FC2ECA51FBAC6EF00BB15D1 /* Sources */,
+				8FC2ECA61FBAC6EF00BB15D1 /* Frameworks */,
+				8FC2ECA71FBAC6EF00BB15D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FC2ECAB1FBAC6EF00BB15D1 /* PBXTargetDependency */,
+			);
+			name = UniversityLibraryTests;
+			productName = UniversityLibraryTests;
+			productReference = 8FC2ECA91FBAC6EF00BB15D1 /* UniversityLibraryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8FC2ECB31FBAC6EF00BB15D1 /* UniversityLibraryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC2ECC31FBAC6EF00BB15D1 /* Build configuration list for PBXNativeTarget "UniversityLibraryUITests" */;
+			buildPhases = (
+				8FC2ECB01FBAC6EF00BB15D1 /* Sources */,
+				8FC2ECB11FBAC6EF00BB15D1 /* Frameworks */,
+				8FC2ECB21FBAC6EF00BB15D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FC2ECB61FBAC6EF00BB15D1 /* PBXTargetDependency */,
+			);
+			name = UniversityLibraryUITests;
+			productName = UniversityLibraryUITests;
+			productReference = 8FC2ECB41FBAC6EF00BB15D1 /* UniversityLibraryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FC2EC8A1FBAC6EF00BB15D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Huy Vo";
+				TargetAttributes = {
+					8FC2EC911FBAC6EF00BB15D1 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					8FC2ECA81FBAC6EF00BB15D1 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8FC2EC911FBAC6EF00BB15D1;
+					};
+					8FC2ECB31FBAC6EF00BB15D1 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8FC2EC911FBAC6EF00BB15D1;
+					};
+				};
+			};
+			buildConfigurationList = 8FC2EC8D1FBAC6EF00BB15D1 /* Build configuration list for PBXProject "UniversityLibrary" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8FC2EC891FBAC6EF00BB15D1;
+			productRefGroup = 8FC2EC931FBAC6EF00BB15D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FC2EC911FBAC6EF00BB15D1 /* UniversityLibrary */,
+				8FC2ECA81FBAC6EF00BB15D1 /* UniversityLibraryTests */,
+				8FC2ECB31FBAC6EF00BB15D1 /* UniversityLibraryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FC2EC901FBAC6EF00BB15D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC2ECA31FBAC6EF00BB15D1 /* LaunchScreen.storyboard in Resources */,
+				8F54D6201FC01EE100E25156 /* Librarian.storyboard in Resources */,
+				8FBAC2AA1FBFB7AE00589262 /* GoogleService-Info.plist in Resources */,
+				8FC2ECA01FBAC6EF00BB15D1 /* Assets.xcassets in Resources */,
+				8F54D61D1FC01ED700E25156 /* Patron.storyboard in Resources */,
+				8FC2EC9B1FBAC6EF00BB15D1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC2ECA71FBAC6EF00BB15D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC2ECB21FBAC6EF00BB15D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A169653035BF26DA03E0006 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniversityLibrary/Pods-UniversityLibrary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E33427379059F1CA0912F33E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniversityLibrary/Pods-UniversityLibrary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F15CA13C7B4C864036C7AA13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UniversityLibrary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FC2EC8E1FBAC6EF00BB15D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FD7E37D1FD767D1000F4E36 /* LibrarianBooksViewController.swift in Sources */,
+				8FEABA021FC0B90D00EA26E9 /* LibrarianNavViewController.swift in Sources */,
+				8FCF60FF1FD0FA39008D8C72 /* LibrarianBookViewController.swift in Sources */,
+				8FC6FACA1FD0145700FBC1D8 /* ReturnBooksEvent.swift in Sources */,
+				8FB285051FD56A7E000A7C48 /* PatronBooksViewController.swift in Sources */,
+				8F54D60A1FBFD48B00E25156 /* DateHelper.swift in Sources */,
+				8F2469BA1FC9684700BAF71B /* ReserveBookEvent.swift in Sources */,
+				8FEABA0A1FC0DE9300EA26E9 /* RegisterUserEvent.swift in Sources */,
+				8F3ABAF41FC0FEBB00551B3B /* SignoutUserEvent.swift in Sources */,
+				8F9367911FBBA921007716E5 /* User.swift in Sources */,
+				8FEDF5E01FC554F900CEA2CB /* ReturnBookEvent.swift in Sources */,
+				8FEABA041FC0BB3600EA26E9 /* BaseViewController.swift in Sources */,
+				8FA5D0891FC192560048EB74 /* WaitingList.swift in Sources */,
+				8FEABA0C1FC0E76E00EA26E9 /* LoginUserEvent.swift in Sources */,
+				8FC6FABF1FCFF06100FBC1D8 /* LogoutUIButton.swift in Sources */,
+				8FBAC2A11FBF9AB300589262 /* SignUpViewController.swift in Sources */,
+				8FC6FAC11FCFF07400FBC1D8 /* BlueSquareButton.swift in Sources */,
+				8FBAC29D1FBF919100589262 /* Book.swift in Sources */,
+				8F9367931FBBA9A6007716E5 /* FirebaseManager.swift in Sources */,
+				3F18DB9F1FE6F03C003364B9 /* ResendEmailEvent.swift in Sources */,
+				8F1AAB5C1FCE20AA00BC86E5 /* Json.swift in Sources */,
+				8F3ABB011FC1288B00551B3B /* Mock.swift in Sources */,
+				8F3ABAF81FC107D700551B3B /* Logger.swift in Sources */,
+				3FB04C9B1FD208E4007CDD60 /* BookCell.swift in Sources */,
+				8FD459521FD642D30093B8E7 /* FetchBooksEvent.swift in Sources */,
+				8F81CD2F1FD6691F00CB5A74 /* FetchBookEvent.swift in Sources */,
+				8F0407561FCD24D9001987D8 /* PatronLibraryViewController.swift in Sources */,
+				3F9505571FD61E7C0069F391 /* CustomUITextField.swift in Sources */,
+				8F0D76261FD8D09C00EF1F89 /* TestCase.swift in Sources */,
+				8F209B8E1FD264830018C6FB /* FetchCheckedOutBookEvent.swift in Sources */,
+				8F54D6141FBFEC2200E25156 /* DataService.swift in Sources */,
+				8F01B1EA1FEAD3BD009C8959 /* GeneralTextArea.swift in Sources */,
+				8F0407521FCD249A001987D8 /* LibrarianSearchBookViewController.swift in Sources */,
+				8FC2EC961FBAC6EF00BB15D1 /* AppDelegate.swift in Sources */,
+				3FB5A9D91FDCB71A00341265 /* TestingViewController.swift in Sources */,
+				8FBAC2AC1FBFBA5B00589262 /* Extensions.swift in Sources */,
+				3FB04CA11FD36BFC007CDD60 /* FetchWaitListBookEvent.swift in Sources */,
+				8FC3E9B31FC2484A00940427 /* CheckoutList.swift in Sources */,
+				8FBAC2A31FBFA27300589262 /* LibrarianManager.swift in Sources */,
+				8FA5D08B1FC19A2B0048EB74 /* BookKeeper.swift in Sources */,
+				8FEABA081FC0DE2B00EA26E9 /* AbstractEvent.swift in Sources */,
+				8F401B871FD54B1C007306CD /* MyCheckoutBooksViewController.swift in Sources */,
+				8FFE0F961FCEBF3D008183EC /* RenewBookEvent.swift in Sources */,
+				8FA5D0871FC192130048EB74 /* WaitingListEvent.swift in Sources */,
+				3FB04C991FD20616007CDD60 /* MenuUIButton.swift in Sources */,
+				8F54D60C1FBFD57F00E25156 /* DateMocker.swift in Sources */,
+				8FC6FAC51FCFF3FB00FBC1D8 /* GeneralUITextField.swift in Sources */,
+				8FC3E9B11FC235BF00940427 /* PatronManager.swift in Sources */,
+				3F9505551FD615C60069F391 /* GeneralUISubLabel.swift in Sources */,
+				8F0407541FCD24AF001987D8 /* CheckoutBookViewController.swift in Sources */,
+				8FC2EC9E1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld in Sources */,
+				8FBAC29F1FBF921000589262 /* UniModel.swift in Sources */,
+				8F0407501FCD23F2001987D8 /* AddBookViewController.swift in Sources */,
+				8FE9C3571FC4DE6F002A0A55 /* DeleteUserEvent.swift in Sources */,
+				8FC6FAC31FCFF3A100FBC1D8 /* GeneralUILabel.swift in Sources */,
+				8F54D6081FBFD0EE00E25156 /* Constants.swift in Sources */,
+				8FEABA001FC0B86800EA26E9 /* BaseNavViewController.swift in Sources */,
+				8FBAC2B11FBFBEE500589262 /* LoginViewController.swift in Sources */,
+				8F90C0441FC29FE7003CD88C /* BookManager.swift in Sources */,
+				8F04075A1FCD26CC001987D8 /* LibrarianLibraryViewController.swift in Sources */,
+				8FBAC2AF1FBFBE2400589262 /* NavRootViewController.swift in Sources */,
+				8FC3E9AF1FC22D3600940427 /* CheckoutListEvent.swift in Sources */,
+				8F54D6161FBFF3A300E25156 /* ValidationViewController.swift in Sources */,
+				8F3ABAFF1FC1253600551B3B /* BookEvent.swift in Sources */,
+				8F81CD331FD66E3F00CB5A74 /* FetchAllBooksIdEvent.swift in Sources */,
+				8FCF61031FD1028B008D8C72 /* PatronBookViewController.swift in Sources */,
+				8FCF61071FD104E9008D8C72 /* PatronSearchBookViewController.swift in Sources */,
+				8F3ABAF61FC107C300551B3B /* PatronNavViewController.swift in Sources */,
+				3F1D4AC11FD7ACB800724500 /* CustomImageView.swift in Sources */,
+				8FC6FABD1FCFF02F00FBC1D8 /* UIViewFactory.swift in Sources */,
+				3F18DBA31FE704F3003364B9 /* BookUILabel.swift in Sources */,
+				5F090BAC921D7CA6F9F5006E /* CheckoutEmailEvent.swift in Sources */,
+				5F0906FDC8141B055FA9F85E /* ReturnBookEmailEvent.swift in Sources */,
+				3FB5A9D71FDC85FF00341265 /* StatusTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC2ECA51FBAC6EF00BB15D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC2ECAE1FBAC6EF00BB15D1 /* UniversityLibraryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC2ECB01FBAC6EF00BB15D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC2ECB91FBAC6EF00BB15D1 /* UniversityLibraryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8FC2ECAB1FBAC6EF00BB15D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FC2EC911FBAC6EF00BB15D1 /* UniversityLibrary */;
+			targetProxy = 8FC2ECAA1FBAC6EF00BB15D1 /* PBXContainerItemProxy */;
+		};
+		8FC2ECB61FBAC6EF00BB15D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FC2EC911FBAC6EF00BB15D1 /* UniversityLibrary */;
+			targetProxy = 8FC2ECB51FBAC6EF00BB15D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8F54D61B1FC01ED700E25156 /* Patron.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F54D61C1FC01ED700E25156 /* Base */,
+			);
+			name = Patron.storyboard;
+			sourceTree = "<group>";
+		};
+		8F54D61E1FC01EE100E25156 /* Librarian.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F54D61F1FC01EE100E25156 /* Base */,
+			);
+			name = Librarian.storyboard;
+			sourceTree = "<group>";
+		};
+		8FC2EC991FBAC6EF00BB15D1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FC2EC9A1FBAC6EF00BB15D1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8FC2ECA11FBAC6EF00BB15D1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FC2ECA21FBAC6EF00BB15D1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8FC2ECBB1FBAC6EF00BB15D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8FC2ECBC1FBAC6EF00BB15D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FC2ECBE1FBAC6EF00BB15D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8BDF6A4789ED32AF50683DA /* Pods-UniversityLibrary.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96555JQZZZ;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = UniversityLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FC2ECBF1FBAC6EF00BB15D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D053ED7E29C194C0C876D86 /* Pods-UniversityLibrary.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96555JQZZZ;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = UniversityLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8FC2ECC11FBAC6EF00BB15D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UniversityLibraryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibraryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniversityLibrary.app/UniversityLibrary";
+			};
+			name = Debug;
+		};
+		8FC2ECC21FBAC6EF00BB15D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UniversityLibraryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibraryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniversityLibrary.app/UniversityLibrary";
+			};
+			name = Release;
+		};
+		8FC2ECC41FBAC6EF00BB15D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UniversityLibraryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibraryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UniversityLibrary;
+			};
+			name = Debug;
+		};
+		8FC2ECC51FBAC6EF00BB15D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UniversityLibraryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyvo.sjsu.cmpe277.UniversityLibraryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UniversityLibrary;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FC2EC8D1FBAC6EF00BB15D1 /* Build configuration list for PBXProject "UniversityLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC2ECBB1FBAC6EF00BB15D1 /* Debug */,
+				8FC2ECBC1FBAC6EF00BB15D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC2ECBD1FBAC6EF00BB15D1 /* Build configuration list for PBXNativeTarget "UniversityLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC2ECBE1FBAC6EF00BB15D1 /* Debug */,
+				8FC2ECBF1FBAC6EF00BB15D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC2ECC01FBAC6EF00BB15D1 /* Build configuration list for PBXNativeTarget "UniversityLibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC2ECC11FBAC6EF00BB15D1 /* Debug */,
+				8FC2ECC21FBAC6EF00BB15D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC2ECC31FBAC6EF00BB15D1 /* Build configuration list for PBXNativeTarget "UniversityLibraryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC2ECC41FBAC6EF00BB15D1 /* Debug */,
+				8FC2ECC51FBAC6EF00BB15D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8FC2EC9C1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8FC2EC9D1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodel */,
+			);
+			currentVersion = 8FC2EC9D1FBAC6EF00BB15D1 /* UniversityLibrary.xcdatamodel */;
+			path = UniversityLibrary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8FC2EC8A1FBAC6EF00BB15D1 /* Project object */;
+}
